@@ -1,0 +1,11 @@
+{
+  "app": "homePage",
+  "title": "Home Page",
+  "id": "home-page",
+  "stylesheets": [
+    { "src": "/home/home.css" }
+  ],
+  "scripts": [
+    { "src": "/home/home.js" }
+  ]
+}
