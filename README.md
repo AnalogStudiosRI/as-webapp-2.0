@@ -52,7 +52,7 @@ and docs will have a page-name.json file to easily manage page specific dependen
 <pre>
 {
   "name": "Home Page",
-  "title": "Home Page",  //used for the `<title>Analog Studios - {{title}}</title>`
+  "title": "Home Page",  //used for the _< title>Analog Studios - {{title}}</ title>_ tag
   "id": "home page",  //used as a CSS id for the wrapping content container
   "ng": "home-page" //used to bootstrap angular-js
   "stylesheets": [
