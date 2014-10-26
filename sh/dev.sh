@@ -25,8 +25,7 @@ npm install
 #bower install
 
 echo "build..."
-
-# grunt build
+grunt build
 
 echo "deploy"
 echo "clean webroot..."

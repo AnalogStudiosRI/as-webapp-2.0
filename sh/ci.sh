@@ -22,5 +22,4 @@ echo "get dependencies..."
 #bower install
 
 echo "build..."
-
-# grunt build
+grunt build
