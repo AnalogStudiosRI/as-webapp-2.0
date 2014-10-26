@@ -17,6 +17,7 @@ echo "git version"
 git --version
 
 echo "get dependencies..."
+rm -rvf node_modules/
 npm install
 
 #//XXX TODO install bower on Jenkins
