@@ -17,6 +17,7 @@ echo "git version"
 git --version
 
 echo "get dependencies..."
+npm install
 
 #//XXX TODO install bower on Jenkins
 #bower install
