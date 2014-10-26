@@ -19,7 +19,9 @@ git --version
 
 echo "get dependencies..."
 
-#npm install
+npm install
+
+#//XXX TODO install bower on Jenkins
 #bower install
 
 echo "build..."

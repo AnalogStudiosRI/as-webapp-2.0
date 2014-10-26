@@ -1,0 +1,21 @@
+{
+  "name": "as-webapp",
+  "version": "2.0.0-SNAPSHOT-0.0.1",
+  "dependencies": {
+    "angular-cookies": "1.2.7",
+    "angular-loader": "1.2.7",
+    "angular-resource": "1.2.7",
+    "angular-sanitize": "1.2.7",
+    "angular": "1.2.7",
+    "jquery": "2.0.3",
+    "moment-timezone": "0.1.0",
+    "momentjs": "2.8.1",
+    "lodash": "2.4.1",
+    "bootstrap": "~3.0.3",
+    "html5shiv": "~3.6.2",
+    "font-awesome": "~3.2.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.2.7"
+  }
+}
