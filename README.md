@@ -72,6 +72,7 @@ dependency manager.
 
 ## Continuous Integration
 Three builds are for the project in Jenkins, to support automated continues integration, deployment, and delivery.
+Each job uses a specific version controlled shell script for use in Jenkins.
 
 * CI - Builds all branches, and build the app to run linting and testing and does analysis and reporting.
 * DEV - To deploy to dev

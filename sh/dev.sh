@@ -1,6 +1,7 @@
 #!/bin/sh
 
-echo "executing ci.sh..."
+echo "executing dev script"
+
 
 echo "show environment..."
 
@@ -24,3 +25,10 @@ echo "get dependencies..."
 echo "build..."
 
 # grunt build
+
+echo "deploy"
+echo "clean webroot..."
+sudo rm -rvf /var/www/html/analogstudios.net/*
+
+echo "deploy to webroot..."
+sudo cp -rvf dest/* /var/www/html/analogstudios.net/
