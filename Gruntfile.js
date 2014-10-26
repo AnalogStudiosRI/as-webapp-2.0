@@ -40,27 +40,27 @@ module.exports = function (grunt) {
     return toLoad;
   }
 
-  //function getScriptsToConcat() {
-  //  var globals = grunt.file.readJSON('src/globals.json').dev.scripts;
-  //
-  //  globals = _.map(globals, function (value) {
-  //    return value;
-  //  });
-  //
-  //  globals = _.flatten(globals);
-  //  globals = _.pluck(globals, 'src');
-  //
-  //  //filter out prefix so it can be found in the project src
-  //  globals = globals.map(function (path) {
-  //    return path.replace(/^\/players\/assets\//, 'assets/');
-  //  });
-  //
-  //  return _(globals)
-  //      .map(function (file) {
-  //        return 'dest/' + file;
-  //      })
-  //      .value();
-  //}
+  function getScriptsToConcat() {
+    var globals = grunt.file.readJSON('src/globals.json').dev.scripts;
+
+    globals = _.map(globals, function (value) {
+      return value;
+    });
+
+    globals = _.flatten(globals);
+    globals = _.pluck(globals, 'src');
+
+    //filter out prefix so it can be found in the project src
+    globals = globals.map(function (path) {
+      return path.replace(/^\/players\/assets\//, 'assets/');
+    });
+
+    return _(globals)
+        .map(function (file) {
+          return 'dest/' + file;
+        })
+        .value();
+  }
 
   function getConfigForSiteLayout(prodFlag) {
     return {
@@ -254,7 +254,7 @@ module.exports = function (grunt) {
       }
     },
 
-    //less
+    //CSS
     lesslint: {
       options: {
         imports: [
@@ -293,6 +293,18 @@ module.exports = function (grunt) {
       }
     },
 
+    cssmin: {
+      options: {
+        processImport: false
+      },
+      files: {
+        expand: true,
+        cwd: 'tmp/',
+        src: [ '**/*.css' ],
+        dest: 'dest/'
+      }
+    },
+
     //js
     jshint: {
       options: {
@@ -312,6 +324,42 @@ module.exports = function (grunt) {
       }
     },
 
+    uglify: {
+      options: {}, //we will be using logLevels to manage output
+      build: {
+        files: [{
+          expand: true,
+          cwd: 'tmp/',
+          src: [ '**/**/*.js' ],
+          dest: 'dest/'
+        }]
+      }
+    },
+
+    concat: {
+      dist: {
+        src: getScriptsToConcat(),
+        dest: 'dest/assets/js/core.min.js'
+      }
+    },
+
+    ngAnnotate: {
+      build: {
+        files: [{
+          expand: true,
+          cwd: 'src/pages',
+          src: ['**/*.js', '!**/*-test.js'],
+          dest: 'tmp/'
+        }, {
+          expand: true,
+          cwd: 'src/',
+          src: ['services/**/*.js', 'features/**/*.js', '!services/**/*-test.js', '!features/**/*-test.js'],
+          dest: 'tmp/assets/js'
+        }]
+      }
+    },
+
+    //html
     assemble: {
       options: {
         layoutdir: 'src/layouts/',
@@ -323,6 +371,22 @@ module.exports = function (grunt) {
       siteProd: getConfigForSiteLayout(true),
       adminDev: getConfigForAdminLayout(),
       adminProd: getConfigForAdminLayout(true)
+    },
+
+    'asset_cachebuster': {
+      build: {
+        options: {
+          buster: '<%= pkg.version %>'
+        },
+        files: [
+          { expand: true, cwd: 'dest', src: '**/*.css', rename: function (dest, src) {
+            return 'dest/' + src;
+          } },
+          { expand: true, cwd: 'dest', src: '**/*.html', rename: function (dest, src) {
+            return 'dest/' + src;
+          } }
+        ]
+      }
     },
 
     //server
@@ -401,9 +465,10 @@ module.exports = function (grunt) {
   //copy
   grunt.registerTask('copy:common', [ 'copy:assets', 'copy:html', 'copy:pages', 'copy:home' ]);
   grunt.registerTask('copy:vendorDev', [ 'copy:vendorJSDev', 'copy:vendorCSSDev', 'copy:vendorFont' ]); //copy vendor files
+  grunt.registerTask('copy:vendorProd', [ 'copy:vendorJSProd', 'copy:vendorCSSProd', 'copy:vendorFont' ]); //copy vendor files
 
   //serve
-  grunt.registerTask('serve:local-api', ['open:local', 'connect:local', 'watch']); //view the build locally, with as-api
+  grunt.registerTask('serve:local', ['open:local', 'connect:local', 'watch']); //view the build locally, with as-api
   grunt.registerTask('serve:dev', ['open:local', 'connect:dev', 'watch']); //view the build locally
 
   //build tasks
@@ -422,5 +487,30 @@ module.exports = function (grunt) {
     'buildDev',
     'clean:tmp',
     'serve:dev'
+  ]);
+
+  //build + serve
+  grunt.registerTask('build', [
+    'clean',
+    'css:build',
+    'js:build',
+    'assemble:siteProd',
+    'assemble:adminProd',
+    'copy:vendorProd',
+    'copy:common',
+    'asset_cachebuster',
+    //'karma:ci',  TODO PAAS-3
+    //'validation', TODO PAAS-2
+    'clean:tmp'
+  ]);
+
+  grunt.registerTask('show:dev', [
+    'build',
+    'serve:dev'
+  ]);
+
+  grunt.registerTask('show:local', [
+    'build',
+    'serve:local'
   ]);
 };
