@@ -16,11 +16,13 @@ grunt --version
 echo "git version"
 git --version
 
+
 echo "get dependencies..."
 rm -rvf node_modules/
+rm -rvf bower_components
+
 npm install
 
-rm -rvf bower_components
 #//XXX TODO install bower on Jenkins
 #bower install
 
