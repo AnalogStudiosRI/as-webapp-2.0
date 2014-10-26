@@ -1,0 +1,32 @@
+{
+  "prod": {
+    "stylesheets": [
+      { "src": "/assets/css/bootstrap/dist/css/bootstrap.min.css" },
+      { "src": "/assets/css/as-webapp.css" }
+    ],
+    "scripts": [
+      { "src": "/assets/js/html5shiv/dist/html5shiv.js" },
+      { "src": "/assets/js/jquery/jquery.min.js" },
+      { "src": "/assets/js/angular/angular.min.js" },
+      { "src": "/assets/js/angular-resource/angular-resource.min.js" },
+      { "src": "/assets/js/lodash/dist/lodash.min.js" },
+      { "src": "/assets/js/momentjs/min/moment.min.js" },
+      { "src": "/assets/js/core.min.js" }
+    ]
+  },
+  "dev": {
+    "stylesheets": [
+      { "src": "/assets/css/bootstrap/dist/css/bootstrap.css" },
+      { "src": "/assets/css/as-webapp.css" }
+    ],
+    "scripts": [
+      { "src": "/assets/js/html5shiv/dist/html5shiv.js" },
+      { "src": "/assets/js/jquery/jquery.js" },
+      { "src": "/assets/js/angular/angular.js" },
+      { "src": "/assets/js/angular-resource/angular-resource.js" },
+      { "src": "/assets/js/lodash/dist/lodash.js" },
+      { "src": "/assets/js/momentjs/moment.js" },
+      { "src": "/assets/js/services/as-bootstrap/as-bootstrap.js" }
+    ]
+  }
+}

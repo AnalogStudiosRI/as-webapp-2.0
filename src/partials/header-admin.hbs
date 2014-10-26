@@ -1,0 +1,23 @@
+  <section id="admin-header">
+    <div class="row">
+      <div class="container">
+        <div class="col-md-1">
+        </div>
+
+        <div class="col-md-4">
+          <a href="/"><img id="logo" src="/assets/images/common/transbox.png" alt="1000BC logo"/></a>
+        </div>
+
+        <div class="col-md-6">
+          <div id="hud" data-ng-show="AdminCtrl.model.user.hasSession">
+            <p>Hello <span class="name">{{AdminCtrl.model.user.displayName}}</span>!</p>
+
+            <p>{{AdminCtrl.model.currentTime}}</p>
+          </div>
+        </div>
+
+        <div class="col-md-1">
+        </div>
+      </div>
+    </div>
+  </section>

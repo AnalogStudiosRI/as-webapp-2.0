@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <title>1000bc | {{page.title}}</title>
+    {{> icon-link-tag }}
+
+    <!-- App CSS -->
+    {{#production}}
+      {{#globals.prod.stylesheets}}
+        {{> style-link-tag }}
+      {{/globals.prod.stylesheets}}
+    {{/production}}
+    {{^production}}
+      {{#globals.dev.stylesheets}}
+        {{> style-link-tag }}
+      {{/globals.dev.stylesheets}}
+    {{/production}}
+
+    <!-- Page CSS -->
+    {{#page.stylesheets}}
+      {{> style-link-tag}}
+    {{/page.stylesheets}}
+
+  </head>
+
+  <body data-ng-cloak data-ng-app="{{page.app}}" data-ng-strict-di>
+
+  <!-- header -->
+  {{> header-admin }}
+
+  <!-- Page Output -->
+  {{> body }}
+
+  <!-- App JS -->
+  {{#production}}
+    {{#globals.prod.scripts}}
+      {{> script-tag }}
+    {{/globals.prod.scripts}}
+  {{/production}}
+  {{^production}}
+    {{#globals.dev.scripts}}
+      {{> script-tag }}
+    {{/globals.dev.scripts}}
+  {{/production}}
+
+  <!-- Page JS -->
+  {{#page.scripts}}
+    {{> script-tag }}
+  {{/page.scripts}}
+
+  </body>
+</html>
