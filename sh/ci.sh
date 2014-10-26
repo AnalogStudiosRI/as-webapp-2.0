@@ -20,6 +20,7 @@ echo "get dependencies..."
 rm -rvf node_modules/
 npm install
 
+rm -rvf bower_components
 #//XXX TODO install bower on Jenkins
 #bower install
 

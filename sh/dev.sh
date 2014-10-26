@@ -22,6 +22,7 @@ rm -rvf node_modules/
 npm install
 
 #//XXX TODO install bower on Jenkins
+rm -rvf bower_components
 #bower install
 
 echo "build..."
