@@ -1,32 +1,63 @@
 {
-  "prod": {
-    "stylesheets": [
-      { "src": "/assets/css/bootstrap/dist/css/bootstrap.min.css" },
-      { "src": "/assets/css/as-webapp.css" }
-    ],
-    "scripts": [
-      { "src": "/assets/js/html5shiv/dist/html5shiv.js" },
-      { "src": "/assets/js/jquery/jquery.min.js" },
-      { "src": "/assets/js/angular/angular.min.js" },
-      { "src": "/assets/js/angular-resource/angular-resource.min.js" },
-      { "src": "/assets/js/lodash/dist/lodash.min.js" },
-      { "src": "/assets/js/momentjs/min/moment.min.js" },
-      { "src": "/assets/js/core.min.js" }
-    ]
+  "app": {
+    "prod": {
+      "stylesheets": [
+        {"src": "/assets/css/vendor/bootstrap.css"},
+        {"src": "/assets/css/as-webapp.min.css"}
+      ],
+      "scripts": [
+        {"src": "/assets/js/vendor.min.js"},
+        {"src": "/assets/js/core.min.js"}
+      ]
+    },
+    "dev": {
+      "stylesheets": [
+        {"src": "/assets/css/vendor/bootstrap.css"},
+        {"src": "/assets/css/as-webapp.css"}
+      ],
+      "scripts": [
+        {"src": "/assets/js/vendor/html5shiv.js"},
+        {"src": "/assets/js/vendor/jquery.js"},
+        {"src": "/assets/js/vendor/angular.js"},
+        {"src": "/assets/js/vendor/angular-resource.js"},
+        {"src": "/assets/js/vendor/lodash.js"},
+        {"src": "/assets/js/vendor/moment.js"},
+        {"src": "/assets/js/features/form-tools/form-tools.js"},
+        {"src": "/assets/js/features/grid/grid.js"},
+        {"src": "/assets/js/features/pagination/pagination.js"},
+        {"src": "/assets/js/services/config/config.js"},
+        {"src": "/assets/js/services/language/language.js"},
+        {"src": "/assets/js/services/log4ng/log4ng.js"},
+        {"src": "/assets/js/services/as-bootstrap/as-bootstrap.js"}
+      ]
+    }
   },
-  "dev": {
-    "stylesheets": [
-      { "src": "/assets/css/bootstrap/dist/css/bootstrap.css" },
-      { "src": "/assets/css/as-webapp.css" }
-    ],
-    "scripts": [
-      { "src": "/assets/js/html5shiv/dist/html5shiv.js" },
-      { "src": "/assets/js/jquery/jquery.js" },
-      { "src": "/assets/js/angular/angular.js" },
-      { "src": "/assets/js/angular-resource/angular-resource.js" },
-      { "src": "/assets/js/lodash/dist/lodash.js" },
-      { "src": "/assets/js/momentjs/moment.js" },
-      { "src": "/assets/js/services/as-bootstrap/as-bootstrap.js" }
-    ]
+  "bowerComponents": {
+    "dev": {
+      "stylesheets": [
+        { "src": "bootstrap/dist/css/bootstrap.css" }
+      ],
+      "scripts": [
+        { "src": "html5shiv/dist/html5shiv.js" },
+        { "src": "jquery/jquery.js" },
+        { "src": "angular/angular.js" },
+        { "src": "angular-resource/angular-resource.js" },
+        { "src": "lodash/dist/lodash.js" },
+        { "src": "momentjs/moment.js" }
+      ]
+    },
+    "prod": {
+      "sylesheets": [
+        { "src": "bootstrap/dist/css/bootstrap.min.css" }
+      ],
+      "scripts": [
+        {"src": "html5shiv/dist/html5shiv.js"},
+        {"src": "jquery/jquery.min.js"},
+        {"src": "angular/angular.min.js"},
+        {"src": "angular-resource/angular-resource.min.js"},
+        {"src": "lodash/dist/lodash.min.js"},
+        {"src": "momentjs/min/moment.min.js"}
+      ]
+    }
   }
 }

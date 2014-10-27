@@ -15,21 +15,28 @@ module.exports = function (grunt) {
     dest: 'tmp/assets/css/<%= pkg.name %>.css'
   }];
 
-  function getGlobalAssets(env) {
+  function getBowerAssets(env) {
+    grunt.log.writeln('env => ' + env);
     var toLoad = {};
-    var globals = grunt.file.readJSON('src/globals.json')[env];
+    var globals = grunt.file.readJSON('src/globals.json');
+    grunt.log.writeln(globals);
 
+    globals = globals.bowerComponents.dev;
     globals = _.map(globals, function (value) {
       return value;
     });
     globals = _.flatten(globals);
     globals = _.pluck(globals, 'src');
 
+    //grunt.log.writeln(globals);
+
     globals = globals.map(function (path) {
+      grunt.log.writeln('JS path ->' + path);
       return path.replace(/^\/assets\/(css|js)\//, '');
     });
 
     toLoad.css = globals.filter(function (path) {
+      grunt.log.writeln('CSS path ->' + path);
       return (/.+\.css$/).test(path);
     });
 
@@ -40,8 +47,35 @@ module.exports = function (grunt) {
     return toLoad;
   }
 
+
+  function bowerAssetRename(dest, src) {
+    var srcArray = src.split('/');
+    var newSrc = 'dest/assets/';
+
+    //standardize filename, so .min files are just filename.js
+    //and the directory structure is flattened for supporting AMD
+    var filename = srcArray[srcArray.length - 1].replace('.min', '');
+
+    //grunt.log.writeln('filename => ' + filename);
+    var ext = filename.split('.')[1];
+
+    switch (ext) {
+      case 'css':
+        newSrc += 'css/';
+        break;
+      case 'js':
+        newSrc += 'js/';
+        break;
+    }
+
+    newSrc += 'vendor/' + filename;
+    //grunt.log.writeln('final => ' + newSrc);
+
+    return newSrc;
+  }
+
   function getScriptsToConcat() {
-    var globals = grunt.file.readJSON('src/globals.json').dev.scripts;
+    var globals = grunt.file.readJSON('src/globals.json').app.dev.scripts;
 
     globals = _.map(globals, function (value) {
       return value;
@@ -151,39 +185,23 @@ module.exports = function (grunt) {
         }]
       },
 
-      vendorJSDev: {
+      vendorDev: {
         files: [{
           expand: true,
           cwd: 'bower_components/',
-          src: [ getGlobalAssets('dev').js ],
-          dest: 'dest/assets/js/'
+          src: [ getBowerAssets('dev').js, getBowerAssets('dev').css ],
+          dest: 'dest/assets/',
+          rename: bowerAssetRename
         }]
       },
 
-      vendorJSProd: {
+      vendorProd: {
         files: [{
           expand: true,
           cwd: 'bower_components/',
-          src: [ getGlobalAssets('prod').js ],
-          dest: 'dest/assets/js/'
-        }]
-      },
-
-      vendorCSSDev: {
-        files: [{
-          expand: true,
-          cwd: 'bower_components/',
-          src: [ getGlobalAssets('dev').css ],
-          dest: 'dest/assets/css/'
-        }]
-      },
-
-      vendorCSSProd: {
-        files: [{
-          expand: true,
-          cwd: 'bower_components/',
-          src: [ getGlobalAssets('prod').css ],
-          dest: 'dest/assets/css/'
+          src: [ getBowerAssets('prod').js, getBowerAssets('prod').css ],
+          dest: 'dest/assets/',
+          rename: bowerAssetRename
         }]
       },
 
@@ -193,6 +211,15 @@ module.exports = function (grunt) {
           cwd: 'bower_components/',
           src: [ '**/**/*.eot', '**/**/*.svg', '**/**/*.ttf', '**/**/*.woff' ],
           dest: 'dest/assets/fonts/'
+        }]
+      },
+
+      ngUI: {
+        files: [{
+          expand: true,
+          cwd: 'bower_components/ngui/dist',
+          src: [ '**/**' ],
+          dest: 'dest/assets/js/'
         }]
       },
 
@@ -464,27 +491,21 @@ module.exports = function (grunt) {
 
   //copy
   grunt.registerTask('copy:common', [ 'copy:assets', 'copy:html', 'copy:pages', 'copy:home' ]);
-  grunt.registerTask('copy:vendorDev', [ 'copy:vendorJSDev', 'copy:vendorCSSDev', 'copy:vendorFont' ]); //copy vendor files
-  grunt.registerTask('copy:vendorProd', [ 'copy:vendorJSProd', 'copy:vendorCSSProd', 'copy:vendorFont' ]); //copy vendor files
+  grunt.registerTask('copy:dev', [ 'copy:ngUI', 'copy:vendorDev', 'copy:vendorFont',  'copy:common' ]); //copy vendor files
+  grunt.registerTask('copy:prod', [ 'copy:ngUI', 'copy:vendorProd', 'copy:vendorFont', 'copy:common' ]); //copy vendor files
 
   //serve
   grunt.registerTask('serve:local', ['open:local', 'connect:local', 'watch']); //view the build locally, with as-api
   grunt.registerTask('serve:dev', ['open:local', 'connect:dev', 'watch']); //view the build locally
 
-  //build tasks
-  grunt.registerTask('buildDev', [
+  //development tasks
+  grunt.registerTask('dev', [
+    'clean',
     'css:dev',
     'js:dev',
     'assemble:siteDev',
     'assemble:adminDev',
-    'copy:vendorDev',
-    'copy:common'
-  ]);
-
-  //development tasks
-  grunt.registerTask('dev', [
-    'clean',
-    'buildDev',
+    'copy:dev',
     'clean:tmp',
     'serve:dev'
   ]);

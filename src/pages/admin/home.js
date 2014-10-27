@@ -2,9 +2,6 @@ angular.module('homePage', [
   'asBootstrap'
 ]).controller('HomeCtrl', [
   '$scope',
-  'Log4ng',
-  'config',
-  'language',
   function ($scope, Log) {
     'use strict';
 

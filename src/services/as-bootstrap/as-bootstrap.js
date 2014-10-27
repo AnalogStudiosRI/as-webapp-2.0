@@ -1,10 +1,11 @@
 angular.module('asBootstrap', [
-  //'config',
-  //'log4ng',
-  //'language',
-  //'socialBadges'
+  'log4ng',
+  'config',
+  'language'
 ]).config(function ($interpolateProvider) {
   'use strict';
+
+  //Log = new Log4ng(0, '///');
 
   $interpolateProvider.startSymbol('[[');
   $interpolateProvider.endSymbol(']]');

@@ -29,7 +29,6 @@
     "inject": true, //angular global
     "module": true, //anuglar global
     "_" : true, //lodash global
-    "moment" : true, //moment global
-    "console": true //console global, XXX replace with ng-lib
+    "moment" : true //moment global
   }
 }
