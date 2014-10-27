@@ -5,22 +5,20 @@ angular.module('homePage', [
   'Config',
   'Log4ng',
   'Language',
-  function ($scope, Config, Log) {
+  function ($scope, Config, Log, Language) {
     'use strict';
 
     Log.debug('ENTER THE HOME PAGE');
 
     //controller
     var HomeCtrl = this;
-
+    var lang = Language.PAGE.HOME;
 
     //public methods
     HomeCtrl.init = function () {
       Log.info('this is the home page');
-    };
 
-    HomeCtrl.lang = {
-      welcomeText: 'Welcome to the Analog Studios website'
+      HomeCtrl.welcomeText = lang.WELCOME_TEXT;
     };
 
     //init

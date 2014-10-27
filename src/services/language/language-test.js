@@ -3,10 +3,19 @@ describe('config', function () {
 
   beforeEach(module('language'));
 
-  it('should test Language.ERROR messages exist', inject(function (Language) {
-    var error = Language.ERROR;
+  it('should test Language.PAGE copy text exists', inject(function (Language) {
+    var pages = Language.PAGE;
 
-    expect(error.UNEXPECTED).toBeDefined();
+    //home page
+    var home = pages.HOME;
+
+    expect(home.WELCOME).toBeDefined();
+  }));
+
+  it('should test Language.MESSAGES messages exist', inject(function (Language) {
+    var messages = Language.MESSAGES;
+
+    expect(messages.UNEXPECTED).toBeDefined();
   }));
 
 });
