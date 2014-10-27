@@ -3,10 +3,9 @@
     "prod": {
       "stylesheets": [
         {"src": "/assets/css/vendor/bootstrap.css"},
-        {"src": "/assets/css/as-webapp.min.css"}
+        {"src": "/assets/css/as-webapp.css"}
       ],
       "scripts": [
-        {"src": "/assets/js/vendor.min.js"},
         {"src": "/assets/js/core.min.js"}
       ]
     },

@@ -12,16 +12,16 @@ module.exports = function (grunt) {
     ext: '.css'
   }, {
     src: [ 'src/less/<%= pkg.name %>.less' ],
-    dest: 'tmp/assets/css/<%= pkg.name %>.css'
+    dest: 'dest/assets/css/<%= pkg.name %>.css'
   }];
 
   function getBowerAssets(env) {
     grunt.log.writeln('env => ' + env);
     var toLoad = {};
     var globals = grunt.file.readJSON('src/globals.json');
-    grunt.log.writeln(globals);
+    //grunt.log.writeln(globals);
 
-    globals = globals.bowerComponents.dev;
+    globals = globals.bowerComponents[env];
     globals = _.map(globals, function (value) {
       return value;
     });
@@ -72,28 +72,6 @@ module.exports = function (grunt) {
     //grunt.log.writeln('final => ' + newSrc);
 
     return newSrc;
-  }
-
-  function getScriptsToConcat() {
-    var globals = grunt.file.readJSON('src/globals.json').app.dev.scripts;
-
-    globals = _.map(globals, function (value) {
-      return value;
-    });
-
-    globals = _.flatten(globals);
-    globals = _.pluck(globals, 'src');
-
-    //filter out prefix so it can be found in the project src
-    globals = globals.map(function (path) {
-      return path.replace(/^\/players\/assets\//, 'assets/');
-    });
-
-    return _(globals)
-        .map(function (file) {
-          return 'dest/' + file;
-        })
-        .value();
   }
 
   function getConfigForSiteLayout(prodFlag) {
@@ -365,7 +343,16 @@ module.exports = function (grunt) {
 
     concat: {
       dist: {
-        src: getScriptsToConcat(),
+        src: [
+          'dest/assets/js/vendor/angular.js',
+          'dest/assets/js/vendor/*.js',
+          'dest/assets/js/features/**/*.js',
+          'dest/assets/js/services/config/config.js',
+          'dest/assets/js/services/log4ng/log4ng.js',
+          'dest/assets/js/services/language/language.js',
+          'dest/assets/js/services/as-bootstrap/as-bootstrap.js',
+          'dest/assets/js/services/**/*.js'
+        ],
         dest: 'dest/assets/js/core.min.js'
       }
     },
@@ -375,12 +362,12 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'src/pages',
-          src: ['**/*.js', '!**/*-test.js'],
+          src: [ '**/*.js', '!**/*-test.js' ],
           dest: 'tmp/'
         }, {
           expand: true,
           cwd: 'src/',
-          src: ['services/**/*.js', 'features/**/*.js', '!services/**/*-test.js', '!features/**/*-test.js'],
+          src: [ 'services/**/*.js', 'features/**/*.js', '!services/**/*-test.js', '!features/**/*-test.js' ],
           dest: 'tmp/assets/js'
         }]
       }
@@ -490,9 +477,9 @@ module.exports = function (grunt) {
   grunt.registerTask('js:build', [ 'jshint', 'ngAnnotate:build', 'uglify:build', 'concat:dist' ]); //generate js for build task
 
   //copy
-  grunt.registerTask('copy:common', [ 'copy:assets', 'copy:html', 'copy:pages', 'copy:home' ]);
-  grunt.registerTask('copy:dev', [ 'copy:ngUI', 'copy:vendorDev', 'copy:vendorFont',  'copy:common' ]); //copy vendor files
-  grunt.registerTask('copy:prod', [ 'copy:ngUI', 'copy:vendorProd', 'copy:vendorFont', 'copy:common' ]); //copy vendor files
+  grunt.registerTask('copy:common', [ 'copy:assets', 'copy:html', 'copy:pages', 'copy:home', 'copy:ngUI' ]);
+  grunt.registerTask('copy:dev', [ 'copy:vendorDev', 'copy:vendorFont' ]); //copy vendor files
+  grunt.registerTask('copy:prod', [ 'copy:vendorProd', 'copy:vendorFont' ]); //copy vendor files
 
   //serve
   grunt.registerTask('serve:local', ['open:local', 'connect:local', 'watch']); //view the build locally, with as-api
@@ -505,6 +492,7 @@ module.exports = function (grunt) {
     'js:dev',
     'assemble:siteDev',
     'assemble:adminDev',
+    'copy:common',
     'copy:dev',
     'clean:tmp',
     'serve:dev'
@@ -513,12 +501,12 @@ module.exports = function (grunt) {
   //build + serve
   grunt.registerTask('build', [
     'clean',
-    'css:build',
-    'js:build',
     'assemble:siteProd',
     'assemble:adminProd',
-    'copy:vendorProd',
     'copy:common',
+    'copy:prod',
+    'css:build',
+    'js:build',
     'asset_cachebuster',
     //'karma:ci',  TODO PAAS-3
     //'validation', TODO PAAS-2
