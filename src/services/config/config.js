@@ -9,28 +9,10 @@ angular.module('config',
   //templateCache
   var Config = function () {
     var APP_CONFIG = {
-      CHECKOUT_URL: {
-        CANCEL: location.host + '/checkout/?orderStatus=cancel',
-        SUCCESS: location.host + '/checkout/?orderStatus=success'
-      },
-      DEFAULT_CATEGORY: 'Other',
       ENDPOINT: {
-        CATEGORY: '/api/category/:cid',
-        LOGGER: '/api/logger/',
-        ORDER: '/api/order/:oid',
-        PRODUCT: '/api/product',
-        SESSION: '/api/session/',
-        SETTING: '/api/setting/:sid'
+        LOGGER: ''
       },
-      LINK: {
-        ETSY: 'http://www.etsy.com/shop/1000BC?ref=ss_profile',
-        FACEBOOK: 'http://www.facebook.com/pages/1000-BC/271010322910307'
-      },
-      LOG_LEVEL: 0,
-      PRODUCTS_IMG_PATH: '/assets/',
-      TIMER: {
-        SLIDESHOW: 5000 //3 seconds
-      }
+      LOG_LEVEL: 0
     };
 
     this.get = function (selectorString) {

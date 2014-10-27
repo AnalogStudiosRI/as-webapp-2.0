@@ -2,10 +2,10 @@ angular.module('homePage', [
   'asBootstrap'
 ]).controller('HomeCtrl', [
   '$scope',
+  'Config',
   'Log4ng',
-  'config',
-  'language',
-  function ($scope, Log) {
+  'Language',
+  function ($scope, Config, Log) {
     'use strict';
 
     Log.debug('ENTER THE HOME PAGE');
