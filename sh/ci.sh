@@ -18,8 +18,8 @@ git --version
 
 
 echo "get dependencies..."
-rm -rvf node_modules/
-rm -rvf bower_components
+rm -rf node_modules/
+rm -rf bower_components
 
 npm install
 
