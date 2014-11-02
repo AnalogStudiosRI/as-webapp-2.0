@@ -1,11 +1,11 @@
 {
-  "app": "homePage",
-  "title": "Home Page",
-  "id": "home-page",
+  "app": "adminPage",
+  "title": "Admin Page",
+  "id": "admin-page",
   "stylesheets": [
-    { "src": "/home/home.css" }
+    { "src": "/admin/admin.css" }
   ],
   "scripts": [
-    { "src": "/home/home.js" }
+    { "src": "/admin/admin.js" }
   ]
 }

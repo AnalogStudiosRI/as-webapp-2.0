@@ -424,8 +424,8 @@ module.exports = function (grunt) {
       },
       files: {
         src: [
-          'dest/**/**/*.html',
-          '!dest/templates/**/*'
+          'tmp/**/**/*.html',
+          '!tmp/templates/**/*'
         ]
       }
     },
@@ -535,9 +535,9 @@ module.exports = function (grunt) {
     'copy:prod',
     'css:build',
     'js:build',
-    'asset_cachebuster',
+    'asset_cachebuster'
     //'karma:ci',  TODO PAAS-3
-    'clean:tmp'
+    //'clean:tmp'
   ]);
 
   grunt.registerTask('show:build', [
