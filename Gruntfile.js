@@ -528,12 +528,12 @@ module.exports = function (grunt) {
   //build + serve
   grunt.registerTask('build', [
     'clean',
+    'css:build',
     'assemble:siteProd',
     'assemble:adminProd',
     'validation',
     'copy:common',
     'copy:prod',
-    'css:build',
     'js:build',
     'asset_cachebuster'
     //'karma:ci',  TODO PAAS-3
