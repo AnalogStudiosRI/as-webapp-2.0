@@ -16,7 +16,6 @@ module.exports = function (grunt) {
   }];
 
   function getBowerAssets(env) {
-    grunt.log.writeln('env => ' + env);
     var toLoad = {};
     var globals = grunt.file.readJSON('src/globals.json');
     //grunt.log.writeln(globals);
@@ -31,12 +30,12 @@ module.exports = function (grunt) {
     //grunt.log.writeln(globals);
 
     globals = globals.map(function (path) {
-      grunt.log.writeln('JS path ->' + path);
+      //grunt.log.writeln('JS path ->' + path);
       return path.replace(/^\/assets\/(css|js)\//, '');
     });
 
     toLoad.css = globals.filter(function (path) {
-      grunt.log.writeln('CSS path ->' + path);
+      //grunt.log.writeln('CSS path ->' + path);
       return (/.+\.css$/).test(path);
     });
 
@@ -140,11 +139,11 @@ module.exports = function (grunt) {
         tasks: [ 'js:dev' ]
       },
 
-      html: {
+      templates: {
         files: [
-          'src/**/**/*.html'
+          'src/features/**/*.html'
         ],
-        tasks: [ 'copy:html' ]
+        tasks: [ 'copy:templates' ]
       }
     },
 
@@ -196,8 +195,13 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'bower_components/ngui/dist',
-          src: [ '**/**' ],
+          src: [ '**/**/*.js' ],
           dest: 'dest/assets/js/'
+        }, {
+          expand: true,
+          cwd: 'bower_components/ngui/dist/features',
+          src: [ '**/**/*.html', '**/**/*.css' ],
+          dest: 'dest/templates'
         }]
       },
 
@@ -227,9 +231,9 @@ module.exports = function (grunt) {
       html: {
         files: [{
           expand: true,
-          cwd: 'src/',
-          src: [ '**/**/*.html' ],
-          dest: 'dest/'
+          cwd: 'src/features',
+          src: [ '**/*.html' ],
+          dest: 'dest/templates'
         }]
       },
 
@@ -429,7 +433,7 @@ module.exports = function (grunt) {
       local: {
         options: {
           router: {
-            '/api' : 'http://analogstudios.api.1000-bc.thegreenhouse.io/api'  //if you have bas-api locally
+            '/api' : 'http://analogstudios.api.thegreenhouse.io/api'  //if you have as-api locally
           }
         }
       },

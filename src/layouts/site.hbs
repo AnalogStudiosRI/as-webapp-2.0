@@ -28,14 +28,16 @@
 
   <body data-ng-cloak data-ng-app="{{page.app}}" data-ng-strict-di>
 
-    <!-- header -->
-    {{> header-site }}
+    <div id="page-container">
+      <!-- header -->
+      {{> header-site }}
 
-    <!-- Page Output -->
-    {{> body }}
+      <!-- Page Output -->
+      {{> body }}
 
-    <!-- footer -->
-    {{> footer }}
+      <!-- footer -->
+      {{> footer }}
+    </div>
 
     <!-- social media scripts -->
     {{> script-social }}

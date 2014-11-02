@@ -6,3 +6,38 @@
 @white: #ffffff;
 @black: #000000;
 @primary: #6d0202;
+@bg-primary: #c2b08b;
+@bg-secondary: #ae996b;
+
+body {
+  background-color: @bg-secondary;
+  color: @white;
+}
+
+a {
+  color: @white;
+}
+
+header {
+
+  nav ul {
+    list-style: none;
+
+    li {
+      float: left;
+      display: block;
+      width: 5em;
+
+      &:first{
+        width: 6em;
+      }
+    }
+  }
+}
+
+div#page-container{
+  width: 970px;
+  margin: 0 auto;
+  min-height: 500px;
+  background-image: url("/assets/images/container-repeater.jpg");
+}
