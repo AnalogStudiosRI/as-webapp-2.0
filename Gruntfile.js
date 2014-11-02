@@ -407,6 +407,29 @@ module.exports = function (grunt) {
       }
     },
 
+    validation: {
+      options: {
+        'reset': true,
+        'stoponerror' : false,
+        'failHard' : true,
+        'doctype' : 'HTML5',
+        'reportpath' : 'reports/validation-report.json',
+        'path' : 'reports/validation-status.json',
+        'charset' : 'utf-8',
+        'relaxerror': [
+          'Section lacks heading. Consider using h2-h6 elements to add identifying headings to all sections.',
+          'Element object is missing one or more of the following attributes: data, type.',
+          'Element head is missing a required instance of child element title.'
+        ]
+      },
+      files: {
+        src: [
+          'dest/**/**/*.html',
+          '!dest/templates/**/*'
+        ]
+      }
+    },
+
     //server
     open: {
       local: {
@@ -507,23 +530,27 @@ module.exports = function (grunt) {
     'clean',
     'assemble:siteProd',
     'assemble:adminProd',
+    'validation',
     'copy:common',
     'copy:prod',
     'css:build',
     'js:build',
     'asset_cachebuster',
     //'karma:ci',  TODO PAAS-3
-    //'validation', TODO PAAS-2
     'clean:tmp'
   ]);
 
-  grunt.registerTask('show:dev', [
-    'build',
+  grunt.registerTask('show:build', [
+    'clean',
+    'assemble:siteProd',
+    'assemble:adminProd',
+    'copy:common',
+    'copy:prod',
+    'css:build',
+    'js:build',
+    'asset_cachebuster',
+    'clean:tmp',
     'serve:dev'
   ]);
 
-  grunt.registerTask('show:local', [
-    'build',
-    'serve:local'
-  ]);
 };
