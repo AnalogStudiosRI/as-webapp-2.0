@@ -42,8 +42,5 @@
     "grunt-open": "~0.2.1",
     "karma-chrome-launcher": "~0.1.1",
     "proxy-middleware": "~0.5.0"
-  },
-  "scripts": {
-    "postinstall": "bower install"
   }
 }

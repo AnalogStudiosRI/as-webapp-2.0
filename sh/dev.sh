@@ -11,6 +11,9 @@ node --version
 echo "npm version"
 npm --version
 
+echo "bower version"
+bower --version
+
 echo  "grunt version"
 grunt --version
 
@@ -22,9 +25,7 @@ rm -rf node_modules/
 rm -rf bower_components
 
 npm install
-
-#//XXX TODO install bower on Jenkins
-#bower install
+bower install
 
 echo "build..."
 grunt build
