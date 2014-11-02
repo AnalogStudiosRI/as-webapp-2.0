@@ -8,15 +8,20 @@
 
     <!-- App CSS -->
     {{#production}}
-      {{#globals.prod.stylesheets}}
+      {{#globals.app.prod.stylesheets}}
         {{> style-link-tag }}
-      {{/globals.prod.stylesheets}}
+      {{/globals.app.prod.stylesheets}}
     {{/production}}
     {{^production}}
-      {{#globals.dev.stylesheets}}
+      {{#globals.app.dev.stylesheets}}
         {{> style-link-tag }}
-      {{/globals.dev.stylesheets}}
+      {{/globals.app.dev.stylesheets}}
     {{/production}}
+
+      <!-- Page CSS -->
+    {{#page.stylesheets}}
+      {{> style-link-tag}}
+    {{/page.stylesheets}}
 
     <!-- Page CSS -->
     {{#page.stylesheets}}
@@ -35,14 +40,14 @@
 
   <!-- App JS -->
   {{#production}}
-    {{#globals.prod.scripts}}
+    {{#globals.app.prod.scripts}}
       {{> script-tag }}
-    {{/globals.prod.scripts}}
+    {{/globals.app.prod.scripts}}
   {{/production}}
   {{^production}}
-    {{#globals.dev.scripts}}
+    {{#globals.app.dev.scripts}}
       {{> script-tag }}
-    {{/globals.dev.scripts}}
+    {{/globals.app.dev.scripts}}
   {{/production}}
 
   <!-- Page JS -->
