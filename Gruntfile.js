@@ -58,16 +58,7 @@ module.exports = function (grunt) {
     //grunt.log.writeln('filename => ' + filename);
     var ext = filename.split('.')[1];
 
-    switch (ext) {
-      case 'css':
-        newSrc += 'css/';
-        break;
-      case 'js':
-        newSrc += 'js/';
-        break;
-    }
-
-    newSrc += 'vendor/' + filename;
+    newSrc += ext + '/vendor/' + filename;
     //grunt.log.writeln('final => ' + newSrc);
 
     return newSrc;
@@ -249,7 +240,6 @@ module.exports = function (grunt) {
         }]
       },
 
-      //XXX TODO do with Apache rewrite?
       home: {
         files: [{
           expand: true,
@@ -294,7 +284,7 @@ module.exports = function (grunt) {
 
     autoprefixer: {
       options: {
-        browsers: ['last 2 versions', 'ff 15', 'android 2.3', 'ie 8'] // ['> 1%', 'last 2 versions', 'ff 17', 'opera 12.1']
+        browsers: [ 'last 2 versions', 'ff 15', 'android 2.3' ]
       },
       // By not including a dest path, we tell Autoprefixer to update files in place
       files: {
@@ -430,6 +420,54 @@ module.exports = function (grunt) {
       }
     },
 
+    //
+    karma: {
+      options: {
+        configFile: 'karma.conf.js'
+      },
+      dev: {
+        options: {
+          files: _.map(getBowerAssets('dev').js, function (file) {
+            //grunt.log.writeln(file);
+            return bowerAssetRename('', file);
+          }).concat([
+            'bower_components/angular-mocks/angular-mocks.js',
+            'bower_components/ngui/dist/**/*.js',
+            'src/pages/**/*.js',
+            'src/features/**/*.js',
+            'src/services/**/*.js'
+          ])
+        },
+        autoWatch: true,
+        singleRun: false,
+        browsers: [ 'Chrome' ],
+        reporters: [ 'progress', 'growl' ],
+        keepalive: true
+      },
+      ci: {
+        options: {
+          files: _.map(getBowerAssets('prod').js, function (file) {
+            return bowerAssetRename('', file);
+          }).concat([
+            'bower_components/angular-mocks/angular-mocks.js',
+            'bower_components/ngui/**/**/*.js',
+            'src/pages/**/*.js',
+            'src/features/**/*.js',
+            'src/services/**/*.js'
+          ])
+        },
+        keepalive: true,
+        autoWatch: false,
+        singleRun: true,
+        browsers: [ 'PhantomJS' ],
+        reporters: [ 'junit', 'progress' ],
+        reportSlowerThan: 1000,
+        junitReporter: {
+          outputFile: 'test-results.xml'
+        }
+      }
+    },
+
     //server
     open: {
       local: {
@@ -463,8 +501,7 @@ module.exports = function (grunt) {
       dev: {
         options: {
           router: {
-            '/api' : 'http://analogstudios.thegreenhouse.io/api',
-            '/assets/images/products' : 'http://analogstudios.thegreenhouse.io/assets/images/products'
+            '/api' : 'http://analogstudios.thegreenhouse.io/api'
           }
         }
       }
@@ -489,11 +526,15 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-html-validation');
   grunt.loadNpmTasks('grunt-bump');
-  //grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-lesslint');
   grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-ng-annotate');
   grunt.loadNpmTasks('grunt-open');
+
+  //html
+  grunt.registerTask('assemble:dev', [ 'assemble:siteDev', 'assemble:adminDev' ]);
+  grunt.registerTask('assemble:prod', [ 'assemble:siteProd', 'assemble:adminProd', 'validation' ]);
 
   //css
   grunt.registerTask('css:dev', [ 'lesslint', 'less:dev', 'autoprefixer', 'copy:css' ]); //generate css for dev task
@@ -504,50 +545,46 @@ module.exports = function (grunt) {
   grunt.registerTask('js:build', [ 'jshint', 'ngAnnotate:build', 'uglify:build', 'concat:dist' ]); //generate js for build task
 
   //copy
-  grunt.registerTask('copy:common', [ 'copy:assets', 'copy:html', 'copy:pages', 'copy:home', 'copy:ngUI' ]);
-  grunt.registerTask('copy:dev', [ 'copy:vendorDev', 'copy:vendorFont' ]); //copy vendor files
-  grunt.registerTask('copy:prod', [ 'copy:vendorProd', 'copy:vendorFont' ]); //copy vendor files
+  grunt.registerTask('copy:common', [ 'copy:assets', 'copy:html', 'copy:pages', 'copy:home', 'copy:ngUI', 'copy:vendorFont' ]);
 
   //serve
   grunt.registerTask('serve:local', ['open:local', 'connect:local', 'watch']); //view the build locally, with as-api
-  grunt.registerTask('serve:dev', ['open:local', 'connect:dev', 'watch']); //view the build locally
+  grunt.registerTask('serve:dev', ['open:local', 'connect:dev', 'watch']); //view the build locally against dev
 
   //development tasks
   grunt.registerTask('dev', [
     'clean',
     'css:dev',
     'js:dev',
-    'assemble:siteDev',
-    'assemble:adminDev',
+    'assemble:dev',
     'copy:common',
-    'copy:dev',
+    'copy:vendorDev',
     'clean:tmp',
     'serve:dev'
   ]);
 
-  //build + serve
+  //build
   grunt.registerTask('build', [
     'clean',
     'css:build',
-    'assemble:siteProd',
-    'assemble:adminProd',
-    //'validation',
-    'copy:common',
-    'copy:prod',
     'js:build',
+    'assemble:prod',
+    'copy:common',
+    'copy:vendorProd',
     'asset_cachebuster',
-    //'karma:ci',  TODO PAAS-3
+    'karma:ci',
     'clean:tmp'
   ]);
 
+  //build + serve
   grunt.registerTask('show:build', [
     'clean',
+    'css:build',
+    'js:build',
     'assemble:siteProd',
     'assemble:adminProd',
     'copy:common',
-    'copy:prod',
-    'css:build',
-    'js:build',
+    'copy:vendorProd',
     'asset_cachebuster',
     'clean:tmp',
     'serve:dev'

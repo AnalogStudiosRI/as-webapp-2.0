@@ -12,8 +12,8 @@ npm install && bower install
 [bower]: http://bower.io/
 2. Add these entries to your hosts file
 ```
-127.0.0.1       local.dev-charter.net
-127.0.0.1       local.engprod-charter.net
+127.0.0.1       local.analogstudios.thegreenhouse.io
+127.0.0.1       local.analogstudios.api.thegreenhouse.io
 ```
 3. Add the [EditorConfig][] plugin to your IDE
 
@@ -41,7 +41,7 @@ $ grunt build
 
 #### show
 <pre>
-$ grunt show:build:dev
+$ grunt show
 </pre>
 To preview the build locally against dev
 
@@ -52,9 +52,10 @@ and docs will have a page-name.json file to easily manage page specific dependen
 <pre>
 {
   "name": "Home Page",
-  "title": "Home Page",  //used for the _< title>Analog Studios - {{title}}</ title>_ tag
+  "title": "Home Page",  //used for the _< title>Analog Studios : Music and Recordings - {{title}}</ title>_ tag
   "id": "home page",  //used as a CSS id for the wrapping content container
-  "ng": "home-page" //used to bootstrap angular-js
+  "app": "home-page" //used to bootstrap angular
+  "ctrl": "HomeCtrl" //used to define the controller name
   "stylesheets": [
     { "src" : "/pages/home/home.css" }
   ],
@@ -74,8 +75,8 @@ dependency manager.
 Three builds are for the project in Jenkins, to support automated continues integration, deployment, and delivery.
 Each job uses a specific version controlled shell script for use in Jenkins.
 
-* CI - Builds all branches, and build the app to run linting and testing and does analysis and reporting.
-* DEV - To deploy to dev
+* CI - Watches all branches, and builds the app to run linting and testing and does analysis and reporting.
+* DEV - The CI task, but deploys to dev upon success
 * RELEASE - To release a specific version of the application to a specific environment
 
 ## Release Management

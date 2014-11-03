@@ -8,7 +8,7 @@ angular.module('language', [
     var Language = {
       PAGE: {
         HOME: {
-          WELCOME_TEXT: 'Welcome to the Analog Studios website'
+          WELCOME: 'Welcome to the Analog Studios website'
         }
       },
       MESSAGE: {

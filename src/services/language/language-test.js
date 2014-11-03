@@ -13,7 +13,7 @@ describe('config', function () {
   }));
 
   it('should test Language.MESSAGES messages exist', inject(function (Language) {
-    var messages = Language.MESSAGES;
+    var messages = Language.MESSAGE;
 
     expect(messages.UNEXPECTED).toBeDefined();
   }));

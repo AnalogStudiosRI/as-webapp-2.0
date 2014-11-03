@@ -10,7 +10,7 @@ angular.module('config',
   var Config = function () {
     var APP_CONFIG = {
       ENDPOINT: {
-        LOGGER: ''
+        LOGGER: 'http://'
       },
       LOG_LEVEL: 0
     };
