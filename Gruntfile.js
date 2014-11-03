@@ -531,13 +531,13 @@ module.exports = function (grunt) {
     'css:build',
     'assemble:siteProd',
     'assemble:adminProd',
-    'validation',
+    //'validation',
     'copy:common',
     'copy:prod',
     'js:build',
-    'asset_cachebuster'
+    'asset_cachebuster',
     //'karma:ci',  TODO PAAS-3
-    //'clean:tmp'
+    'clean:tmp'
   ]);
 
   grunt.registerTask('show:build', [

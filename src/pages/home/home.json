@@ -1,5 +1,6 @@
 {
   "app": "homePage",
+  "ctrl": "HomeCtrl",
   "title": "Home Page",
   "id": "home-page",
   "stylesheets": [

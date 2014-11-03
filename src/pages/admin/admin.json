@@ -1,5 +1,6 @@
 {
   "app": "adminPage",
+  "ctrl": "AdminCtrl",
   "title": "Admin Page",
   "id": "admin-page",
   "stylesheets": [

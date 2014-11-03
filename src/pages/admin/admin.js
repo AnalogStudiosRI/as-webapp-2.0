@@ -1,28 +1,16 @@
-angular.module('homePage', [
+angular.module('adminPage', [
   'asBootstrap'
-]).controller('HomeCtrl', [
+]).controller('AdminCtrl', [
   '$scope',
+  'Log4ng',
   function ($scope, Log) {
     'use strict';
 
-    Log.debug('ENTER THE HOME PAGE');
+    Log.debug('ENTER THE Admin PAGE');
 
     //controller
-    var HomeCtrl = this;
+    var AdminCtrl = this;
 
-
-    //public methods
-    HomeCtrl.init = function () {
-      Log.info('this is the home page');
-    };
-
-    HomeCtrl.lang = {
-      welcomeText: 'Welcome to the Analog Studios website'
-    };
-
-    //init
-    HomeCtrl.init();
-
-    $scope.HomeCtrl = HomeCtrl;
+    $scope.AdminCtrl = AdminCtrl;
   }
 ]);
