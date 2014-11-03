@@ -4,3 +4,4 @@ bower_components/
 dest/
 tmp/
 reports/
+npm-debug.log
