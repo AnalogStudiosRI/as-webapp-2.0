@@ -40,9 +40,9 @@ $ grunt build
 </pre>
 
 #### show
-<pre>
+```
 $ grunt show
-</pre>
+```
 To preview the build locally against dev
 
 ## Pages Templating
