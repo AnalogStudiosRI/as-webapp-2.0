@@ -35,9 +35,9 @@ $ grunt dev
 
 #### building
 This is the build task for the project.
-<pre>
+```
 $ grunt build
-</pre>
+```
 
 #### show
 ```
