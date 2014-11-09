@@ -424,20 +424,18 @@ module.exports = function (grunt) {
     //
     karma: {
       options: {
-        configFile: 'karma.conf.js'
+        configFile: 'karma.conf.js',
+        files: _.map(getBowerAssets('dev').js, function (file) {
+          return 'bower_components/' + file;
+        }).concat([
+          'bower_components/angular-mocks/angular-mocks.js',
+          'bower_components/ngui/dist/**/*.js',
+          'src/pages/**/*.js',
+          'src/features/**/*.js',
+          'src/services/**/*.js'
+        ])
       },
       dev: {
-        options: {
-          files: _.map(getBowerAssets('dev').js, function (file) {
-            return 'bower_components/' + file;
-          }).concat([
-            'bower_components/angular-mocks/angular-mocks.js',
-            'bower_components/ngui/dist/**/*.js',
-            'src/pages/**/*.js',
-            'src/features/**/*.js',
-            'src/services/**/*.js'
-          ])
-        },
         autoWatch: true,
         singleRun: false,
         browsers: [ 'Chrome' ],
@@ -445,18 +443,6 @@ module.exports = function (grunt) {
         keepalive: true
       },
       ci: {
-        options: {
-          files: _.map(getBowerAssets('prod').js, function (file) {
-            return bowerAssetRename('', file);
-          }).concat([
-            'bower_components/angular-mocks/angular-mocks.js',
-            'bower_components/ngui/**/**/*.js',
-            'src/features/**/*.html',
-            'src/pages/**/*.js',
-            'src/features/**/*.js',
-            'src/services/**/*.js'
-          ])
-        },
         keepalive: true,
         autoWatch: false,
         singleRun: true,
@@ -464,7 +450,7 @@ module.exports = function (grunt) {
         reporters: [ 'junit', 'progress' ],
         reportSlowerThan: 1000,
         junitReporter: {
-          outputFile: 'test-results.xml'
+          outputFile: 'reports/test-results.xml'
         }
       }
     },
