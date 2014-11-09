@@ -76,7 +76,7 @@ Three builds are for the project in Jenkins, to support automated continues inte
 Each job uses a specific version controlled shell script for use in Jenkins.
 
 * CI - Watches all branches, and builds the app to run linting and testing and does analysis and reporting.
-* DEV - The CI task, but deploys to dev upon success
+* DEV - The CI task, but in addition deploys to dev upon success
 * RELEASE - To release a specific version of the application to a specific environment
 
 ## Release Management
