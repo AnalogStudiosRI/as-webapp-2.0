@@ -130,11 +130,11 @@ module.exports = function (grunt) {
         tasks: [ 'js:dev' ]
       },
 
-      templates: {
+      features: {
         files: [
           'src/features/**/*.html'
         ],
-        tasks: [ 'copy:templates' ]
+        tasks: [ 'copy:features' ]
       }
     },
 
@@ -192,7 +192,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: 'bower_components/ngui/dist/features',
           src: [ '**/**/*.html', '**/**/*.css' ],
-          dest: 'dest/templates'
+          dest: 'dest/features'
         }]
       },
 
@@ -219,12 +219,12 @@ module.exports = function (grunt) {
         }]
       },
 
-      html: {
+      features: {
         files: [{
           expand: true,
           cwd: 'src/features',
           src: [ '**/*.html' ],
-          dest: 'dest/templates'
+          dest: 'dest/features'
         }]
       },
 
@@ -304,7 +304,7 @@ module.exports = function (grunt) {
       }
     },
 
-    //js
+    //JS
     jshint: {
       options: {
         jshintrc: '.jshintrc'
@@ -317,7 +317,8 @@ module.exports = function (grunt) {
           'src/pages/**/*.js',
           'src/features/**/*.js',
           'src/services/**/*.js',
-          'tasks/*.js'
+          'tasks/*.js',
+          'karma.conf.js'
           //'scaffolds/**/*.js'
         ]
       }
@@ -415,7 +416,7 @@ module.exports = function (grunt) {
       files: {
         src: [
           'tmp/**/**/*.html',
-          '!tmp/templates/**/*'
+          '!tmp/features/**/*'
         ]
       }
     },
@@ -428,8 +429,7 @@ module.exports = function (grunt) {
       dev: {
         options: {
           files: _.map(getBowerAssets('dev').js, function (file) {
-            //grunt.log.writeln(file);
-            return bowerAssetRename('', file);
+            return 'bower_components/' + file;
           }).concat([
             'bower_components/angular-mocks/angular-mocks.js',
             'bower_components/ngui/dist/**/*.js',
@@ -441,7 +441,7 @@ module.exports = function (grunt) {
         autoWatch: true,
         singleRun: false,
         browsers: [ 'Chrome' ],
-        reporters: [ 'progress', 'growl' ],
+        reporters: [ 'progress' ],
         keepalive: true
       },
       ci: {
@@ -451,6 +451,7 @@ module.exports = function (grunt) {
           }).concat([
             'bower_components/angular-mocks/angular-mocks.js',
             'bower_components/ngui/**/**/*.js',
+            'src/features/**/*.html',
             'src/pages/**/*.js',
             'src/features/**/*.js',
             'src/services/**/*.js'
@@ -545,7 +546,7 @@ module.exports = function (grunt) {
   grunt.registerTask('js:build', [ 'jshint', 'ngAnnotate:build', 'uglify:build', 'concat:dist' ]); //generate js for build task
 
   //copy
-  grunt.registerTask('copy:common', [ 'copy:assets', 'copy:html', 'copy:pages', 'copy:home', 'copy:ngUI', 'copy:vendorFont' ]);
+  grunt.registerTask('copy:common', [ 'copy:assets', 'copy:features', 'copy:pages', 'copy:home', 'copy:ngUI', 'copy:vendorFont' ]);
 
   //serve
   grunt.registerTask('serve:local', ['open:local', 'connect:local', 'watch']); //view the build locally, with as-api
