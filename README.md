@@ -23,7 +23,9 @@ npm install && bower install
 https://thegreenhouse.atlassian.net/wiki/display/ASWEB/Website
 
 ## Build
-The repo for this project is git@thegreenhouse.io:repositories/analogstudios/as-webapp-2.0.git
+The repos for this project are
+* git@thegreenhouse.io:repositories/analogstudios/as-webapp-2.0.git
+* https://obuckley@bitbucket.org/obuckley/as-webapp-2.0.git
 
 ### Tasks
 #### development
