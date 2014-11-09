@@ -29,9 +29,9 @@ The repo for this project is git@thegreenhouse.io:repositories/analogstudios/as-
 #### development
 This will start up a node server with all files deployed and watches for changes and "redeploys" as needed.  This is t
 he default task and primary task of the development workflow.
-<pre>
+```
 $ grunt dev
-</pre>
+```
 
 #### building
 This is the build task for the project.
