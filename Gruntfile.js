@@ -553,13 +553,13 @@ module.exports = function (grunt) {
   //build
   grunt.registerTask('build', [
     'clean',
+    'karma:ci',
     'css:build',
     'js:build',
     'assemble:prod',
     'copy:common',
     'copy:vendorProd',
     'asset_cachebuster',
-    'karma:ci',
     'clean:tmp'
   ]);
 
