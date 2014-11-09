@@ -49,7 +49,7 @@ To preview the build locally against dev
 The [Assemble][] grunt task will be leveraged to support assembly of the pages using handlebars syntax.  All players
 and docs will have a page-name.json file to easily manage page specific dependencies.
 
-<pre>
+```
 {
   "name": "Home Page",
   "title": "Home Page",  //used for the _< title>Analog Studios : Music and Recordings - {{title}}</ title>_ tag
@@ -63,7 +63,7 @@ and docs will have a page-name.json file to easily manage page specific dependen
     { "src" : "/pages/home/home.js" }
   ]
 }
-</pre>
+```
 
 [Assemble]: http://assemble.io/
 
