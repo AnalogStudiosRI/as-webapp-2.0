@@ -15,7 +15,6 @@ describe('socialBadges', function () {
   }));
 
   it('should test the elements exist', function () {
-    console.log(element);
     expect(element.find('#fb-container').length).toBe(1);
     expect(element.find('#gplus-container').length).toBe(1);
   });
