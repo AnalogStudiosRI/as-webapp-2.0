@@ -209,7 +209,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'src/',
-          src: [ 'services/**/*.js', 'features/**/*.js' ],
+          src: [ 'services/**/*.js', 'features/**/*.js', '!services/**/*-test.js', '!features/**/*-test.js' ],
           dest: 'dest/assets/js/'
         }, {
           expand: true,
@@ -329,7 +329,7 @@ module.exports = function (grunt) {
       build: {
         files: [{
           expand: true,
-          cwd: 'tmp/',
+          cwd: 'dest/',
           src: [ '**/**/*.js' ],
           dest: 'dest/'
         }]
@@ -371,7 +371,6 @@ module.exports = function (grunt) {
     //html
     assemble: {
       options: {
-        layoutdir: 'src/layouts/',
         partials: [ 'src/partials/*.hbs' ],
         data: [ 'package.json', 'src/pages/**/*.json', 'src/globals.json' ],
         flatten: true
@@ -521,7 +520,7 @@ module.exports = function (grunt) {
 
   //html
   grunt.registerTask('assemble:dev', [ 'assemble:siteDev', 'assemble:adminDev' ]);
-  grunt.registerTask('assemble:prod', [ 'assemble:siteProd', 'assemble:adminProd', 'validation' ]);
+  grunt.registerTask('assemble:prod', [ 'assemble:siteProd', 'assemble:adminProd', 'copy:home'  /*, 'validation'*/ ]);
 
   //css
   grunt.registerTask('css:dev', [ 'lesslint', 'less:dev', 'autoprefixer', 'copy:css' ]); //generate css for dev task
@@ -529,10 +528,10 @@ module.exports = function (grunt) {
 
   //js
   grunt.registerTask('js:dev', [ 'jshint', 'copy:js' ]); //generate js for dev task
-  grunt.registerTask('js:build', [ 'jshint', 'ngAnnotate:build', 'uglify:build', 'concat:dist' ]); //generate js for build task
+  grunt.registerTask('js:build', [ 'jshint', 'copy:js', 'ngAnnotate:build', 'copy:ngUI', 'uglify:build', 'concat:dist' ]); //generate js for build task
 
   //copy
-  grunt.registerTask('copy:common', [ 'copy:assets', 'copy:features', 'copy:pages', 'copy:home', 'copy:ngUI', 'copy:vendorFont' ]);
+  grunt.registerTask('copy:common', [ 'copy:assets', 'copy:features', 'copy:pages', 'copy:vendorFont' ]);
 
   //serve
   grunt.registerTask('serve:local', ['open:local', 'connect:local', 'watch']); //view the build locally, with as-api
@@ -554,25 +553,26 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean',
     'karma:ci',
-    'css:build',
-    'js:build',
-    'assemble:prod',
-    'copy:common',
     'copy:vendorProd',
-    'asset_cachebuster',
-    'clean:tmp'
+    'css:build',
+    'js:build'
+    //'assemble:prod',
+    //'asset_cachebuster',
+    //'copy:common',
+    //'clean:tmp'
   ]);
 
   //build + serve
   grunt.registerTask('show:build', [
     'clean',
+    'copy:vendorProd',
     'css:build',
     'js:build',
     'assemble:siteProd',
     'assemble:adminProd',
-    'copy:common',
-    'copy:vendorProd',
+    'copy:home',
     'asset_cachebuster',
+    'copy:common',
     'clean:tmp',
     'serve:dev'
   ]);

@@ -14,7 +14,7 @@
     "lodash": "2.4.1",
     "moment-timezone": "0.1.0",
     "momentjs": "2.8.1",
-    "ngui" : "git@thegreenhouse.io:repositories/tg-lib/tg-lib-ngui.git#develop"
+    "ngui" : "git@bitbucket.org:obuckley/tg-lib-ng.git#develop"
   },
   "devDependencies": {
     "angular-mocks": "1.2.7"
