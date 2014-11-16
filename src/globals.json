@@ -54,7 +54,7 @@
         { "src": "angular-resource/angular-resource.min.js" },
         { "src": "lodash/dist/lodash.min.js" },
         { "src": "momentjs/min/moment.min.js" },
-        { "src": "ngui/dist/ngui.js" }
+        { "src": "ngui/dist/ngui.min.js" }
       ]
     }
   }
