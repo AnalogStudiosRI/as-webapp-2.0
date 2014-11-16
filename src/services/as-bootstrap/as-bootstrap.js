@@ -2,10 +2,12 @@ angular.module('asBootstrap', [
   'config',
   'log4ng',
   'language'
-]).config(function ($interpolateProvider) {
-  'use strict';
+]).config([
+  '$interpolateProvider',
+  function ($interpolateProvider) {
+    'use strict';
 
-  $interpolateProvider.startSymbol('[[');
-  $interpolateProvider.endSymbol(']]');
-
-});
+    $interpolateProvider.startSymbol('[[');
+    $interpolateProvider.endSymbol(']]');
+  }
+]);

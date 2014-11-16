@@ -182,20 +182,6 @@ module.exports = function (grunt) {
         }]
       },
 
-      ngUI: {
-        files: [{
-          expand: true,
-          cwd: 'bower_components/ngui/dist',
-          src: [ '**/**/*.js' ],
-          dest: 'dest/assets/js/'
-        }, {
-          expand: true,
-          cwd: 'bower_components/ngui/dist/features',
-          src: [ '**/**/*.html', '**/**/*.css' ],
-          dest: 'dest/features'
-        }]
-      },
-
       css: {
         files: [{
           expand: true,
@@ -330,7 +316,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'dest/',
-          src: [ '**/**/*.js' ],
+          src: [ '**/**/*.js', '!assets/js/vendor/ngui.js' ],
           dest: 'dest/'
         }]
       }
@@ -341,12 +327,11 @@ module.exports = function (grunt) {
         src: [
           'dest/assets/js/vendor/angular.js',
           'dest/assets/js/vendor/*.js',
-          'dest/assets/js/features/**/*.js',
           'dest/assets/js/services/config/config.js',
-          'dest/assets/js/services/log4ng/log4ng.js',
           'dest/assets/js/services/language/language.js',
-          'dest/assets/js/services/as-bootstrap/as-bootstrap.js',
-          'dest/assets/js/services/**/*.js'
+          'dest/assets/js/services/**/*.js',
+          'dest/assets/js/features/**/*.js',
+          'dest/assets/js/services/as-bootstrap/as-bootstrap.js'
         ],
         dest: 'dest/assets/js/core.min.js'
       }
@@ -371,6 +356,7 @@ module.exports = function (grunt) {
     //html
     assemble: {
       options: {
+        layoutdir: 'src/layouts',
         partials: [ 'src/partials/*.hbs' ],
         data: [ 'package.json', 'src/pages/**/*.json', 'src/globals.json' ],
         flatten: true
@@ -528,7 +514,7 @@ module.exports = function (grunt) {
 
   //js
   grunt.registerTask('js:dev', [ 'jshint', 'copy:js' ]); //generate js for dev task
-  grunt.registerTask('js:build', [ 'jshint', 'copy:js', 'ngAnnotate:build', 'copy:ngUI', 'uglify:build', 'concat:dist' ]); //generate js for build task
+  grunt.registerTask('js:build', [ 'jshint', 'copy:js', 'ngAnnotate:build', 'uglify:build', 'concat:dist' ]); //generate js for build task
 
   //copy
   grunt.registerTask('copy:common', [ 'copy:assets', 'copy:features', 'copy:pages', 'copy:vendorFont' ]);
@@ -555,11 +541,12 @@ module.exports = function (grunt) {
     'karma:ci',
     'copy:vendorProd',
     'css:build',
-    'js:build'
-    //'assemble:prod',
-    //'asset_cachebuster',
-    //'copy:common',
-    //'clean:tmp'
+    'js:build',
+    'assemble:prod',
+    'validation',
+    'asset_cachebuster',
+    'copy:common',
+    'clean:tmp'
   ]);
 
   //build + serve
@@ -568,9 +555,7 @@ module.exports = function (grunt) {
     'copy:vendorProd',
     'css:build',
     'js:build',
-    'assemble:siteProd',
-    'assemble:adminProd',
-    'copy:home',
+    'assemble:prod',
     'asset_cachebuster',
     'copy:common',
     'clean:tmp',
