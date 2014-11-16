@@ -14,16 +14,9 @@
     "lodash": "2.4.1",
     "moment-timezone": "0.1.0",
     "momentjs": "2.8.1",
-    "ngui" : "git@bitbucket.org:obuckley/tg-lib-ng.git#develop"
+    "ngui" : "git@bitbucket.org:obuckley/tg-lib-ng.git#0.1.0"
   },
   "devDependencies": {
     "angular-mocks": "1.3.1"
-  },
-  "resolutions": {
-    "angular": "1.3.1",
-    "angular-cookies": "1.3.1",
-    "angular-loader": "1.3.1",
-    "angular-resource": "1.3.1",
-    "angular-sanitize": "1.3.1"
   }
 }

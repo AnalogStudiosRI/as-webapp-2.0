@@ -23,11 +23,8 @@ echo "get dependencies..."
 rm -rf node_modules/
 rm -rf bower_components
 
-bower cache clean
-
 npm install
 bower install
-bower update
 
 echo "build..."
 grunt build
