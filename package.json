@@ -1,7 +1,7 @@
 {
   "name": "as-webapp",
-  "version": "2.0.0-SNAPSHOT-0.0.1",
-  "description": "Analog Studios Website 2.0 Redesign project",
+  "version": "0.1.0-SNAPSHOT",
+  "description": "Analog Studios Website 2.0 Redesign",
   "main": "Gruntfile.js",
   "repository": {
     "type": "git",
