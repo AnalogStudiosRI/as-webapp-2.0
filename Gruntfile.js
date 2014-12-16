@@ -466,7 +466,7 @@ module.exports = function (grunt) {
       local: {
         options: {
           router: {
-            '/api' : 'http://analogstudios.api.thegreenhouse.io/api'  //if you have as-api locally
+            '/api' : 'http://local.api.analogstudios.thegreenhouse.io/api'  //if you have as-api locally
           }
         }
       },
@@ -519,20 +519,22 @@ module.exports = function (grunt) {
   //copy
   grunt.registerTask('copy:common', [ 'copy:assets', 'copy:features', 'copy:pages', 'copy:vendorFont' ]);
 
+  //dev main
+  grunt.registerTask('dev:core', [ 'clean', 'css:dev',  'js:dev', 'assemble:dev', 'copy:common', 'copy:vendorDev', 'clean:tmp' ]);
+
   //serve
   grunt.registerTask('serve:local', ['open:local', 'connect:local', 'watch']); //view the build locally, with as-api
   grunt.registerTask('serve:dev', ['open:local', 'connect:dev', 'watch']); //view the build locally against dev
 
   //development tasks
   grunt.registerTask('dev', [
-    'clean',
-    'css:dev',
-    'js:dev',
-    'assemble:dev',
-    'copy:common',
-    'copy:vendorDev',
-    'clean:tmp',
+    'dev:core',
     'serve:dev'
+  ]);
+
+  grunt.registerTask('dev:local', [
+    'dev:core',
+    'serve:local'
   ]);
 
   //build
