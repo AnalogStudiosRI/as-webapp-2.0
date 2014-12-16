@@ -3,27 +3,23 @@
  */
 angular.module('config',
   []
-).factory('Config', [
-  function () {
-    'use strict';
+).constant('CONFIG', {
+  ENDPOINT: {
+    EVENTS: '/api/events/:id',
+    LOGGER: 'http://'
+  },
+  LOG_LEVEL: 0
+}).factory('Config', ['CONFIG', function (CONFIG) {
 
-    //templateCache
-    var Config = function () {
-      var APP_CONFIG = {
-        ENDPOINT: {
-          LOGGER: 'http://'
-        },
-        LOG_LEVEL: 0
-      };
-
-      this.get = function (selectorString) {
+    return {
+      get: function (selectorString) {
         var customConfigObj = {};
 
         if (selectorString === '*') {
-          customConfigObj = _.cloneDeep(APP_CONFIG);
+          customConfigObj = _.cloneDeep(CONFIG);
         } else {
-          var workingCustomConfig = _.cloneDeep(APP_CONFIG);
-          var currentConfigLevel = _.cloneDeep(APP_CONFIG);
+          var workingCustomConfig = _.cloneDeep(CONFIG);
+          var currentConfigLevel = _.cloneDeep(CONFIG);
 
           _.each(selectorString.split('.'), function (queryKey) {
             if (currentConfigLevel.hasOwnProperty(queryKey)) {
@@ -41,11 +37,7 @@ angular.module('config',
         }
 
         return customConfigObj;
-      };
-
-      return this;
+      }
     };
-
-    return new Config();
   }
 ]);
