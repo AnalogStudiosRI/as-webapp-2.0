@@ -242,15 +242,13 @@ module.exports = function (grunt) {
     //CSS
     lesslint: {
       options: {
-        imports: [
-          'src/less/**/**/*.less'
-        ],
+        imports: [],
         csslint: {
           csslintrc: '.csslintrc'
         }
       },
       src: [
-        'src/less/<%= pkg.name %>.less',
+        'src/less/*.less',
         'src/pages/**/*.less',
         'src/features/**/*.less'
       ]

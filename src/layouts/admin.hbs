@@ -32,28 +32,28 @@
 
   <body data-ng-cloak data-ng-app="{{page.app}}" data-ng-strict-di>
 
-  <!-- header -->
-  {{> header-admin }}
+    <!-- header -->
+    {{> header-admin }}
 
-  <!-- Page Output -->
-  {{> body }}
+    <!-- Page Output -->
+    {{> body }}
 
-  <!-- App JS -->
-  {{#production}}
-    {{#globals.app.prod.scripts}}
+    <!-- App JS -->
+    {{#production}}
+      {{#globals.app.prod.scripts}}
+        {{> script-tag }}
+      {{/globals.app.prod.scripts}}
+    {{/production}}
+    {{^production}}
+      {{#globals.app.dev.scripts}}
+        {{> script-tag }}
+      {{/globals.app.dev.scripts}}
+    {{/production}}
+
+    <!-- Page JS -->
+    {{#page.scripts}}
       {{> script-tag }}
-    {{/globals.app.prod.scripts}}
-  {{/production}}
-  {{^production}}
-    {{#globals.app.dev.scripts}}
-      {{> script-tag }}
-    {{/globals.app.dev.scripts}}
-  {{/production}}
-
-  <!-- Page JS -->
-  {{#page.scripts}}
-    {{> script-tag }}
-  {{/page.scripts}}
+    {{/page.scripts}}
 
   </body>
 </html>
