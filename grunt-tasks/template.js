@@ -1,7 +1,6 @@
 /*
  * Grunt related tasks for templating (assemble / handlebars)
  */
-
 'use strict';
 
 module.exports = function (grunt) {

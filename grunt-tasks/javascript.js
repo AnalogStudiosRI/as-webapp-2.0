@@ -1,7 +1,6 @@
 /*
  * Grunt related tasks for handling Javascript files
  */
-
 'use strict';
 
 module.exports = function (grunt) {

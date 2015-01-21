@@ -1,7 +1,6 @@
 /*
  * Grunt related tasks for working with LESS files
  */
-
 'use strict';
 
 module.exports = function (grunt) {
