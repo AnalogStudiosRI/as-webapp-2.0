@@ -3,7 +3,7 @@
  */
 'use strict';
 
-var ForwardProxy = require('../grunt-services/forward-proxy');
+var ForwardProxy = require('../grunt-services/forward-proxy.js');
 var _ = require('lodash');
 
 module.exports = function (grunt) {
@@ -19,7 +19,7 @@ module.exports = function (grunt) {
         livereload: true,
         middleware: function (connect, options) {
           return _.flatten([
-            require('../grunt-services/forward-proxy')(options.router),
+            ForwardProxy.getProxy(options.router),
             connect.static(options.base),
             connect.directory(options.base),
             connect.logger({ format: 'dev' })
