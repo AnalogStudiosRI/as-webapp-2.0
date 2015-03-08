@@ -1,12 +1,12 @@
 # Analog Studios - as-webapp-2.0 - Project
 
-New front end comoponent for the 2.0 analogstudios.net website redesign.
+Front end component for the analogstudios.net 2.0 website redesign.
 
 ## Install
 
-1. Make sure you have [vagrant][] and [virtualbox][] installed. Then,
-[node]: http://nodejs.org/
-[bower]: http://bower.io/
+1. Make sure you have [Vagrant][] and [VirtualBox][] installed. Then,
+[Vagrant]: http://www.vagrantup.com/
+[VirtualBox]: http://www.virtualbox.org/
 2. Add these entries to your hosts file
 ```
 127.0.0.1       local.analogstudios.thegreenhouse.io
