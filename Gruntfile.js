@@ -149,7 +149,7 @@ module.exports = function (grunt) {
 
   //serve
   grunt.registerTask('serve:local', ['open:local', 'connect:local', 'watch']); //view the build locally, with as-api
-  grunt.registerTask('serve:dev', ['open:local', 'connect:dev', 'watch']); //view the build locally against dev
+  grunt.registerTask('serve:dev', [/*'open:local',*/ 'connect:dev', 'watch']); //view the build locally against dev
 
   //development tasks
   grunt.registerTask('dev', [

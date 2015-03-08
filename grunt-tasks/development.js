@@ -14,9 +14,9 @@ module.exports = function (grunt) {
       options: {
         hostname: '*',
         protocol: 'http',
-        port: 1982,
+        port: 1981,
         base: 'dest/',
-        livereload: true,
+        //livereload: true,
         middleware: function (connect, options) {
           return _.flatten([
             ForwardProxy.getProxy(options.router),
