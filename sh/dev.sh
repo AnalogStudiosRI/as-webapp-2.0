@@ -31,7 +31,7 @@ grunt build
 
 echo "deploy"
 echo "clean webroot..."
-sudo rm -rvf /var/www/analogstudios.net/*
+sudo rm -rvf /var/www/analogstudios/*
 
 echo "deploy to webroot..."
-sudo cp -rvf dest/* /var/www/analogstudios.net/
+sudo cp -rvf dest/* /var/www/analogstudios/
