@@ -8,6 +8,7 @@ describe('config', function () {
 
     expect(endpoint).toBeDefined();
     expect(endpoint.LOGGER).toBeDefined();
+    expect(endpoint.EVENTS).toBeDefined();
   }));
 
   it('should test Config.get("LOG_LEVEL") exists', inject(function (Config) {

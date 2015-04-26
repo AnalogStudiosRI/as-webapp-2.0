@@ -24,7 +24,8 @@
         { "src": "/assets/js/vendor/ngui.js" },
         { "src": "/assets/js/services/config/config.js" },
         { "src": "/assets/js/services/language/language.js" },
-        { "src": "/assets/js/services/as-bootstrap/as-bootstrap.js" }
+        { "src": "/assets/js/services/as-bootstrap/as-bootstrap.js" },
+        { "src": "/assets/js/services/events/events.js" }
       ]
     }
   },
