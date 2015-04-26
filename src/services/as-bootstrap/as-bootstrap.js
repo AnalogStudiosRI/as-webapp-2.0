@@ -1,7 +1,9 @@
 angular.module('asBootstrap', [
   'config',
   'log4ng',
-  'language'
+  'language',
+  'header',
+  'footer'
 ]).config([
   '$interpolateProvider',
   function ($interpolateProvider) {

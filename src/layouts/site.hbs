@@ -28,15 +28,19 @@
 
   <body data-ng-cloak data-ng-app="{{page.app}}" data-ng-strict-di>
 
-    <div class="page-container">
-      <!-- header -->
-      {{> header-site }}
+    <div class="container">
+      <div class="col-md-12">
+        <!-- header directive -->
+        <header></header>
 
-      <!-- Page Output -->
-      {{> body }}
+        <!-- Page (controller) -->
+        <section class="row" id="{{page.id}}" data-ng-controller="{{page.ctrl}}">
+          {{> body }}
+        </section>
 
-      <!-- footer -->
-      {{> footer }}
+        <!-- footer directive -->
+        <footer></footer>
+      </div>
     </div>
 
     <!-- social media scripts -->

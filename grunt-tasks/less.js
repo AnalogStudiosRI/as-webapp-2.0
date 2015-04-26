@@ -12,7 +12,7 @@ module.exports = function (grunt) {
     dest: 'tmp/',
     ext: '.css'
   }, {
-    src: [ 'src/less/<%= pkg.name %>.less' ],
+    src: [ 'src/less/<%= pkg.name %>.less', 'src/features/**/*.less' ],
     dest: 'dest/assets/css/<%= pkg.name %>.css'
   }];
 
