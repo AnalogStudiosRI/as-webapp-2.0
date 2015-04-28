@@ -23,6 +23,11 @@ echo "get dependencies..."
 rm -rf node_modules/
 rm -rf bower_components
 
+echo "cleaning dependency caches..."
+npm cache clean
+bower cache clean
+
+echo "installing dependencies..."
 npm install
 bower install
 
