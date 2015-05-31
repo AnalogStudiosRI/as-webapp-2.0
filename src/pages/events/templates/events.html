@@ -1,13 +1,17 @@
-    <div class="col-md-12">
+    <div class="col-md-12 events-calendar">
       <p>This is the Events page</p>
 
-      <as-calendar event-data="events" event-click="eventClick"></as-calendar>
+      <!--Calendar Container-->
+      <div class="calendar-container">
 
-      <div ng-if="selectedEvent">
-        <p>Event Title: {{selectedEvent.title}}</p>
-        <p>Event Description: {{selectedEvent.description}}</p>
-        <p>Event Link: <a ng-href="selectedEvent.link">{{selectedEvent.link}}</a></p>
-        <p>Event Time: {{ (selectedEvent.startTime * 1000) | date : short }}
+        <as-calendar event-data="events" event-click="eventClick"></as-calendar>
+
+        <div ng-if="selectedEvent">
+          <p>Event Title: {{selectedEvent.title}}</p>
+          <p>Event Description: {{selectedEvent.description}}</p>
+          <p>Event Link: <a ng-href="selectedEvent.link">{{selectedEvent.link}}</a></p>
+          <p>Event Time: {{ (selectedEvent.startTime * 1000) | date : short }}
+        </div>
+
       </div>
-
     </div>

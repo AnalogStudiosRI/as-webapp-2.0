@@ -8,3 +8,76 @@
   border-radius: 32px;
   color: black;
 }
+
+@tertiary-font-color: #316291;
+@content-background-color: #ae996b;
+
+//events calendar main wrapper
+.events-calendar {
+  padding-right: 35px;
+  padding-left: 35px;
+
+  //calendar containing wrapper
+  .calendar-container {
+  }
+
+  //calendar sub containing wrapper
+  .calendar {
+  }
+
+  //calendar header and body
+  .calendar {
+
+    .header {
+      color: @tertiary-font-color;
+      font-size: 21px;
+    }
+
+    .body {
+    }
+  }
+
+  //calendar days and weeks
+  .calendar {
+
+    .day-name,
+    .day-on,
+    .day-off{
+      border: 3px solid @content-background-color;
+    }
+
+    .day-name{
+      width: 110px;
+      text-align: right;
+    }
+
+    .day-on,
+    .day-off{
+      width: 120px;
+      height: 110px;
+
+      //!need to give day its own class, rather than targeting ng-binding
+      .ng-binding{
+        color: #8c7446;
+        float: right;
+        margin: 0 0 80px 0;
+        padding: 0 5px 0 0;
+      }
+
+      .event{
+      }
+    }
+
+    .day-on{
+      background-color: #ece7dc;
+    }
+
+    .day-off{
+      background-color: #d2c7af;
+    }
+
+  }
+
+}// END events calendar main wrapper
+
+>>>>>>> started creating events page styles.
