@@ -9,17 +9,19 @@
   color: black;
 }
 
+/***********************/
+/* Events Styling */
+/***********************/
+
 @tertiary-font-color: #316291;
 @content-background-color: #ae996b;
 
-//events calendar main wrapper
-.events-calendar {
+//calendar main wrapper
+.calendar-section {
+  //display: none;
+
   padding-right: 35px;
   padding-left: 35px;
-
-  //calendar containing wrapper
-  .calendar-container {
-  }
 
   //calendar sub containing wrapper
   .calendar {
@@ -31,9 +33,6 @@
     .header {
       color: @tertiary-font-color;
       font-size: 21px;
-    }
-
-    .body {
     }
   }
 
@@ -55,16 +54,29 @@
     .day-off{
       width: 120px;
       height: 110px;
+      span { // we also want to avoid targeting elements in the less
+        color: #8c7446;
+        float: right;
+        //margin: 0 0 80px 0;
+        padding: 0 5px 0 0;
+      }
 
-      //!need to give day its own class, rather than targeting ng-binding
-      .ng-binding{
+      //!need to give day number its own class, rather than targeting ng-binding
+      /*.ng-binding{
         color: #8c7446;
         float: right;
         margin: 0 0 80px 0;
         padding: 0 5px 0 0;
-      }
+      }*/
 
       .event{
+        span {//
+          font-size: 11px;
+          position: relative;
+          top: -25px;
+          left: 0px;
+          width: 85px;
+        }
       }
     }
 
@@ -78,6 +90,43 @@
 
   }
 
-}// END events calendar main wrapper
+}
 
->>>>>>> started creating events page styles.
+.event-details-section{
+  .event-details-container{
+  }
+
+  .interact-and-share{
+    border: 2px solid black;
+  }
+
+  .event-image {
+    img {
+      width: 100%;
+    }
+  }
+
+  .event-details{
+
+    .event-title{
+      color: @tertiary-font-color;
+      font-size: 30px;
+      margin: 0 0 15px 0;
+    }
+
+    .event-date-time{
+    }
+
+    .event-location{
+    }
+
+    .event-description{
+      font-size: 15px;
+      margin: 15px 0 35px 0;
+    }
+  }
+}
+
+/***********************/
+/* END Events Styling */
+/***********************/

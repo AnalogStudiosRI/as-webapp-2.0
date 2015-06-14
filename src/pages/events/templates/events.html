@@ -1,16 +1,36 @@
     <div class="col-md-12 events-calendar">
-      <p>This is the Events page</p>
 
       <!--Calendar Container-->
       <div class="calendar-container">
 
-        <as-calendar event-data="events" event-click="eventClick"></as-calendar>
+        <!--Calendar-->
+        <div class="calendar-container">
+          <as-calendar event-data="events" event-click="eventClick"></as-calendar>
+        </div>
 
-        <div ng-if="selectedEvent">
-          <p>Event Title: {{selectedEvent.title}}</p>
-          <p>Event Description: {{selectedEvent.description}}</p>
-          <p>Event Link: <a ng-href="selectedEvent.link">{{selectedEvent.link}}</a></p>
-          <p>Event Time: {{ (selectedEvent.startTime * 1000) | date : short }}
+      </div>
+    </div>
+
+    <!--Event Details-->
+    <div class="row">
+      <div class="col-md-12 event-details-section">
+
+        <!--Event Details Container-->
+        <div class="event-details-container">
+          <div class="col-md-2 interact-and-share"></div>
+
+          <div class="col-md-4 event-image">
+            <img src="http://popmania.com/wp-content/uploads/2015/01/Coachella-2015-Lineup-Blog-Image.jpg">
+          </div>
+
+          <div class="col-md-6 event-details">
+            <div ng-if="selectedEvent">
+              <p>Event Title: {{selectedEvent.title}}</p>
+              <p>Event Description: {{selectedEvent.description}}</p>
+              <p>Event Link: <a ng-href="selectedEvent.link">{{selectedEvent.link}}</a></p>
+              <p>Event Time: {{ (selectedEvent.startTime * 1000) | date : short }}
+            </div>
+          </div>
         </div>
 
       </div>
