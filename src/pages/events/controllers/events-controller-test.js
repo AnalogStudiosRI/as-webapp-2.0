@@ -1,5 +1,6 @@
+'use strict';
+
 describe('AS.EventsPage.Controller.HomePageControllerTest', function () {
-  'use strict';
 
   var scope;
   var ctrl;

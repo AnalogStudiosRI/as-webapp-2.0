@@ -36,7 +36,10 @@
     {{> header-admin }}
 
     <!-- Page Output -->
-    {{> body }}
+    <!-- Page (controller) -->
+    <section class="row" id="{{page.id}}" data-ng-controller="{{page.ctrl}}">
+      {{> body }}
+    </section>
 
     <!-- App JS -->
     {{#production}}
