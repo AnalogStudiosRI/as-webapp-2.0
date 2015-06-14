@@ -1,6 +1,8 @@
 /**
  * The config module contains configurations that are used by the entire site.
  */
+'use strict';
+
 angular.module('config',
   []
 ).constant('CONFIG', {

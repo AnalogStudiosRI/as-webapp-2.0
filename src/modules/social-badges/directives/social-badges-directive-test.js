@@ -1,7 +1,8 @@
 describe('socialBadges', function () {
   'use strict';
 
-  var element, scope;
+  var element;
+  var scope;
 
   beforeEach(module('socialBadges'));
   //beforeEach(module('templates'));

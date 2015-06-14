@@ -5,4 +5,4 @@ dest/
 tmp/
 reports/
 npm-debug.log
-.vagrant/
+.vagrant/gi

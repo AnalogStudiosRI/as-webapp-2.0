@@ -1,7 +1,8 @@
 describe('header', function () {
   'use strict';
 
-  var element, scope;
+  var element;
+  var scope;
 
   beforeEach(module('header'));
 

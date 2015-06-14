@@ -1,13 +1,14 @@
+'use strict';
+
 angular.module('asBootstrap', [
   'config',
   'log4ng',
   'language',
-  'header',
-  'footer'
+  'AS.HeaderModule',
+  'AS.FooterModule'
 ]).config([
   '$interpolateProvider',
   function ($interpolateProvider) {
-    'use strict';
 
     $interpolateProvider.startSymbol('[[');
     $interpolateProvider.endSymbol(']]');
