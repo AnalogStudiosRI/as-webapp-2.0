@@ -14,7 +14,7 @@ module.exports = function (grunt) {
       files: [{
         expand: true,
         cwd: 'src/pages/',
-        src: ['**/*.hbs', '!admin/*.hbs'],
+        src: ['**/*.html', '!admin/*.hbs'],
         dest: 'tmp/'
       }]
     };
