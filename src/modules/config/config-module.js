@@ -2,6 +2,6 @@
 
 (function (angular) {
   angular
-    .module('AS.Config', []);
+    .module('as.module.config', []);
 
 }(angular));

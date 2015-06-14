@@ -1,10 +1,15 @@
 'use strict';
 
-describe('AS.ConfigModule.Factory.ConfigFactoryTest', function () {
+describe('as.module.config.factory.ConfigFactoryTest', function () {
 
-  beforeEach(module('AS.Config'));
+  beforeEach(module('as.module.config'));
 
-  it('should test Config.get("ENDPOINT") exists', inject(function (ConfigFactory) {
+  it('can get an instance of ConfigFactory', inject(function (ConfigFactory) {
+    expect(ConfigFactory).toBeDefined();
+  }));
+
+
+  it('should test ConfigFactory.get("ENDPOINT") exists', inject(function (ConfigFactory) {
     var endpoint = ConfigFactory.get('ENDPOINT');
 
     expect(endpoint).toBeDefined();

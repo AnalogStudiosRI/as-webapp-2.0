@@ -1,12 +1,12 @@
 'use strict';
 
-describe('AS.FooterModule.Directive.FooterDirectiveTest', function () {
+describe('as.module.footer.directive.FooterDirectiveTest', function () {
 
   var element;
   var scope;
 
-  beforeEach(module('AS.FooterModule'));
-  beforeEach(module('AS.Bootstrap'));
+  beforeEach(module('as.module.bootstrap'));
+  beforeEach(module('as.module.footer'));
   beforeEach(module('templates'));
 
   beforeEach(inject(function ($rootScope, $compile) {

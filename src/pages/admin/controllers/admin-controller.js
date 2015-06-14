@@ -3,16 +3,16 @@
 (function (angular) {
 
   angular
-    .module('AS.AdminPage')
+    .module('as.page.admin')
     .controller('AdminPageController', adminPageController);
 
-  adminPageController.$inject = ['$scope', 'Log4ng'];
+  adminPageController.$inject = ['$scope', '$log'];
 
-  function adminPageController($scope, Log4ng) {
+  function adminPageController($scope, $log) {
     var AdminCtrl = {};
 
     AdminCtrl.init = function () {
-      Log4ng.info('ENTER AS.AdminPage.init');
+      $log.info('ENTER AS.AdminPage.init');
     };
 
     $scope.AdminCtrl = AdminCtrl;

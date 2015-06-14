@@ -3,6 +3,6 @@
 (function (angular) {
 
   angular
-    .module('AS.AdminPage', ['AS.Bootstrap']);
+    .module('as.page.admin', ['as.module.bootstrap']);
 
 }(angular));

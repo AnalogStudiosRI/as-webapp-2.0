@@ -1,11 +1,11 @@
 'use strict';
 
-describe('AS.HomePage.Controller.HomePageControllerTest', function () {
+describe('as.page.home.controller.HomePageControllerTest', function () {
   var scope;
   var ctrl;
   var dom;
 
-  beforeEach(module('AS.HomePage'));
+  beforeEach(module('as.page.home'));
   beforeEach(inject(function ($compile, $rootScope, $controller) {
     scope = $rootScope.$new();
     dom = angular.element('<div></div>');

@@ -3,19 +3,19 @@
 (function (angular) {
 
   angular
-    .module('AS.HomePage')
+    .module('as.page.home')
     .controller('HomePageController', homePageContoller);
 
-  homePageContoller.$inject = ['$scope', 'Log4ng', 'LanguageFactory'];
+  homePageContoller.$inject = ['$scope', '$log', 'LanguageFactory'];
 
-  function homePageContoller($scope, Log4ng, LanguageFactory) {
+  function homePageContoller($scope, $log, LanguageFactory) {
     //controller
     var HomeCtrl = {};
     var LANG = LanguageFactory.get();
 
     //public methods
     HomeCtrl.init = function () {
-      Log4ng.info('Enter AS.HomePage.init');
+      $log.info('Enter AS.HomePage.init');
 
       HomeCtrl.welcomeText = LANG.PAGE.HOME.WELCOME_TEXT;
     };

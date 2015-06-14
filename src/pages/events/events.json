@@ -1,5 +1,5 @@
 {
-  "app": "AS.EventsPage",
+  "app": "as.page.events",
   "ctrl": "EventsPageController",
   "title": "Events Page",
   "id": "events-page",

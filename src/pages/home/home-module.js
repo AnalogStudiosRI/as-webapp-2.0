@@ -3,6 +3,6 @@
 (function (angular) {
 
   angular
-    .module('AS.HomePage', ['AS.Bootstrap']);
+    .module('as.page.home', ['as.module.bootstrap']);
 
 }(angular));

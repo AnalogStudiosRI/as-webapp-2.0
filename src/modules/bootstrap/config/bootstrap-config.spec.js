@@ -1,10 +1,10 @@
 'use strict';
 
-xdescribe('AS.BootstrapModule.Config.BootstrapConfigTest', function () {
+xdescribe('as.module.bootstrap.config.BootstrapConfigTest', function () {
 
   var interpolate;
 
-  beforeEach(module('AS.Bootstrap'));
+  beforeEach(module('as.module.bootstrap'));
 
   beforeEach(inject(function ($interpolate) {
     interpolate = $interpolate;

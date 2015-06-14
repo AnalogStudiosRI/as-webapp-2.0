@@ -1,5 +1,5 @@
 {
-  "app": "AS.HomePage",
+  "app": "as.page.home",
   "ctrl": "HomePageController",
   "title": "Home Page",
   "id": "home-page",

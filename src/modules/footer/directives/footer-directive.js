@@ -3,7 +3,7 @@
 (function (angular) {
 
   angular
-    .module('AS.FooterModule')
+    .module('as.module.footer')
     .directive('asFooter', footerModuleDirective);
 
   function footerModuleDirective() {

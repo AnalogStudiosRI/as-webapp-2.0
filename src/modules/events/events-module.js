@@ -3,6 +3,6 @@
 (function (angular) {
 
   angular
-    .module('AS.Events', ['ngResource', 'AS.Config', 'log4ng']);
+    .module('as.module.events', ['ngResource', 'as.module.config']);
 
 }(angular));

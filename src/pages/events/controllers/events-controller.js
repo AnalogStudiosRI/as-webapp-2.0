@@ -3,12 +3,12 @@
 (function () {
 
   angular
-    .module('AS.EventsPage')
+    .module('as.page.events')
     .controller('EventsPageController', eventsPageController);
 
-  eventsPageController.$inject = ['$scope', 'Log4ng', 'EventsFactory'];
+  eventsPageController.$inject = ['$scope', '$log', 'EventsFactory'];
 
-  function eventsPageController($scope, Log4ng, EventsFactory) {
+  function eventsPageController($scope, $log, EventsFactory) {
     //controller
     var EventsCtrl = {};
 
@@ -16,14 +16,14 @@
 
     //private methods
     function getEvents() {
-      Log4ng.debug(new Date().getTime());
+      $log.debug(new Date().getTime());
       EventsFactory.query(function (response) {
-        Log4ng.info('getEvents success');
-        Log4ng.debug(response);
+        $log.info('getEvents success');
+        $log.debug(response);
         EventsCtrl.model.events = response;
       }, function (response) {
-        Log4ng.error('getEvents failure');
-        Log4ng.error(response);
+        $log.error('getEvents failure');
+        $log.error(response);
       });
     }
 
@@ -33,7 +33,7 @@
     };
 
     EventsCtrl.init = function () {
-      Log4ng.info('Enter AS.EventsPage.init');
+      $log.info('Enter AS.EventsPage.init');
 
       getEvents();
     };

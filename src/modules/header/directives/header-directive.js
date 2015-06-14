@@ -2,7 +2,7 @@
 
 (function (angular) {
   angular
-    .module('AS.HeaderModule')
+    .module('as.module.header')
     .directive('asHeader', headerDirective);
 
   function headerDirective() {

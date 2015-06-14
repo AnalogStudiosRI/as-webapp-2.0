@@ -1,11 +1,11 @@
 'use strict';
 
-describe('AS.AdminPage.Controller.HomePageControllerTest', function () {
+xdescribe('as.page.admin.controller.HomePageControllerTest', function () {
   var scope;
   var ctrl;
   var dom;
 
-  beforeEach(module('AS.AdminPage'));
+  beforeEach(module('as.page.admin'));
   beforeEach(inject(function ($compile, $rootScope, $controller) {
     scope = $rootScope.$new();
     dom = angular.element('<div></div>');
@@ -22,7 +22,7 @@ describe('AS.AdminPage.Controller.HomePageControllerTest', function () {
     scope.$digest();
   }));
 
-  xit('it should test something, eventually', function () {
+  it('it should test something, eventually', function () {
 
   });
 

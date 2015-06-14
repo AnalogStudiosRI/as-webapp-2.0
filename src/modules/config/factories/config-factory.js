@@ -11,7 +11,7 @@
   };
 
   angular
-    .module('AS.Config')
+    .module('as.module.config')
     .constant('CONFIG', asConfig)
     .factory('ConfigFactory', configFactory);
 

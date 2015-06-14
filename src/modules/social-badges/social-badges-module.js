@@ -3,6 +3,6 @@
 (function (angular) {
 
   angular
-    .module('AS.SocialBadgesModule', []);
+    .module('as.module.socialBadges', []);
 
 })(angular);

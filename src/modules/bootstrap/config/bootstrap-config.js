@@ -3,7 +3,7 @@
 (function (angular) {
 
   angular
-    .module('AS.Bootstrap')
+    .module('as.module.bootstrap')
     .config(bootstrapConfig);
 
   bootstrapConfig.$inject = ['$interpolateProvider'];

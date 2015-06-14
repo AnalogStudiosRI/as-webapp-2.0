@@ -1,8 +1,8 @@
 'use strict';
 
-describe('AS.LanguageModule.Factory.LanguageFactoryTest', function () {
+describe('as.module.language.factory.LanguageFactoryTest', function () {
 
-  beforeEach(module('AS.Language'));
+  beforeEach(module('as.module.language'));
 
   it('can get an instance of my factory', inject(function (LanguageFactory) {
     expect(LanguageFactory).toBeDefined();

@@ -1,12 +1,12 @@
 'use strict';
 
-describe('AS.EventsPage.Controller.HomePageControllerTest', function () {
+xdescribe('as.page.events.controller.HomePageControllerTest', function () {
 
   var scope;
   var ctrl;
   var dom;
 
-  beforeEach(module('AS.EventsPage'));
+  beforeEach(module('as.page.events'));
   beforeEach(inject(function ($compile, $rootScope, $controller) {
     scope = $rootScope.$new();
     dom = angular.element('<div></div>');
@@ -23,7 +23,7 @@ describe('AS.EventsPage.Controller.HomePageControllerTest', function () {
     scope.$digest();
   }));
 
-  xit('it should test something, eventually', function () {
+  it('it should test something, eventually', function () {
 
   });
 
