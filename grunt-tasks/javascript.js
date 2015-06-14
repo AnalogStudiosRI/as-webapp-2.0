@@ -3,6 +3,12 @@
  */
 'use strict';
 
+var jsFiles = [
+  '*.js',
+  'grunt-tasks/*.js',
+  'src/**/**/*.js'
+];
+
 module.exports = function (grunt) {
 
   grunt.config.merge({
@@ -21,19 +27,21 @@ module.exports = function (grunt) {
       }
     },
 
+    jscs: {
+      src: jsFiles,
+      options: {
+        config: '.jscsrc'
+      }
+    },
+
     jshint: {
       options: {
-        jshintrc: '.jshintrc'
-      },
-      gruntfile: {
-        src: 'Gruntfile.js'
+        jshintrc: '.jshintrc',
+        reporter: './node_modules/jshint-stylish',
+        verbose: true
       },
       jsFiles: {
-        src: [
-          'src/**/*.js',
-          'grunt-tasks/*.js',
-          '*.js'
-        ]
+        src: jsFiles
       }
     },
 
@@ -42,7 +50,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'src/pages',
-          src: [ '**/*.js', '!**/*-test.js' ],
+          src: ['**/*.js', '!**/*-test.js'],
           dest: 'tmp/'
         }, {
           expand: true,
@@ -78,9 +86,10 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-jscs');
   grunt.loadNpmTasks('grunt-ng-annotate');
 
-  grunt.registerTask('js:dev', [ 'jshint', 'copy:js' ]); //generate js for dev task
-  grunt.registerTask('js:build', [ 'jshint', 'copy:js', 'ngAnnotate:build', 'uglify:build', 'concat:dist' ]); //generate js for build task
+  grunt.registerTask('js:dev', ['jshint', 'jscs', 'copy:js']); //generate js for dev task
+  grunt.registerTask('js:build', ['jshint', 'jscs', 'copy:js', 'ngAnnotate:build', 'uglify:build', 'concat:dist']); //generate js for build task
 
 };

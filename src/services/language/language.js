@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('language', [
 
 ]).constant('LANGUAGE', {
@@ -9,8 +11,7 @@ angular.module('language', [
   MESSAGE: {
     UNEXPECTED: 'Sorry, there was an unexpected error.  Please try again or contact the webmaster at XXX'
   }
-}).factory('Language', [ 'LANGUAGE', function (LANGUAGE) {
-  'use strict';
+}).factory('Language', ['LANGUAGE', function (LANGUAGE) {
 
   return LANGUAGE;
 }]);

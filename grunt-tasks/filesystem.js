@@ -120,5 +120,5 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('copy:common', [ 'copy:assets', 'copy:modules', 'copy:pages', 'copy:vendorFont' ]);
+  grunt.registerTask('copy:common', ['copy:assets', 'copy:modules', 'copy:pages', 'copy:vendorFont']);
 };

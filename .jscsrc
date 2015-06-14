@@ -1,0 +1,13 @@
+{
+  "preset": "airbnb",
+  "disallowMultipleLineBreaks": null,
+  "disallowQuotedKeysInObjects": "allButReserved",
+  "disallowSpacesInFunctionExpression": null,
+  "disallowSpacesInAnonymousFunctionExpression": null,
+  "requireLineFeedAtFileEnd": null,
+  "requirePaddingNewLinesAfterBlocks": null,
+  "requirePaddingNewLinesBeforeLineComments": null,
+  "safeContextKeyword": ["AdminCtrl", "EventsCtrl", "HomeCtrl"],
+  "validateLineBreaks": "LF",
+  "verbose": true
+}

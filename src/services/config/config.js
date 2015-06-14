@@ -13,33 +13,33 @@ angular.module('config',
   LOG_LEVEL: 0
 }).factory('Config', ['CONFIG', function (CONFIG) {
 
-    return {
-      get: function (selectorString) {
-        var customConfigObj = {};
+  return {
+    get: function (selectorString) {
+      var customConfigObj = {};
 
-        if (selectorString === '*') {
-          customConfigObj = _.cloneDeep(CONFIG);
-        } else {
-          var workingCustomConfig = _.cloneDeep(CONFIG);
-          var currentConfigLevel = _.cloneDeep(CONFIG);
+      if (selectorString === '*') {
+        customConfigObj = _.cloneDeep(CONFIG);
+      } else {
+        var workingCustomConfig = _.cloneDeep(CONFIG);
+        var currentConfigLevel = _.cloneDeep(CONFIG);
 
-          _.each(selectorString.split('.'), function (queryKey) {
-            if (currentConfigLevel.hasOwnProperty(queryKey)) {
-              var currentValue = currentConfigLevel[queryKey];
+        _.each(selectorString.split('.'), function (queryKey) {
+          if (currentConfigLevel.hasOwnProperty(queryKey)) {
+            var currentValue = currentConfigLevel[queryKey];
 
-              //assign and update pointers
-              workingCustomConfig = currentValue;
-              currentConfigLevel = currentValue;
-            } else {
-              throw new Error('unsupported property => ' + queryKey);
-            }
-          });
+            //assign and update pointers
+            workingCustomConfig = currentValue;
+            currentConfigLevel = currentValue;
+          } else {
+            throw new Error('unsupported property => ' + queryKey);
+          }
+        });
 
-          customConfigObj = workingCustomConfig;
-        }
-
-        return customConfigObj;
+        customConfigObj = workingCustomConfig;
       }
-    };
-  }
-]);
+
+      return customConfigObj;
+    }
+  };
+
+}]);

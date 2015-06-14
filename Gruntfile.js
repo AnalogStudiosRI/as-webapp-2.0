@@ -16,7 +16,7 @@ module.exports = function (grunt) {
   grunt.loadTasks('./grunt-tasks');
 
   //dev main
-  grunt.registerTask('dev:core', [ 'clean', 'css:dev',  'js:dev', 'assemble:dev', 'copy:common', 'copy:vendorDev', 'clean:tmp' ]);
+  grunt.registerTask('dev:core', ['clean', 'css:dev',  'js:dev', 'assemble:dev', 'copy:common', 'copy:vendorDev', 'clean:tmp']);
 
   //development tasks
   grunt.registerTask('dev', [

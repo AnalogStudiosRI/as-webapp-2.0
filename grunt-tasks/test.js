@@ -3,43 +3,25 @@
  */
 'use strict';
 
-var BowerService = require('../grunt-services/bower-service.js');
-var _ = require('lodash');
-
 module.exports = function (grunt) {
 
   grunt.config.merge({
+
     //unit testing
     karma: {
       options: {
-        configFile: 'karma.conf.js',
-        files: _.map(BowerService.getAssets('dev').js, function (file) {
-          return 'bower_components/' + file;
-        }).concat([
-          'bower_components/angular-mocks/angular-mocks.js',
-          'bower_components/ngui/dist/**/*.js',
-          'src/pages/**/*.js',
-          'src/features/**/*.js',
-          'src/services/**/*.js'
-        ])
+        configFile: 'karma.conf.js'
       },
-      dev: {
+      tdd: {
         autoWatch: true,
         singleRun: false,
-        browsers: [ 'PhantomJS' ],
-        reporters: [ 'progress' ],
-        keepalive: true
+        browsers: ['Chrome'],
+        reporters: ['progress'],
+        keepalive: true,
+        logLevel: 'INFO'
       },
       ci: {
-        keepalive: true,
-        autoWatch: false,
-        singleRun: true,
-        browsers: [ 'PhantomJS' ],
-        reporters: [ 'junit', 'progress' ],
-        reportSlowerThan: 1000,
-        junitReporter: {
-          outputFile: 'reports/test-results.xml'
-        }
+        configFile: 'karma-coverage.conf.js'
       }
     }
 

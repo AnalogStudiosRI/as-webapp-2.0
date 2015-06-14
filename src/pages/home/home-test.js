@@ -1,7 +1,9 @@
 describe('home', function () {
   'use strict';
 
-  var scope, ctrl, dom;
+  var scope;
+  var ctrl
+  var dom;
 
   beforeEach(module('home'));
   beforeEach(inject(function ($compile, $rootScope, $controller) {

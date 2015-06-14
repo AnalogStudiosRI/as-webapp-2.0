@@ -29,14 +29,14 @@ module.exports = function (grunt) {
       local: {
         options: {
           router: {
-            '/api' : 'http://local.api.analogstudios.thegreenhouse.io/api'  //if you have as-api locally
+            '/api': 'http://local.api.analogstudios.thegreenhouse.io/api'  //if you have as-api locally
           }
         }
       },
       dev: {
         options: {
           router: {
-            '/api' : 'http://analogstudios.thegreenhouse.io/api'
+            '/api': 'http://analogstudios.thegreenhouse.io/api'
           }
         }
       }
@@ -55,22 +55,26 @@ module.exports = function (grunt) {
       },
 
       handlebars: {
-        files: [ 'src/pages/**/*.hbs', 'src/layouts/*.hbs', 'src/partials/*.hbs' ],
-        tasks: [ 'assemble:siteDev', 'assemble:adminDev', 'copy:pages', 'copy:home' ]
+        files: [
+          'src/pages/**/*.hbs', 'src/layouts/*.hbs', 'src/partials/*.hbs'
+        ],
+        tasks: [
+          'assemble:siteDev', 'assemble:adminDev', 'copy:pages', 'copy:home'
+        ]
       },
 
       less: {
         files: [
           'src/pages/**/*.less', 'src/less/*.less', 'src/features/**/*.less'
         ],
-        tasks: [ 'css:dev', 'clean:tmp' ]
+        tasks: ['css:dev', 'clean:tmp']
       },
 
       js: {
         files: [
           'src/pages/**/*.js', 'src/modules/**/*.js', 'src/services/**/*.js'
         ],
-        tasks: [ 'js:dev' ]
+        tasks: ['js:dev']
       },
 
       modules: {
