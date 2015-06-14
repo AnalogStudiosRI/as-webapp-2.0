@@ -1,6 +1,6 @@
 angular.module('events', [
   'ngResource',
-  'config',
+  'AS.Config',
   'log4ng'
 ]).factory('Events', [
   '$resource',

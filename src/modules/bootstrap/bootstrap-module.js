@@ -4,7 +4,7 @@
 
   angular
     .module('AS.Bootstrap', [
-      'config',
+      'AS.Config',
       'log4ng',
       'language',
       'AS.HeaderModule',

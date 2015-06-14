@@ -1,7 +1,7 @@
-describe('config', function () {
+describe('AS.Config', function () {
   'use strict';
 
-  beforeEach(module('config'));
+  beforeEach(module('AS.Config'));
 
   it('should test Config.get("ENDPOINT") exists', inject(function (Config) {
     var endpoint = Config.get('ENDPOINT');
