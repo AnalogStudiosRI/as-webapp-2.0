@@ -17,13 +17,15 @@ module.exports = function (grunt) {
         src: [
           'dest/assets/js/vendor/angular.js',
           'dest/assets/js/vendor/*.js',
-          'dest/assets/js/services/config/config.js',
-          'dest/assets/js/services/language/language.js',
-          'dest/assets/js/services/**/*.js',
-          'dest/assets/js/modules/**/*.js',
-          'dest/assets/js/services/as-bootstrap/as-bootstrap.js'
+          //'dest/assets/js/modules/config/**/*.js',
+          //'dest/assets/js/modules/language/**/*.js',
+          //'dest/assets/js/modules/header/**/*.js',
+          //'dest/assets/js/modules/footer/**/*.js',
+          //'dest/assets/js/modules/social-badges/**/*.js',
+          'dest/assets/js/**/**/*-module.js',
+          'dest/assets/js/**/*.js'
         ],
-        dest: 'dest/assets/js/core.min.js'
+        dest: 'dest/assets/js/<%= pkg.name %>.min.js'
       }
     },
 
@@ -56,10 +58,8 @@ module.exports = function (grunt) {
           expand: true,
           cwd: 'src/',
           src: [
-            'services/**/*.js',
-            'modules/**/*.js',
-            '!services/**/*-test.js',
-            '!features/**/*-test.js'
+            'src/**/**/*.js',
+            '!src/**/*-test.js'
           ],
           dest: 'tmp/assets/js'
         }]

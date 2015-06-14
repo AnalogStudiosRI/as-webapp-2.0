@@ -24,16 +24,16 @@
   "trailing": true,
   "white": true,
   "globals": {
-    "$": true, //app global TODO remove
     "_" : true, //app global
     "angular": true, //app global
-    "beforeEach": true, //jasmine global
-    "describe" : true,  //jasmine global
-    "expect": true, //jasmine global
+    "beforeEach": true, //testing global
+    "describe" : true,  //testing global
+    "expect": true, //testing global
     "inject": true, //angular global
-    "it": true, //jasmine global
-    "module": true, //anuglar global
+    "it": true, //testing global
+    "module": true, //testing global
     "moment" : true, //app global
-    "xit": true //jasmine global
+    "xdescribe": true, //testing global
+    "xit": true //testing global
   }
 }

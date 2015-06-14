@@ -6,7 +6,7 @@
         { "src": "/assets/css/as-webapp.css" }
       ],
       "scripts": [
-        { "src": "/assets/js/core.min.js" }
+        { "src": "/assets/js/as-webapp.min.js" }
       ]
     },
     "dev": {
@@ -61,7 +61,7 @@
       "scripts": [
         { "src": "html5shiv/dist/html5shiv.js" },
         { "src": "jquery/jquery.min.js" },
-        { "src": "angular/angular.min.js" },
+        { "src": "angular/angular.js" },
         { "src": "angular-resource/angular-resource.min.js" },
         { "src": "lodash/dist/lodash.min.js" },
         { "src": "momentjs/min/moment.min.js" },
