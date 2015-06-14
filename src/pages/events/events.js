@@ -1,12 +1,12 @@
 angular.module('eventsPage', [
   'AS.Bootstrap',
-  'events',
+  'AS.Events',
   'calendar'
 ]).controller('EventsCtrl', [
   '$scope',
   'Log4ng',
-  'Events',
-  function ($scope, Log4ng, Events) {
+  'EventsFactory',
+  function ($scope, Log4ng, EventsFactory) {
     'use strict';
 
     Log4ng.debug('ENTER The Events Page');
@@ -19,7 +19,7 @@ angular.module('eventsPage', [
     //private methods
     function getEvents() {
       Log4ng.debug(new Date().getTime());
-      Events.query(function (response) {
+      EventsFactory.query(function (response) {
         Log4ng.info('getEvents success');
         Log4ng.debug(response);
         EventsCtrl.model.events = response;
