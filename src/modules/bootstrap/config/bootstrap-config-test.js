@@ -1,6 +1,6 @@
 'use strict';
 
-describe('AS.Bootstrap', function () {
+describe('AS.BootstrapModule.Config.BootstrapConfigTest', function () {
 
   var interpolate;
 

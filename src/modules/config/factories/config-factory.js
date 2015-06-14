@@ -13,7 +13,7 @@
   angular
     .module('AS.Config')
     .constant('CONFIG', asConfig)
-    .factory('Config', configFactory);
+    .factory('ConfigFactory', configFactory);
 
   configFactory.$inject = ['CONFIG'];
 

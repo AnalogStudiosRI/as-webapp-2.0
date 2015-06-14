@@ -6,10 +6,10 @@
     .module('AS.Events')
     .factory('EventsFactory', eventsFactory);
 
-  eventsFactory.$inject = ['$resource', 'Config'];
+  eventsFactory.$inject = ['$resource', 'ConfigFactory'];
 
-  function eventsFactory($resource, Config) {
-    var ENDPOINT = Config.get('ENDPOINT.EVENTS');
+  function eventsFactory($resource, ConfigFactory) {
+    var ENDPOINT = ConfigFactory.get('ENDPOINT.EVENTS');
 
     return $resource(ENDPOINT, {id: '@id'}, {
       update: {

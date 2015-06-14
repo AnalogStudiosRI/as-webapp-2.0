@@ -2,23 +2,22 @@ angular.module('homePage', [
   'AS.Bootstrap'
 ]).controller('HomeCtrl', [
   '$scope',
-  'Config',
   'Log4ng',
-  'Language',
-  function ($scope, Config, Log, Language) {
+  'LanguageFactory',
+  function ($scope, Log, LanguageFactory) {
     'use strict';
 
     Log.debug('ENTER THE HOME PAGE');
 
     //controller
     var HomeCtrl = this;
-    var lang = Language.PAGE.HOME;
+    var LANG = LanguageFactory.get();
 
     //public methods
     HomeCtrl.init = function () {
       Log.info('this is the home page');
 
-      HomeCtrl.welcomeText = lang.WELCOME_TEXT;
+      HomeCtrl.welcomeText = LANG.PAGE.HOME.WELCOME_TEXT;
     };
 
     //init

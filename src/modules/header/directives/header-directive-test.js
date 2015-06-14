@@ -1,5 +1,6 @@
-describe('AS.HeaderModule', function () {
-  'use strict';
+'use strict';
+
+describe('AS.HeaderModule.Directives.HeaderDirectiveTest', function () {
 
   var element;
   var scope;

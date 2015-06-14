@@ -6,7 +6,7 @@
     .module('AS.Bootstrap', [
       'AS.Config',
       'log4ng',
-      'language',
+      'AS.Language',
       'AS.HeaderModule',
       'AS.FooterModule'
     ]);

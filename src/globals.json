@@ -22,19 +22,20 @@
         { "src": "/assets/js/vendor/lodash.js" },
         { "src": "/assets/js/vendor/moment.js" },
         { "src": "/assets/js/vendor/ngui.js" },
-        { "src": "/assets/js/modules/config/config-module.js" },
-        { "src": "/assets/js/modules/config/factories/config-factory.js" },
-        { "src": "/assets/js/services/language/language.js" },
         { "src": "/assets/js/modules/bootstrap/bootstrap-module.js" },
         { "src": "/assets/js/modules/bootstrap/config/bootstrap-config.js" },
+        { "src": "/assets/js/modules/config/config-module.js" },
+        { "src": "/assets/js/modules/config/factories/config-factory.js" },
         { "src": "/assets/js/modules/events/events-module.js" },
         { "src": "/assets/js/modules/events/factories/events-factory.js" },
-        { "src": "/assets/js/modules/social-badges/social-badges-module.js" },
-        { "src": "/assets/js/modules/social-badges/directives/social-badges-directive.js" },
+        { "src": "/assets/js/modules/footer/footer-module.js" },
+        { "src": "/assets/js/modules/footer/directives/footer-directive.js" },
         { "src": "/assets/js/modules/header/header-module.js" },
         { "src": "/assets/js/modules/header/directives/header-directive.js" },
-        { "src": "/assets/js/modules/footer/footer-module.js" },
-        { "src": "/assets/js/modules/footer/directives/footer-directive.js" }
+        { "src": "/assets/js/modules/language/language-module.js" },
+        { "src": "/assets/js/modules/language/factories/language-factory.js" },
+        { "src": "/assets/js/modules/social-badges/social-badges-module.js" },
+        { "src": "/assets/js/modules/social-badges/directives/social-badges-directive.js" }
       ]
     }
   },

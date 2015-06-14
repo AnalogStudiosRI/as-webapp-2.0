@@ -1,6 +1,6 @@
 'use strict';
 
-describe('myFactory', function () {
+describe('AS.EventsModule.Factory.EventsFactoryTest', function () {
 
   beforeEach(module('AS.Events'));
 

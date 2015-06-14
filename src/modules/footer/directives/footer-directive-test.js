@@ -1,6 +1,6 @@
 'use strict';
 
-describe('AS.FooterModule', function () {
+describe('AS.FooterModule.Directive.FooterDirectiveTest', function () {
 
   var element;
   var scope;

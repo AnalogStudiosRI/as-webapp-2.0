@@ -1,4 +1,4 @@
-describe('AS.SocialBadgesModule', function () {
+describe('AS.SocialBadgesModule.Directive.SocialBadgesDirectiveTest', function () {
   'use strict';
 
   var element;
