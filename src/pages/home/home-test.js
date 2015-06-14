@@ -2,7 +2,7 @@ describe('home', function () {
   'use strict';
 
   var scope;
-  var ctrl
+  var ctrl;
   var dom;
 
   beforeEach(module('home'));
