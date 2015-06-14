@@ -2,6 +2,12 @@
       <p>This is the Events page</p>
 
       <div>
-        <div data-calendar data-event-data="EventsCtrl.model.events" class="calendar"></div>
+        <datepicker
+          ng-model="dt"
+          min-date="minDate"
+          show-weeks="true"
+          class="well well-sm"
+          custom-class="getDayClass(date, mode)">
+        </datepicker>
       </div>
     </div>
