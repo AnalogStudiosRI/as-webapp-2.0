@@ -37,7 +37,7 @@ module.exports = function (grunt) {
     'css:build',
     'js:build',
     'assemble:prod',
-    'validation',
+    //'validation',
     'asset_cachebuster',
     'copy:common',
     'clean:tmp'
