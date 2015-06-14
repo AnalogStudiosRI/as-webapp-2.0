@@ -12,7 +12,7 @@ module.exports = function (grunt) {
     dest: 'tmp/',
     ext: '.css'
   }, {
-    src: [ 'src/less/<%= pkg.name %>.less', 'src/features/**/*.less' ],
+    src: [ 'src/less/<%= pkg.name %>.less', 'src/modules/**/*.less' ],
     dest: 'dest/assets/css/<%= pkg.name %>.css'
   }];
 
@@ -61,7 +61,7 @@ module.exports = function (grunt) {
       src: [
         'src/less/<%= pkg.name %>.less',
         'src/pages/**/*.less',
-        'src/features/**/*.less'
+        'src/modules/**/*.less'
       ]
     }
 
@@ -71,5 +71,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-lesslint');
+
+  grunt.registerTask('css:dev', [ 'lesslint', 'less:dev', 'autoprefixer', 'copy:css' ]); //generate css for dev task
+  grunt.registerTask('css:build', [ 'lesslint', 'less:build', 'autoprefixer', 'cssmin' ]); //generate css for build task
 
 };

@@ -14,7 +14,7 @@ module.exports = function (grunt) {
           'dest/assets/js/services/config/config.js',
           'dest/assets/js/services/language/language.js',
           'dest/assets/js/services/**/*.js',
-          'dest/assets/js/features/**/*.js',
+          'dest/assets/js/modules/**/*.js',
           'dest/assets/js/services/as-bootstrap/as-bootstrap.js'
         ],
         dest: 'dest/assets/js/core.min.js'
@@ -30,12 +30,9 @@ module.exports = function (grunt) {
       },
       jsFiles: {
         src: [
-          'src/pages/**/*.js',
-          'src/features/**/*.js',
-          'src/services/**/*.js',
-          'tasks/*.js',
-          'karma.conf.js'
-          //'scaffolds/**/*.js'
+          'src/**/*.js',
+          'grunt-tasks/*.js',
+          '*.js'
         ]
       }
     },
@@ -52,7 +49,7 @@ module.exports = function (grunt) {
           cwd: 'src/',
           src: [
             'services/**/*.js',
-            'features/**/*.js',
+            'modules/**/*.js',
             '!services/**/*-test.js',
             '!features/**/*-test.js'
           ],
@@ -82,5 +79,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-ng-annotate');
+
+  grunt.registerTask('js:dev', [ 'jshint', 'copy:js' ]); //generate js for dev task
+  grunt.registerTask('js:build', [ 'jshint', 'copy:js', 'ngAnnotate:build', 'uglify:build', 'concat:dist' ]); //generate js for build task
 
 };

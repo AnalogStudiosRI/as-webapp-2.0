@@ -102,7 +102,9 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('grunt-asset-cachebuster');
   grunt.loadNpmTasks('grunt-html-validation');
-
   grunt.loadNpmTasks('grunt-newer');
+
+  grunt.registerTask('assemble:dev', [ 'assemble:siteDev', 'assemble:adminDev' ]);
+  grunt.registerTask('assemble:prod', [ 'assemble:siteProd', 'assemble:adminProd', 'copy:home'  /*, 'validation'*/ ]);
 
 };
