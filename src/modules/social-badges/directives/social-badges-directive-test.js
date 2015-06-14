@@ -9,7 +9,7 @@ describe('AS.SocialBadgesModule.Directive.SocialBadgesDirectiveTest', function (
 
   beforeEach(inject(function ($rootScope, $compile) {
     scope = $rootScope;
-    element = angular.element('<social-badges></social-badges>');
+    element = angular.element('<as-social-badges></as-social-badges>');
 
     $compile(element)(scope);
     scope.$digest();

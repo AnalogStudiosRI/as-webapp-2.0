@@ -11,7 +11,7 @@ describe('AS.FooterModule.Directive.FooterDirectiveTest', function () {
 
   beforeEach(inject(function ($rootScope, $compile) {
     scope = $rootScope;
-    element = angular.element('<footer></footer>');
+    element = angular.element('<as-footer></as-footer>');
 
     $compile(element)(scope);
     scope.$digest();

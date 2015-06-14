@@ -4,7 +4,7 @@
 
   angular
     .module('AS.SocialBadgesModule')
-    .directive('socialBadges', socialBadgesDirective);
+    .directive('asSocialBadges', socialBadgesDirective);
 
   function socialBadgesDirective() {
     return {
