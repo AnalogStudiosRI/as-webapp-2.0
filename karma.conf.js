@@ -29,7 +29,6 @@ module.exports = function (config) {
       return 'bower_components/' + file;
     }).concat([
       'bower_components/angular-mocks/angular-mocks.js',
-      'src/services/as-bootstrap/as-bootstrap.js',  //load all modules first
       'src/**/*-module.js',  //load all modules first
       'src/**/*.js',
       'src/**/*.html'

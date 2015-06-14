@@ -1,5 +1,5 @@
 angular.module('eventsPage', [
-  'asBootstrap',
+  'AS.Bootstrap',
   'events',
   'calendar'
 ]).controller('EventsCtrl', [

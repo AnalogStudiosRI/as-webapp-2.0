@@ -6,7 +6,7 @@ describe('AS.FooterModule', function () {
   var scope;
 
   beforeEach(module('AS.FooterModule'));
-  beforeEach(module('asBootstrap'));
+  beforeEach(module('AS.Bootstrap'));
   beforeEach(module('templates'));
 
   beforeEach(inject(function ($rootScope, $compile) {

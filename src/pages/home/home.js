@@ -1,5 +1,5 @@
 angular.module('homePage', [
-  'asBootstrap'
+  'AS.Bootstrap'
 ]).controller('HomeCtrl', [
   '$scope',
   'Config',

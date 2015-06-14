@@ -1,5 +1,5 @@
 angular.module('adminPage', [
-  'asBootstrap'
+  'AS.Bootstrap'
 ]).controller('AdminCtrl', [
   '$scope',
   'Log4ng',
