@@ -1,11 +1,11 @@
-describe('socialBadges', function () {
+describe('AS.SocialBadgesModule', function () {
   'use strict';
 
   var element;
   var scope;
 
-  beforeEach(module('socialBadges'));
-  //beforeEach(module('templates'));
+  beforeEach(module('AS.SocialBadgesModule'));
+  beforeEach(module('templates'));
 
   beforeEach(inject(function ($rootScope, $compile) {
     scope = $rootScope;

@@ -1,11 +1,11 @@
-describe('header', function () {
+describe('AS.HeaderModule', function () {
   'use strict';
 
   var element;
   var scope;
 
-  beforeEach(module('header'));
-
+  beforeEach(module('AS.HeaderModule'));
+  beforeEach(module('templates'));
   beforeEach(inject(function ($rootScope, $compile) {
     scope = $rootScope;
     element = angular.element('<header></header>');

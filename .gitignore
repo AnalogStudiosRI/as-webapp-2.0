@@ -1,8 +1,9 @@
 .idea/
-node_modules/
-bower_components/
-dest/
-tmp/
-reports/
+.vagrant/
 npm-debug.log
-.vagrant/gi
+bower_components/
+coverage/
+dest/
+node_modules/
+reports/
+tmp/
