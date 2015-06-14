@@ -1,4 +1,4 @@
-describe('home', function () {
+describe('AS.HomePage.Controller.HomePageControllerTest', function () {
   'use strict';
 
   var scope;
