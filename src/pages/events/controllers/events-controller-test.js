@@ -1,11 +1,11 @@
-describe('AS.HomePage.Controller.HomePageControllerTest', function () {
+describe('AS.EventsPage.Controller.HomePageControllerTest', function () {
   'use strict';
 
   var scope;
   var ctrl;
   var dom;
 
-  beforeEach(module('AS.HomePage'));
+  beforeEach(module('AS.EventsPage'));
   beforeEach(inject(function ($compile, $rootScope, $controller) {
     scope = $rootScope.$new();
     dom = angular.element('<div></div>');
@@ -14,7 +14,7 @@ describe('AS.HomePage.Controller.HomePageControllerTest', function () {
       model: {}
     };
 
-    ctrl = $controller('HomePageController', {
+    ctrl = $controller('EventsPageController', {
       $scope: scope
     });
 

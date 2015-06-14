@@ -1,18 +1,16 @@
-angular.module('eventsPage', [
-  'AS.Bootstrap',
-  'AS.Events',
-  'calendar'
-]).controller('EventsCtrl', [
-  '$scope',
-  'Log4ng',
-  'EventsFactory',
-  function ($scope, Log4ng, EventsFactory) {
-    'use strict';
+'use strict';
 
-    Log4ng.debug('ENTER The Events Page');
+(function () {
 
+  angular
+    .module('AS.EventsPage')
+    .controller('EventsPageController', eventsPageController);
+
+  eventsPageController.$inject = ['$scope', 'Log4ng', 'EventsFactory'];
+
+  function eventsPageController($scope, Log4ng, EventsFactory) {
     //controller
-    var EventsCtrl = this;
+    var EventsCtrl = {};
 
     //private members
 
@@ -34,12 +32,15 @@ angular.module('eventsPage', [
       events: []
     };
 
+    EventsCtrl.init = function () {
+      Log4ng.info('Enter AS.EventsPage.init');
+
+      getEvents();
+    };
+
     $scope.EventsCtrl = EventsCtrl;
 
-    //init
-    (function () {
-      getEvents();
-    }());
-
+    EventsCtrl.init();
   }
-]);
+
+}(angular));

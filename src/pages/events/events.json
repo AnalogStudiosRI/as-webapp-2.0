@@ -1,12 +1,13 @@
 {
-  "app": "eventsPage",
-  "ctrl": "EventsCtrl",
+  "app": "AS.EventsPage",
+  "ctrl": "EventsPageController",
   "title": "Events Page",
   "id": "events-page",
   "stylesheets": [
     { "src": "/events/events.css" }
   ],
   "scripts": [
-    { "src": "/events/events.js" }
+    { "src": "/events/events-module.js" },
+    { "src": "/events/controllers/events-controller.js" }
   ]
 }
