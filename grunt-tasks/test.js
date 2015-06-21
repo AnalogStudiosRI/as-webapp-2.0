@@ -5,6 +5,8 @@
 
 module.exports = function (grunt) {
 
+  grunt.loadNpmTasks('grunt-karma');
+
   grunt.config.merge({
 
     //unit testing
@@ -27,6 +29,7 @@ module.exports = function (grunt) {
 
   });
 
-  grunt.loadNpmTasks('grunt-karma');
+  grunt.registerTask('test:ci', ['karma:ci']);
+  grunt.registerTask('test:tdd', ['karma:tdd']);
 
 };

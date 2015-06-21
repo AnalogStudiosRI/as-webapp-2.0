@@ -5,10 +5,10 @@
 
 module.exports = function (grunt) {
 
+  grunt.loadNpmTasks('grunt-bump');
+
   grunt.config.merge({
 
   });
-
-  grunt.loadNpmTasks('grunt-bump');
 
 };
