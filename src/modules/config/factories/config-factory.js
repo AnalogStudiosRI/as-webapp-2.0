@@ -4,10 +4,8 @@
 
   var asConfig = {
     ENDPOINT: {
-      EVENTS: '/api/events/:id',
-      LOGGER: 'http://'
-    },
-    LOG_LEVEL: 0
+      EVENTS: '/api/events/:id'
+    }
   };
 
   angular
@@ -18,7 +16,8 @@
   configFactory.$inject = ['CONFIG'];
 
   function configFactory(CONFIG) {
-
+    console.log('******');
+    console.log(CONFIG);
     return {
       get: function (selectorString) {
         var customConfigObj = {};
