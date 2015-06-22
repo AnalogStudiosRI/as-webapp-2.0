@@ -8,6 +8,7 @@
   function headerDirective() {
     return {
       restrict: 'E',
+      replace: true,
       templateUrl: '/modules/header/templates/header.html',
       link: function () {
       }
