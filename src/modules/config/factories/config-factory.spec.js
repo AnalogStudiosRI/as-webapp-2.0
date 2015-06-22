@@ -33,7 +33,7 @@ describe('as.module.config.factory.ConfigFactoryTest', function () {
   it('should test that passing an incorrect param throws an error', inject(function (ConfigFactory) {
     var query = 'owen';
 
-    expect(function (){
+    expect(function () {
       return ConfigFactory.get(query);
     }).toThrow(new Error('unsupported property => ' + query));
 

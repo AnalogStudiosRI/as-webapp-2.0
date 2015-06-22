@@ -13,11 +13,14 @@
     var HomeCtrl = {};
     var LANG = LanguageFactory.get();
 
+    //public members
+    HomeCtrl.welcomeText = LANG.PAGE.HOME.WELCOME;
+
     //public methods
     HomeCtrl.init = function () {
       $log.info('Enter AS.HomePage.init');
-
-      HomeCtrl.welcomeText = LANG.PAGE.HOME.WELCOME_TEXT;
+      $log.debug(HomeCtrl.welcomeText);
+      $log.debug(LANG);
     };
 
     //init

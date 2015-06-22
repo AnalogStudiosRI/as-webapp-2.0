@@ -60,7 +60,7 @@ module.exports = function (grunt) {
 
       handlebars: {
         files: [
-          'src/pages/**/*.hbs', 'src/layouts/*.hbs', 'src/partials/*.hbs'
+          'src/pages/**/*.html', 'src/layouts/*.hbs', 'src/partials/*.hbs'
         ],
         tasks: [
           'assemble:siteDev', 'assemble:adminDev', 'copy:pages', 'copy:home'

@@ -1,20 +1,20 @@
 'use strict';
 
-describe('as.page.home.controller.HomePageControllerTest', function () {
+describe('as.page.admin.controller.AdminPageControllerTest', function () {
   var scope;
   var ctrl;
   var dom;
 
-  beforeEach(module('as.page.home'));
+  beforeEach(module('as.page.admin'));
   beforeEach(inject(function ($compile, $rootScope, $controller) {
     scope = $rootScope.$new();
     dom = angular.element('<div></div>');
 
-    scope.HomeCtrl = {
+    scope.AdminCtrl = {
       model: {}
     };
 
-    ctrl = $controller('HomePageController', {
+    ctrl = $controller('AdminPageController', {
       $scope: scope
     });
 
@@ -22,8 +22,8 @@ describe('as.page.home.controller.HomePageControllerTest', function () {
     scope.$digest();
   }));
 
-  xit('it should test something, eventually', function () {
-
+  it('it should test that the AdminCtrl is defined', function () {
+    expect(scope.AdminCtrl).toBeDefined();
   });
 
 });

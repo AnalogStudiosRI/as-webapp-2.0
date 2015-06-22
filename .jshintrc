@@ -32,7 +32,8 @@
     "inject": true, //angular global
     "it": true, //testing global
     "module": true, //testing global
-    "moment" : true, //app global
+    "moment": true, //app global
+    "spyOn": true, //testing global
     "xdescribe": true, //testing global
     "xit": true //testing global
   }
