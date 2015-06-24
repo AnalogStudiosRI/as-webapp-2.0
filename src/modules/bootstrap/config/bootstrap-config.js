@@ -9,6 +9,7 @@
   bootstrapConfig.$inject = ['$provide'];
 
   function bootstrapConfig($provide) {
+
     $provide.decorator('datepickerDirective', ['$delegate', function ($delegate) {
       //we now get an array of all the datepickerDirectives,
       //and use the first one

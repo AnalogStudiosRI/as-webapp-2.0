@@ -16,8 +16,7 @@
   configFactory.$inject = ['CONFIG'];
 
   function configFactory(CONFIG) {
-    console.log('******');
-    console.log(CONFIG);
+
     return {
       get: function (selectorString) {
         var customConfigObj = {};
