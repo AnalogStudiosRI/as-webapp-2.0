@@ -33,6 +33,8 @@
         { "src": "/assets/js/modules/header/directives/header-directive.js" },
         { "src": "/assets/js/modules/language/language-module.js" },
         { "src": "/assets/js/modules/language/factories/language-factory.js" },
+        { "src": "/assets/js/modules/calendar/calendar-module.js" },
+        { "src": "/assets/js/modules/calendar/directives/calendar-directive.js" },
         { "src": "/assets/js/modules/social-badges/social-badges-module.js" },
         { "src": "/assets/js/modules/social-badges/directives/social-badges-directive.js" }
       ]
