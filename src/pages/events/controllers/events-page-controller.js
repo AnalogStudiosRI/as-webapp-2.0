@@ -10,76 +10,37 @@
 
   function eventsPageController($scope, $log, EventsFactory) {
 
-    //  function setEvents(data) {
-    //    //var events = [];
-    //    _.forEach(data, function (n, key) {
-    //      //$log.debug(n.createdTime);
-    //      //var eventDate = new Date().setTime(n.createdTime);
-    //      //$log.debug(eventDate);
-    //      //var event = {
-    //      //  date: eventDate.getDate(),
-    //      //  status: 'partially'
-    //      //};
-    //
-    //      //event.date = new Date();
-    //      //event.date.setDate(event.date.getDate());
-    //      //event.status = 'partial';
-    //
-    //      //$log.debug(event);
-    //      $scope.events.push(event);
-    //      $log.debug($scope.events[key]);
-    //      $scope.today();
-    //
-    //      var tomorrow = new Date();
-    //      tomorrow.setDate(tomorrow.getDate() + 1);
-    //
-    //      var afterTomorrow = new Date();
-    //      afterTomorrow.setDate(tomorrow.getDate() + 2);
-    //
-    //      $scope.events = [{
-    //        date: tomorrow,
-    //        status: 'full'
-    //      }, {
-    //        date: afterTomorrow,
-    //        status: 'partially'
-    //      }];
-    //
-    //      $log.debug($scope.events);
-    //      $log.debug('*************');
-    //    });
-    //  }
-    //
-    //public members
-
-    //private members
-    var tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-
-    var afterTomorrow = new Date();
-    afterTomorrow.setDate(tomorrow.getDate() + 2);
-
-
-    $scope.events = [{
-      date: tomorrow,
-      status: 'full'
-    }, {
-      date: afterTomorrow,
-      status: 'partially'
-    }];
-
     //private methods
+    function parseEventsResponse(response) {
+      var events = [];
+
+      _.forEach(response, function (n) {
+        var time = parseInt(n.startTime * 1000);
+        var eventDate = new Date(time);
+
+        events.push({
+          date: eventDate,
+          status: 'partially'
+        });
+      });
+
+      return events;
+    }
+
     function getEvents() {
       EventsFactory.query(function (response) {
+
         $log.info(response);
-        //setEvents(response);
+        $scope.events = parseEventsResponse(response);
       }, function (response) {
+
         $log.error('getEvents failure');
         $log.error(response);
       });
     }
 
     $scope.init = function () {
-      $log.info('Enter AS.EventsPage.init');
+      $log.info('Enter as.page.events.init');
 
       getEvents();
     };

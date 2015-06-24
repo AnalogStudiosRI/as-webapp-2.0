@@ -69,6 +69,11 @@
           startingDay: 1
         };
 
+        $scope.$watch('eventData', function (newVal) {
+          var data = newVal || [];
+
+          $scope.events = data; //chunkData(data);
+        }, true);
       }
     };
   }
