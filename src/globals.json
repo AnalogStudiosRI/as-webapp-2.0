@@ -23,7 +23,6 @@
         { "src": "/assets/js/vendor/lodash.js" },
         { "src": "/assets/js/vendor/moment.js" },
         { "src": "/assets/js/modules/bootstrap/bootstrap-module.js" },
-        { "src": "/assets/js/modules/bootstrap/config/bootstrap-config.js" },
         { "src": "/assets/js/modules/config/config-module.js" },
         { "src": "/assets/js/modules/config/factories/config-factory.js" },
         { "src": "/assets/js/modules/events/events-module.js" },
@@ -35,6 +34,7 @@
         { "src": "/assets/js/modules/language/language-module.js" },
         { "src": "/assets/js/modules/language/factories/language-factory.js" },
         { "src": "/assets/js/modules/calendar/calendar-module.js" },
+        { "src": "/assets/js/modules/calendar/config/calendar-config.js" },
         { "src": "/assets/js/modules/calendar/directives/calendar-directive.js" },
         { "src": "/assets/js/modules/social-badges/social-badges-module.js" },
         { "src": "/assets/js/modules/social-badges/directives/social-badges-directive.js" }

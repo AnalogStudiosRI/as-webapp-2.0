@@ -3,12 +3,12 @@
 (function (angular) {
 
   angular
-    .module('as.module.bootstrap')
-    .config(bootstrapConfig);
+    .module('as.module.calendar')
+    .config(calendarConfig);
 
-  bootstrapConfig.$inject = ['$provide'];
+  calendarConfig.$inject = ['$provide'];
 
-  function bootstrapConfig($provide) {
+  function calendarConfig($provide) {
 
     $provide.decorator('datepickerDirective', ['$delegate', function ($delegate) {
       //we now get an array of all the datepickerDirectives,
