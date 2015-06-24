@@ -16,7 +16,16 @@ module.exports = function (grunt) {
   grunt.loadTasks('./grunt-tasks');
 
   //dev main
-  grunt.registerTask('dev:core', ['clean', 'css:dev',  'js:dev', 'assemble:dev', 'copy:common', 'copy:vendorDev', 'clean:tmp']);
+  grunt.registerTask('dev:core', [
+    'clean',
+    'css:dev',
+    'js:dev',
+    'assemble:dev',
+    'copy:common',
+    'copy:vendorDev',
+    'clean:tmp',
+    'copy:pageTemplates'
+  ]);
 
   //development tasks
   grunt.registerTask('dev', [
@@ -37,6 +46,7 @@ module.exports = function (grunt) {
     'css:build',
     'js:build',
     'assemble:prod',
+    'copy:pageTemplates',
     //'validation',
     'asset_cachebuster',
     'copy:common',
@@ -50,6 +60,7 @@ module.exports = function (grunt) {
     'css:build',
     'js:build',
     'assemble:prod',
+    'copy:pageTemplates',
     'asset_cachebuster',
     'copy:common',
     'clean:tmp',

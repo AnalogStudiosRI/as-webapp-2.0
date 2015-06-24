@@ -11,7 +11,6 @@ var jsFiles = [
 
 module.exports = function (grunt) {
 
-
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -24,13 +23,14 @@ module.exports = function (grunt) {
         src: [
           'dest/assets/js/vendor/angular.js',
           'dest/assets/js/vendor/*.js',
-          //'dest/assets/js/modules/config/**/*.js',
-          //'dest/assets/js/modules/language/**/*.js',
-          //'dest/assets/js/modules/header/**/*.js',
-          //'dest/assets/js/modules/footer/**/*.js',
-          //'dest/assets/js/modules/social-badges/**/*.js',
-          'dest/assets/js/**/**/*-module.js',
-          'dest/assets/js/**/*.js'
+          'dest/assets/js/modules/config/config-module.js',
+          'dest/assets/js/modules/language/language-module.js',
+          'dest/assets/js/modules/header/header-module.js',
+          'dest/assets/js/modules/footer/footer-module.js',
+          'dest/assets/js/modules/bootstrap/bootstrap.js',
+          'dest/assets/js/modules/**/*-module.js',
+          'dest/assets/js/modules/**/*.js',
+          '!dest/assets/js/modules/**/*.spec.js'
         ],
         dest: 'dest/assets/js/<%= pkg.name %>.min.js'
       }
@@ -80,8 +80,8 @@ module.exports = function (grunt) {
           expand: true,
           cwd: 'dest/',
           src: [
-            '**/**/*.js',
-            '!assets/js/vendor/ngui.js'
+            '!assets/js/vendor/ngui.js',
+            '**/**/*.js'
           ],
           dest: 'dest/'
         }]

@@ -93,6 +93,15 @@ module.exports = function (grunt) {
         }]
       },
 
+      pageTemplates: {
+        files: [{
+          expand: true,
+          cwd: 'src/pages/',
+          src: ['**/templates/*.html'],
+          dest: 'dest/'
+        }]
+      },
+
       pages: {
         files: [{
           expand: true,

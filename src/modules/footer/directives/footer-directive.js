@@ -9,6 +9,7 @@
   function footerModuleDirective() {
     return {
       restrict: 'E',
+      replace: true,
       templateUrl: '/modules/footer/templates/footer.html',
       link: function ($scope) {
         $scope.year = new Date().getFullYear();

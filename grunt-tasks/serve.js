@@ -60,11 +60,18 @@ module.exports = function (grunt) {
 
       handlebars: {
         files: [
-          'src/pages/**/*.html', 'src/layouts/*.hbs', 'src/partials/*.hbs'
+          'src/pages/**/*.hbs', 'src/layouts/*.hbs', 'src/partials/*.hbs'
         ],
         tasks: [
-          'assemble:siteDev', 'assemble:adminDev', 'copy:pages', 'copy:home'
+          'assemble:siteDev', 'assemble:adminDev', 'copy:pages', 'copy:home', 'copy:pageTemplates'
         ]
+      },
+
+      templates: {
+        files: [
+          'src/modules/**/*.html', 'src/pages/**/templates/*.html'
+        ],
+        tasks: ['copy:modules', 'copy:pageTemplates']
       },
 
       less: {
@@ -79,14 +86,8 @@ module.exports = function (grunt) {
           'src/pages/**/*.js', 'src/modules/**/*.js', 'src/services/**/*.js'
         ],
         tasks: ['js:dev']
-      },
-
-      modules: {
-        files: [
-          'src/modules/**/*.html'
-        ],
-        tasks: ['copy:modules']
       }
+
     }
   });
 

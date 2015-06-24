@@ -19,7 +19,7 @@ module.exports = function (grunt) {
       files: [{
         expand: true,
         cwd: 'src/pages/',
-        src: ['**/*.html', '!admin/*.hbs'],
+        src: ['**/*.hbs', '!admin/*.hbs'],
         dest: 'tmp/'
       }]
     };
@@ -34,7 +34,7 @@ module.exports = function (grunt) {
       files: [{
         expand: true,
         cwd: 'src/pages/',
-        src: 'admin/*.hbs',
+        src: 'admin/admin.hbs',
         dest: 'tmp/'
       }]
     };

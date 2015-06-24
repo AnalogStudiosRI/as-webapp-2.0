@@ -23,7 +23,6 @@
         { "src": "/assets/js/vendor/moment.js" },
         { "src": "/assets/js/vendor/ngui.js" },
         { "src": "/assets/js/modules/bootstrap/bootstrap-module.js" },
-        { "src": "/assets/js/modules/bootstrap/config/bootstrap-config.js" },
         { "src": "/assets/js/modules/config/config-module.js" },
         { "src": "/assets/js/modules/config/factories/config-factory.js" },
         { "src": "/assets/js/modules/events/events-module.js" },
