@@ -16,6 +16,7 @@
       templateUrl: '/modules/calendar/templates/calendar.html',
       link: function ($scope) {
         //XXX TODO clean up
+        $scope.events = [];
         $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
         $scope.format = $scope.formats[0];
 
@@ -67,6 +68,8 @@
           formatYear: 'yy',
           startingDay: 1
         };
+
+        $scope.today();
 
         $scope.$watch('eventData', function (newVal) {
           //var data = newVal;

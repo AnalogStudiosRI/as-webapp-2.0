@@ -6,13 +6,14 @@ describe('as.module.calendar.directives.CalendarDirectiveTest', function () {
   var scope;
 
   beforeEach(module('ui.bootstrap'));
-  beforeEach(module('as.module.bootstrap'));
   beforeEach(module('as.module.calendar'));
   beforeEach(module('templates'));
 
   beforeEach(inject(function ($rootScope, $compile) {
     scope = $rootScope;
-    element = angular.element('<as-calendar></as-calendar>');
+    element = angular.element('<as-calendar event-data="eventData"></as-calendar>');
+
+    scope.eventData = [];
 
     $compile(element)(scope);
     scope.$digest();

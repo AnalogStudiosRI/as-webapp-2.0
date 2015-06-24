@@ -13,7 +13,7 @@
     $provide.decorator('datepickerDirective', ['$delegate', function ($delegate) {
       //we now get an array of all the datepickerDirectives,
       //and use the first one
-      $delegate[0].templateUrl = '/modules/datepicker/templates/datapicker.html';
+      $delegate[0].templateUrl = '/modules/calendar/templates/datapicker.html';
 
       return $delegate;
     }]);
@@ -21,7 +21,7 @@
     $provide.decorator('daypickerDirective', ['$delegate', function ($delegate) {
       //we now get an array of all the datepickerDirectives,
       //and use the first one
-      $delegate[0].templateUrl = '/modules/datepicker/templates/day.html';
+      $delegate[0].templateUrl = '/modules/calendar/templates/day.html';
 
       return $delegate;
     }]);
@@ -29,7 +29,7 @@
     $provide.decorator('monthpickerDirective', ['$delegate', function ($delegate) {
       //we now get an array of all the datepickerDirectives,
       //and use the first one
-      $delegate[0].templateUrl = '/modules/datepicker/templates/month.html';
+      $delegate[0].templateUrl = '/modules/calendar/templates/month.html';
 
       return $delegate;
     }]);
@@ -37,7 +37,7 @@
     $provide.decorator('yearpickerDirective', ['$delegate', function ($delegate) {
       //we now get an array of all the datepickerDirectives,
       //and use the first one
-      $delegate[0].templateUrl = '/modules/datepicker/templates/year.html';
+      $delegate[0].templateUrl = '/modules/calendar/templates/year.html';
 
       return $delegate;
     }]);
