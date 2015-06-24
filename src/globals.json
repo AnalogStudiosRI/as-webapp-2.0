@@ -18,10 +18,10 @@
         { "src": "/assets/js/vendor/html5shiv.js" },
         { "src": "/assets/js/vendor/jquery.js" },
         { "src": "/assets/js/vendor/angular.js" },
+        { "src": "/assets/js/vendor/ui-bootstrap.js" },
         { "src": "/assets/js/vendor/angular-resource.js" },
         { "src": "/assets/js/vendor/lodash.js" },
         { "src": "/assets/js/vendor/moment.js" },
-        { "src": "/assets/js/vendor/ngui.js" },
         { "src": "/assets/js/modules/bootstrap/bootstrap-module.js" },
         { "src": "/assets/js/modules/config/config-module.js" },
         { "src": "/assets/js/modules/config/factories/config-factory.js" },
@@ -33,6 +33,9 @@
         { "src": "/assets/js/modules/header/directives/header-directive.js" },
         { "src": "/assets/js/modules/language/language-module.js" },
         { "src": "/assets/js/modules/language/factories/language-factory.js" },
+        { "src": "/assets/js/modules/calendar/calendar-module.js" },
+        { "src": "/assets/js/modules/calendar/config/calendar-config.js" },
+        { "src": "/assets/js/modules/calendar/directives/calendar-directive.js" },
         { "src": "/assets/js/modules/social-badges/social-badges-module.js" },
         { "src": "/assets/js/modules/social-badges/directives/social-badges-directive.js" }
       ]
@@ -47,6 +50,7 @@
         { "src": "html5shiv/dist/html5shiv.js" },
         { "src": "jquery/jquery.js" },
         { "src": "angular/angular.js" },
+        { "src": "angular-bootstrap/ui-bootstrap.js" },
         { "src": "angular-resource/angular-resource.js" },
         { "src": "lodash/dist/lodash.js" },
         { "src": "momentjs/moment.js" },
@@ -61,10 +65,10 @@
         { "src": "html5shiv/dist/html5shiv.js" },
         { "src": "jquery/jquery.min.js" },
         { "src": "angular/angular.js" },
+        { "src": "angular-bootstrap/ui-bootstrap.min.js" },
         { "src": "angular-resource/angular-resource.min.js" },
         { "src": "lodash/dist/lodash.min.js" },
-        { "src": "momentjs/min/moment.min.js" },
-        { "src": "ngui/dist/ngui.min.js" }
+        { "src": "momentjs/min/moment.min.js" }
       ]
     }
   }

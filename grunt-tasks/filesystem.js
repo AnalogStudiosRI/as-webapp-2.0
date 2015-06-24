@@ -55,9 +55,9 @@ module.exports = function (grunt) {
       vendorFont: {
         files: [{
           expand: true,
-          cwd: 'bower_components/',
-          src: ['**/**/*.eot', '**/**/*.svg', '**/**/*.ttf', '**/**/*.woff'],
-          dest: 'dest/assets/fonts/'
+          cwd: 'bower_components/bootstrap/dist/fonts',
+          src: ['*'],
+          dest: 'dest/assets/css/fonts/'
         }]
       },
 

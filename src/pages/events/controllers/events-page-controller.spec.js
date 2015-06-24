@@ -1,6 +1,6 @@
 'use strict';
 
-describe('as.page.events.controller.EventsPageControllerTest', function () {
+xdescribe('as.page.events.controller.EventsPageControllerTest', function () {
 
   var scope;
   var ctrl;

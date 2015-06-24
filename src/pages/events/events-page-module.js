@@ -3,6 +3,10 @@
 (function (angular) {
 
   angular
-    .module('as.page.events', ['as.module.bootstrap', 'as.module.events', 'calendar']);
+    .module('as.page.events', [
+      'as.module.bootstrap',
+      'as.module.events',
+      'as.module.calendar'
+    ]);
 
 }(angular));
