@@ -9,18 +9,34 @@ describe('as.module.config.factory.ConfigFactoryTest', function () {
   }));
 
 
-  it('should test ConfigFactory.get("ENDPOINT") exists', inject(function (ConfigFactory) {
+  it('should test ConfigFactory.get("ENDPOINT") and all properties exist', inject(function (ConfigFactory) {
     var endpoint = ConfigFactory.get('ENDPOINT');
 
     expect(endpoint).toBeDefined();
-    expect(endpoint.LOGGER).toBeDefined();
     expect(endpoint.EVENTS).toBeDefined();
   }));
 
-  it('should test Config.get("LOG_LEVEL") exists', inject(function (ConfigFactory) {
-    var logLevel = ConfigFactory.get('LOG_LEVEL');
+  it('should test ConfigFactory.get("ENDPOINT.EVENTS") exists', inject(function (ConfigFactory) {
+    var url = ConfigFactory.get('ENDPOINT.EVENTS');
+    var isString = typeof url === 'string';
 
-    expect(logLevel).toBeDefined();
+    expect(isString).toBe(true);
+  }));
+
+  it('should test that the universal selector ( * ) works', inject(function (ConfigFactory) {
+    var config = ConfigFactory.get('*');
+
+    expect(config.ENDPOINT).toBeDefined();
+    expect(config.ENDPOINT.EVENTS).toBeDefined();
+  }));
+
+  it('should test that passing an incorrect param throws an error', inject(function (ConfigFactory) {
+    var query = 'owen';
+
+    expect(function () {
+      return ConfigFactory.get(query);
+    }).toThrow(new Error('unsupported property => ' + query));
+
   }));
 
 });

@@ -82,7 +82,7 @@ module.exports = function (config) {
     singleRun: true,
 
     junitReporter: {
-      outputFile: 'reports/test-results.xml'
+      outputFile: 'reports/test-results/test-results.xml'
     }
   };
 

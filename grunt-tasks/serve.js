@@ -8,6 +8,10 @@ var _ = require('lodash');
 
 module.exports = function (grunt) {
 
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-open');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
   grunt.config.merge({
 
     connect: {
@@ -56,7 +60,7 @@ module.exports = function (grunt) {
 
       handlebars: {
         files: [
-          'src/pages/**/*.hbs', 'src/layouts/*.hbs', 'src/partials/*.hbs'
+          'src/pages/**/*.html', 'src/layouts/*.hbs', 'src/partials/*.hbs'
         ],
         tasks: [
           'assemble:siteDev', 'assemble:adminDev', 'copy:pages', 'copy:home'
@@ -85,10 +89,6 @@ module.exports = function (grunt) {
       }
     }
   });
-
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-open');
-  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('serve:local', ['open:local', 'connect:local', 'watch']); //view the build locally, with as-api
   grunt.registerTask('serve:dev', ['open:local', 'connect:dev', 'watch']); //view the build locally against dev

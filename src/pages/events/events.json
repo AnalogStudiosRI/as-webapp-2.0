@@ -7,7 +7,7 @@
     { "src": "/events/events.css" }
   ],
   "scripts": [
-    { "src": "/events/events-module.js" },
-    { "src": "/events/controllers/events-controller.js" }
+    { "src": "/events/events-page-module.js" },
+    { "src": "/events/controllers/events-page-controller.js" }
   ]
 }

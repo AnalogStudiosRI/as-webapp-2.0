@@ -11,6 +11,13 @@ var jsFiles = [
 
 module.exports = function (grunt) {
 
+
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-jscs');
+  grunt.loadNpmTasks('grunt-ng-annotate');
+
   grunt.config.merge({
     concat: {
       dist: {
@@ -82,12 +89,6 @@ module.exports = function (grunt) {
     }
 
   });
-
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-jscs');
-  grunt.loadNpmTasks('grunt-ng-annotate');
 
   grunt.registerTask('js:dev', ['jshint', 'jscs', 'copy:js']); //generate js for dev task
   grunt.registerTask('js:build', ['jshint', 'jscs', 'copy:js', 'ngAnnotate:build', 'uglify:build', 'concat:dist']); //generate js for build task

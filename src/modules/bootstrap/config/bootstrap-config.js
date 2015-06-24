@@ -8,9 +8,9 @@
 
   bootstrapConfig.$inject = ['$interpolateProvider'];
 
-  function bootstrapConfig() {
-    //$interpolateProvider.startSymbol('[[');
-    //$interpolateProvider.endSymbol(']]');
+  function bootstrapConfig($interpolateProvider) {
+    $interpolateProvider.startSymbol('[[');
+    $interpolateProvider.endSymbol(']]');
   }
 
 })(angular);

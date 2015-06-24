@@ -2,7 +2,6 @@
 .vagrant/
 npm-debug.log
 bower_components/
-coverage/
 dest/
 node_modules/
 reports/

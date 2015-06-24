@@ -17,6 +17,7 @@
     //private methods
     function getEvents() {
       $log.debug(new Date().getTime());
+
       EventsFactory.query(function (response) {
         $log.info('getEvents success');
         $log.debug(response);
@@ -40,7 +41,7 @@
 
     $scope.EventsCtrl = EventsCtrl;
 
-    EventsCtrl.init();
+    $scope.EventsCtrl.init();
   }
 
 }(angular));

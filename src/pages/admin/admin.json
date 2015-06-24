@@ -7,7 +7,7 @@
     { "src": "/admin/admin.css" }
   ],
   "scripts": [
-    { "src": "/admin/admin-module.js" },
-    { "src": "/admin/controllers/admin-controller.js" }
+    { "src": "/admin/admin-page-module.js" },
+    { "src": "/admin/controllers/admin-page-controller.js" }
   ]
 }

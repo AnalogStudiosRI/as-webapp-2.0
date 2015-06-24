@@ -7,7 +7,7 @@
     { "src": "/home/home.css" }
   ],
   "scripts": [
-    { "src": "/home/home-module.js" },
-    { "src": "/home/controllers/home-controller.js" }
+    { "src": "/home/home-page-module.js" },
+    { "src": "/home/controllers/home-page-controller.js" }
   ]
 }

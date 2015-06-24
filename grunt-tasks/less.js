@@ -19,6 +19,11 @@ module.exports = function (grunt) {
     dest: 'dest/assets/css/<%= pkg.name %>.css'
   }];
 
+  grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-lesslint');
+
   grunt.config.merge({
     autoprefixer: {
       options: {
@@ -69,11 +74,6 @@ module.exports = function (grunt) {
     }
 
   });
-
-  grunt.loadNpmTasks('grunt-autoprefixer');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-lesslint');
 
   grunt.registerTask('css:dev', ['lesslint', 'less:dev', 'autoprefixer', 'copy:css']); //generate css for dev task
   grunt.registerTask('css:build', ['lesslint', 'less:build', 'autoprefixer', 'cssmin']); //generate css for build task
