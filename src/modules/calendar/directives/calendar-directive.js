@@ -15,8 +15,7 @@
       },
       templateUrl: '/modules/calendar/templates/calendar.html',
       link: function ($scope) {
-        $scope.events = $scope.eventData || [];
-
+        //XXX TODO clean up
         $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
         $scope.format = $scope.formats[0];
 
@@ -70,9 +69,9 @@
         };
 
         $scope.$watch('eventData', function (newVal) {
-          var data = newVal || [];
+          //var data = newVal;
 
-          $scope.events = data; //chunkData(data);
+          $scope.events = newVal;
         }, true);
       }
     };
