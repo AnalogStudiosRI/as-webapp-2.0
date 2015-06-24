@@ -1,0 +1,12 @@
+{
+  "preset": "airbnb",
+  "disallowMultipleLineBreaks": null,
+  "disallowQuotedKeysInObjects": "allButReserved",
+  "disallowSpacesInFunctionExpression": null,
+  "disallowSpacesInAnonymousFunctionExpression": null,
+  "requireLineFeedAtFileEnd": null,
+  "requirePaddingNewLinesAfterBlocks": null,
+  "requirePaddingNewLinesBeforeLineComments": null,
+  "validateLineBreaks": "LF",
+  "verbose": true
+}

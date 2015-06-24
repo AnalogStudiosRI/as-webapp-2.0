@@ -1,34 +1,39 @@
 {
-  "browser": true,
   "bitwise": true,
+  "browser": true,
   "camelcase": true,
   "curly": true,
   "eqeqeq": true,
-  "eqnull": true,
-  "es3": true,
+  "expr": false,
+  "forin": true,
+  "freeze": true,
   "immed": true,
   "indent": 2,
-  "latedef": true,
+  "latedef": false,
   "newcap": true,
   "noarg": true,
+  "node": true,
+  "noempty": true,
+  "nonew": false,
   "plusplus": true,
   "quotmark": "single",
-  "regexp": true,
   "trailing": true,
   "undef": true,
   "unused": true,
+  "strict": true,
+  "trailing": true,
   "white": true,
   "globals": {
-    "$": true, //XXX TODO remove
-    "describe" : true,  //jasmine global
-    "xit": true, //jasmine global
-    "it": true, //jasmine global
-    "beforeEach": true, //jasmine global
-    "expect": true, //jasmine global
-    "angular": true, //angular global
+    "_" : true, //app global
+    "angular": true, //app global
+    "beforeEach": true, //testing global
+    "describe" : true,  //testing global
+    "expect": true, //testing global
     "inject": true, //angular global
-    "module": true, //anuglar global
-    "_" : true, //lodash global
-    "moment" : true //moment global
+    "it": true, //testing global
+    "module": true, //testing global
+    "moment" : true, //app global
+    "xdescribe": true, //testing global
+    "xit": true //testing global
   }
 }

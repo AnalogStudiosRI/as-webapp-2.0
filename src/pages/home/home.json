@@ -1,12 +1,13 @@
 {
-  "app": "homePage",
-  "ctrl": "HomeCtrl",
+  "app": "as.page.home",
+  "ctrl": "HomePageController",
   "title": "Home Page",
   "id": "home-page",
   "stylesheets": [
     { "src": "/home/home.css" }
   ],
   "scripts": [
-    { "src": "/home/home.js" }
+    { "src": "/home/home-module.js" },
+    { "src": "/home/controllers/home-controller.js" }
   ]
 }

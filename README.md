@@ -82,7 +82,7 @@ and docs will have a page-name.json file to easily manage page specific dependen
     { "src" : "/pages/home/home.css" }
   ],
   "scripts": [
-    { "src" : "/pages/home/home.js" }
+    { "src" : "/pages/home/home-module.js" }
   ]
 }
 ```

@@ -1,12 +1,13 @@
 {
-  "app": "adminPage",
-  "ctrl": "AdminCtrl",
+  "app": "as.page.admin",
+  "ctrl": "AdminPageController",
   "title": "Admin Page",
   "id": "admin-page",
   "stylesheets": [
     { "src": "/admin/admin.css" }
   ],
   "scripts": [
-    { "src": "/admin/admin.js" }
+    { "src": "/admin/admin-module.js" },
+    { "src": "/admin/controllers/admin-controller.js" }
   ]
 }

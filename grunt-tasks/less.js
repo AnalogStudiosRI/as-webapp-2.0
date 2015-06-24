@@ -8,18 +8,21 @@ module.exports = function (grunt) {
   var lessFiles = [{
     expand: true,
     cwd: 'src/pages',
-    src: [ '**/*.less' ],
+    src: ['**/*.less'],
     dest: 'tmp/',
     ext: '.css'
   }, {
-    src: [ 'src/less/<%= pkg.name %>.less', 'src/features/**/*.less' ],
+    src: [
+      'src/less/<%= pkg.name %>.less',
+      'src/modules/**/*.less'
+    ],
     dest: 'dest/assets/css/<%= pkg.name %>.css'
   }];
 
   grunt.config.merge({
     autoprefixer: {
       options: {
-        browsers: [ 'last 2 versions', 'ff 15', 'android 2.3' ]
+        browsers: ['last 2 versions', 'ff 15', 'android 2.3']
       },
       // By not including a dest path, we tell Autoprefixer to update files in place
       files: {
@@ -34,7 +37,7 @@ module.exports = function (grunt) {
       files: {
         expand: true,
         cwd: 'tmp/',
-        src: [ '**/*.css' ],
+        src: ['**/*.css'],
         dest: 'dest/'
       }
     },
@@ -61,7 +64,7 @@ module.exports = function (grunt) {
       src: [
         'src/less/<%= pkg.name %>.less',
         'src/pages/**/*.less',
-        'src/features/**/*.less'
+        'src/modules/**/*.less'
       ]
     }
 
@@ -71,5 +74,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-lesslint');
+
+  grunt.registerTask('css:dev', ['lesslint', 'less:dev', 'autoprefixer', 'copy:css']); //generate css for dev task
+  grunt.registerTask('css:build', ['lesslint', 'less:build', 'autoprefixer', 'cssmin']); //generate css for build task
 
 };
