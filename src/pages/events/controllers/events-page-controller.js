@@ -16,13 +16,14 @@
       var events = [];
 
       _.forEach(response, function (n) {
-        var time = parseInt(n.startTime * 1000);
+        var event = n;
+        var time = parseInt(event.startTime * 1000);
         var eventDate = new Date(time);
 
-        events.push({
-          date: eventDate,
-          status: 'partially'
-        });
+        event.date = eventDate;
+        event.status = 'partially';
+
+        events.push(event);
       });
 
       return events;
@@ -39,6 +40,11 @@
         $log.error(response);
       });
     }
+
+    $scope.eventClick = function (event) {
+      $log.debug('you clicked a day');
+      $log.debug(event);
+    };
 
     $scope.init = function () {
       $log.info('Enter as.page.events.init');
