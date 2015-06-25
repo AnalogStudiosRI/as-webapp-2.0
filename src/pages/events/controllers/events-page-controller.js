@@ -9,6 +9,7 @@
   eventsPageController.$inject = ['$scope', '$log', 'EventsFactory'];
 
   function eventsPageController($scope, $log, EventsFactory) {
+    $scope.events = [];
 
     //private methods
     function parseEventsResponse(response) {
