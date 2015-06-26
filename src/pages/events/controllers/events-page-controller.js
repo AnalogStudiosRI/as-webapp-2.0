@@ -10,6 +10,7 @@
 
   function eventsPageController($scope, $log, EventsFactory) {
     $scope.events = [];
+    $scope.selectedEvent = null;
 
     //private methods
     function parseEventsResponse(response) {
@@ -44,6 +45,7 @@
     $scope.eventClick = function (event) {
       $log.debug('you clicked a day');
       $log.debug(event);
+      $scope.selectedEvent = event;
     };
 
     $scope.init = function () {
