@@ -1,3 +1,22 @@
-.as-footer {
+@link-font-color: #000;
+@link-hover-font-color: #fff;
+
+.menu-links (@fontSize) {
+  font-size: @fontSize;
   text-align: center;
+
+  a {
+    color: @link-font-color;
+  }
+  a:hover {
+    color: @link-hover-font-color;
+  }
+}
+
+.as-footer {
+  .menu-links(11px);
+
+  .copyright-text {
+    color: #000;
+  }
 }
