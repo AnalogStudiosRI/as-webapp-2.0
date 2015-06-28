@@ -1,10 +1,9 @@
 @link-font-color: #000;
 @link-hover-font-color: #fff;
 
-.menu-links (@fontSize) {
+.menu-links(@fontSize) {
   font-size: @fontSize;
   text-align: center;
-
   a {
     color: @link-font-color;
   }
@@ -13,10 +12,11 @@
   }
 }
 
+//Footer Styles
 .as-footer {
   .menu-links(11px);
 
   .copyright-text {
-    color: #000;
+    color: @link-font-color;
   }
 }
