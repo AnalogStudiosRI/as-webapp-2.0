@@ -26,7 +26,7 @@ describe('as.module.header.directives.HeaderDirectiveTest', function () {
   });
 
   it('should test that it says Analog Studios', function () {
-    expect(element.find('h2#studio-name').html()).toBe('Analog Studios');
+    expect(element.find('div#studio-name').html()).toBe('Analog Studios');
   });
 
 });
