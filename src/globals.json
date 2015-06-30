@@ -3,6 +3,7 @@
     "prod": {
       "stylesheets": [
         { "src": "/assets/css/vendor/bootstrap.css" },
+        { "src": "/assets/css/vendor/font-awesome.css" },
         { "src": "/assets/css/vendor/bootstrap-social.css" },
         { "src": "/assets/css/as-webapp.css" }
       ],
@@ -13,6 +14,7 @@
     "dev": {
       "stylesheets": [
         { "src": "/assets/css/vendor/bootstrap.css" },
+        { "src": "/assets/css/vendor/font-awesome.css" },
         { "src": "/assets/css/vendor/bootstrap-social.css" },
         { "src": "/assets/css/as-webapp.css" }
       ],
@@ -47,6 +49,7 @@
     "dev": {
       "stylesheets": [
         { "src": "bootstrap/dist/css/bootstrap.css" },
+        { "src": "font-awesome/css/font-awesome.css" },
         { "src": "bootstrap-social/bootstrap-social.css" }
       ],
       "scripts": [
@@ -63,6 +66,7 @@
     "prod": {
       "sylesheets": [
         { "src": "bootstrap/dist/css/bootstrap.min.css" },
+        { "src": "font-awesome/css/font-awesome.css" },
         { "src": "bootstrap-social/bootstrap-social.css" }
       ],
       "scripts": [
