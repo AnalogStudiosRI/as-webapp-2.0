@@ -1,27 +1,36 @@
-//common link components
-@link-font-color: #000;
-@link-hover-font-color: #fff;
+@import (reference) "../../less/as-webapp";
 
-.menu-links(@fontSize) {
-  font-size: @fontSize;
-  text-align: center;
-  a {
-    color: @link-font-color;
+.as-header{
+  font-weight: 300;
+  margin-bottom: 70px;
+}
+
+.as-header{
+  .social-media-badges{
+    height: 42px;
+    margin: 0 0 40px 120px;
+    padding-left: 21px;
+    background-color: @bg-tertiary;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
   }
-  a:hover {
-    color: @link-hover-font-color;
+
+  .social-buttons,
+  .live-feeds{
+    .menu-links(25px);
+  }
+
+  .social-buttons{
+    height: 40px;
+  }
+
+  .live-feeds{
+    font-size: 14px;
+    margin: -28px 0 0 100px;
   }
 }
 
-
-.as-header {
-  font-weight: 300;
-  margin-bottom: 70px;
-
-  .header-social-media {
-    margin-bottom: 40px;
-  }
-
+.as-header{
   .header-title-menu-wrapper{
     letter-spacing: 2px;
   }
@@ -31,7 +40,7 @@
     margin-left: 30px;
   }
 
-  .header-menu {
+  .header-menu{
     .menu-links(17px);
     margin-top: 14px;
     margin-left: 40px;
