@@ -14,7 +14,7 @@ module.exports = function (grunt) {
   }, {
     src: [
       'src/less/<%= pkg.name %>.less',
-      'src/modules/**/*.less'
+      'src/modules/**/**/*.less'
     ],
     dest: 'dest/assets/css/<%= pkg.name %>.css'
   }];
@@ -68,8 +68,8 @@ module.exports = function (grunt) {
       },
       src: [
         'src/less/<%= pkg.name %>.less',
-        'src/pages/**/*.less',
-        'src/modules/**/*.less'
+        'src/pages/**/**/*.less',
+        'src/modules/**/**/*.less'
       ]
     }
 

@@ -76,7 +76,7 @@ module.exports = function (grunt) {
 
       less: {
         files: [
-          'src/pages/**/*.less', 'src/less/*.less', 'src/features/**/*.less'
+          'src/pages/**/*.less', 'src/less/*.less', 'src/modules/**/*.less'
         ],
         tasks: ['css:dev', 'clean:tmp']
       },
