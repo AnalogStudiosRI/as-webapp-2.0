@@ -1,4 +1,7 @@
 @content-background-color: #ae996b;
+@text-secondary: #316291;
+@tan-light: #ece7dc;
+@tan-dark: #d2c7af;
 
 
 .full button span {
@@ -14,21 +17,29 @@
 }
 
 .calendar{
+ i:before, .txt-secondary{
+    color: @text-secondary;
+  }
 
   .well{
     border: none;
     background-color: transparent;
 
+    button{
+      background-color: inherit;
+      border: none;
+    }
+
+    //today
     .btn-info{
-      //today
-      //color: red;
-      //background-color: orange;
+      background-color: @tan-light;
     }
 
     tbody button{
       background-color: transparent;
       width: 120px;
       height: 110px;
+      border: none;
     }
 
     .day-event,
@@ -37,18 +48,12 @@
       border: 3px solid @content-background-color;
     }
 
-    .day-name{
-      width: 110px;
-      text-align: right;
-    }
-
     .day-on,
     .day-off{
       width: 120px;
       height: 110px;
       span { // we also want to avoid targeting elements in the less
         color: #8c7446;
-        float: right;
         //margin: 0 0 80px 0;
         padding: 0 5px 0 0;
       }
@@ -65,15 +70,15 @@
     }
 
     .day-on{
-      background-color: #ece7dc;
+      background-color: @tan-light;
     }
 
     .day-off{
-      background-color: #d2c7af;
+      background-color: @tan-dark;
     }
 
     .day-event{
-      background-color: red;
+      background-color: @text-secondary;
     }
 
   }
