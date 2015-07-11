@@ -58,6 +58,11 @@ module.exports = function (grunt) {
           cwd: 'bower_components/bootstrap/dist/fonts',
           src: ['*'],
           dest: 'dest/assets/css/fonts/'
+        }, {
+          expand: true,
+          cwd: 'bower_components/font-awesome/fonts',
+          src: ['*'],
+          dest: 'dest/assets/css/fonts/'
         }]
       },
 
