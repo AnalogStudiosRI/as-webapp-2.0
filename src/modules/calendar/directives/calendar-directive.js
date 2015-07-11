@@ -19,8 +19,8 @@
         $scope.events = [];
 
         //private methods
-        function matchEvent(date) {
-          $log.info('matchEvent');
+        function matchDateToEvent(date) {
+          $log.info('matchDateToEvent');
 
           for (var i = 0, l = $scope.events.length; i < l; i += 1) {
             var event = $scope.events[i];
@@ -40,29 +40,24 @@
           $log.warn('No callback function provided');
         };
 
-        $scope.getDayClass = function (date, mode) {
-          if (mode === 'day') {
-            var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
+        $scope.getDayClass = function (date) {
+          var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
 
-            for (var i = 0; i < $scope.events.length; i += 1) {
-              var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
+          //check if day has an event
+          for (var i = 0; i < $scope.events.length; i += 1) {
+            var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
 
-              if (dayToCheck === currentDay) {
-                return $scope.events[i].status;
-              }
+            if (dayToCheck === currentDay) {
+              return 'day-event';
             }
           }
 
-          return '';
+          //else return based on if date being checked in the current month
+          return date.getMonth() === $scope.dt.getMonth() ? 'day-on' : 'day-off';
         };
 
         $scope.today = function () {
           $scope.dt = new Date();
-        };
-
-        // Disable weekend selection
-        $scope.disabled = function (date, mode) {
-          return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
         };
 
         $scope.dateOptions = {
@@ -70,13 +65,14 @@
           startingDay: 1
         };
 
+        //watch for event data being passed on
         $scope.$watch('eventData', function (newVal) {
           $scope.events = newVal;
         }, true);
 
+        //watch for selections on the calendar
         $scope.$watch('dt', function (newVal) {
-          $log.debug('dt changed');
-          matchEvent(newVal);
+          matchDateToEvent(newVal);
         }, true);
 
         $scope.today();

@@ -22,7 +22,6 @@
         var eventDate = new Date(time);
 
         event.date = eventDate;
-        event.status = 'partially';
 
         events.push(event);
       });

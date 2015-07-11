@@ -1,0 +1,81 @@
+@content-background-color: #ae996b;
+
+
+.full button span {
+  background-color: limegreen;
+  border-radius: 32px;
+  color: black;
+}
+.partially button span {
+  //events
+  background-color: orange;
+  border-radius: 32px;
+  color: black;
+}
+
+.calendar{
+
+  .well{
+    border: none;
+    background-color: transparent;
+
+    .btn-info{
+      //today
+      //color: red;
+      //background-color: orange;
+    }
+
+    tbody button{
+      background-color: transparent;
+      width: 120px;
+      height: 110px;
+    }
+
+    .day-event,
+    .day-on,
+    .day-off{
+      border: 3px solid @content-background-color;
+    }
+
+    .day-name{
+      width: 110px;
+      text-align: right;
+    }
+
+    .day-on,
+    .day-off{
+      width: 120px;
+      height: 110px;
+      span { // we also want to avoid targeting elements in the less
+        color: #8c7446;
+        float: right;
+        //margin: 0 0 80px 0;
+        padding: 0 5px 0 0;
+      }
+
+      .event{
+        span {//
+          font-size: 11px;
+          position: relative;
+          top: -25px;
+          left: 0;
+          width: 85px;
+        }
+      }
+    }
+
+    .day-on{
+      background-color: #ece7dc;
+    }
+
+    .day-off{
+      background-color: #d2c7af;
+    }
+
+    .day-event{
+      background-color: red;
+    }
+
+  }
+
+}
