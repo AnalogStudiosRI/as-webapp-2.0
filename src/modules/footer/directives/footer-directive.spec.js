@@ -19,7 +19,7 @@ describe('as.module.footer.directive.FooterDirectiveTest', function () {
 
   it('should test the copyright is displayed correctly', function () {
     var currentYear = new Date().getFullYear();
-    var copyright = '© 2007 - ' + currentYear;
+    var copyright = '© 2007 - ' + currentYear + ' Analog Studios';
 
     expect(element.find('p').html()).toBe(copyright);
     expect(element.find('p').length).toBe(1);

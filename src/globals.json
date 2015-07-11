@@ -59,8 +59,7 @@
         { "src": "angular-bootstrap/ui-bootstrap.js" },
         { "src": "angular-resource/angular-resource.js" },
         { "src": "lodash/dist/lodash.js" },
-        { "src": "momentjs/moment.js" },
-        { "src": "ngui/dist/ngui.js" }
+        { "src": "momentjs/moment.js" }
       ]
     },
     "prod": {
