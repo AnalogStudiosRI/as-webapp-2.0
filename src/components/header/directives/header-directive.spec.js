@@ -18,7 +18,7 @@ describe('as.components.header.directives.HeaderDirectiveTest', function () {
   }));
 
   function getMenuLabel(idx) {
-    return angular.element(element[0].querySelectorAll('a.nav-link')[idx]).html()
+    return angular.element(element[0].querySelectorAll('a.nav-link')[idx]).html();
   }
 
   it('should test that five menu items exist', function () {
@@ -38,7 +38,7 @@ describe('as.components.header.directives.HeaderDirectiveTest', function () {
   });
 
   it('should test that it says Analog Studios', function () {
-    var studioName = angular.element(element[0].querySelector('div#studio-name')).html();
+    var studioName = angular.element(element[0].querySelector('div.studio-name')).html();
 
     expect(studioName).toBe('Analog Studios');
   });
