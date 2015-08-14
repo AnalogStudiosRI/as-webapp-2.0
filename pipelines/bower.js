@@ -6,8 +6,13 @@ var loadPluginsConfig = require('./configs/load-plugin-config.json');
 var $ = require('gulp-load-plugins')(loadPluginsConfig);
 var gulp = require('gulp-param')(require('gulp'), process.argv);
 
-gulp.task('bower:copy:css', function (production) {
+gulp.task('bower:copy:fonts', function () {
 
+  return gulp.src('./bower_components/bootstrap/dist/fonts/*')
+    .pipe(gulp.dest('./dest/assets/css/vendor/bootstrap/dist/fonts/'));
+});
+
+gulp.task('bower:copy:css', function (production) {
   var isProductionBuild = production ? true : false;
 
   return gulp.src($.wiredep().css, {base: './bower_components', cwd: './bower_components'})
@@ -25,4 +30,4 @@ gulp.task('bower:copy:js', function (production) {
     .pipe(gulp.dest('./dest/assets/js/vendor/'));
 });
 
-gulp.task('bower:copy:all', ['bower:copy:css', 'bower:copy:js']);
+gulp.task('bower:copy:all', ['bower:copy:css', 'bower:copy:js', 'bower:copy:fonts']);

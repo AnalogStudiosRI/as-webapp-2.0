@@ -3,7 +3,7 @@
 (function (angular) {
 
   angular
-    .module('as.view.home')
+    .module('as.views.home')
     .controller('HomeViewController', homeViewContoller);
 
   homeViewContoller.$inject = ['$scope', '$log', 'LanguageFactory'];

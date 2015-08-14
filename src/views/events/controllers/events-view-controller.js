@@ -3,12 +3,12 @@
 (function () {
 
   angular
-    .module('as.page.events')
-    .controller('EventsPageController', eventsPageController);
+    .module('as.views.events')
+    .controller('EventsViewController', eventsViewController);
 
-  eventsPageController.$inject = ['$scope', '$log', 'EventsFactory'];
+  eventsViewController.$inject = ['$scope', '$log', 'EventsFactory'];
 
-  function eventsPageController($scope, $log, EventsFactory) {
+  function eventsViewController($scope, $log, EventsFactory) {
     $scope.events = [];
     $scope.selectedEvent = null;
 

@@ -1,11 +1,11 @@
 'use strict';
 
-describe('as.view.home.controller.HomeViewControllerTest', function () {
+describe('as.views.home.controller.HomeViewControllerTest', function () {
   var scope;
   var ctrl;
   var dom;
 
-  beforeEach(module('as.view.home'));
+  beforeEach(module('as.views.home'));
 
   beforeEach(inject(function ($compile, $rootScope, $controller) {
     scope = $rootScope.$new();

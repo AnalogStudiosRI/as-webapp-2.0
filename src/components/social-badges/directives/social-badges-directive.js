@@ -3,7 +3,7 @@
 (function (angular) {
 
   angular
-    .module('as.component.socialBadges')
+    .module('as.components.socialBadges')
     .directive('asSocialBadges', socialBadgesDirective);
 
   function socialBadgesDirective() {

@@ -3,17 +3,24 @@
 (function (angular) {
 
   angular
-    .module('as.component.bootstrap')
+    .module('as.components.bootstrap')
     .run(bootstrapRun);
 
-  bootstrapRun.$inject = ['$rootScope'];
+  bootstrapRun.$inject = ['$rootScope', '$log'];
 
-  function bootstrapRun($rootScope) {
+  function bootstrapRun($rootScope, $log) {
+    $log.debug('hello?');
 
     $rootScope.$on('$stateChangeStart', function(event, toState) {
-      console.log('omg');
-      console.log(event);
-      console.log(toState);
+      $log.log('omg');
+      $log.log(event);
+      $log.log(toState);
+    });
+
+    $rootScope.$on('$stateChangeError', function(event, toState) {
+      $log.log('omg');
+      $log.log(event);
+      $log.log(toState);
     });
   }
 

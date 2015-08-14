@@ -2,7 +2,7 @@
 
 (function (angular) {
   angular
-    .module('as.component.calendar')
+    .module('as.components.calendar')
     .directive('asCalendar', calendarDirective);
 
   calendarDirective.$inject = ['$log'];

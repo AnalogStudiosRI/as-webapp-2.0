@@ -3,12 +3,14 @@
 (function (angular) {
 
   angular
-    .module('as.component.bootstrap', [
+    .module('as.components.bootstrap', [
       'ui.router',
-      'ui.bootstrap',
-      'as.component.language',
-      'as.component.header',
-      'as.component.footer'
+      'as.components.footer',
+      'as.components.header',
+      'as.components.language',
+      'as.views.admin',
+      'as.views.events',
+      'as.views.home'
     ]);
 
 })(angular);

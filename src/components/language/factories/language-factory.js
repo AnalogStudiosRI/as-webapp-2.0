@@ -14,7 +14,7 @@
   };
 
   angular
-    .module('as.component.language')
+    .module('as.components.language')
     .constant('LANGUAGE', language)
     .factory('LanguageFactory', languageFactory);
 

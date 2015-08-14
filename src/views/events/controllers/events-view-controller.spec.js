@@ -1,6 +1,6 @@
 'use strict';
 
-xdescribe('as.page.events.controller.EventsPageControllerTest', function () {
+xdescribe('as.views.events.controller.EventsViewControllerTest', function () {
 
   var scope;
   var ctrl;
@@ -8,8 +8,8 @@ xdescribe('as.page.events.controller.EventsPageControllerTest', function () {
   var httpBackend;
   var http;
 
-  beforeEach(module('as.module.events'));
-  beforeEach(module('as.page.events'));
+  beforeEach(module('as.components.events'));
+  beforeEach(module('as.views.events'));
 
   beforeEach(inject(function ($compile, $rootScope, $controller, $httpBackend, $http) {
     httpBackend = $httpBackend;
@@ -22,7 +22,7 @@ xdescribe('as.page.events.controller.EventsPageControllerTest', function () {
       init: function () { }
     };
 
-    ctrl = $controller('EventsPageController', {
+    ctrl = $controller('EventsViewController', {
       $scope: scope
     });
 

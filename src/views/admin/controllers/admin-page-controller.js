@@ -3,12 +3,12 @@
 (function (angular) {
 
   angular
-    .module('as.page.admin')
-    .controller('AdminPageController', adminPageController);
+    .module('as.views.admin')
+    .controller('AdminViewController', adminViewController);
 
-  adminPageController.$inject = ['$scope', '$log'];
+  adminViewController.$inject = ['$scope', '$log'];
 
-  function adminPageController($scope, $log) {
+  function adminViewController($scope, $log) {
     var AdminCtrl = {};
 
     AdminCtrl.init = function () {

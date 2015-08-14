@@ -3,6 +3,6 @@
 (function (angular) {
 
   angular
-    .module('as.component.language', []);
+    .module('as.components.language', []);
 
 }(angular));

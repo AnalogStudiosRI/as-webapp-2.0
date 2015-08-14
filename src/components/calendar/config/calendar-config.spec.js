@@ -1,6 +1,6 @@
 'use strict';
 
-xdescribe('as.component.calendar.config.CalendarConfigTest', function () {
+xdescribe('as.components.calendar.config.CalendarConfigTest', function () {
 
   var element;
   var scope;
@@ -8,7 +8,7 @@ xdescribe('as.component.calendar.config.CalendarConfigTest', function () {
 
   //beforeEach(module('ui.bootstrap'));
   //beforeEach(module('as.module.bootstrap'));
-  beforeEach(module('as.component.calendar'));
+  beforeEach(module('as.components.calendar'));
   beforeEach(module('templates'));
 
   beforeEach(inject(function ($rootScope, $compile, $provide) {

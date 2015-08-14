@@ -3,9 +3,9 @@
 (function (angular) {
 
   angular
-    .module('as.component.calendar', [
+    .module('as.components.calendar', [
       'ui.bootstrap',
-      'as.component.bootstrap'
+      'as.components.bootstrap'
     ]);
 
 })(angular);

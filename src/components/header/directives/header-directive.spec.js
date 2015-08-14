@@ -1,11 +1,11 @@
 'use strict';
 
-describe('as.component.header.directives.HeaderDirectiveTest', function () {
+describe('as.components.header.directives.HeaderDirectiveTest', function () {
 
   var element;
   var scope;
 
-  beforeEach(module('as.component.header'));
+  beforeEach(module('as.components.header'));
   beforeEach(module('templates'));
   beforeEach(inject(function ($rootScope, $compile) {
     scope = $rootScope;

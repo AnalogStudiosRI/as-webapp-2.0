@@ -1,11 +1,11 @@
 'use strict';
 
-describe('as.page.admin.controller.AdminPageControllerTest', function () {
+describe('as.views.admin.controller.AdminViewControllerTest', function () {
   var scope;
   var ctrl;
   var dom;
 
-  beforeEach(module('as.page.admin'));
+  beforeEach(module('as.views.admin'));
   beforeEach(inject(function ($compile, $rootScope, $controller) {
     scope = $rootScope.$new();
     dom = angular.element('<div></div>');
@@ -14,7 +14,7 @@ describe('as.page.admin.controller.AdminPageControllerTest', function () {
       model: {}
     };
 
-    ctrl = $controller('AdminPageController', {
+    ctrl = $controller('AdminViewController', {
       $scope: scope
     });
 

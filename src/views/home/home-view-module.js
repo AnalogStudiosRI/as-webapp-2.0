@@ -3,6 +3,8 @@
 (function (angular) {
 
   angular
-    .module('as.view.home', ['as.component.bootstrap']);
+    .module('as.views.home', [
+      'ui.router'
+    ]);
 
 }(angular));

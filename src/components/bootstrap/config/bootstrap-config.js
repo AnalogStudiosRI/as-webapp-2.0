@@ -3,7 +3,7 @@
 (function (angular) {
 
   angular
-    .module('as.component.bootstrap')
+    .module('as.components.bootstrap')
     .config(BootstrapConfig);
 
   BootstrapConfig.$inject = ['$urlRouterProvider', '$logProvider'];
@@ -13,7 +13,7 @@
     //$locationProvider.html5Mode(true);
     $logProvider.debugEnabled(true);
 
-    $urlRouterProvider.otherwise('home');
+    $urlRouterProvider.otherwise('/home');
 
   }
 

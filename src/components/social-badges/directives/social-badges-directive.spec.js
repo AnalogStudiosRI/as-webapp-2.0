@@ -1,10 +1,10 @@
-describe('as.component.socialBadges.directive.SocialBadgesDirectiveTest', function () {
+describe('as.components.socialBadges.directive.SocialBadgesDirectiveTest', function () {
   'use strict';
 
   var element;
   var scope;
 
-  beforeEach(module('as.component.socialBadges'));
+  beforeEach(module('as.components.socialBadges'));
   beforeEach(module('templates'));
 
   beforeEach(inject(function ($rootScope, $compile) {

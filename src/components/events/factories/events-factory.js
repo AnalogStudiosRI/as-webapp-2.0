@@ -3,7 +3,7 @@
 (function (angular) {
 
   angular
-    .module('as.component.events')
+    .module('as.components.events')
     .factory('EventsFactory', eventsFactory);
 
   eventsFactory.$inject = ['$resource'];

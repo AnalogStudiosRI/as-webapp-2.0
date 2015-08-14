@@ -1,12 +1,12 @@
 'use strict';
 
-describe('as.module.calendar.directives.CalendarDirectiveTest', function () {
+describe('as.components.calendar.directives.CalendarDirectiveTest', function () {
 
   var element;
   var scope;
 
   beforeEach(module('ui.bootstrap'));
-  beforeEach(module('as.component.calendar'));
+  beforeEach(module('as.components.calendar'));
   beforeEach(module('templates'));
 
   beforeEach(inject(function ($rootScope, $compile) {
