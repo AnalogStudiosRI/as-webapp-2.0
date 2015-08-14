@@ -16,8 +16,10 @@ describe('as.components.socialBadges.directive.SocialBadgesDirectiveTest', funct
   }));
 
   it('should test the elements exist', function () {
-    expect(element.find('#fb-container').length).toBe(1);
-    expect(element.find('#gplus-container').length).toBe(1);
+
+    expect(angular.element(element[0].querySelector('#fb-container')).length).toBe(1);
+    expect(angular.element(element[0].querySelector('#gplus-container')).length).toBe(1);
+
   });
 
 });

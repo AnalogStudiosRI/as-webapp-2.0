@@ -2,10 +2,12 @@
 
 describe('as.components.calendar.directives.CalendarDirectiveTest', function () {
 
+
   var element;
   var scope;
 
   beforeEach(module('ui.bootstrap'));
+  beforeEach(module('as.components.bootstrap'));
   beforeEach(module('as.components.calendar'));
   beforeEach(module('templates'));
 
@@ -20,7 +22,9 @@ describe('as.components.calendar.directives.CalendarDirectiveTest', function () 
   }));
 
   it('should test that a datepicker.calendar is present', function () {
-    expect(element.find('.calendar').length).toBe(1);
+
+    expect(angular.element(element[0].querySelector('.calendar')).length).toBe(1);
+
   });
 
 });

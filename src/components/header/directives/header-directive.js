@@ -1,6 +1,7 @@
 'use strict';
 
 (function (angular) {
+
   angular
     .module('as.components.header')
     .directive('asHeader', headerDirective);
