@@ -11,7 +11,7 @@ echo "npm version"
 npm --version
 
 echo  "grunt version"
-grunt --version
+gulp --version
 
 echo "bower version"
 bower --version
