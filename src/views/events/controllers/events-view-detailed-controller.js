@@ -6,33 +6,19 @@
     .module('as.views.events')
     .controller('EventsViewDetailedController', eventsViewDetailedController);
 
-  eventsViewDetailedController.$inject = ['$scope', '$log', 'EventsFactory'];
+  eventsViewDetailedController.$inject = ['$scope', '$log', '$stateParams', 'EventsFactory'];
 
-  function eventsViewDetailedController($scope, $log, EventsFactory) {
-    $scope.events = [];
+  function eventsViewDetailedController($scope, $log, $stateParams, EventsFactory) {
+    $scope.event = [];
 
-    //private methods
-    //function parseEventsResponse(response) {
-    //  var events = [];
-    //
-    //  _.forEach(response, function (n) {
-    //    var event = n;
-    //    var time = parseInt(event.startTime * 1000);
-    //    var eventDate = new Date(time);
-    //
-    //    event.date = eventDate;
-    //
-    //    events.push(event);
-    //  });
-    //
-    //  return events;
-    //}
+    function getEvent(id) {
+      $log.debug('id is => ' + id);
 
-    function getEvents() {
-      EventsFactory.query(function (response) {
+      EventsFactory.query({eventId: id}, function (response) {
 
         $log.info(response);
-        //$scope.events = parseEventsResponse(response);
+        $scope.event = response[0];
+        console.log($scope.event);
       }, function (response) {
 
         $log.error('getEvents failure');
@@ -41,9 +27,11 @@
     }
 
     $scope.init = function () {
+      $log.debug('hello');
+      $log.debug($stateParams);
       $log.info('Enter as.page.events.detailed.init');
 
-      getEvents();
+      getEvent($stateParams.id);
     };
 
     $scope.init();

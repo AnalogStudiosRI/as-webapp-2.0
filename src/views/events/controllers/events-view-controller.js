@@ -6,9 +6,9 @@
     .module('as.views.events')
     .controller('EventsViewController', eventsViewController);
 
-  eventsViewController.$inject = ['$scope', '$log', '$state', 'EventsFactory'];
+  eventsViewController.$inject = ['$scope', '$log', '$state', '$stateParams', 'EventsFactory'];
 
-  function eventsViewController($scope, $log, $state, EventsFactory) {
+  function eventsViewController($scope, $log, $state, $stateParams, EventsFactory) {
     $scope.events = [];
     $scope.selectedEvent = null;
     $scope.showEvents = false;
@@ -16,25 +16,15 @@
     //private methods
     function parseEventsResponse(response) {
       var events = [];
-      var i = 0;
 
       _.forEach(response, function (n) {
         var event = n;
-
-        if (i === 0) {
-          $log.debug('parseEventsResponse');
-          $log.debug(new Date().getTime());
-          event.startTime = new Date().getTime();
-        }
-
         var time = parseInt(event.startTime * 1000);
         var eventDate = new Date(time);
 
         event.date = eventDate;
 
         events.push(event);
-
-        i += 1;
       });
 
       return events;
@@ -60,7 +50,8 @@
 
     $scope.init = function () {
       $log.info('Enter as.page.events.init');
-
+      $log.debug('sfsddsf');
+      $log.debug($stateParams);
       getEvents();
     };
 

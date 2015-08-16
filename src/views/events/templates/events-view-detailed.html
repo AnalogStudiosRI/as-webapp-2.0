@@ -11,11 +11,11 @@
       </div>
 
       <div class="col-md-6 event-details">
-        <div ng-if="selectedEvent">
-          <p>Event Title: {{selectedEvent.title}}</p>
-          <p>Event Description: {{selectedEvent.description}}</p>
-          <p>Event Link: <a ng-href="selectedEvent.link">{{selectedEvent.link}}</a></p>
-          <p>Event Time: {{ (selectedEvent.startTime * 1000) | date : short }}
+        <div ng-if="event">
+          <p>Event Title: {{event.title}}</p>
+          <p>Event Description: {{event.description}}</p>
+          <p>Event Link: <a ng-href="event.link">{{event.link}}</a></p>
+          <p>Event Time: {{ (event.startTime * 1000) | date : short }}
         </div>
       </div>
     </div>
