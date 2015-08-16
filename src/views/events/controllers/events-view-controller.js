@@ -45,13 +45,12 @@
 
     $scope.eventClick = function (event) {
       $scope.showEvents = false;
-      $state.go('events.detailed', {id: event.id});
+      $state.go('events-view-detailed', {id: event.id});
     };
 
     $scope.init = function () {
       $log.info('Enter as.page.events.init');
-      $log.debug('sfsddsf');
-      $log.debug($stateParams);
+
       getEvents();
     };
 

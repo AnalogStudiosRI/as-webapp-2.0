@@ -12,13 +12,11 @@
     $scope.event = [];
 
     function getEvent(id) {
-      $log.debug('id is => ' + id);
-
       EventsFactory.query({eventId: id}, function (response) {
 
         $log.info(response);
         $scope.event = response[0];
-        console.log($scope.event);
+
       }, function (response) {
 
         $log.error('getEvents failure');
@@ -27,8 +25,6 @@
     }
 
     $scope.init = function () {
-      $log.debug('hello');
-      $log.debug($stateParams);
       $log.info('Enter as.page.events.detailed.init');
 
       getEvent($stateParams.id);
