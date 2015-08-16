@@ -8,9 +8,6 @@
 @bg-secondary: #ae996b;
 @bg-tertiary: #d3c6ae;
 
-@link-font-color: @black;
-@link-hover-font-color: @white;
-
 body{
   background-color: @bg-secondary;
   color: @white;
@@ -26,19 +23,4 @@ a{
   background-color: @bg-primary;
   //background-image: url("/assets/images/container-repeater.jpg");
   //opacity: 0.6;
-}
-
-.links{
-  a{
-    color: @link-font-color;
-  }
-  a:hover{
-    color: @link-hover-font-color;
-  }
-}
-
-.menu-links(@fontSize){
-  font-size: @fontSize;
-  text-align: center;
-  .links;
 }
