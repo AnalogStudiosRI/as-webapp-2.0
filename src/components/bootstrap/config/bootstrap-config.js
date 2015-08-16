@@ -13,7 +13,7 @@
     //$locationProvider.html5Mode(true);
     $logProvider.debugEnabled(true);
 
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/home/');
 
   }
 

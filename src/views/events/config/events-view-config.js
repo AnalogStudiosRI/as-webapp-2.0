@@ -10,9 +10,13 @@
 
   function EventsViewConfig($stateProvider) {
     $stateProvider.state('events', {
-      url: '/events',
-      templateUrl: '/views/events/templates/events.html',
+      url: '/events/',
+      templateUrl: '/views/events/templates/events-view.html',
       controller: 'EventsViewController'
+    }).state('events.detailed', {
+      url: '^/events/{id:int}',
+      templateUrl: '/views/events/templates/events-view-detailed.html',
+      controller: 'EventsViewDetailedController'
     });
   }
 
