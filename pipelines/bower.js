@@ -6,10 +6,12 @@ var loadPluginsConfig = require('./configs/load-plugin-config.json');
 var $ = require('gulp-load-plugins')(loadPluginsConfig);
 var gulp = require('gulp-param')(require('gulp'), process.argv);
 
-gulp.task('bower:copy:fonts', function () {
+gulp.task('bower:copy:fonts', function (production) {
+  var isProductionBuild = production ? true : false;
+  var destPath = isProductionBuild ? 'fonts/' : 'vendor/bootstrap/dist/fonts/';
 
   return gulp.src('./bower_components/bootstrap/dist/fonts/*')
-    .pipe(gulp.dest('./dest/assets/css/vendor/bootstrap/dist/fonts/'));
+    .pipe(gulp.dest('./dest/assets/css/' + destPath));
 });
 
 gulp.task('bower:copy:css', function (production) {
