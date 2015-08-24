@@ -1,8 +1,5 @@
 'use strict';
 
-var _ = require('lodash');
-var BowerService = require('./grunt-services/bower-service.js');
-
 module.exports = function (config) {
 
   var conf = {
@@ -25,15 +22,16 @@ module.exports = function (config) {
     },
 
     // list of files / patterns to load in the browser
-    files: _.map(BowerService.getAssets('dev').js, function (file) {
-      return 'bower_components/' + file;
-    }).concat([
-      'bower_components/angular-mocks/angular-mocks.js',
-      'bower_components/angular-bootstrap/ui-bootstrap.js',
-      'src/**/*-module.js',  //load all modules first
-      'src/**/*.js',
-      'src/**/*.html'
-    ]),
+    files: [
+      './bower_components/angular/angular.js',
+      './bower_components/angular-resource/angular-resource.js',
+      './bower_components/angular-mocks/angular-mocks.js',
+      './bower_components/angular-bootstrap/ui-bootstrap.js',
+      './bower_components/angular-ui-router/release/angular-ui-router.js',
+      './src/**/*-module.js',  //load all modules first
+      './src/**/*.js',
+      './src/**/*.html'
+    ],
 
     // list of files to exclude
     exclude: [],

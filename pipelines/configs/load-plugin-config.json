@@ -1,0 +1,6 @@
+{
+  "camelize": true,
+  "lazy": false,
+  "pattern": ["*"],
+  "scope": ["dependencies", "devDependencies", "peerDependencies"]
+}

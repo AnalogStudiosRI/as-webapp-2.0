@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "executing ci.sh..."
+echo "executing build.sh..."
 
 echo "show environment..."
 
@@ -10,8 +10,8 @@ node --version
 echo "npm version"
 npm --version
 
-echo  "grunt version"
-grunt --version
+echo  "gulp version"
+gulp --version
 
 echo "bower version"
 bower --version
@@ -32,4 +32,4 @@ npm install
 bower install
 
 echo "build..."
-grunt build
+gulp build --production
