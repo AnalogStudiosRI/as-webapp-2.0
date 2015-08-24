@@ -15,7 +15,7 @@ var lessLintTasks = $.lazypipe()
 //convenience task for just linting CSS
 gulp.task('less:lint', function () {
 
-  return gulp.src(['./src/**/**/*.less'])
+  return gulp.src(['./src/**/**/*.less', '!./src/less/as-webapp.less'])
     .pipe(lessLintTasks());
 
 });
