@@ -6,11 +6,12 @@
     .module('as.views.events')
     .controller('EventsViewController', eventsViewController);
 
-  eventsViewController.$inject = ['$scope', '$log', 'EventsFactory'];
+  eventsViewController.$inject = ['$scope', '$log', '$state', '$stateParams', 'EventsFactory'];
 
-  function eventsViewController($scope, $log, EventsFactory) {
+  function eventsViewController($scope, $log, $state, $stateParams, EventsFactory) {
     $scope.events = [];
     $scope.selectedEvent = null;
+    $scope.showEvents = false;
 
     //private methods
     function parseEventsResponse(response) {
@@ -34,6 +35,7 @@
 
         $log.info(response);
         $scope.events = parseEventsResponse(response);
+        $scope.showEvents = $scope.events.length > 0;
       }, function (response) {
 
         $log.error('getEvents failure');
@@ -42,9 +44,8 @@
     }
 
     $scope.eventClick = function (event) {
-      $log.debug('you clicked a day');
-      $log.debug(event);
-      $scope.selectedEvent = event;
+      $scope.showEvents = false;
+      $state.go('events-view-detailed', {id: event.id});
     };
 
     $scope.init = function () {

@@ -1,0 +1,15 @@
+<div class="col-md-12 events-calendar" ng-controller="EventsViewController">
+
+  <!--Calendar Container-->
+  <div class="calendar-container" data-ng-show="showEvents">
+
+    <!--Calendar-->
+    <div class="calendar-container">
+      <as-calendar event-data="events" event-click="eventClick"></as-calendar>
+    </div>
+
+  </div>
+
+  <div ui-view></div>
+
+</div>
