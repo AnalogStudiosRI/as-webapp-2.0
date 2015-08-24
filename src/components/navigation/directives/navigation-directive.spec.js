@@ -17,7 +17,7 @@ describe('as.components.navigation.directives.NavigationDirectiveTest', function
   }));
 
   function getMenuLabel(idx) {
-    return angular.element(element[0].querySelectorAll('a.nav-link')[idx]).html();
+    return angular.element(element[0].querySelectorAll('.menu-links')[idx]).html();
   }
 
   it('should test that five menu items exist', function () {

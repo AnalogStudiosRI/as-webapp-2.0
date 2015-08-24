@@ -8,10 +8,10 @@ var gulp = require('gulp-param')(require('gulp'), process.argv);
 
 gulp.task('bower:copy:fonts', function (production) {
   var isProductionBuild = production ? true : false;
-  var destPath = isProductionBuild ? 'fonts/' : 'vendor/bootstrap/dist/fonts/';
+  var destPath = isProductionBuild ? 'fonts/' : 'fonts/';
 
   return gulp.src('./bower_components/bootstrap/dist/fonts/*')
-    .pipe(gulp.dest('./dest/assets/css/' + destPath));
+    .pipe(gulp.dest('./dest/assets/' + destPath));
 });
 
 gulp.task('bower:copy:css', function (production) {
