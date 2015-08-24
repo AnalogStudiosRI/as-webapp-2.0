@@ -10,7 +10,7 @@ node --version
 echo "npm version"
 npm --version
 
-echo  "grunt version"
+echo  "gulp version"
 gulp --version
 
 echo "bower version"
@@ -32,4 +32,4 @@ npm install
 bower install
 
 echo "build..."
-grunt build
+gulp build --production
