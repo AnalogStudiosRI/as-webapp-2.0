@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "executing ci.sh..."
+echo "executing build.sh..."
 
 echo "show environment..."
 
