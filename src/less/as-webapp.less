@@ -1,4 +1,6 @@
 @import "../../bower_components/bootstrap/less/bootstrap";
+@import "../../bower_components/font-awesome/less/font-awesome";
+@import "../../bower_components/bootstrap-social/bootstrap-social";
 
 //variables
 @white: #ffffff;
@@ -7,9 +9,6 @@
 @bg-primary: #c2b08b;
 @bg-secondary: #ae996b;
 @bg-tertiary: #d3c6ae;
-
-@link-font-color: @black;
-@link-hover-font-color: @white;
 
 body{
   background-color: @bg-secondary;
@@ -26,19 +25,4 @@ a{
   background-color: @bg-primary;
   //background-image: url("/assets/images/container-repeater.jpg");
   //opacity: 0.6;
-}
-
-.links{
-  a{
-    color: @link-font-color;
-  }
-  a:hover{
-    color: @link-hover-font-color;
-  }
-}
-
-.menu-links(@fontSize){
-  font-size: @fontSize;
-  text-align: center;
-  .links;
 }

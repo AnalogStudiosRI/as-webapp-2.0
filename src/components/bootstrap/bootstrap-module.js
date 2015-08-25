@@ -5,6 +5,7 @@
   angular
     .module('as.components.bootstrap', [
       'ui.router',
+      'as.components.navigation',
       'as.components.footer',
       'as.components.header',
       'as.components.language',
