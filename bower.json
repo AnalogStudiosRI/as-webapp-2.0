@@ -10,6 +10,7 @@
     "angular-sanitize": "1.4.2",
     "angular-ui-router": "0.2.15",
     "bootstrap": "3.3.5",
+    "bootstrap-social": "4.9.1",
     "font-awesome": "4.3.0",
     "jquery": "2.0.3",
     "lodash": "2.4.1",
