@@ -10,8 +10,8 @@ node --version
 echo "npm version"
 npm --version
 
-echo  "grunt version"
-grunt --version
+echo  "gulp version"
+gulp --version
 
 echo "git version"
 git --version

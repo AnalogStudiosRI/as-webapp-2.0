@@ -12,7 +12,7 @@ apt-get update
 echo -e "*** Installing Node and NPM ***"
 apt-get -y -qq install build-essential nodejs-legacy npm
 
-sudo npm install -g grunt-cli@0.1.13 bower@1.3.12 npm@2.1.12
+sudo npm install -g gulp@3.8.11 bower@1.3.12 npm@2.1.12
 
 echo "bower -v"
 bower -v
@@ -20,8 +20,8 @@ echo "node -v"
 node -v
 echo "npm -v"
 npm -v
-echo "grunt -v"
-grunt -v
+echo "gulp -v"
+gulp -v
 
 echo -e "*** Installing Project Dependencies (if needed) ***"
 if [ ! -d /vagrant/node_modules ]; then

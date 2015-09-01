@@ -1,8 +1,8 @@
 .idea/
-node_modules/
+.vagrant/
+npm-debug.log
 bower_components/
 dest/
-tmp/
+node_modules/
 reports/
-npm-debug.log
-.vagrant/
+tmp/

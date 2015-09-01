@@ -1,0 +1,86 @@
+@content-background-color: #ae996b;
+@text-secondary: #316291;
+@tan-light: #ece7dc;
+@tan-dark: #d2c7af;
+
+
+.full button span {
+  background-color: limegreen;
+  border-radius: 32px;
+  color: black;
+}
+.partially button span {
+  //events
+  background-color: orange;
+  border-radius: 32px;
+  color: black;
+}
+
+.calendar{
+ i:before, .txt-secondary{
+    color: @text-secondary;
+  }
+
+  .well{
+    border: none;
+    background-color: transparent;
+
+    button{
+      background-color: inherit;
+      border: none;
+    }
+
+    //today
+    .btn-info{
+      background-color: @tan-light;
+    }
+
+    tbody button{
+      background-color: transparent;
+      width: 120px;
+      height: 110px;
+      border: none;
+    }
+
+    .day-event,
+    .day-on,
+    .day-off{
+      border: 3px solid @content-background-color;
+    }
+
+    .day-on,
+    .day-off{
+      width: 120px;
+      height: 110px;
+      span { // we also want to avoid targeting elements in the less
+        color: #8c7446;
+        //margin: 0 0 80px 0;
+        padding: 0 5px 0 0;
+      }
+
+      .event{
+        span {//
+          font-size: 11px;
+          position: relative;
+          top: -25px;
+          left: 0;
+          width: 85px;
+        }
+      }
+    }
+
+    .day-on{
+      background-color: @tan-light;
+    }
+
+    .day-off{
+      background-color: @tan-dark;
+    }
+
+    .day-event{
+      background-color: @text-secondary;
+    }
+
+  }
+
+}
