@@ -16,6 +16,7 @@
     "type": "git",
     "url": "git@bitbucket.org:obuckley/as-webapp-2.0.git"
   },
+  "private": true,
   "readmeFilename": "README.md",
   "dependencies": {
     "del": "1.2.0",
