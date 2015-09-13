@@ -57,7 +57,7 @@ Note: assumes you are in the _/1p-frontend-webapp/_ directory
 https://thegreenhouse.atlassian.net/wiki/display/ASWEB/Website
 
 
-## Vagrant Setup
+## Vagrant
 This project uses Vagrant to provision Virtual Machines for use with development.  It is very easy to use
 
 1. Vagrant Up
@@ -74,22 +74,6 @@ npm install && bower install
 ```
 
 ** note this method is not maintained **
-
-## Vagrant
-This project uses Vagrant to provision Virtual Machines for use with development.  It is very easy to use
-
-1. Vagrant Up
-```
-vagrant up
-```
-2. Get into your workspace
-```
-cd /vagrant
-```
-3. Update project dependencies
-```
-npm install && bower install
-```
 
 ## Build
 
