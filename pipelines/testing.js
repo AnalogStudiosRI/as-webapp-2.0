@@ -16,7 +16,7 @@ gulp.task('test:tdd', function () {
 });
 
 //will run all tests and generate coverage output, primarily for Jenkins
-gulp.task('test:ci', function () {
+gulp.task('test:coverage', function () {
 
   return karma.start({
     configFile: __dirname + '/../karma-coverage.conf.js',

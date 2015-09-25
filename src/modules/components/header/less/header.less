@@ -1,0 +1,57 @@
+@import (reference) "../../../../less/as-webapp";
+@import (reference) "../../navigation/less/navigation.less";
+
+.as-header{
+  font-weight: 300;
+  margin-bottom: 70px;
+}
+
+.as-header{
+  .social-media-badges{
+    height: 42px;
+    margin: 0 0 40px 120px;
+    padding-left: 21px;
+    background-color: @bg-tertiary;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+
+  .social-buttons,
+  .live-feeds{
+    .menu-links(25px);
+  }
+
+  .social-buttons{
+    height: 40px;
+  }
+
+  .live-feeds{
+    font-size: 14px;
+    margin: -28px 0 0 100px;
+  }
+}
+
+.as-header{
+  .header-title-menu-wrapper{
+    letter-spacing: 2px;
+
+    .studio-name{
+      cursor: pointer;
+    }
+  }
+
+  .header-title{
+    font-size: 33px;
+    margin-left: 30px;
+  }
+
+  .header-menu{
+    .menu-links(17px);
+    margin-top: 14px;
+    margin-left: 40px;
+
+    .first{
+      width: 2%;
+    }
+  }
+}
