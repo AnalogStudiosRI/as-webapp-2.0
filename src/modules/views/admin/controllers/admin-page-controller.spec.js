@@ -5,7 +5,7 @@ describe('as.views.admin.controller.AdminViewControllerTest', function () {
   var ctrl;
   var dom;
 
-  beforeEach(module('as.components.bootstrap'));
+  beforeEach(module('as.bootstrap'));
   beforeEach(module('as.views.admin'));
 
   beforeEach(inject(function ($compile, $rootScope, $controller) {

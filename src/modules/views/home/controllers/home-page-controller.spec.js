@@ -5,7 +5,7 @@ describe('as.views.home.controller.HomeViewControllerTest', function () {
   var ctrl;
   var dom;
 
-  beforeEach(module('as.components.bootstrap'));
+  beforeEach(module('as.bootstrap'));
   beforeEach(module('as.views.home'));
 
   beforeEach(inject(function ($compile, $rootScope, $controller) {
