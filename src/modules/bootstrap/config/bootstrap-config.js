@@ -3,7 +3,7 @@
 (function (angular) {
 
   angular
-    .module('as.components.bootstrap')
+    .module('as.bootstrap')
     .config(BootstrapConfig);
 
   BootstrapConfig.$inject = ['$urlRouterProvider', '$logProvider'];

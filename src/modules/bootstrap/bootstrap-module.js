@@ -3,7 +3,7 @@
 (function (angular) {
 
   angular
-    .module('as.components.bootstrap', [
+    .module('as.bootstrap', [
       'ui.router',
       'as.components.navigation',
       'as.components.footer',

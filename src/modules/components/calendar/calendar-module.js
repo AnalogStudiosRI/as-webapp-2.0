@@ -5,7 +5,7 @@
   angular
     .module('as.components.calendar', [
       'ui.bootstrap',
-      'as.components.bootstrap'
+      'as.bootstrap'
     ]);
 
 })(angular);

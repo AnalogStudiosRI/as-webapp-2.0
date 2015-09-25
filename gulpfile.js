@@ -17,11 +17,6 @@ gulp.task('build', function (local, production, show) {
   if (local) {
     $.util.log($.util.colors.green('--local flag set, building application for local development'));
 
-    // run main build tasks
-    // then inject JS / CSS dependencies into index.html
-    // move the build to /ui/demo/
-    // serve, watch
-    // then cleanup
     $.runSequence('clean:dest', commonBuildTasks, ['template:build'], ['serve', 'watch']);
 
   } else if (production) {
@@ -33,7 +28,7 @@ gulp.task('build', function (local, production, show) {
       $.runSequence('clean:dest', commonBuildTasks, ['template:build'], ['serve']);
 
     } else {
-      $.runSequence('clean:dest', commonBuildTasks, ['template:build'], ['test:ci']);
+      $.runSequence('clean:dest', commonBuildTasks, ['template:build'], ['test:coverage']);
     }
   }
 });

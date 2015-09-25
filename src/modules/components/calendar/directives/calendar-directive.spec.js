@@ -7,7 +7,7 @@ describe('as.components.calendar.directives.CalendarDirectiveTest', function () 
   var scope;
 
   beforeEach(module('ui.bootstrap'));
-  beforeEach(module('as.components.bootstrap'));
+  beforeEach(module('as.bootstrap'));
   beforeEach(module('as.components.calendar'));
   beforeEach(module('templates'));
 

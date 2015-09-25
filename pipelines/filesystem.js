@@ -17,7 +17,7 @@ gulp.task('clean:dest', function () {
 
 gulp.task('copy:templates', function() {
 
-  return gulp.src(['src/**/**/*.html', '!./src/layouts/*.html'])
+  return gulp.src(['src/modules/**/*.html', '!./src/layouts/*.html'])
     .pipe(gulp.dest('./dest/'));
 
 });
