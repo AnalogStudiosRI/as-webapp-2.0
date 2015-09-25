@@ -112,10 +112,9 @@ TBD as the final form of 1p-frontend-new is not certain yet.  Expected structure
 * _pipelines_ - gulp tasks organized by responsibility
 * _src_ - application code
 * _src/assets/_ - common / misc assets (xml, .json, images, etc) for the application
-* _src/components/_ - reusable angular modules (directives, services, etc) grouped by feature
 * _src/layouts_ - templatable page layouts
 * _src/less/_ - application styles / styleguide
-* _src/views/_ - "pages" of the application, are generally controller driven
+* _src/modules/_ - reusable angular modules grouped by role (view, component, bootstrap)
 
 ## Testing
 TDD is supported for development
