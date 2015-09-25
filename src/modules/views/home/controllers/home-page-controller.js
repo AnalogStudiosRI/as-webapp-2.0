@@ -19,8 +19,6 @@
     //public methods
     HomeCtrl.init = function () {
       $log.info('Enter AS.HomeView.init');
-      $log.debug(HomeCtrl.welcomeText);
-      $log.debug(LANG);
     };
 
     //init
