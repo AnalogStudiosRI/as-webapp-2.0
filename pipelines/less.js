@@ -5,6 +5,7 @@
 var loadPluginsConfig = require('./configs/load-plugin-config.json');
 var $ = require('gulp-load-plugins')(loadPluginsConfig);
 var gulp = require('gulp-param')(require('gulp'), process.argv);
+var packageJson = require('../package.json');
 
 var lessLintTasks = $.lazypipe()
   .pipe($.less)
@@ -24,10 +25,11 @@ gulp.task('less:lint', function () {
 gulp.task('less:build', function (production) {
   var isProductionBuild = production ? true : false;
   var lessFiles = ['./src/less/as-webapp.less', './src/**/**/*.less'];
+  var filename = packageJson.name + '-' + packageJson.version + '.min.css';
 
   return gulp.src(lessFiles)
     .pipe($.less())
-    .pipe($.if(isProductionBuild, $.concat('app.min.css')))
+    .pipe($.if(isProductionBuild, $.concat(filename)))
     .pipe($.autoprefixer({
       browsers: ['last 2 versions', 'Explorer >= 9']
     }))
