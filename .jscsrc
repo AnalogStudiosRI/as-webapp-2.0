@@ -7,6 +7,7 @@
   "requireLineFeedAtFileEnd": null,
   "requirePaddingNewLinesAfterBlocks": null,
   "requirePaddingNewLinesBeforeLineComments": null,
+  "safeContextKeyword": ["vm"],
   "validateLineBreaks": "LF",
   "verbose": true
 }
