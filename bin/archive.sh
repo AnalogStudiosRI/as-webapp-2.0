@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+version=$1
+
 cd dest/
 
-tar -cvzf as-webapp-0.1.2.tar.gz .
+tar -cvzf as-webapp-$version.tar.gz .
 
 cd ../

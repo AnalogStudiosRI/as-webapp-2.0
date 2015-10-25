@@ -137,8 +137,9 @@ Each job uses a specific version controlled shell script for use in Jenkins.
 5. Commit latest to master
 6. Bump _package.json_ and _bower.json_
 7. Commit bump
-8. Run the build `gulp build --production`
+8. Tag latest version
+9. Run the RELEASE job on Jenkins
 9. Complete release notes
-10. Archive the build `sh bin/archive.sh`
+10. Archive the build `sh bin/archive.sh {version}`
 11. Upload zip to webserver
 12. Unzip in webroot
