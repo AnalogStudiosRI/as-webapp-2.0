@@ -6,6 +6,7 @@ describe('as.views.home.controller.HomeViewControllerTest', function () {
   var dom;
 
   beforeEach(module('as.bootstrap'));
+  beforeEach(module('as.components.socialShare'));
   beforeEach(module('as.views.home'));
 
   beforeEach(inject(function ($compile, $rootScope, $controller) {
@@ -31,6 +32,10 @@ describe('as.views.home.controller.HomeViewControllerTest', function () {
 
   it('it should test that the Welcome text is correct', function () {
     expect(scope.HomeCtrl.welcomeText).toBe('Welcome to the Analog Studios website');
+  });
+
+  xit('it should test that social share is seen', function () {
+    expect(dom.find('as-social-share').length).toBe(1);
   });
 
 });
