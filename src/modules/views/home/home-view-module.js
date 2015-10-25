@@ -4,7 +4,8 @@
 
   angular
     .module('as.views.home', [
-      'ui.router'
+      'ui.router',
+      'as.components.socialShare'
     ]);
 
 }(angular));
