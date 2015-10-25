@@ -10,7 +10,6 @@
   function asSocialShareDirective() {
     return {
       restrict: 'E',
-      replace: true,
       templateUrl: '/components/social-share/social-share-directive-template.html'
     };
   }

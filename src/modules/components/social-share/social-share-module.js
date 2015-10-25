@@ -3,6 +3,8 @@
 (function (angular) {
 
   angular
-    .module('as.components.socialShare', []);
+    .module('as.components.socialShare', [
+      '720kb.socialshare'
+    ]);
 
 })(angular);
