@@ -1,11 +1,11 @@
 {
   "name": "as-webapp",
-  "version": "0.1.0",
-  "description": "Analog Studios Website 2.0 Redesign",
+  "version": "0.2.0-SNAPSHOT",
   "author": {
     "name": "Owen Buckley",
     "email": "owen@analogstudios.net"
   },
+  "description": "Analog Studios Website 2.0 Redesign",
   "license": "UNLICENSED",
   "main": "gulpfile.js",
   "engines": {

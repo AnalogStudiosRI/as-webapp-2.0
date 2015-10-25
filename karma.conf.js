@@ -18,7 +18,7 @@ module.exports = function (config) {
       // setting this option will create only a single module that contains templates
       // from all the files, so you can load them all with module('foo')
       moduleName: 'templates',
-      stripPrefix: 'src'
+      stripPrefix: 'src/modules'
     },
 
     // list of files / patterns to load in the browser
@@ -28,6 +28,7 @@ module.exports = function (config) {
       './bower_components/angular-mocks/angular-mocks.js',
       './bower_components/angular-bootstrap/ui-bootstrap.js',
       './bower_components/angular-ui-router/release/angular-ui-router.js',
+      './bower_components/angular-socialshare/src/js/angular-socialshare.js',
       './src/**/*-module.js',  //load all modules first
       './src/**/*.js',
       './src/**/*.html'

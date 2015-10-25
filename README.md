@@ -57,7 +57,7 @@ Note: assumes you are in the _/1p-frontend-webapp/_ directory
 https://thegreenhouse.atlassian.net/wiki/display/ASWEB/Website
 
 
-## Vagrant
+## Vagrant Setup
 This project uses Vagrant to provision Virtual Machines for use with development.  It is very easy to use
 
 1. Vagrant Up
@@ -112,10 +112,9 @@ TBD as the final form of 1p-frontend-new is not certain yet.  Expected structure
 * _pipelines_ - gulp tasks organized by responsibility
 * _src_ - application code
 * _src/assets/_ - common / misc assets (xml, .json, images, etc) for the application
-* _src/components/_ - reusable angular modules (directives, services, etc) grouped by feature
 * _src/layouts_ - templatable page layouts
 * _src/less/_ - application styles / styleguide
-* _src/views/_ - "pages" of the application, are generally controller driven
+* _src/modules/_ - reusable angular modules grouped by role (view, component, bootstrap)
 
 ## Testing
 TDD is supported for development
@@ -129,3 +128,17 @@ Each job uses a specific version controlled shell script for use in Jenkins.
 * CI - Watches all branches, and builds the app to run linting and testing and does analysis and reporting.
 * DEV - The CI task, but in addition deploys to dev upon success
 * RELEASE - To release the application
+
+## Release Procedure
+1. Merge all latest code into develop
+2. Pull latest from develop and then checkout master
+3. Merge develop into master `git merge --squash develop`
+4. Make sure build passed `gulp build --production`
+5. Commit latest to master
+6. Bump _package.json_ and _bower.json_
+7. Commit bump
+8. Run the build `gulp build --production`
+9. Complete release notes
+10. Archive the build `sh bin/archive.sh`
+11. Upload zip to webserver
+12. Unzip in webroot

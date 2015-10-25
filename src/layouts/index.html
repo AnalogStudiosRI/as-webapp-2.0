@@ -7,8 +7,8 @@
     <title>Analog Studios: Music and Recordings</title>
 
     <meta charset="utf-8">
-    <meta name="description" content="One Platform"/>
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes"/>
+    <meta name="description" content="Analog"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
     <!-- bower:css -->
@@ -18,13 +18,14 @@
 
   </head>
 
-  <body ng-app="as.components.bootstrap" ng-cloak ng-strict-di="true">
+  <body ng-app="as.bootstrap" ng-cloak ng-strict-di="true" class="container-fluid">
 
     <div class="container">
       <div class="col-md-12">
 
         <as-header></as-header>
 
+        <!--<as-analytics></as-analytics>-->
         <div ui-view></div>
 
         <as-footer></as-footer>

@@ -4,7 +4,9 @@
 
 var loadPluginsConfig = require('./configs/load-plugin-config.json');
 var $ = require('gulp-load-plugins')(loadPluginsConfig);
+var packageJson = require('../package.json');
 var gulp = require('gulp-param')(require('gulp'), process.argv);
+var filename = packageJson.name + '-' + packageJson.version + '-vendor.min.';
 
 gulp.task('bower:copy:fonts', function () {
 
@@ -16,7 +18,7 @@ gulp.task('bower:copy:css', function (production) {
   var isProductionBuild = production ? true : false;
 
   return gulp.src($.wiredep().css, {base: './bower_components', cwd: './bower_components'})
-    .pipe($.if(isProductionBuild, $.concat('vendor.min.css')))
+    .pipe($.if(isProductionBuild, $.concat(filename + 'css')))
     .pipe($.if(isProductionBuild, $.minifyCss()))
     .pipe(gulp.dest('./dest/assets/css/vendor/'));
 });
@@ -25,7 +27,7 @@ gulp.task('bower:copy:js', function (production) {
   var isProductionBuild = production ? true : false;
 
   return gulp.src($.wiredep().js, {base: './bower_components', cwd: './bower_components'})
-    .pipe($.if(isProductionBuild, $.concat('vendor.min.js')))
+    .pipe($.if(isProductionBuild, $.concat(filename + 'js')))
     .pipe($.if(isProductionBuild, $.uglify()))
     .pipe(gulp.dest('./dest/assets/js/vendor/'));
 });

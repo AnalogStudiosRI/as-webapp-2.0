@@ -1,0 +1,20 @@
+@import (reference) "../../../../less/as-webapp.less";
+@import (reference) "navigation.less";
+
+@link-font-color: @black;
+@link-hover-font-color: @white;
+
+.links{
+  a{
+    color: @link-font-color;
+  }
+  a:hover{
+    color: @link-hover-font-color;
+  }
+}
+
+.menu-links(@fontSize){
+  font-size: @fontSize;
+  text-align: center;
+  .links;
+}
