@@ -128,3 +128,17 @@ Each job uses a specific version controlled shell script for use in Jenkins.
 * CI - Watches all branches, and builds the app to run linting and testing and does analysis and reporting.
 * DEV - The CI task, but in addition deploys to dev upon success
 * RELEASE - To release the application
+
+## Release Procedure
+1. Merge all latest code into develop
+2. Pull latest from develop and then checkout master
+3. Merge develop into master `git merge --squash develop`
+4. Make sure build passed `gulp build --production`
+5. Commit latest to master
+6. Bump _package.json_ and _bower.json_
+7. Commit bump
+8. Run the build `gulp build --production`
+9. Complete release notes
+10. Archive the build `sh bin/archive.sh`
+11. Upload zip to webserver
+12. Unzip in webroot
