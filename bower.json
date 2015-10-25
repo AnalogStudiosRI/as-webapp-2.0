@@ -8,7 +8,7 @@
     "angular-loader": "1.4.2",
     "angular-resource": "1.4.2",
     "angular-sanitize": "1.4.2",
-    "angular-socialshare": "angularjs-socialshare#~0.1.14",
+    "angular-socialshare": "angularjs-socialshare#0.1.14",
     "angular-ui-router": "0.2.15",
     "bootstrap": "3.3.5",
     "bootstrap-social": "4.9.1",
