@@ -36,5 +36,5 @@ npm install
 #fi
 
 #if [ ! -d /vagrant/bower_components ]; then
-bower install -y
+bower install -y --allow-root  #allow-root since vagrant runs as sudo
 #fi
