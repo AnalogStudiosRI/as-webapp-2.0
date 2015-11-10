@@ -1,0 +1,21 @@
+<section ng-controller="AdminViewController as view" class="row view">
+
+  <div class="col-md-3">
+    <p>{{::view.text}}</p>
+  </div>
+
+  <div class="col-md-9">
+
+    <form>
+      <label for="username">Username:</label>
+      <input id="username" type="text"/>
+
+      <label for="password">Password:</label>
+      <input id="password" type="password"/>
+
+      <input type="submit" value="Submit"/>
+    </form>
+
+  </div>
+
+</section>
