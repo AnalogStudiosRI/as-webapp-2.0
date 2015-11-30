@@ -95,7 +95,7 @@ $ gulp build --local
 See it in a browser by opening up
 
 ```
-http://local.analogstudios.thegreenhouse.io:1981/#home
+http://local.analogstudios.thegreenhouse.io:6789/#home
 ```
 
 #### building
