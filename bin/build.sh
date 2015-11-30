@@ -20,8 +20,8 @@ echo "git version"
 git --version
 
 echo "get dependencies..."
-rm -rf node_modules/
-rm -rf bower_components
+rm -rf node_modules/ > /dev/null 2>&1
+rm -rf bower_components > /dev/null 2>&1
 
 echo "cleaning dependency caches..."
 npm cache clean

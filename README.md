@@ -10,8 +10,6 @@ The following tools are used in the application
 - [Angular][] as the framework (1.4.x)
 - [Karma][] and [Mocha][] for unit testing
 - [Protractor][] for E2E testing Angular apps
-- [Vagrant][] for replicating production environments locally for development
-- [VirtualBox][] the tool used by Vagrant to spin up the local VM
 
 
 [Node]: https://nodejs.org/
@@ -22,25 +20,52 @@ The following tools are used in the application
 [Karma]: http://karma-runner.github.io/
 [Mocha]: http://mochajs.org/
 [Protractor]: https://angular.github.io/protractor/
-[Vagrant]: http://www.vagrantup.com/
-[VirtualBox]: http://www.virtualbox.org/
 
 
-## Setup
+## Project Setup
 
 *Note*: It is recommended that for UI development, a Javascript based IDE is used, like [Webstorm][] or [Sublime Text 2][],
 as they have a lot of the code quality and syntax tooling supported as plugins, often times right out of the box.
 Recommended plugins to have are:
-- Git
+- Git (can show changed lines in the gutter when viewing a file)
 - EditorConfig
 - JSCS
 - JSHint
 - gitignore
-- Git (can show changed lines in the gutter when viewing a file)
 - LESS
 
-Note: assumes you are in the _/1p-frontend-webapp/_ directory
+Edit your _etc/hosts_ file by adding this entry `127.0.0.1      local.analogstudios.thegreenhouse.io`
 
+### Vagrant (Recommended)
+This project uses Vagrant to provision Virtual Machines for use with development.  It is very easy to use
+
+First, install the following
+
+- [Vagrant][] for replicating production environments locally for development.  Version 1.7.4 required
+- [VirtualBox][] the tool used by Vagrant to spin up the local VM.  Version >= 5.x required.  Make sure to download
+guest additions as well.
+- [Vagrant Manager][] an OSX GUI tool for managing Vagrant instances (optional)
+
+
+1. Vagrant Up
+```
+vagrant up
+```
+2. SSH into the VM
+```
+vagrant ssh
+```
+
+3. Change into your workspace
+```
+cd /vagrant
+```
+
+[Vagrant]: http://www.vagrantup.com/
+[VirtualBox]: http://www.virtualbox.org/
+[Vagrant Manager]: http://vagrantmanager.com/
+
+### Manual
 
 1. If you don't already have it, download and install NodeJS (which comes with NPM).
 
@@ -56,25 +81,6 @@ Note: assumes you are in the _/1p-frontend-webapp/_ directory
 ## Documentation
 https://thegreenhouse.atlassian.net/wiki/display/ASWEB/Website
 
-
-## Vagrant Setup
-This project uses Vagrant to provision Virtual Machines for use with development.  It is very easy to use
-
-1. Vagrant Up
-```
-vagrant up
-```
-2. Get into your workspace
-```
-cd /vagrant
-```
-3. Update project dependencies
-```
-npm install && bower install
-```
-
-** note this method is not maintained **
-
 ## Build
 
 ### Tasks
@@ -86,7 +92,7 @@ default task and primary task of the development workflow.
 $ gulp build --local
 ```
 
-See it in a browser by opening up (only applies to Vagrant)
+See it in a browser by opening up
 
 ```
 http://local.analogstudios.thegreenhouse.io:1981/#home
@@ -99,7 +105,7 @@ This is the build task for the project.
 $ gulp build --production build
 ```
 
-#### showing a procuction build
+#### showing a production build
 To previews the production build locally against dev
 
 ```
