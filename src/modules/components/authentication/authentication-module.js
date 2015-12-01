@@ -3,6 +3,8 @@
 (function (angular) {
 
   angular
-    .module('as.components.authentication', []);
+    .module('as.components.authentication', [
+      'LocalStorageModule'
+    ]);
 
 })(angular);
