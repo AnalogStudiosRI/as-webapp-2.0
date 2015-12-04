@@ -6,9 +6,9 @@
     .module('as.views.admin')
     .controller('AdminViewController', adminViewController);
 
-  adminViewController.$inject = ['$log', 'AuthenticationFactory'];
+  adminViewController.$inject = ['$log', '$state', 'AuthenticationFactory'];
 
-  function adminViewController($log, AuthenticationFactory) {
+  function adminViewController($log, $state, AuthenticationFactory) {
     $log.info('ENTER as.views.admin');
     /*jshint validthis:true */
     var vm = this;
@@ -25,7 +25,7 @@
 
       AuthenticationFactory.login(creds.username, creds.password).then(function() {
         vm.isAuthenticated = true;
-        $log.debug('success');
+        $state.go('admin.events');
       }, function () {
         $log.debug('failure');
       });

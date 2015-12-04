@@ -1,7 +1,15 @@
 <section ng-controller="AdminViewController as view" class="row view">
 
   <div class="col-md-3">
-    <span class="link" data-ng-click="view.logout()" data-ng-show="view.isAuthenticated">Logout</span>
+    <div data-ng-show="view.isAuthenticated">
+
+      <ul>
+        <li><span class="link" ui-sref="admin.events">Events</span></li>
+        <li><span class="link" data-ng-click="view.logout()">Logout</span></li>
+      </ul>
+
+    </div>
+
   </div>
 
   <div class="col-md-9">
@@ -23,8 +31,9 @@
     </div>
 
     <div data-ng-show="view.isAuthenticated">
-      <p>Logged in!</p>
+      <ui-view></ui-view>
     </div>
+
   </div>
 
 </section>
