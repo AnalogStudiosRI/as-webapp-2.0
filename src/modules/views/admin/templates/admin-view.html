@@ -1,21 +1,30 @@
 <section ng-controller="AdminViewController as view" class="row view">
 
   <div class="col-md-3">
-    <p>{{::view.text}}</p>
+    <span class="link" data-ng-click="view.logout()" data-ng-show="view.isAuthenticated">Logout</span>
   </div>
 
   <div class="col-md-9">
 
-    <form>
-      <label for="username">Username:</label>
-      <input id="username" type="text"/>
+    <div data-ng-hide="view.isAuthenticated">
 
-      <label for="password">Password:</label>
-      <input id="password" type="password"/>
+      <form data-ng-submit="view.login()">
 
-      <input type="submit" value="Submit"/>
-    </form>
+        <label for="username">Username:</label>
+        <input id="username" data-ng-model="view.credentials.username" type="text" required/>
 
+        <label for="password">Password:</label>
+        <input id="password" data-ng-model="view.credentials.password" type="password" required/>
+
+        <input type="submit" value="Submit"/>
+
+      </form>
+
+    </div>
+
+    <div data-ng-show="view.isAuthenticated">
+      <p>Logged in!</p>
+    </div>
   </div>
 
 </section>
