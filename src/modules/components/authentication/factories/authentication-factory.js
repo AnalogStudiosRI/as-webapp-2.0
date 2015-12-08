@@ -12,6 +12,15 @@
     var JWT_KEY = 'token';
 
     return {
+
+      getToken: function () {
+        return localStorageService.get(JWT_KEY);
+      },
+
+      isAuthenticated: function () {
+        return angular.isString(localStorageService.get(JWT_KEY));
+      },
+
       login: function (username, password) {
         var deferred = $q.defer();
 
@@ -32,11 +41,8 @@
 
       logout: function () {
         return localStorageService.remove(JWT_KEY);
-      },
-
-      isAuthenticated: function () {
-        return localStorageService.get(JWT_KEY);
       }
+
     };
 
   }
