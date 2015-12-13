@@ -6,9 +6,11 @@
     .module('as.views.admin')
     .config(AdminViewConfig);
 
-  AdminViewConfig.$inject = ['$stateProvider'];
+  AdminViewConfig.$inject = ['$stateProvider', '$httpProvider'];
 
-  function AdminViewConfig($stateProvider) {
+  function AdminViewConfig($stateProvider, $httpProvider) {
+    $httpProvider.interceptors.push('AdminInterceptorFactory');
+
     $stateProvider
       .state('admin', {
         url: '/admin/',
