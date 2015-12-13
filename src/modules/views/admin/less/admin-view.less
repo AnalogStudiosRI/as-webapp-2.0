@@ -1,10 +1,12 @@
 @import (reference) "../../../../less/as-webapp";
 
+@inputMarginTop: 20px;
+
 .view {
-  margin: 20px 0;
+  margin: @inputMarginTop 0;
   color: white;
 
-  label{
+  label, input[type="submit"] {
     display: block;
   }
 
@@ -12,9 +14,12 @@
     color: @black;
   }
 
-  //events
   input[type="text"], textarea{
     width: 200px;
     margin-bottom: 20px;
+  }
+
+  input[type="submit"] {
+    margin: @inputMarginTop 0;
   }
 }
