@@ -1,0 +1,20 @@
+<section ng-controller="AdminViewEventsController as view" class="row view">
+
+  <div class="col-md-12">
+
+    <form data-ng-submit="view.submitEvent()">
+      <label for="title">Title:</label>
+      <input id="title" data-ng-model="view.event.title" type="text" required/>
+
+      <label for="description">Description:</label>
+      <textarea id="description" data-ng-model="view.event.description" required/></textarea>
+
+      <label for="date">Date:</label>
+      <input id="date" data-ng-model="view.event.date" type="date" required>
+
+      <input type="submit" value="Submit"/>
+    </form>
+
+  </div>
+
+</section>
