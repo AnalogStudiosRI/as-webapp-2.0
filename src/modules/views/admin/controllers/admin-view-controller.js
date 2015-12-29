@@ -6,9 +6,9 @@
     .module('as.views.admin')
     .controller('AdminViewController', adminViewController);
 
-  adminViewController.$inject = ['$log', '$state', 'AuthenticationFactory', 'PubSubFactory'];
+  adminViewController.$inject = ['$log', '$state', '$modal', 'AuthenticationFactory', 'PubSubFactory'];
 
-  function adminViewController($log, $state, AuthenticationFactory, PubSubFactory) {
+  function adminViewController($log, $state, $modal, AuthenticationFactory, PubSubFactory) {
     $log.info('ENTER as.views.admin');
     /*jshint validthis:true */
     var vm = this;
@@ -33,13 +33,35 @@
 
     vm.logout = function () {
       AuthenticationFactory.logout();
-      //XXX TODO use return value from logout
-      vm.isAuthenticated = false;
+      vm.isAuthenticated = false;  //XXX TODO use return value from logout
     };
 
+    function showModal(heading, body) {
+      modalInstanceController.$inject = ['$scope', '$modalInstance'];
+
+      function modalInstanceController($scope, $modalInstance) {
+        $scope.heading = heading;
+        $scope.body = body;
+
+        $scope.ok = function () {
+          $modalInstance.close();
+        };
+      }
+
+      $modal.open({
+        animation: true,
+        templateUrl: '/views/admin/templates/admin-view-modal.html',
+        controller: modalInstanceController
+      });
+    }
+
+    PubSubFactory.subscribe('RESPONSE_BAD_REQUEST', function() {
+      showModal('Invalid Credentials', 'Your username or password are incorrect.  Please try again');
+    });
+
     PubSubFactory.subscribe('RESPONSE_UNAUTH', function() {
-      $log.warn('session expired');
       vm.logout();
+      showModal('Session Expried', 'Your session has expired.  Please login again');
     });
 
   }

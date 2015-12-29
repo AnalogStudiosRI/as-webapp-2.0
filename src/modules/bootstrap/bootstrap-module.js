@@ -4,6 +4,7 @@
 
   angular
     .module('as.bootstrap', [
+      'ui.bootstrap',
       'ui.router',
       'as.components.analytics',
       'as.components.navigation',

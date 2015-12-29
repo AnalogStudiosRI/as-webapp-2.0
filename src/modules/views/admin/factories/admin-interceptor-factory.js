@@ -11,8 +11,8 @@
   function AdminInterceptorFactory($log, $injector, PubSubFactory) {
     var AUTH_METHODS = ['DELETE', 'POST', 'PUT'];
 
-    $log.debug('pub sub register');
     PubSubFactory.register('RESPONSE_UNAUTH');
+    PubSubFactory.register('RESPONSE_BAD_REQUEST');
 
     //XXX TODO handle response with fresh token
     return {
@@ -30,11 +30,18 @@
 
       responseError: function(response) {
 
-        if (response.status === 401) {
-          PubSubFactory.publish('RESPONSE_UNAUTH', response);
+        switch (response.status) {
+          case 400:
+            PubSubFactory.publish('RESPONSE_BAD_REQUEST', response);
+            break;
+          case 401:
+            PubSubFactory.publish('RESPONSE_UNAUTH', response);
+            break;
+          default:
+            return response;
         }
 
-        return response;
+        //return response;
       }
 
     };
