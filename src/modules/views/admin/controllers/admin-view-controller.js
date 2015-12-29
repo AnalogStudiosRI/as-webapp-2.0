@@ -6,9 +6,9 @@
     .module('as.views.admin')
     .controller('AdminViewController', adminViewController);
 
-  adminViewController.$inject = ['$log', '$state', 'AuthenticationFactory'];
+  adminViewController.$inject = ['$log', '$state', 'AuthenticationFactory', 'PubSubFactory'];
 
-  function adminViewController($log, $state, AuthenticationFactory) {
+  function adminViewController($log, $state, AuthenticationFactory, PubSubFactory) {
     $log.info('ENTER as.views.admin');
     /*jshint validthis:true */
     var vm = this;
@@ -27,7 +27,7 @@
         vm.isAuthenticated = true;
         $state.go('admin.events');
       }, function () {
-        $log.debug('failure');
+        $log.error('login failure');
       });
     };
 
@@ -36,6 +36,12 @@
       //XXX TODO use return value from logout
       vm.isAuthenticated = false;
     };
+
+    PubSubFactory.subscribe('RESPONSE_UNAUTH', function() {
+      $log.warn('session expired');
+      vm.logout();
+    });
+
   }
 
 }(angular));

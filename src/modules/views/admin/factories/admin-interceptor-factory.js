@@ -6,10 +6,13 @@
     .module('as.views.admin')
     .factory('AdminInterceptorFactory', AdminInterceptorFactory);
 
-  AdminInterceptorFactory.$inject = ['$log', '$injector'];
+  AdminInterceptorFactory.$inject = ['$log', '$injector', 'PubSubFactory'];
 
-  function AdminInterceptorFactory($log, $injector) {
+  function AdminInterceptorFactory($log, $injector, PubSubFactory) {
     var AUTH_METHODS = ['DELETE', 'POST', 'PUT'];
+
+    $log.debug('pub sub register');
+    PubSubFactory.register('RESPONSE_UNAUTH');
 
     //XXX TODO handle response with fresh token
     return {
@@ -23,6 +26,15 @@
         }
 
         return config;
+      },
+
+      responseError: function(response) {
+
+        if (response.status === 401) {
+          PubSubFactory.publish('RESPONSE_UNAUTH', response);
+        }
+
+        return response;
       }
 
     };
