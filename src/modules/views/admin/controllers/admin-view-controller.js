@@ -56,12 +56,12 @@
     }
 
     PubSubFactory.subscribe('RESPONSE_BAD_REQUEST', function() {
-      showModal('Invalid Credentials', 'Your username or password are incorrect.  Please try again');
+      showModal('Invalid Credentials', 'Your username or password are incorrect.  Please try again.');
     });
 
     PubSubFactory.subscribe('RESPONSE_UNAUTH', function() {
       vm.logout();
-      showModal('Session Expried', 'Your session has expired.  Please login again');
+      showModal('Session Expried', 'Your session has expired.  Please login again.');
     });
 
   }
