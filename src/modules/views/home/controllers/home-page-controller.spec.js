@@ -25,15 +25,6 @@ describe('as.views.home.controller.HomeViewControllerTest', function () {
     scope.$digest();
   }));
 
-  it('it should test that the HomeCtrl and scope properties are defined', function () {
-    expect(scope.HomeCtrl).toBeDefined();
-    expect(scope.HomeCtrl.welcomeText).toBeDefined();
-  });
-
-  it('it should test that the Welcome text is correct', function () {
-    expect(scope.HomeCtrl.welcomeText).toBe('Welcome to the Analog Studios website');
-  });
-
   xit('it should test that social share is seen', function () {
     expect(dom.find('as-social-share').length).toBe(1);
   });
