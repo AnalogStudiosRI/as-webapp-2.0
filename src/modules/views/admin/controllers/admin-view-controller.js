@@ -18,7 +18,7 @@
       password: ''
     };
 
-    vm.isAuthenticated = AuthenticationFactory.isAuthenticated();
+    vm.isAuthenticated = false;
 
     vm.login = function () {
       var creds = vm.credentials;
@@ -63,6 +63,10 @@
       vm.logout();
       showModal('Session Expried', 'Your session has expired.  Please login again.');
     });
+
+    if (!vm.isAuthenticated) {
+      vm.logout();
+    }
 
   }
 
