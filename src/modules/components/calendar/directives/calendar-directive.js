@@ -20,7 +20,6 @@
 
         //private methods
         function matchDateToEvent(date) {
-          $log.info('matchDateToEvent');
 
           for (var i = 0, l = $scope.events.length; i < l; i += 1) {
             var event = $scope.events[i];
