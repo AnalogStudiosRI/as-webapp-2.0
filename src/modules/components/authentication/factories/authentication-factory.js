@@ -19,7 +19,7 @@
 
       isAuthenticated: function () {
         var token = localStorageService.get(JWT_KEY) || '';
-        var isValid = token && angular.isString(token) && token !== '' ? jwtHelper.isTokenExpired(token) : false;
+        var isValid = token && angular.isString(token) && token !== '' && !jwtHelper.isTokenExpired(token);
 
         return isValid;
       },
