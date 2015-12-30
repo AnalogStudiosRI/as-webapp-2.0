@@ -4,6 +4,7 @@
 
   angular
     .module('as.components.authentication', [
+      'angular-jwt',
       'LocalStorageModule'
     ]);
 
