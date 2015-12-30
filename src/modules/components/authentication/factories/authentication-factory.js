@@ -6,9 +6,9 @@
     .module('as.components.authentication')
     .factory('AuthenticationFactory', AuthenticationFactory);
 
-  AuthenticationFactory.$inject = ['$log', '$http', '$q', 'localStorageService'];
+  AuthenticationFactory.$inject = ['$log', '$http', '$q', 'localStorageService', 'jwtHelper'];
 
-  function AuthenticationFactory($log, $http, $q, localStorageService) {
+  function AuthenticationFactory($log, $http, $q, localStorageService, jwtHelper) {
     var JWT_KEY = 'token';
 
     return {
@@ -18,7 +18,10 @@
       },
 
       isAuthenticated: function () {
-        return angular.isString(localStorageService.get(JWT_KEY));
+        var token = localStorageService.get(JWT_KEY) || '';
+        var isValid = token && angular.isString(token) && token !== '' ? jwtHelper.isTokenExpired(token) : false;
+
+        return isValid;
       },
 
       login: function (username, password) {

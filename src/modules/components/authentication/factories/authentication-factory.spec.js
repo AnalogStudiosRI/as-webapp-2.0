@@ -7,8 +7,10 @@ describe('as.components.authentication.factories.AuthenticationFactoryTest', fun
   var $httpBackend;
   var localStorageService;
 
+  beforeEach(module('angular-jwt'));
   beforeEach(module('LocalStorageModule'));
   beforeEach(module('as.components.authentication'));
+
   beforeEach(inject(function(_$httpBackend_, _localStorageService_) {
     $httpBackend = _$httpBackend_;
     localStorageService = _localStorageService_;
