@@ -6,14 +6,13 @@
     .module('as.views.home')
     .controller('HomeViewController', homeViewContoller);
 
-  homeViewContoller.$inject = ['$log', 'LanguageFactory', 'EventsFactory'];
+  homeViewContoller.$inject = ['$log', '$state', 'EventsFactory'];
 
-  function homeViewContoller($log, LanguageFactory, EventsFactory) {
+  function homeViewContoller($log, $state, EventsFactory) {
     /*jshint validthis:true */
     var vm = this;
-    var LANG = LanguageFactory.get();
 
-    $scope.events = [];
+    vm.events = [];
 
     function parseEventsResponse(response) {
       var events = [];
@@ -31,16 +30,14 @@
       return events;
     }
 
-    //public members
-    vm.welcomeText = LANG.PAGE.HOME.WELCOME;
-
     //public methods
     vm.init = function () {
       $log.info('Enter AS.HomeView.init');
+
       EventsFactory.query(function (data) {
         $log.debug('!!!!!!');
         $log.debug(data);
-        $scope.events = parseEventsResponse(data);
+        vm.events = parseEventsResponse(data);
       }, function() {
         $log.error('omg');
       });
@@ -49,8 +46,9 @@
     //init
     vm.init();
 
-    vm.eventClick = function (data) {
-      $log.debug(data);
+    vm.eventClick = function (eventData) {
+      $log.debug(eventData);
+      $state.go('events-view-detailed', eventData);
     };
   }
 

@@ -65,8 +65,10 @@
         };
 
         //watch for event data being passed on
-        $scope.$watch('eventData', function (newVal) {
-          $scope.events = newVal;
+        $scope.$watch('eventData', function (newVal, oldVal) {
+          if (newVal !== oldVal) {
+            $scope.events = newVal;
+          }
         }, true);
 
         //watch for selections on the calendar
