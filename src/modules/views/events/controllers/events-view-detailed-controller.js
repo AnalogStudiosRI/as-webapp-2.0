@@ -6,16 +6,19 @@
     .module('as.views.events')
     .controller('EventsViewDetailedController', eventsViewDetailedController);
 
-  eventsViewDetailedController.$inject = ['$scope', '$log', '$stateParams', 'EventsFactory'];
+  eventsViewDetailedController.$inject = ['$log', '$stateParams', 'EventsFactory'];
 
-  function eventsViewDetailedController($scope, $log, $stateParams, EventsFactory) {
-    $scope.event = [];
+  function eventsViewDetailedController($log, $stateParams, EventsFactory) {
+    /*jshint validthis:true */
+    var vm = this;
+
+    vm.event = [];
 
     function getEvent(id) {
       EventsFactory.query({eventId: id}, function (response) {
 
         $log.info(response);
-        $scope.event = response[0];
+        vm.event = response[0];
 
       }, function (response) {
 
@@ -24,13 +27,13 @@
       });
     }
 
-    $scope.init = function () {
-      $log.info('Enter as.page.events.detailed.init');
-
+    vm.init = function () {
+      $log.info('Enter as.view.events.detailed.init');
+      $log.debug($stateParams);
       getEvent($stateParams.id);
     };
 
-    $scope.init();
+    vm.init();
   }
 
 }(angular));
