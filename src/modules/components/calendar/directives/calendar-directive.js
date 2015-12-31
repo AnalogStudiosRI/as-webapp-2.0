@@ -20,7 +20,6 @@
 
         //private methods
         function matchDateToEvent(date) {
-          $log.info('matchDateToEvent');
 
           for (var i = 0, l = $scope.events.length; i < l; i += 1) {
             var event = $scope.events[i];
@@ -66,8 +65,11 @@
         };
 
         //watch for event data being passed on
-        $scope.$watch('eventData', function (newVal) {
-          $scope.events = newVal;
+        $scope.$watch('eventData', function (newVal, oldVal) {
+          if (newVal !== oldVal) {
+            $scope.events = newVal;
+            $scope.$broadcast('refreshDatepickers');  //custom refresh functionality, see calendar-directive.js
+          }
         }, true);
 
         //watch for selections on the calendar

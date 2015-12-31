@@ -25,10 +25,8 @@
 
     function getIsProductionEnvironmen() {
       var host = $location.host();
-      $log.debug('host => ' + host);
       var isDev = host.indexOf('thegreenhouse.io') > 0;
 
-      $log.debug('isDev => ' + isDev);
       return !isDev;
     }
   }

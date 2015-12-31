@@ -10,17 +10,23 @@
         couple of months, we'll be gradually updating the site with more and more content and interactions.  Please
         keep in touch with us through social media by clicking our links.</p>
 
-      <p>Thanks, and looking forward to what's to come!</p>
+      <p>Checkout our upcoming events, below!</p>
 
     </div>
   </div>
 
   <div class="row">
+
     <div class="col-xs-12">
-
-      <as-social-share></as-social-share>
-
+      <div class="calendar-container">
+        <as-calendar class="calendar" event-data="view.events" event-click="view.eventClick"></as-calendar>
+      </div>
     </div>
+
+    <div class="col-xs-12">
+      <as-social-share></as-social-share>
+    </div>
+
   </div>
 
 </section>
