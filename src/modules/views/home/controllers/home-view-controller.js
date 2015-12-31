@@ -35,8 +35,6 @@
       $log.info('Enter AS.HomeView.init');
 
       EventsFactory.query(function (data) {
-        $log.debug('!!!!!!');
-        $log.debug(data);
         vm.events = parseEventsResponse(data);
       }, function() {
         $log.error('omg');

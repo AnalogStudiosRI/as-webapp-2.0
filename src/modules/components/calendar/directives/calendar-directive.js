@@ -68,6 +68,7 @@
         $scope.$watch('eventData', function (newVal, oldVal) {
           if (newVal !== oldVal) {
             $scope.events = newVal;
+            $scope.$broadcast('refreshDatepickers');  //custom refresh functionality, see calendar-directive.js
           }
         }, true);
 
