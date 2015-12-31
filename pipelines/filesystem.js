@@ -24,14 +24,14 @@ gulp.task('copy:templates', function() {
 
 gulp.task('copy:assets:images', function() {
 
-  return gulp.src(['src/assets/images/*', '!src/assets/images/favicon.ico'])
+  return gulp.src(['src/assets/images/*', '!src/assets/images/favicon.png'])
     .pipe(gulp.dest('./dest/assets/images'));
 
 });
 
 gulp.task('copy:assets:images:favicon', function() {
 
-  return gulp.src(['src/assets/images/favicon.ico'])
+  return gulp.src(['src/assets/images/favicon.png'])
     .pipe(gulp.dest('./dest/'));
 
 });
