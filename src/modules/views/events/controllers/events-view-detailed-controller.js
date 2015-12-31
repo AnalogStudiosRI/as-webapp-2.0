@@ -21,15 +21,12 @@
         vm.event = response[0];
 
       }, function (response) {
-
         $log.error('getEvents failure');
         $log.error(response);
       });
     }
 
     vm.init = function () {
-      $log.info('Enter as.view.events.detailed.init');
-      $log.debug($stateParams);
       getEvent($stateParams.id);
     };
 
