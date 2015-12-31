@@ -26,7 +26,7 @@
       event.title = vmEvent.title;
       event.description = vmEvent.description;
       event.startTime = new Date(vmEvent.date).getTime() / 1000;
-      event.endTime = event.startTime + 86499;  //for now event spans the day, minus 1 second
+      event.endTime = event.startTime + 86399;  //for now an event's default endtime is 24h, minus 1 second
 
       return event;
     }
