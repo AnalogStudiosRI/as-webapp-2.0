@@ -14,11 +14,8 @@
     var vm = this;
     var pristineEvent = {};
 
-    vm.event = {
-      title: '',
-      description: '',
-      date: ''
-    };
+    vm.event = {};
+    vm.events = [];
 
     function modelSavedEventForRequest() {
       var vmEvent = vm.event;
@@ -71,8 +68,16 @@
     };
 
     vm.init = function() {
-      usSpinnerService.stop('spinner-2');
+      usSpinnerService.spin('spinner-2');
       pristineEvent = angular.copy(vm.event);
+
+      EventsFactory.query(function(response) {
+        usSpinnerService.stop('spinner-2');
+        view.events = response;
+      }, function(response) {
+        usSpinnerService.stop('spinner-2');
+        showModal('Error - ' + response.status, 'There was a problem getting events.  Please try again.');
+      });
     };
 
     vm.init();

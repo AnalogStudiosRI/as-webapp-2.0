@@ -9,7 +9,6 @@
   adminViewController.$inject = ['$log', '$state', '$modal', 'AuthenticationFactory', 'PubSubFactory', 'usSpinnerService'];
 
   function adminViewController($log, $state, $modal, AuthenticationFactory, PubSubFactory, usSpinnerService) {
-    $log.info('ENTER as.views.admin');
     /*jshint validthis:true */
     var vm = this;
 
@@ -40,8 +39,14 @@
     };
 
     vm.init = function() {
+      $log.info('ENTER as.views.admin');
       usSpinnerService.stop('spinner-1');
+
       vm.isAuthenticated = AuthenticationFactory.isAuthenticated();
+
+      if (!vm.isAuthenticated) {
+        vm.logout();
+      }
     };
 
     function showModal(heading, body) {
@@ -71,5 +76,4 @@
     vm.init();
 
   }
-
 }(angular));
