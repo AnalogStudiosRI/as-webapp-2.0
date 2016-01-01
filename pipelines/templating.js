@@ -20,7 +20,8 @@ var vendorFiles = [
   'dest/assets/js/*.min.js',
   'dest/assets/css/vendor/bootstrap/**/*.css',
   'dest/assets/css/vendor/**/*.min.css',
-  'dest/assets/css/vendor/*.min.css'
+  'dest/assets/css/vendor/*.min.css',
+  'dest/assets/css/vendor/textAngular/dist/textAngular.css'
 ];
 
 function transformFilepath(filepath) {
