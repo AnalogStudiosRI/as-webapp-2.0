@@ -12,8 +12,8 @@
       <div class="col-xs-8 event-details">
         <div ng-show="vm.event">
           <p>Event Title: {{vm.event.title}}</p>
-          <p>Event Description: {{vm.event.description}}</p>
-          <!--<p>Event Link: <a ng-href="event.link">{{vm.event.link}}</a></p>-->
+          <p>Event Info:</p>
+          <p ng-bind-html="vm.event.description"></p>
           <p>Event Date: {{ (vm.event.startTime * 1000) | date : short }}
         </div>
       </div>
