@@ -54,7 +54,7 @@
         function setCurrentMonthIndex(index, title) {
           if (index) {
             currentMonthIndex = index;
-          } else {
+          } else if (title) {
             var titlePieces = title.split(' ');
             var date = new Date(titlePieces[1], monthToIndexMapper[titlePieces[0].toUpperCase()]);
 

@@ -28,7 +28,8 @@ gulp.task('bower:copy:js', function (production) {
   var isProductionBuild = production ? true : false;
 
   return gulp.src($.wiredep().js, {base: './bower_components', cwd: './bower_components'})
-    .pipe($.if(isProductionBuild, $.concat(filename + 'js')))
+    //TODO fix why this breaks textAngular for production builds
+    //.pipe($.if(isProductionBuild, $.concat(filename + 'js')))
     .pipe($.if(isProductionBuild, $.uglify()))
     .pipe(gulp.dest('./dest/assets/js/vendor/'));
 });
