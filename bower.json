@@ -37,8 +37,9 @@
       "main": [
         "dist/textAngular.css",
         "dist/textAngular-rangy.min.js",
-        "dist/textAngular-sanitize.min.js",
-        "dist/textAngular.min.js"
+        "dist/textAngular-sanitize.js",
+        "dist/textAngular.js",
+        "dist/textAngularSetup.js"
       ]
     },
     "rangy": {
