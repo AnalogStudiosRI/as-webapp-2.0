@@ -16,10 +16,7 @@
 
     function getEvent(id) {
       EventsFactory.query({eventId: id}, function (response) {
-
-        $log.info(response);
         vm.event = response[0];
-        $log.debug('desc', vm.event.description);
         vm.event.description = $sce.trustAsHtml(vm.event.description);
 
       }, function (response) {
