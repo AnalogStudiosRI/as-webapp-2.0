@@ -73,7 +73,7 @@
 
       EventsFactory.query(function(response) {
         usSpinnerService.stop('spinner-2');
-        view.events = response;
+        vm.events = response;
       }, function(response) {
         usSpinnerService.stop('spinner-2');
         showModal('Error - ' + response.status, 'There was a problem getting events.  Please try again.');
