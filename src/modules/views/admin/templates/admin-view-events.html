@@ -2,7 +2,7 @@
 
   <div class="col-md-12">
 
-    <form data-ng-submit="view.submitEvent()">
+    <form name="eventForm" data-ng-submit="view.submitEvent()">
       <label for="title">Title:</label>
       <input id="title" data-ng-model="view.event.title" type="text" required/>
 
@@ -12,8 +12,14 @@
       <label for="date">Date:</label>
       <input id="date" data-ng-model="view.event.date" type="date" required>
 
+      <br/>
+
       <input type="submit" value="Submit"/>
+      <button type="button" ng-click="view.resetForm()">Reset</button>
+
     </form>
+
+    <span us-spinner spinner-key="spinner-2"></span>
 
   </div>
 

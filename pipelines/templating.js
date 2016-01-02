@@ -15,6 +15,7 @@ var appFiles = [
 ];
 
 var vendorFiles = [
+  'dest/assets/js/vendor/spin.js/spin.js',
   'dest/assets/js/vendor/angular/angular.js',
   'dest/assets/js/vendor/**/**',
   'dest/assets/js/*.min.js',

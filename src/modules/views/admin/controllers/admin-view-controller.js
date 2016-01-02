@@ -6,34 +6,42 @@
     .module('as.views.admin')
     .controller('AdminViewController', adminViewController);
 
-  adminViewController.$inject = ['$log', '$state', '$modal', 'AuthenticationFactory', 'PubSubFactory'];
+  adminViewController.$inject = ['$log', '$state', '$modal', 'AuthenticationFactory', 'PubSubFactory', 'usSpinnerService'];
 
-  function adminViewController($log, $state, $modal, AuthenticationFactory, PubSubFactory) {
+  function adminViewController($log, $state, $modal, AuthenticationFactory, PubSubFactory, usSpinnerService) {
     $log.info('ENTER as.views.admin');
     /*jshint validthis:true */
     var vm = this;
 
+    vm.isAuthenticated = false;
     vm.credentials = {
       username: '',
       password: ''
     };
 
-    vm.isAuthenticated = false;
-
     vm.login = function () {
+      usSpinnerService.spin('spinner-1');
+
       var creds = vm.credentials;
 
       AuthenticationFactory.login(creds.username, creds.password).then(function() {
+        usSpinnerService.stop('spinner-1');
         vm.isAuthenticated = true;
         $state.go('admin.events');
       }, function () {
-        $log.error('login failure');
+        usSpinnerService.stop('spinner-1');
+        showModal('Invalid Credentials', 'Your username or password are incorrect.  Please try again.');
       });
     };
 
     vm.logout = function () {
       AuthenticationFactory.logout();
       vm.isAuthenticated = false;  //XXX TODO use return value from logout
+    };
+
+    vm.init = function() {
+      usSpinnerService.stop('spinner-1');
+      vm.isAuthenticated = AuthenticationFactory.isAuthenticated();
     };
 
     function showModal(heading, body) {
@@ -55,18 +63,12 @@
       });
     }
 
-    PubSubFactory.subscribe('RESPONSE_BAD_REQUEST', function() {
-      showModal('Invalid Credentials', 'Your username or password are incorrect.  Please try again.');
-    });
-
     PubSubFactory.subscribe('RESPONSE_UNAUTH', function() {
       vm.logout();
-      showModal('Session Expried', 'Your session has expired.  Please login again.');
+      showModal('Session Expired', 'Your session has expired.  Please login again.');
     });
 
-    if (!vm.isAuthenticated) {
-      vm.logout();
-    }
+    vm.init();
 
   }
 
