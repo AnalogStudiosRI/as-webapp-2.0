@@ -12,7 +12,6 @@
     var AUTH_METHODS = ['DELETE', 'POST', 'PUT'];
 
     PubSubFactory.register('RESPONSE_UNAUTH');
-    PubSubFactory.register('RESPONSE_BAD_REQUEST');
 
     //XXX TODO handle response with fresh token
     return {
@@ -31,9 +30,6 @@
       responseError: function(response) {
 
         switch (response.status) {
-          case 400:
-            PubSubFactory.publish('RESPONSE_BAD_REQUEST', response);
-            break;
           case 401:
             PubSubFactory.publish('RESPONSE_UNAUTH', response);
             break;

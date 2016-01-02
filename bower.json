@@ -11,6 +11,7 @@
     "angular-resource": "1.4.2",
     "angular-sanitize": "1.4.2",
     "angular-socialshare": "angularjs-socialshare#0.1.14",
+    "angular-spinner": "0.8.0",
     "angular-ui-router": "0.2.15",
     "bootstrap": "3.3.5",
     "bootstrap-social": "4.9.1",
@@ -19,6 +20,7 @@
     "lodash": "2.4.1",
     "moment-timezone": "0.1.0",
     "momentjs": "2.8.1",
+    "spin.js": "spinjs#2.3.2",
     "textAngular": "1.4.6"
   },
   "devDependencies": {
@@ -33,6 +35,9 @@
         "css/font-awesome.min.css"
       ]
     },
+    "rangy": {
+      "main": []
+    },
     "textAngular": {
       "main": [
         "dist/textAngular.css",
@@ -41,9 +46,6 @@
         "dist/textAngular.js",
         "dist/textAngularSetup.js"
       ]
-    },
-    "rangy": {
-      "main": []
     }
   }
 }
