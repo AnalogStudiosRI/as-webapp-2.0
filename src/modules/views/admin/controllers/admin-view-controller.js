@@ -64,9 +64,11 @@
       showModal('Session Expried', 'Your session has expired.  Please login again.');
     });
 
-    if (!vm.isAuthenticated) {
-      vm.logout();
-    }
+    vm.init = function() {
+      vm.isAuthenticated = AuthenticationFactory.isAuthenticated();
+    };
+
+    vm.init();
 
   }
 

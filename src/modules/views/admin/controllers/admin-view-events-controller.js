@@ -58,7 +58,7 @@
     vm.submitEvent = function() {
       var event = modelSavedEventForRequest();
 
-      event.$save(function(response) {
+      event.$save(function() {
         showModal('Success', 'Event: ' + vm.event.title + ' successfully made.');
         vm.resetForm();
       }, function (response) {
