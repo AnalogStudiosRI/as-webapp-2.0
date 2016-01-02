@@ -6,12 +6,13 @@
     .module('as.views.admin')
     .controller('AdminViewEventsController', adminViewEventsController);
 
-  adminViewEventsController.$inject = ['$log', 'EventsFactory'];
+  adminViewEventsController.$inject = ['$log', '$modal', 'EventsFactory'];
 
-  function adminViewEventsController($log, EventsFactory) {
+  function adminViewEventsController($log, $modal, EventsFactory) {
     $log.info('ENTER as.views.admin.events');
     /*jshint validthis:true */
     var vm = this;
+    var pristineEvent = {};
 
     vm.event = {
       title: '',
@@ -31,16 +32,46 @@
       return event;
     }
 
+    function showModal(heading, body) {
+      modalInstanceController.$inject = ['$scope', '$modalInstance'];
+
+      function modalInstanceController($scope, $modalInstance) {
+        $scope.heading = heading;
+        $scope.body = body;
+
+        $scope.ok = function () {
+          $modalInstance.close();
+        };
+      }
+
+      $modal.open({
+        animation: true,
+        templateUrl: '/views/admin/templates/admin-view-modal.html',
+        controller: modalInstanceController
+      });
+    }
+
+    vm.resetForm = function() {
+      vm.event = angular.copy(pristineEvent);
+    };
+
     vm.submitEvent = function() {
       var event = modelSavedEventForRequest();
-      $log.debug(event);
-      event.$save(function() {
-        $log.debug('yes!');
-      }, function () {
-        $log.debug('no');
+
+      event.$save(function(response) {
+        showModal('Success', 'Event: ' + vm.event.title + ' successfully made.');
+        vm.resetForm();
+      }, function (response) {
+        showModal('Error - ' + response.status, 'There was a problem creating the event.  Please try again.');
+        vm.resetForm();
       });
     };
 
+    vm.init = function() {
+      pristineEvent = angular.copy(vm.event);
+    };
+
+    vm.init();
   }
 
 }(angular));
