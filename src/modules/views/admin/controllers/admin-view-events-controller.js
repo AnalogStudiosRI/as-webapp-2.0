@@ -6,9 +6,9 @@
     .module('as.views.admin')
     .controller('AdminViewEventsController', adminViewEventsController);
 
-  adminViewEventsController.$inject = ['$log', '$modal', 'EventsFactory'];
+  adminViewEventsController.$inject = ['$log', '$modal', 'EventsFactory', 'usSpinnerService'];
 
-  function adminViewEventsController($log, $modal, EventsFactory) {
+  function adminViewEventsController($log, $modal, EventsFactory, usSpinnerService) {
     $log.info('ENTER as.views.admin.events');
     /*jshint validthis:true */
     var vm = this;
@@ -56,18 +56,22 @@
     };
 
     vm.submitEvent = function() {
+      usSpinnerService.spin('spinner-2');
       var event = modelSavedEventForRequest();
 
       event.$save(function() {
+        usSpinnerService.stop('spinner-2');
         showModal('Success', 'Event: ' + vm.event.title + ' successfully made.');
         vm.resetForm();
       }, function (response) {
+        usSpinnerService.stop('spinner-2');
         showModal('Error - ' + response.status, 'There was a problem creating the event.  Please try again.');
         vm.resetForm();
       });
     };
 
     vm.init = function() {
+      usSpinnerService.stop('spinner-2');
       pristineEvent = angular.copy(vm.event);
     };
 

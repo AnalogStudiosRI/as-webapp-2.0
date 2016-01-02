@@ -19,11 +19,6 @@
       password: ''
     };
 
-    vm.init = function() {
-      usSpinnerService.stop('spinner-1');
-      vm.isAuthenticated = AuthenticationFactory.isAuthenticated();
-    };
-
     vm.login = function () {
       usSpinnerService.spin('spinner-1');
 
@@ -42,6 +37,11 @@
     vm.logout = function () {
       AuthenticationFactory.logout();
       vm.isAuthenticated = false;  //XXX TODO use return value from logout
+    };
+
+    vm.init = function() {
+      usSpinnerService.stop('spinner-1');
+      vm.isAuthenticated = AuthenticationFactory.isAuthenticated();
     };
 
     function showModal(heading, body) {
