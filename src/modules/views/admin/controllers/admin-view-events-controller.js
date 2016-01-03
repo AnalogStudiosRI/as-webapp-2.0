@@ -48,28 +48,8 @@
       });
     }
 
-    vm.resetForm = function() {
-      vm.event = angular.copy(pristineEvent);
-    };
-
-    vm.submitEvent = function() {
-      usSpinnerService.spin('spinner-2');
-      var event = modelSavedEventForRequest();
-
-      event.$save(function() {
-        usSpinnerService.stop('spinner-2');
-        showModal('Success', 'Event: ' + vm.event.title + ' successfully made.');
-        vm.resetForm();
-      }, function (response) {
-        usSpinnerService.stop('spinner-2');
-        showModal('Error - ' + response.status, 'There was a problem creating the event.  Please try again.');
-        vm.resetForm();
-      });
-    };
-
-    vm.init = function() {
-      usSpinnerService.spin('spinner-2');
-      pristineEvent = angular.copy(vm.event);
+    function getEvents() {
+      $log.debug('getEvents');
 
       EventsFactory.query(function(response) {
         usSpinnerService.stop('spinner-2');
@@ -78,6 +58,60 @@
         usSpinnerService.stop('spinner-2');
         showModal('Error - ' + response.status, 'There was a problem getting events.  Please try again.');
       });
+    }
+
+    function updateEvent(eventResource) {
+      $log.debug('updateEvent');
+
+      eventResource.update(function() {
+        usSpinnerService.stop('spinner-2');
+        showModal('Success', 'Event: ' + vm.event.title + ' successfully updated.');
+        vm.resetForm();
+      }, function (response) {
+        usSpinnerService.stop('spinner-2');
+        showModal('Error - ' + response.status, 'There was a problem creating the event.  Please try again.');
+        vm.resetForm();
+      });
+    }
+
+    function saveEvent(eventResource) {
+      $log.debug('saveEvent');
+
+      eventResource.$save(function() {
+        usSpinnerService.stop('spinner-2');
+        showModal('Success', 'Event: ' + vm.event.title + ' successfully made.');
+        vm.resetForm();
+      }, function (response) {
+        usSpinnerService.stop('spinner-2');
+        showModal('Error - ' + response.status, 'There was a problem creating the event.  Please try again.');
+        vm.resetForm();
+      });
+    }
+
+    vm.resetForm = function() {
+      vm.event = angular.copy(pristineEvent);
+    };
+
+    vm.submitEvent = function() {
+      usSpinnerService.spin('spinner-2');
+      var eventResource = modelSavedEventForRequest();
+
+      if (event.id) {
+        $log.debug('this should be an update!');
+        eventResource.id = event.id;
+        $log.debug('eventResource', eventResource);
+
+        updateEvent(eventResource);
+      } else {
+        $log.debug('eventResource', eventResource);
+        saveEvent(eventResource);
+      }
+    };
+
+    vm.init = function() {
+      usSpinnerService.spin('spinner-2');
+      pristineEvent = angular.copy(vm.event);
+      getEvents();
     };
 
     vm.init();
