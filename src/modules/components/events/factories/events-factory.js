@@ -10,7 +10,7 @@
 
   function eventsFactory($resource) {
 
-    return $resource('/api/events/:eventId', {id: '@id'}, {
+    return $resource('/api/events/:id', {id: '@id'}, {
       update: {
         method: 'PUT'
       }

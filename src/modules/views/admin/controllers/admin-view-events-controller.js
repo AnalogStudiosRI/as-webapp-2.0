@@ -61,9 +61,7 @@
     }
 
     function updateEvent(eventResource) {
-      $log.debug('updateEvent');
-
-      eventResource.update(function() {
+      eventResource.$update().then(function() {
         usSpinnerService.stop('spinner-2');
         showModal('Success', 'Event: ' + vm.event.title + ' successfully updated.');
         vm.resetForm();
@@ -71,16 +69,16 @@
         usSpinnerService.stop('spinner-2');
         showModal('Error - ' + response.status, 'There was a problem creating the event.  Please try again.');
         vm.resetForm();
+        getEvents();
       });
     }
 
     function saveEvent(eventResource) {
-      $log.debug('saveEvent');
-
       eventResource.$save(function() {
         usSpinnerService.stop('spinner-2');
         showModal('Success', 'Event: ' + vm.event.title + ' successfully made.');
         vm.resetForm();
+        getEvents();
       }, function (response) {
         usSpinnerService.stop('spinner-2');
         showModal('Error - ' + response.status, 'There was a problem creating the event.  Please try again.');
@@ -96,14 +94,10 @@
       usSpinnerService.spin('spinner-2');
       var eventResource = modelSavedEventForRequest();
 
-      if (event.id) {
-        $log.debug('this should be an update!');
-        eventResource.id = event.id;
-        $log.debug('eventResource', eventResource);
-
+      if (vm.event.id) {
+        eventResource.id = vm.event.id;
         updateEvent(eventResource);
       } else {
-        $log.debug('eventResource', eventResource);
         saveEvent(eventResource);
       }
     };
