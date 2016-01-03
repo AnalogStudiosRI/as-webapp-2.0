@@ -6,23 +6,63 @@
     .module('as.views.admin')
     .controller('AdminViewEventsController', adminViewEventsController);
 
-  adminViewEventsController.$inject = ['$log', '$modal', 'EventsFactory', 'usSpinnerService'];
+  adminViewEventsController.$inject = ['$log', '$scope', '$modal', 'EventsFactory', 'usSpinnerService'];
 
-  function adminViewEventsController($log, $modal, EventsFactory, usSpinnerService) {
+  function adminViewEventsController($log, $scope, $modal, EventsFactory, usSpinnerService) {
     $log.info('ENTER as.views.admin.events');
     /*jshint validthis:true */
     var vm = this;
     var pristineEvent = {};
 
-    vm.event = {
-      title: '',
-      description: '',
-      date: ''
-    };
+    vm.event = {};
+    vm.events = [];
 
-    function modelSavedEventForRequest() {
+    function getEvents() {
+
+      EventsFactory.query(function(response) {
+        usSpinnerService.stop('spinner-2');
+        vm.events = response;
+      }, function(response) {
+        usSpinnerService.stop('spinner-2');
+        showModal('Error - ' + response.status, 'There was a problem getting events.  Please try again.');
+      });
+    }
+
+    function updateEvent(eventResource) {
+
+      eventResource.$update().then(function() {
+        usSpinnerService.stop('spinner-2');
+        showModal('Success', 'Event: ' + vm.event.title + ' successfully updated.');
+        vm.resetForm();
+      }, function (response) {
+        usSpinnerService.stop('spinner-2');
+        showModal('Error - ' + response.status, 'There was a problem creating the event.  Please try again.');
+        vm.resetForm();
+        getEvents();
+      });
+    }
+
+    function saveEvent(eventResource) {
+
+      eventResource.$save(function() {
+        usSpinnerService.stop('spinner-2');
+        showModal('Success', 'Event: ' + vm.event.title + ' successfully made.');
+        vm.resetForm();
+        getEvents();
+      }, function (response) {
+        usSpinnerService.stop('spinner-2');
+        showModal('Error - ' + response.status, 'There was a problem creating the event.  Please try again.');
+        vm.resetForm();
+      });
+    }
+
+    function modelSavedEventForRequest(type) {
       var vmEvent = vm.event;
       var event = new EventsFactory();
+
+      if (type === 'update') {
+        event.id = vm.event.id;
+      }
 
       event.title = vmEvent.title;
       event.description = vmEvent.description;
@@ -57,23 +97,27 @@
 
     vm.submitEvent = function() {
       usSpinnerService.spin('spinner-2');
-      var event = modelSavedEventForRequest();
+      var isUpdate = vm.event.id;  //new events wont have an id
+      var eventResource = isUpdate ? modelSavedEventForRequest('update') : modelSavedEventForRequest();
 
-      event.$save(function() {
-        usSpinnerService.stop('spinner-2');
-        showModal('Success', 'Event: ' + vm.event.title + ' successfully made.');
-        vm.resetForm();
-      }, function (response) {
-        usSpinnerService.stop('spinner-2');
-        showModal('Error - ' + response.status, 'There was a problem creating the event.  Please try again.');
-        vm.resetForm();
-      });
+      if (isUpdate) {
+        updateEvent(eventResource);
+      } else {
+        saveEvent(eventResource);
+      }
     };
 
     vm.init = function() {
-      usSpinnerService.stop('spinner-2');
+      usSpinnerService.spin('spinner-2');
       pristineEvent = angular.copy(vm.event);
+      getEvents();
     };
+
+    $scope.$watch('view.event.id', function(newVal) {
+      if (newVal) {
+        vm.event.date = new Date(vm.event.startTime * 1000);
+      }
+    });
 
     vm.init();
   }
