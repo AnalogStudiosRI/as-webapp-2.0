@@ -9,9 +9,10 @@ var gulp = require('gulp-param')(require('gulp'), process.argv);
 var filename = packageJson.name + '-' + packageJson.version + '-vendor.min.';
 
 gulp.task('bower:copy:fonts', function () {
-
-  return gulp.src(['./bower_components/bootstrap/dist/fonts/*', './bower_components/font-awesome/fonts/*'])
-    .pipe(gulp.dest('./dest/assets/fonts/'));
+  //TODO would be nice to consolidate font paths / destinations
+  return gulp.src(['./bower_components/font-awesome/fonts/*', './bower_components/bootstrap/fonts/*'])
+    .pipe(gulp.dest('./dest/assets/fonts/'))
+    .pipe(gulp.dest('./dest/assets/css/vendor/font-awesome/fonts'));
 });
 
 gulp.task('bower:copy:css', function (production) {
@@ -27,7 +28,8 @@ gulp.task('bower:copy:js', function (production) {
   var isProductionBuild = production ? true : false;
 
   return gulp.src($.wiredep().js, {base: './bower_components', cwd: './bower_components'})
-    .pipe($.if(isProductionBuild, $.concat(filename + 'js')))
+    //TODO fix why this breaks textAngular for production builds
+    //.pipe($.if(isProductionBuild, $.concat(filename + 'js')))
     .pipe($.if(isProductionBuild, $.uglify()))
     .pipe(gulp.dest('./dest/assets/js/vendor/'));
 });

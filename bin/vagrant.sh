@@ -10,24 +10,31 @@ apt-get -y install vim curl git libfontconfig > /dev/null 2>&1
 apt-get update
 
 echo -e "*** Installing Node and NPM ***"
-apt-get -y -qq install build-essential nodejs-legacy npm
+curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+apt-get install -y nodejs
+apt-get install --yes build-essential
 
-sudo npm install -g gulp@3.8.11 bower@1.3.12 npm@2.1.12
+npm install -g gulp@3.9.0 bower@1.6.5
 
-echo "bower -v"
-bower -v
 echo "node -v"
 node -v
 echo "npm -v"
 npm -v
+echo "bower -v"
+bower -v
 echo "gulp -v"
 gulp -v
 
-echo -e "*** Installing Project Dependencies (if needed) ***"
-if [ ! -d /vagrant/node_modules ]; then
-  npm install
-fi
+echo -e "*** Installing Project Dependencies ***"
+cd /vagrant
 
-if [ ! -d /vagrant/bower_components ]; then
-  bower install
-fi
+rm -rf node_modules > /dev/null 2>&1
+rm -rf bower_components > /dev/null 2>&1
+
+#if [ ! -d /vagrant/node_modules ]; then
+npm install
+#fi
+
+#if [ ! -d /vagrant/bower_components ]; then
+bower install -y --allow-root  #allow-root since vagrant runs as sudo
+#fi

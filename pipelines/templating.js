@@ -15,12 +15,14 @@ var appFiles = [
 ];
 
 var vendorFiles = [
+  'dest/assets/js/vendor/spin.js/spin.js',
   'dest/assets/js/vendor/angular/angular.js',
   'dest/assets/js/vendor/**/**',
   'dest/assets/js/*.min.js',
   'dest/assets/css/vendor/bootstrap/**/*.css',
   'dest/assets/css/vendor/**/*.min.css',
-  'dest/assets/css/vendor/*.min.css'
+  'dest/assets/css/vendor/*.min.css',
+  'dest/assets/css/vendor/textAngular/dist/textAngular.css'
 ];
 
 function transformFilepath(filepath) {

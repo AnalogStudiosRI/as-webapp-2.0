@@ -21,7 +21,7 @@ describe('as.components.calendar.directives.CalendarDirectiveTest', function () 
     scope.$digest();
   }));
 
-  it('should test that a datepicker.calendar is present', function () {
+  xit('should test that a datepicker.calendar is present', function () {
 
     expect(angular.element(element[0].querySelector('.calendar')).length).toBe(1);
 
