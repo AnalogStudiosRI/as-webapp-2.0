@@ -14,8 +14,12 @@
     var vm = this;
     var pristineEvent = {};
 
-    vm.event = {};
     vm.events = [];
+    vm.event = {
+      title: '',
+      description: '',
+      date: ''
+    };
 
     function getEvents() {
 
