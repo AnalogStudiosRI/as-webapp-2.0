@@ -15,7 +15,7 @@
     vm.event = [];
 
     function getEvent(id) {
-      EventsFactory.query({eventId: id}, function (response) {
+      EventsFactory.query({id: id}, function (response) {
         vm.event = response[0];
         vm.event.description = $sce.trustAsHtml(vm.event.description);
 
