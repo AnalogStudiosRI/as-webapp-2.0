@@ -57,6 +57,7 @@
     "yargs": "3.10.0"
   },
   "devDependencies": {
+    "glob": "^6.0.3",
     "gulp-awspublish": "3.0.1",
     "gulp-webserver": "0.9.1",
     "karma-chrome-launcher": "0.1.1"
