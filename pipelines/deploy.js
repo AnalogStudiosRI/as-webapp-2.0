@@ -2,25 +2,40 @@
 
 var AWS = require('aws-sdk');
 var fs = require('fs');
-var glob = require("glob");
+var glob = require('glob');
 var gulp = require('gulp');
 
 AWS.config.region = 'us-west-2';
 
-function getContentType(ext) {
-  var contentType = 'text/';
+function getContentType(extension) {
+  var contentType = '';
 
-  switch(ext) {
+  switch (extension) {
     case '.js':
-      contentType = 'text';
+      contentType = 'application/javascript';
+      break;
+    case '.png':
+      contentType = 'image/png';
+      break;
+    case '.jpg':
+      contentType = 'image/jpeg';
       break;
     default:
-      contentType += ext.replace('.', '');
+      contentType = 'text/' + extension.replace('.', '');
       break;
   }
 
   return contentType;
 }
+
+function httpUploadProgress(evt) {
+  console.log(evt);
+}
+
+function httpUploadSend(err, data) {
+  console.log(err, data);
+}
+
 
 gulp.task('deploy:s3', function() {
   //s3.listBuckets(function(err, data) {
@@ -36,14 +51,14 @@ gulp.task('deploy:s3', function() {
 
   // options is optional
   glob('dest/**/*', {}, function (er, files) {
-    for(var i = 0, l = files.length; i < l; i++){
+    for (var i = 0, l = files.length; i < l; i += 1) {
       var filename = files[i];
       var s3filename = filename.replace('dest/', '');
 
       //upload only files
       //XXX hack to get around odd spin.js build oddity
       //XXX would not be an issue if AS-219, AS-225
-      if(filename.indexOf('.') > 0 && filename !== 'dest/assets/js/vendor/spin.js'){
+      if (filename.indexOf('.') > 0 && filename !== 'dest/assets/js/vendor/spin.js') {
         var extension = filename.slice(filename.lastIndexOf('.'));
         var contentType = getContentType(extension);
         var body = fs.createReadStream(filename); //.pipe(zlib.createGzip());
@@ -56,13 +71,7 @@ gulp.task('deploy:s3', function() {
           }
         });
 
-        s3.upload({Body: body}).on('httpUploadProgress',
-          function(evt) {
-            console.log(evt);
-          }).send(function(err, data) {
-          console.log(err, data)
-        });
-        console.log('*****************');
+        s3.upload({Body: body}).on('httpUploadProgress', httpUploadProgress).send(httpUploadSend);
       }
     }
   });
