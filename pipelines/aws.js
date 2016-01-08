@@ -55,7 +55,7 @@ function httpUploadSend(err, data) {
 }
 
 
-gulp.task('deploy:s3', function() {
+gulp.task('s3:deploy', function() {
   //s3.listBuckets(function(err, data) {
   //  if (err) {
   //    console.log("Error:", err);
