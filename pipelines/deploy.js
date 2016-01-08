@@ -11,14 +11,32 @@ function getContentType(extension) {
   var contentType = '';
 
   switch (extension) {
+    case '.eot':
+      contentType = 'application/vnd.ms-fontobject';
+      break;
+    case '.jpg':
+      contentType = 'image/jpeg';
+      break;
     case '.js':
       contentType = 'application/javascript';
+      break;
+    case '.otf':
+      contentType = 'application/x-font-opentype';
       break;
     case '.png':
       contentType = 'image/png';
       break;
-    case '.jpg':
-      contentType = 'image/jpeg';
+    case '.svg':
+      contentType = 'image/svg+xml';
+      break;
+    case '.ttf':
+      contentType = 'application/x-font-ttf';
+      break;
+    case '.woff':
+      contentType = 'application/font-woff';
+      break;
+    case '.woff2':
+      contentType = 'application/font-woff2';
       break;
     default:
       contentType = 'text/' + extension.replace('.', '');

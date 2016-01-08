@@ -19,7 +19,9 @@
   "private": true,
   "readmeFilename": "README.md",
   "dependencies": {
+    "aws-sdk": "2.2.28",
     "del": "1.2.0",
+    "glob": "6.0.3",
     "gulp": "3.9.0",
     "gulp-autoprefixer": "2.3.1",
     "gulp-compile-handlebars": "0.5.0",
@@ -57,8 +59,6 @@
     "yargs": "3.10.0"
   },
   "devDependencies": {
-    "glob": "^6.0.3",
-    "gulp-awspublish": "3.0.1",
     "gulp-webserver": "0.9.1",
     "karma-chrome-launcher": "0.1.1"
   }
