@@ -136,16 +136,6 @@ Each job uses a specific version controlled shell script for use in Jenkins.
 * RELEASE - To release the application
 
 ## Release Procedure
-1. Merge all latest code into develop
-2. Pull latest from develop and then checkout master
-3. Merge develop into master `git merge --squash develop`
-4. Make sure build passed `gulp build --production`
-5. Commit latest to master
-6. Bump _package.json_ and _bower.json_
-7. Commit bump
-8. Tag latest version
-9. Run the RELEASE job on Jenkins
-9. Complete release notes
-10. Archive the build `sh bin/archive.sh {version}`
-11. Upload zip to webserver
-12. Unzip in webroot
+See documentation posted [here][]
+
+[here]: https://thegreenhouse.atlassian.net/wiki/display/ASWEB/Release+Management#ReleaseManagement-UI(StaticFrontend)
