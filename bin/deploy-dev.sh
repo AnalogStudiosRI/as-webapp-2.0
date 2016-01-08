@@ -1,7 +1,6 @@
-
 #!/bin/sh
 
-echo "deploying to prod (AWS S3)"
+echo "deploying to dev (tg-dev01)"
 
 echo "clean webroot..."
 for d in /var/www/analogstudios/*/ ; do
