@@ -73,6 +73,14 @@
       showModal('Session Expired', 'Your session has expired.  Please login again.');
     });
 
+    PubSubFactory.subscribe('RESPONSE_BAD_PARAMS', function(response) {
+      if (response.config.url === '/api/login') {
+        vm.logout();
+        usSpinnerService.stop('spinner-1');
+        showModal('Invalid Credentials', 'Your username or password is incorrect.  Please try again.');
+      }
+    });
+
     vm.init();
 
   }
