@@ -36,9 +36,6 @@
             break;
           case 400:
             PubSubFactory.publish('RESPONSE_BAD_PARAMS', response);
-            return {
-              data: {}
-            };
             break;
           default:
             return response;
