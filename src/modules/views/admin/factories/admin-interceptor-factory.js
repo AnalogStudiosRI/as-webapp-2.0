@@ -12,6 +12,7 @@
     var AUTH_METHODS = ['DELETE', 'POST', 'PUT'];
 
     PubSubFactory.register('RESPONSE_UNAUTH');
+    PubSubFactory.register('RESPONSE_BAD_PARAMS');
 
     //XXX TODO handle response with fresh token
     return {
@@ -28,16 +29,20 @@
       },
 
       responseError: function(response) {
-
+        //XXX we have to catch 400s ourself
         switch (response.status) {
           case 401:
             PubSubFactory.publish('RESPONSE_UNAUTH', response);
             break;
+          case 400:
+            PubSubFactory.publish('RESPONSE_BAD_PARAMS', response);
+            return {
+              data: {}
+            };
+            break;
           default:
             return response;
         }
-
-        //return response;
       }
 
     };
