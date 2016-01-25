@@ -1,10 +1,18 @@
-<section class="row">
+<section class="row" xmlns="http://www.w3.org/1999/html">
 
-  <div class="col-xs-12 posts" ng-repeat="post in vm.posts">
+  <h2>Latest Posts</h2>
 
-    <h3 class="post-header">{{::post.title}} - {{::(post.createdTime * 1000) | date : 'EEEE, MMMM d, yyyy, h:mm a' }}</h3>
+  <div class="posts" ng-repeat="post in vm.posts">
 
-    <p class="post-summray">{{::post.summary}}</p>
+    <div ng-show="$index <= 2" class="post">
+      <h4 class="post-header">{{::post.title}}
+        <span class="post-time"> [ {{::(post.createdTime * 1000) | date : 'EEEE, MMMM d, yyyy, h:mm a' }} ]</span>
+      </h4>
+
+      <details class="post-summray">{{::post.summary}}</details>
+
+      <hr/>
+    </div>
 
   </div>
 
