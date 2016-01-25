@@ -23,7 +23,7 @@ gulp.task('js:build', function (production) {
   var isProductionBuild = production ? true : false;
   var filename = packageJson.name + '-' + packageJson.version + '.min.js';
 
-  return gulp.src(['**/**/*.js', '!**/**/*.spec.js'], {base: './src', cwd: './src'})
+  return gulp.src(['!**/**/*.spec.js', '**/**/*-module.js', '**/**/*.js'], {base: './src', cwd: './src'})
     .pipe($.if(isProductionBuild, $.concat(filename)))
     .pipe($.if(isProductionBuild, $.uglify()))
     .pipe(gulp.dest('./dest/assets/js/'));
