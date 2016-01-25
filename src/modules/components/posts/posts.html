@@ -1,0 +1,11 @@
+<section class="row">
+
+  <div class="col-xs-12 posts" ng-repeat="post in vm.posts">
+
+    <h3 class="post-header">{{::post.title}} - {{::(post.createdTime * 1000) | date : 'EEEE, MMMM d, yyyy, h:mm a' }}</h3>
+
+    <p class="post-summray">{{::post.summary}}</p>
+
+  </div>
+
+</section>

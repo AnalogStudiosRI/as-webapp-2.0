@@ -3,8 +3,8 @@
 (function (angular) {
 
   angular
-    .module('as.views.events', [
-      'as.components.events'
+    .module('as.components.posts', [
+      'ngResource'
     ]);
 
 }(angular));
