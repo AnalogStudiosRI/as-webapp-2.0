@@ -13,15 +13,15 @@ describe('as.components.posts.directive.PostsDirectiveTest', function () {
     $element = angular.element('<as-posts></as-posts>');
 
     $httpBackend = _$httpBackend_;
-    $httpBackend.when("GET", "/api/posts").respond([{
+    $httpBackend.when('GET', '/api/posts').respond([{
       id: 1,
-      title: "mock title 1",
-      summary: "mock summary 1",
+      title: 'mock title 1',
+      summary: 'mock summary 1',
       createdTime: new Date().getTime()
     }, {
       id: 2,
-      title: "mock title 2",
-      summary: "mock summary 2",
+      title: 'mock title 2',
+      summary: 'mock summary 2',
       createdTime: new Date().getTime()
     }]);
 
