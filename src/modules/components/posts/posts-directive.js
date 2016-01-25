@@ -11,7 +11,7 @@
       restrict: 'E',
       controller: PostsDirectiveController,
       controllerAs: 'vm',
-      templateUrl: './components/posts/posts.html'
+      templateUrl: '/components/posts/posts-template.html'
     };
   }
 
