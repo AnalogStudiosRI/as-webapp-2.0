@@ -1,0 +1,27 @@
+<section class="row view">
+
+  <div class="col-md-12">
+
+    <form name="postForm" data-ng-submit="view.submitPost()">
+      <label for="select-post">Select a post to update it:</label>
+      <select id="select-post" ng-model="view.post" ng-options="post as post.title for post in view.posts">
+      </select>
+
+      <label for="title">Title:</label>
+      <input id="title" data-ng-model="view.post.title" type="text" required/>
+
+      <label for="summary">Description:</label>
+      <text-angular id="summary" data-ng-model="view.post.summary" required></text-angular>
+
+      <br/>
+
+      <input type="submit" value="Submit"/>
+      <button type="button" ng-click="view.resetForm()">Reset</button>
+
+    </form>
+
+    <span us-spinner spinner-key="spinner-posts"></span>
+
+  </div>
+
+</section>

@@ -22,7 +22,7 @@
     vm.posts = [];
 
     PostsFactory.query(function(response) {
-      vm.posts = response;
+      vm.posts = response.reverse();
     }, function (response) {
       $log.error(response);
     });
