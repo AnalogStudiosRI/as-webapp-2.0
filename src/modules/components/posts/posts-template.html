@@ -9,7 +9,7 @@
         <span class="post-time"> [ {{::(post.createdTime * 1000) | date : 'EEEE, MMMM d, yyyy, h:mm a' }} ]</span>
       </h4>
 
-      <details class="post-summary" ng-bind-html="post.summary"></details>
+      <details class="post-summary" ng-bind-html="vm.getTrustedHtml(post.summary)"></details>
 
       <hr/>
     </div>
