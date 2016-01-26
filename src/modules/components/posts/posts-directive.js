@@ -15,14 +15,18 @@
     };
   }
 
-  PostsDirectiveController.$inject = ['$log', 'PostsFactory'];
+  PostsDirectiveController.$inject = ['$log', '$sce', 'PostsFactory'];
 
-  function PostsDirectiveController($log, PostsFactory) {
+  function PostsDirectiveController($log, $sce, PostsFactory) {
     var vm = this;
     vm.posts = [];
 
+    vm.getTrustedHtml = function(html) {
+      return $sce.trustAsHtml(html);
+    };
+
     PostsFactory.query(function(response) {
-      vm.posts = response;
+      vm.posts = response.reverse();
     }, function (response) {
       $log.error(response);
     });

@@ -22,6 +22,11 @@
         templateUrl: '/views/admin/templates/admin-view-events.html',
         controller: 'AdminViewEventsController',
         controllerAs: 'view'
+      })
+      .state('admin.posts', {
+        templateUrl: '/views/admin/templates/admin-view-posts.html',
+        controller: 'AdminViewPostsController',
+        controllerAs: 'view'
       });
   }
 
