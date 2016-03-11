@@ -6,6 +6,8 @@
     .module('as.bootstrap', [
       'ui.bootstrap',
       'ui.router',
+      'angular-google-analytics',
+
       'as.components.analytics',
       'as.components.navigation',
       'as.components.footer',
