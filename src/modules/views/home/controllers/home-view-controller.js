@@ -36,8 +36,8 @@
 
       EventsFactory.query(function (data) {
         vm.events = parseEventsResponse(data);
-      }, function() {
-        $log.error('omg');
+      }, function(response) {
+        $log.error(response);
       });
     };
 
