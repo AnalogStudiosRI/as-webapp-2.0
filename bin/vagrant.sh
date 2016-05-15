@@ -14,16 +14,16 @@ curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 apt-get install -y nodejs
 apt-get install --yes build-essential
 
-npm install -g gulp@3.9.0 bower@1.6.5
+npm install
 
 echo "node -v"
 node -v
 echo "npm -v"
 npm -v
 echo "bower -v"
-bower -v
+./node_modules/.bin/bower -v
 echo "gulp -v"
-gulp -v
+./node_modules/.bin/gulp -v
 
 echo -e "*** Installing Project Dependencies ***"
 cd /vagrant
@@ -36,5 +36,5 @@ npm install
 #fi
 
 #if [ ! -d /vagrant/bower_components ]; then
-bower install -y --allow-root  #allow-root since vagrant runs as sudo
+./node_modules/.bin/bower install -y --allow-root  #allow-root since vagrant runs as sudo
 #fi

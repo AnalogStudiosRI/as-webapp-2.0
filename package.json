@@ -18,8 +18,9 @@
   },
   "private": true,
   "readmeFilename": "README.md",
-  "dependencies": {
+  "devDependencies": {
     "aws-sdk": "2.2.28",
+    "bower": "1.7.9",
     "del": "1.2.0",
     "glob": "6.0.3",
     "gulp": "3.9.0",
@@ -41,8 +42,10 @@
     "gulp-rename": "1.2.2",
     "gulp-uglify": "1.2.0",
     "gulp-util": "3.0.5",
+    "gulp-webserver": "0.9.1",
     "jshint-stylish": "2.0.0",
     "karma": "0.12.37",
+    "karma-chrome-launcher": "0.1.1",
     "karma-coverage": "0.4.2",
     "karma-html2js-preprocessor": "0.1.0",
     "karma-jasmine": "0.2.1",
@@ -57,9 +60,5 @@
     "run-sequence": "1.1.0",
     "wiredep": "2.2.2",
     "yargs": "3.10.0"
-  },
-  "devDependencies": {
-    "gulp-webserver": "0.9.1",
-    "karma-chrome-launcher": "0.1.1"
   }
 }

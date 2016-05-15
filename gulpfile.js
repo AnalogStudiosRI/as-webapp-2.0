@@ -28,7 +28,9 @@ gulp.task('build', function (local, production, show) {
       $.runSequence('clean:dest', commonBuildTasks, ['template:build'], ['serve']);
 
     } else {
-      $.runSequence('clean:dest', commonBuildTasks, ['template:build'], ['test:coverage']);
+      //TODO add test coverage back
+      //$.runSequence('clean:dest', commonBuildTasks, ['template:build'], ['test:coverage']);
+      $.runSequence('clean:dest', commonBuildTasks, ['template:build']);
     }
   }
 });
