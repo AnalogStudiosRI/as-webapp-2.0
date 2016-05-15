@@ -1,4 +1,4 @@
-# Analog Studios 2.0
+#### Analog Studios 2.0
 This is the front end component for the analogstudios.net 2.0 website redesign.
 
 ## Tooling
