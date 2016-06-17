@@ -139,3 +139,10 @@ Each job uses a specific version controlled shell script for use in Jenkins.
 See documentation posted [here][]
 
 [here]: https://thegreenhouse.atlassian.net/wiki/display/ASWEB/Release+Management#ReleaseManagement-UI(StaticFrontend)
+
+
+TODO
+- jspm / systemjs (jspm init)
+- typescript
+- build dev / prod
+- app

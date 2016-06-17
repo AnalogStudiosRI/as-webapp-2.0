@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "system",
+    "outDir": "dest/",
+    "rootDir": "src/",
+    "target": "es5",
+    "noImplicitAny": false,
+    "removeComments": true,
+    "sourceMap": true
+  },
+  "files": [
+    "./src/bootstrap.ts"
+  ],
+  "exclude": [
+    "jspm_packages",
+    "node_modules"
+  ]
+}

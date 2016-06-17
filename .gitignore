@@ -1,8 +1,7 @@
 .idea/
 .vagrant/
 npm-debug.log
-bower_components/
 dest/
 node_modules/
+jspm_packages/
 reports/
-tmp/
