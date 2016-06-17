@@ -12,10 +12,10 @@ gulp.task('clean:dest', function(){
   pipelineHandyman.clean('./dest');
 });
 
-gulp.task('clean:dest', function(){
-  pipelineHandyman.clean('./dest');
+gulp.task('copy:assets', function() {
+  gulp.src('./src/assets/**/**')
+    .pipe(gulp.dest('./dest/assets/'));
 });
-
 
 gulp.task('copy:vendor', function() {
   gulp.src('./jspm_packages/**/**')
@@ -45,7 +45,7 @@ gulp.task('compile:ts', function () {
 gulp.task('build:develop', ['clean:dest'], function() {
   runSequence(
     ['compile:ts'],
-    ['copy:config', 'copy:vendor', 'copy:index'],
+    ['copy:config', 'copy:vendor', 'copy:index', 'copy:assets'],
     ['serve']
   );
 });
