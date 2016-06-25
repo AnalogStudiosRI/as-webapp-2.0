@@ -28,7 +28,7 @@ gulp.task('copy:config', function() {
 });
 
 gulp.task('copy:index', function() {
-  gulp.src('./src/layouts/index.html')
+  gulp.src('./src/index.html')
     .pipe(gulp.dest('./dest/'));
 });
 
@@ -147,7 +147,7 @@ gulp.task('serve', function () {
 //     "run-sequence": "1.1.0",
 //     "wiredep": "2.2.2",
 //     "yargs": "3.10.0"
-// 
+//
 // var AWS = require('aws-sdk');
 // var fs = require('fs');
 // var glob = require('glob');
@@ -295,7 +295,7 @@ gulp.task('serve', function () {
 // //convenience task for just linting CSS
 // gulp.task('less:lint', function () {
 //
-//   return gulp.src(['./src/**/**/*.less', '!./src/less/as-webapp.less'])
+//   return gulp.src(['./src/**/**/*.less', '!./src/less/layout.less'])
 //     .pipe(lessLintTasks());
 //
 // });
@@ -303,7 +303,7 @@ gulp.task('serve', function () {
 // //compiles application less, lints the CSS, and generates developer or production CSS based on --production flag
 // gulp.task('less:build', function (production) {
 //   var isProductionBuild = production ? true : false;
-//   var lessFiles = ['./src/less/as-webapp.less', './src/**/**/*.less'];
+//   var lessFiles = ['./src/less/layout.less', './src/**/**/*.less'];
 //   var filename = packageJson.name + '-' + packageJson.version + '.min.css';
 //
 //   return gulp.src(lessFiles)

@@ -9,10 +9,9 @@
     "sourceMap": true
   },
   "files": [
-    "./src/bootstrap.ts"
+    "./src/components/bootstrap/bootstrap.ts"
   ],
   "exclude": [
-    "jspm_packages",
     "node_modules"
   ]
 }
