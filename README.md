@@ -142,7 +142,10 @@ See documentation posted [here][]
 
 
 TODO
-- jspm / systemjs (jspm init)
-- typescript
-- build dev / prod
-- app
+1. ~~jspm / systemjs (jspm init)~~
+2. ~~typescript~~
+3. IDE autocomplete
+4. get bootstrap.ts working / migrate modules/bootstrap
+5. migrate view
+6. migrate components
+7. build dev / prod
