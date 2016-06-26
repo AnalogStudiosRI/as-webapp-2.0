@@ -1,6 +1,5 @@
-console.log('ENTER bootstrap.ts');
+console.log('ENTER BootstrapComponent');
 
-import { bootstrap }    from 'angular2/platform/browser';
-import { BootstrapComponent } from '../components/bootstrap/bootstrap.component';
+export class BootstrapComponent {
 
-bootstrap(BootstrapComponent);
+}

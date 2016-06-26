@@ -4,8 +4,8 @@ This is the front end component for the analogstudios.net 2.0 website redesign.
 ## Tooling
 The following tools are used in the application
 
-- [Node][] as the local development environment
-- [NPM][] / [Bower][] as the dependency managers
+- [Node 4.4.x][]as the local development environment
+- [NPM 3.8.x][] / [JSPM][] as the dependency managers
 - [Gulp][] as the task runner
 - [Angular][] as the framework (1.4.x)
 - [Karma][] and [Mocha][] for unit testing
@@ -14,9 +14,9 @@ The following tools are used in the application
 
 [Node]: https://nodejs.org/
 [NPM]: https://www.npmjs.com/
-[Bower]: http://bower.io/
+[JSPM]: http://jspm.io/
 [Gulp]: http://gulpjs.com/
-[Angular]: https://angularjs.org/
+[Angular 2]: https://angular.io/
 [Karma]: http://karma-runner.github.io/
 [Mocha]: http://mochajs.org/
 [Protractor]: https://angular.github.io/protractor/
@@ -67,15 +67,15 @@ cd /vagrant
 
 ### Manual
 
-1. If you don't already have it, download and install NodeJS (which comes with NPM).
+1. If you don't already have it, download and install NodeJS 4.x (which comes with NPM).
 
-2. This project favors version 2.x or higher, so make sure you have the latest by updating it after install Node `npm install -g npm`
+2. This project favors version 3.x or higher, so make sure you have the latest by updating it after install Node `npm install -g npm@3.8.8`
 
-3. Install Gulp and Bower (globally is recommended, in which case you might need to use `sudo`) `npm install -g gulp bower`
+3. Install Gulp and JSPM (globally is recommended, in which case you might need to use `sudo`) `npm install -g gulp bower`
 
 4. Now install the build and application dependencies for the front end project `npm install && bower install`
 
-5. Edit your _etc/hosts_ file by adding this entry `127.0.0.1      local.analogstudios.thegreenhouse.io`
+5. Edit your _etc/hosts_ file by adding this entry `127.0.0.1 local.analogstudios.thegreenhouse.io`
 
 
 ## Documentation
@@ -149,3 +149,5 @@ TODO
 5. migrate view
 6. migrate components
 7. build dev / prod
+8. Update README installation (note have to install jspm packages with `npm install --save-dev` to satisfy Webstorm resolution)
+9. unit testing
