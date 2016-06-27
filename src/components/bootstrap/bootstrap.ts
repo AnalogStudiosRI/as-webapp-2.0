@@ -1,10 +1,12 @@
 console.log('EBTER Bootstrap');
 
 import { Component } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
-  selector: 'my-app',
-  template: '<h1>My First Angular 2 App</h1>'
+  selector: 'as-webapp',
+  template: '<div><h1>AnalogStudios</h1><router-outlet></router-outlet></div>',
+  directives: [ROUTER_DIRECTIVES]
 })
 
-export class AppComponent { }
+export class BootstrapComponent { }

@@ -7,3 +7,5 @@ jspm_packages/
 reports/
 typings/
 src/**/**/*.js*
+src/assets
+src/modules

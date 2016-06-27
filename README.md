@@ -156,13 +156,14 @@ TODO
 1. ~~systemjs~~
 2. ~~typescript~~
 3. ~~IDE autocomplete~~
-4. get bootstrap.ts working / migrate modules/bootstrap, typings
+4. ~~get bootstrap.ts working / migrate modules/bootstrap, typings~~
 5. migrate view
 6. migrate components
-7. JSPM integration
-8. build dev / prod (NPM scripts)
-9. Update README installation (note have to install jspm packages with `npm install --save-dev` to satisfy Webstorm resolution)
-10. unit testing
+7. Gulp integration
+8. JSPM integration
+9. build dev / prod (NPM scripts)
+10. Update README installation (note have to install jspm packages with `npm install --save-dev` to satisfy Webstorm resolution)
+11. unit testing
 
 
 `./node_modules/.bin/typings install dt~core-js --save --global`
