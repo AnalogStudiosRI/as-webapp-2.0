@@ -1,0 +1,13 @@
+@import (reference) "../../../../components/layout/layout.less";
+@import (reference) "../../navigation/less/navigation.less";
+
+
+//Footer Styles
+.as-footer {
+
+  .copyright-text {
+    margin: 10px auto;
+    text-align: center;
+    color: @link-font-color;
+  }
+}
