@@ -10,12 +10,8 @@ node --version
 echo "npm version"
 npm --version
 
-echo "git version"
-git --version
-
 echo "clear existing dependencies..."
 rm -rf node_modules/ > /dev/null 2>&1
-rm -rf bower_components > /dev/null 2>&1
 
 echo "clearing NPM caches..."
 npm cache clean
@@ -27,14 +23,15 @@ npm install
 echo "gulp version"
 ./node_modules/.bin/gulp --version
 
-echo "bower version"
-./node_modules/.bin/bower --version
+echo "typescript version"
+./node_modules/.bin/tsc --version
 
-echo "clearning bower cache..."
-./node_modules/.bin/bower cache clean
+echo "typings version"
+./node_modules/.bin/typings --version
 
-echo "installing Bower dependencies..."
-./node_modules/.bin/bower install
+echo "install typings"
+./node_modules/.bin/typings install
 
-echo "running gulp build..."
-./node_modules/.bin/gulp build --production
+echo "running the build..."
+npm run tsc
+#./node_modules/.bin/gulp build --production
