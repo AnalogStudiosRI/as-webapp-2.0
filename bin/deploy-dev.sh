@@ -11,5 +11,5 @@ done
 echo "deploy to webroot..."
 sudo cp -vf index.html /var/www/analogstudios/html/
 sudo cp -rvf src/* /var/www/analogstudios/html/
-sudo cp -rvf node_modules/* /var/www/analogstudios/html/node_modules/
-sudo cp -rvf typings/node_modules/* /var/www/analogstudios/html/typings/
+sudo cp -rvf node_modules/ /var/www/analogstudios/html/
+sudo cp -rvf typings/ /var/www/analogstudios/html/
