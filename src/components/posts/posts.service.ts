@@ -1,4 +1,4 @@
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs/Rx";
 import { PostInterface } from './post.interface';
@@ -13,10 +13,9 @@ export class PostsService {
 
   //getPosts() {
   getPosts(): Observable<PostInterface[]> {
-    console.log('GET POSTS!!!');
     return this.http.get(this.postsApiUrl)
-      .map(() => {
-        console.log('map function');
+      .map((response: Response) => {
+        return response.json() || {};
       }).catch(() => {
         console.log('catch');
         return Observable.throw('Observable thrown');

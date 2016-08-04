@@ -17,8 +17,8 @@
     "url": "https://bitbucket.org/thegreenhouse/as-webapp-2.0/"
   },
   "scripts": {
-    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
-    "lite": "lite-server",
+    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run serve\" ",
+    "serve": "./node_modules/.bin/gulp serve",
     "postinstall": "typings install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
@@ -54,7 +54,6 @@
     "gulp-typescript": "2.13.6",
     "gulp-webserver": "0.9.1",
     "jspm": "0.16.39",
-    "lite-server": "2.2.2",
     "pipeline-handyman": "1.0.0",
     "run-sequence": "1.2.1",
     "typescript": "1.8.10",

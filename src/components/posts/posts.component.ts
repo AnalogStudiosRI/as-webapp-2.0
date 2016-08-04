@@ -12,18 +12,19 @@ import { PostsService } from './posts.service';
 
 export class PostsComponent implements OnInit {
   //TODO set the type here
-  private posts;
+  private posts = [];
+  private MAX_POSTS: number = 2;
 
   constructor(private postsService: PostsService){
-
   }
 
   ngOnInit() {
-    console.log('ngInit!!!!');
-    this.postsService.getPosts().subscribe(response => {
-      console.log('POSTS!!!');
-      console.log(response);
-      this.posts = response;
+    this.postsService.getPosts().subscribe(data => {
+      this.posts = data;
     })
+  }
+
+  getMaxPosts() {
+    return this.MAX_POSTS;
   }
 }

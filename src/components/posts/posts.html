@@ -2,18 +2,18 @@
 
   <h2>Latest Posts</h2>
 
-  <!--<div class="posts" ng-repeat="post in vm.posts">-->
+  <div class="posts" *ngFor="let post of posts">
 
-    <!--<div ng-show="$index <= 2" class="post">-->
-      <!--<h4 class="post-header">{{::post.title}}-->
-        <!--<span class="post-time"> [ {{::(post.createdTime * 1000) | date : 'EEEE, MMMM d, yyyy, h:mm a' }} ]</span>-->
-      <!--</h4>-->
+    <div [hidden]="$index <= getMaxPosts()" class="post">
+      <h4 class="post-header">{{post.title}}
+        <span class="post-time">{{ (post.createdTime * 1000) | date : 'EEEE, MMMM d, yyyy, h:mm a' }}</span>
+      </h4>
 
-      <!--<details class="post-summary" ng-bind-html="vm.getTrustedHtml(post.summary)"></details>-->
+      <details class="post-summary">{{post.summary}}</details>
 
-      <!--<hr/>-->
-    <!--</div>-->
+      <hr/>
+    </div>
 
-  <!--</div>-->
+  </div>
 
 </div>
