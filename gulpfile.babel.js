@@ -1,5 +1,4 @@
 //https://markgoodyear.com/2015/06/using-es6-with-gulp/
-'use strict';
 
 import gulp from 'gulp';
 import pipelineHandyman from 'pipeline-handyman';

@@ -1,10 +1,10 @@
 import { provideRouter, RouterConfig } from '@angular/router';
-import { HomeView } from './views/home/home';
+import { HomeViewComponent } from './views/home/home.component';
 
 // TODO annotation here?
 export const routes: RouterConfig = [
-  { path: '', component: <any>HomeView },
-  { path: 'home', component: <any>HomeView }
+  { path: '', component: <any>HomeViewComponent },
+  { path: 'home', component: <any>HomeViewComponent }
 ];
 
 export const APP_ROUTER_PROVIDERS = [

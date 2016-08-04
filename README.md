@@ -7,7 +7,7 @@ The following tools are used in the application
 - [Node][] 4.4.x as the local development environment
 - [NPM][]  3.8.x package manager for node modules
 - [Gulp][] JavaScript based task runner
-- [Angular ][] as the Front-End framework
+- [Angular 2][] as the Front-End framework
 - [TypeScript][] - superset of JavaScript for writing application code
 - [SystemJS][] - ES7 (TBD) universal module loader
 - [JSPM][] - client side package manager and JavaScript bundler
@@ -157,13 +157,12 @@ TODO
 2. ~~typescript~~
 3. ~~IDE autocomplete~~
 4. ~~get bootstrap.ts working / migrate modules/bootstrap, typings~~
-5. migrate view
-6. migrate components
-7. Gulp integration
+5. migrate view / components
+6. Gulp integration
 8. JSPM integration
-9. build dev / prod (NPM scripts)
-10. Update README installation (note have to install jspm packages with `npm install --save-dev` to satisfy Webstorm resolution)
-11. unit testing
+8. build dev / prod (NPM scripts)
+9. Update README installation (note have to install jspm packages with `npm install --save-dev` to satisfy Webstorm resolution)
+10. unit testing
 
 
 `./node_modules/.bin/typings install dt~core-js --save --global`
