@@ -29,12 +29,7 @@ echo -e "*** Installing Project Dependencies ***"
 cd /vagrant
 
 rm -rf node_modules > /dev/null 2>&1
-rm -rf bower_components > /dev/null 2>&1
+rm -rf typings > /dev/null 2>&1
 
-#if [ ! -d /vagrant/node_modules ]; then
 npm install
-#fi
-
-#if [ ! -d /vagrant/bower_components ]; then
-./node_modules/.bin/bower install -y --allow-root  #allow-root since vagrant runs as sudo
-#fi
+npm run install:typings

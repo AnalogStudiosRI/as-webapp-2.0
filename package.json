@@ -19,10 +19,10 @@
   "scripts": {
     "start": "tsc && concurrently \"npm run tsc:w\" \"npm run serve\" ",
     "serve": "./node_modules/.bin/gulp serve",
-    "postinstall": "typings install",
+    "install:jspm": "./node_modules/.bin/jspm install",
+    "install:typings": "./node_modules/.bin/typings install",
     "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "typings": "typings"
+    "tsc:w": "tsc -w"
   },
   "private": true,
   "readmeFilename": "README.md",

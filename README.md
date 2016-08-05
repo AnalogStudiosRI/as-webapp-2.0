@@ -30,7 +30,7 @@ The following tools are used in the application
 
 ## Project Setup
 TODO
-*Note*: It is recommended that for UI development, a Javascript based IDE is used, like [Webstorm][],
+*Note*: It is recommended that a Javascript based IDE is used, like [Webstorm][],
 as they have a lot of the code quality and syntax tooling supported as plugins, often times right out of the box.
 Recommended plugins to have are:
 - Git (can show changed lines in the gutter when viewing a file)
@@ -39,6 +39,7 @@ Recommended plugins to have are:
 - JSHint
 - gitignore
 - LESS
+- TypeScript
 
 [Webstorm]: https://www.jetbrains.com/webstorm/
 
@@ -78,46 +79,13 @@ cd /vagrant
 
 2. This project favors version 3.x or higher, so make sure you have the latest by updating it after install Node `npm install -g npm@3.8.8`
 
-3. Now install the build and application dependencies for the front end project `npm install && npm run install:jspm`
+3. Now install the build and application dependencies for the front end project `npm install && npm run install:tpyings`
 
 4. TODO
 
 
 ## Documentation
 https://thegreenhouse.atlassian.net/wiki/display/ASWEB/Website
-
-### Tasks
-
-### Development
-TOOD
-This will start up a node server with all files deployed and watches for changes and "redeploys" as needed.  This is the
-default task and primary task of the development workflow.
-
-```
-$ gulp build --local
-```
-
-See it in a browser by opening up
-
-```
-http://local.analogstudios.thegreenhouse.io:6789/#home
-```
-
-### Building
-TODO
-This is the build task for the project.
-
-```
-$ gulp build --production build
-```
-
-### Showing a production build
-TODO
-To previews the production build locally against dev
-
-```
-$ grunt build --production --show
-```
 
 ## Project Layout
 An overview of important files and configurations for the applications
@@ -132,19 +100,60 @@ An overview of important files and configurations for the applications
 * _tsconfig.json_ - TypeScript compiler configuration
 * _typings.json_ - Type Definitions configuration, for prividing _.d.ts_ files for the TypeScript compiler
 
-## Testing
-TOOD
-TDD is supported for development
+### Tasks
 
-`gulp test:tdd`
+### Development
+TODO
+This will start up a node server with all files deployed and watches for changes and "redeploys" as needed.  This is the
+default task and primary task of the development workflow.
+
+```
+$ npm start
+```
+
+See it in a browser by opening up
+
+```
+http://localhost:6789/
+```
+
+### Building
+TODO
+This is the build task for the project.  It used prior to deploying an environment.
+
+```
+$ npm run tsc
+```
+
+### Showing a production build
+TODO
+
+## Dependency Management
+There are three types of dependencies tracked in the application
+
+### Node Modules
+Build packages are installed through NPM into _package.json_, using `npm install <package-name>`  --save-dev
+
+### TypeScript Typings
+All dependencies are either managed by Typings through _typings.json_.  Install new typings using `./node_modules/.bin/typings install <typing-name> --save`
+
+### JSPM Packages
+TODO
+//Client-side libraries (like Angular) are managed through JSPM by using _package.json_ .  Install new packages usings `.node`
+
+
+## Testing
+TODO
 
 ## Continuous Integration
-Three builds are for the project in Jenkins, to support automated continues integration, deployment, and delivery.
+Three builds are for the project in [Jenkins][], to support automated continues integration, deployment, and delivery.
 Each job uses a specific version controlled shell script for use in Jenkins.
 
 * CI - Watches all branches, and builds the app to run linting and testing and does analysis and reporting.
 * DEV - The CI task, but in addition deploys to dev upon success
 * RELEASE - To release the application
+
+[Jenkins]: http://www.thegreenhouse.io:8080/
 
 ## Release Procedure
 See documentation posted [here][]
@@ -266,4 +275,3 @@ System.config({
     }
   }
 });
-```

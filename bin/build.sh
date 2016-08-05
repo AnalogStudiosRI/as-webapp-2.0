@@ -30,7 +30,7 @@ echo "typings version"
 ./node_modules/.bin/typings --version
 
 echo "install typings"
-./node_modules/.bin/typings install
+npm run install:typings
 
 echo "running the build..."
 npm run tsc
