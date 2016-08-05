@@ -17,8 +17,7 @@ export class PostsService {
       .map((response: Response) => {
         return response.json() || {};
       }).catch(() => {
-        console.log('catch');
-        return Observable.throw('Observable thrown');
+        return Observable.throw('PostsService.getPosts() Observable thrown');
       });
   }
 }
