@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-
-//import { PostInterface } from 'post.interface';
+import { Component, OnInit } from '@angular/core';
+import { PostInterface } from './post.interface';
 import { PostsService } from './posts.service';
 
 @Component({
@@ -11,9 +10,8 @@ import { PostsService } from './posts.service';
 })
 
 export class PostsComponent implements OnInit {
-  //TODO set the type here
-  private posts = [];
   private MAX_POSTS: number = 2;
+  private posts: Array<PostInterface> = [];
 
   constructor(private postsService: PostsService){
   }
