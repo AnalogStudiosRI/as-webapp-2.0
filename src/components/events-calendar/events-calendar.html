@@ -1,0 +1,52 @@
+<div class="as-calendar">
+
+  <p>AS Events Calendar</p>
+  <pre>{{today | json}}</pre>
+
+  <div class="calendar">
+
+    <div class="header">
+      <span class="previous-month" *ngIf="!atStart" (click)="previousMonth()">&lt;&lt;</span>
+      <span class="month-name">{{getCurrentMonth()}} - {{getCurrentYear()}}</span>
+      <span class="next-month" *ngIf="!atEnd" (click)="nextMonth()">&gt;&gt;</span>
+    </div>
+
+    <div class="body">
+      <div *ngIf="calendar.length == 0">
+        <h2 class="no-events-text">No Upcoming Events</h2>
+      </div>
+
+      <table *ngIf="calendar.length > 0">
+
+        <thead>
+          <tr>
+            <th class="day-name">Sun</th>
+            <th class="day-name">Mon</th>
+            <th class="day-name">Tue</th>
+            <th class="day-name">Wed</th>
+            <th class="day-name">Thu</th>
+            <th class="day-name">Fri</th>
+            <th class="day-name">Sat</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="week" ngFor="week in calendar[idx].weeks">
+
+            <td [ngClass]="{'day-on': day.date, 'day-off': !day.date}" ngFor="day in week">
+              <span>{{day.date}}</span>
+
+              <div *ngIf="day.hasEvents">
+                <div ngFor="event in day.events">
+                   <span class="event" (click)="callback(event)">{{event.title}}</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+         </tbody>
+
+       </table>
+
+     </div>
+   </div>
+</div>
