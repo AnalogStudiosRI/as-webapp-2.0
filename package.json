@@ -17,7 +17,7 @@
     "url": "https://bitbucket.org/thegreenhouse/as-webapp-2.0/"
   },
   "scripts": {
-    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run serve\" ",
+    "develop": "tsc && concurrently \"npm run tsc:w\" \"npm run serve\" ",
     "serve": "./node_modules/.bin/gulp serve",
     "install:jspm": "./node_modules/.bin/jspm install",
     "install:typings": "./node_modules/.bin/typings install",

@@ -103,12 +103,11 @@ An overview of important files and configurations for the applications
 ### Tasks
 
 ### Development
-TODO
 This will start up a node server with all files deployed and watches for changes and "redeploys" as needed.  This is the
 default task and primary task of the development workflow.
 
 ```
-$ npm start
+$ npm run develop
 ```
 
 See it in a browser by opening up
@@ -118,8 +117,7 @@ http://localhost:6789/
 ```
 
 ### Building
-TODO
-This is the build task for the project.  It used prior to deploying an environment.
+This is the build task for the project.  It is used prior to deploying an environment.
 
 ```
 $ npm run tsc
@@ -174,9 +172,9 @@ TODO
 10. unit testing
 
 
+```
 `./node_modules/.bin/typings install dt~core-js --save --global`
 
-```
 System.config({
   baseURL: "/",
   defaultJSExtensions: true,
@@ -275,3 +273,4 @@ System.config({
     }
   }
 });
+```

@@ -11,6 +11,7 @@ import { EventsService } from './events.service';
 
 export class EventsCalendarComponent extends OnInit {
   //TODO make true constants
+  private DAYS_IN_WEEK: number = 7;
   private MAX_CALENDAR_SPACES: number = 35;
   private CALENDAR: Array<any> = [
     { NAME: 'January', DAYS: 31 },
@@ -27,121 +28,96 @@ export class EventsCalendarComponent extends OnInit {
     { NAME: 'December', DAYS: 31 }
   ];
   private events: Array<EventInterface> = [];
-  private now: Date = new Date();
-  private startOfCurrentMonth: Date;
-  public idx: number = 0;
-  public calendar: Object = {};
+  private now: Date;
+  private currentMonthIndex: number;
+  private currentYear: number;
+  public currentMonthData: Array<any> = [];
 
   constructor(private eventsService: EventsService) {
     super();
-    this.startOfCurrentMonth = new Date(this.now.getFullYear(), this.now.getMonth(), 1, 0, 0, 0, 0);
+    this.now = new Date();
+    this.currentMonthIndex = this.now.getMonth();
+    this.currentYear = this.now.getFullYear();
   }
 
-  private convertToUnixTimestamp(millis): number {
-    return Math.round(millis / 1000);
-  }
+  private calculateCurrentMonthData() {
+    this.currentMonthData = [];
+    let week = [];
+    let date = 1;
+    let startingDay = new Date(this.currentYear, this.currentMonthIndex).getDay();
 
-  private generateCalendar() {
-    console.log('generateCalendar', this.events);
-    var months = [];
+    for(let i = 0, j = this.MAX_CALENDAR_SPACES; i < j; i += 1){
+      let daysInMonth = this.CALENDAR[this.currentMonthIndex].DAYS;
+      let day = {
+        date: null,
+        hasEvents: false,
+        events: []
+      };
 
-    if (this.events.length > 0) {
-      var startingPeriod = new Date(this.startOfCurrentMonth.getTime());
-      var currentMonth = startingPeriod.getMonth();
-      var currentYear = startingPeriod.getFullYear();
-      var endingPeriod = new Date(this.events[this.events.length - 1].startTime * 1000);
-      var numberOfMonths = (endingPeriod.getFullYear() - this.startOfCurrentMonth.getFullYear()) * 12 + (endingPeriod.getMonth() - this.startOfCurrentMonth.getMonth()) + 1;
-
-      for (var i = 0, l = numberOfMonths; i < l; i += 1) {
-        var daysInMonth = this.CALENDAR[currentMonth].DAYS;
-        var week = [];
-        var month:any = {
-          weeks: [],
-          idx: currentMonth,
-          year: currentYear
-        };
-
-        for (var j = 0, k = this.MAX_CALENDAR_SPACES; j < k; j += 1) {
-          var day = {
-            date: '' || 0,
-            hasEvents: false,
-            events: []
-          };
-
-          //use null to block out dates from previous or future months
-          //while still keeping the calendar looking "full"
-          if (j >= 1 && j <= daysInMonth) {
-            day.date = j;
-          }
-
-          for (var m = 0, n = this.events.length; m < n; m += 1) {
-            var event = this.events[m];
-            var dayStartTime = this.convertToUnixTimestamp(new Date(currentYear, currentMonth, j, 0, 0, 0, 0).getTime());
-            var dayEndTime = this.convertToUnixTimestamp(new Date(currentYear, currentMonth, j, 23, 59, 59, 0).getTime());
-
-            if (event.startTime >= dayStartTime && event.startTime <= dayEndTime) {
-              day.hasEvents = true;
-              day.events.push(event);
-            }
-          }
-
-          week.push(day);
-
-          //append to month
-          //and start a new week
-          if (week.length === 7) {
-            month.weeks.push(week);
-            week = [];
-          }
-        }
-
-        //append last week (if it has days)
-        //and reset week
-        if (week.length > 0) {
-          month.weeks.push(week);
-          week = [];
-        }
-
-        //append to months
-        //and reset month
-        months.push(month);
-        month = {};
-
-        currentMonth = currentMonth += 1;
-
-        //wrap to start of the year
-        if (currentMonth > 11) {
-          currentYear = currentYear += 1;
-          currentMonth = 0;
-        }
+      //use null to block out dates from previous or future months
+      //while still keeping the calendar looking "full"
+      if (i >= startingDay && i <= daysInMonth) {
+        day.date = date;
+        date += 1;
       }
+
+      week.push(day);
+
+      if(week.length === this.DAYS_IN_WEEK) {
+        this.currentMonthData.push(week);
+        week = [];
+      }
+
     }
 
-    console.log('months', months);
-    return months;
   }
 
-  public getCurrentYear(): string {
-    console.log('TODODODO');
-    //[[ model.calendar[model.idx].year ]]
-    return 'getCurrentYear';
+  private calculatePreviousMonth(): void{
+    if(this.currentMonthIndex === 0){
+      this.currentMonthIndex = 11;
+      this.currentYear -= 1;
+    }else{
+      this.currentMonthIndex -= 1;
+    }
+
+    this.calculateCurrentMonthData();
   }
 
-  public getCurrentMonth(): string {
-    console.log('TODODOO!!!!');
-    return 'getCurrentMonth';
-    //return this.CALENDAR[this.calendar[idx].idx].NAME
+  private calculateNextMonth(): void{
+    if(this.currentMonthIndex === 11){
+      this.currentMonthIndex = 0;
+      this.currentYear += 1;
+    }else{
+      this.currentMonthIndex += 1;
+    }
+
+    this.calculateCurrentMonthData();
   }
 
-  //next month
-  //previous month
+  public getCurrentYear(): number {
+    return this.currentYear;
+  }
+
+  public getCurrentMonth(): number {
+    return this.CALENDAR[this.currentMonthIndex].NAME;
+  }
+
+  public shiftToPreviousMonth(): void {
+    this.calculatePreviousMonth();
+  }
+
+  public shiftToNextMonth(): void {
+    this.calculateNextMonth();
+  }
+
   //callback
 
   ngOnInit() {
-    this.eventsService.getEvents().subscribe((data: Array<EventInterface>) => {
-      this.events = data;
-      this.calendar = this.generateCalendar();
-    });
+    this.calculateCurrentMonthData();
+    // this.eventsService.getEvents().subscribe((data: Array<EventInterface>) => {
+    //   this.events = data;
+    //   this.calendar = this.generateCalendar();
+    // });
   }
 }
 
@@ -311,3 +287,8 @@ export class EventsCalendarComponent extends OnInit {
 //   };
 //
 // }]);
+
+
+// private convertToUnixTimestamp(millis): number {
+//   return Math.round(millis / 1000);
+// }
