@@ -1,48 +1,59 @@
+<!--<div class="header">-->
+<!--<span class="previous-month" *ngIf="!atStart" (click)="">&lt;&lt;</span>-->
+<!--<span class="month-name">{{getCurrentMonth()}} - {{getCurrentYear()}}</span>-->
+<!--<span class="next-month" *ngIf="!atEnd" (click)="shiftToNextMonth()">&gt;&gt;</span>-->
+<!--</div>-->
+
 <div class="as-calendar">
+  <table>
 
-  <div class="calendar">
+    <thead>
+      <tr>
 
-    <div class="header">
-      <span class="previous-month" *ngIf="!atStart" (click)="shiftToPreviousMonth()">&lt;&lt;</span>
-      <span class="month-name">{{getCurrentMonth()}} - {{getCurrentYear()}}</span>
-      <span class="next-month" *ngIf="!atEnd" (click)="shiftToNextMonth()">&gt;&gt;</span>
-    </div>
+        <th>
+          <button type="button" class="btn btn-default btn-sm pull-left" (click)="shiftToPreviousMonth()" tabindex="-1">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+          </button>
+        </th>
 
-    <div class="body">
-      <table>
+        <th colspan="5">
+          <h4 class="txt-secondary">{{getCurrentMonth()}} - {{getCurrentYear()}}</h4>
+        </th>
 
-        <thead>
-          <tr>
-            <th class="day-name">Sun</th>
-            <th class="day-name">Mon</th>
-            <th class="day-name">Tue</th>
-            <th class="day-name">Wed</th>
-            <th class="day-name">Thu</th>
-            <th class="day-name">Fri</th>
-            <th class="day-name">Sat</th>
-          </tr>
-        </thead>
+        <th>
+          <button type="button" class="btn btn-default btn-sm pull-right" (click)="shiftToNextMonth()" tabindex="-1">
+            <i class="glyphicon glyphicon-chevron-right"></i>
+          </button>
+        </th>
 
-        <tbody>
-          <tr class="week" *ngFor="let week of currentMonthData">
-            <td *ngFor="let day of week">
-              <span [ngClass]="{'day-on': day.date, 'day-off': !day.date}">{{day.date}}</span>
+      </tr>
 
-              <div *ngIf="day.hasEvents">
-                <div *ngFor="let event of day.events">
-                  <span>Event!!!</span>
-                   <!--<span class="event" (click)="callback(event)">{{event.title}}</span>-->
-                </div>
-              </div>
-            </td>
+      <tr>
+        <th class="day-name">Sun</th>
+        <th class="day-name">Mon</th>
+        <th class="day-name">Tue</th>
+        <th class="day-name">Wed</th>
+        <th class="day-name">Thu</th>
+        <th class="day-name">Fri</th>
+        <th class="day-name">Sat</th>
+      </tr>
+    </thead>
 
-          </tr>
-        </tbody>
+    <tbody>
+      <tr *ngFor="let week of currentMonthData">
+        <td *ngFor="let day of week">
+          <span [ngClass]="{'day-on': day.date, 'day-off': !day.date}">{{day.date}}</span>
 
-      </table>
+          <div *ngIf="day.hasEvents">
+            <div *ngFor="let event of day.events">
+              <span>Event!!!</span>
+               <!--<span class="event" (click)="callback(event)">{{event.title}}</span>-->
+            </div>
+          </div>
+        </td>
 
-    </div>
+      </tr>
+    </tbody>
 
-  </div>
-
+  </table>
 </div>

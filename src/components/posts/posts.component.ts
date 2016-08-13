@@ -17,9 +17,9 @@ export class PostsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.postsService.getPosts().subscribe(data => {
-      this.posts = data;
-    })
+    // this.postsService.getPosts().subscribe(data => {
+    //   this.posts = data;
+    // })
   }
 
   getMaxPosts() {

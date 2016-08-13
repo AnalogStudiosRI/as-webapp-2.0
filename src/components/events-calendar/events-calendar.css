@@ -3,86 +3,112 @@
 /*@tan-light: #ece7dc;*/
 /*@tan-dark: #d2c7af;*/
 
-.full button span {
-  background-color: limegreen;
-  border-radius: 32px;
-  color: black;
-}
+/*.full button span {*/
+  /*background-color: limegreen;*/
+  /*border-radius: 32px;*/
+  /*color: black;*/
+/*}*/
 
-.partially button span {
-  /*events*/
-  background-color: orange;
-  border-radius: 32px;
-  color: black;
-}
+/*.partially button span {*/
+  /*!*events*!*/
+  /*background-color: orange;*/
+  /*border-radius: 32px;*/
+  /*color: black;*/
+/*}*/
 
 .as-calendar {
   display: inline-block;
   min-height:290px
 }
 
-.as-calendar i:before, .as-calendar .txt-secondary {
+.as-calendar h4, i:before{
   color: #316291;
 }
 
-.as-calendar table {
-  margin: auto;
+.as-calendar .day-name {
+  color: #020202;
 }
 
-.as-calendar .well {
-  border: none;
-  background-color: transparent;
-}
-
-.as-calendar .well button {
-  background-color: inherit;
-  border: none;
-}
-
-/*/today*/
-.as-calendar .well .btn-info {
+.as-calendar .day-on {
   background-color: #ece7dc;
 }
 
-.as-calendar .well tbody button {
-  background-color: transparent;
-  width: 120px;
-  height: 110px;
-  border: none;
-}
-
-.as-calendar .well .day-event, .as-calendar .well .day-on, .as-calendar .well .day-off {
-  border: 3px solid #ae996b;;
-}
-
-.as-calendar .well .day-on, .as-calendar .well .day-off {
-  width: 120px;
-  height: 110px;
-}
-
-/* we also want to avoid targeting elements in the less*/
-.as-calendar .well .day-on span, .as-calendar .well .day-off span {
-  color: #8c7446;
-//margin: 0 0 80px 0;
-  padding: 0 5px 0 0;
-}
-
-.as-calendar .well .day-on .event span, .as-calendar .well .day-off .event  span {
-  font-size: 11px;
-  position: relative;
-  top: -25px;
-  left: 0;
-  width: 85px;
-}
-
-.as-calendar .well .day-on {
-  background-color: #ece7dc;
-}
-
-.as-calendar .well .day-off {
+.as-calendar .day-off {
   background-color: #d2c7af;
 }
 
-.as-calendar .well .day-event {
+.as-calendar .day-event {
   background-color: #316291;
 }
+
+.as-calendar .day-on, .as-calendar .day-off {
+  display: inline-block;
+  width: 120px;
+  height: 110px;
+}
+
+/*.as-calendar i:before, .as-calendar .txt-secondary {*/
+  /*color: #316291;*/
+/*}*/
+
+/*.as-calendar table {*/
+  /*margin: auto;*/
+/*}*/
+
+/*.as-calendar .well {*/
+  /*border: none;*/
+  /*background-color: transparent;*/
+/*}*/
+
+/*.as-calendar .well button {*/
+  /*background-color: inherit;*/
+  /*border: none;*/
+/*}*/
+
+/*!*/today*!*/
+/*.as-calendar .well .btn-info {*/
+  /*background-color: #ece7dc;*/
+/*}*/
+
+/*.as-calendar .well tbody button {*/
+  /*background-color: transparent;*/
+  /*width: 120px;*/
+  /*height: 110px;*/
+  /*border: none;*/
+/*}*/
+
+/*.as-calendar .well .day-event, .as-calendar .well .day-on, .as-calendar .well .day-off {*/
+  /*border: 3px solid #ae996b;;*/
+/*}*/
+
+/*.as-calendar .well .day-on, .as-calendar .well .day-off {*/
+  /*width: 120px;*/
+  /*height: 110px;*/
+/*}*/
+
+/*!* we also want to avoid targeting elements in the less*!*/
+/*.as-calendar .well .day-on span, .as-calendar .well .day-off span {*/
+  /*color: #8c7446;*/
+/*//margin: 0 0 80px 0;*/
+  /*padding: 0 5px 0 0;*/
+/*}*/
+
+/*.as-calendar .well .day-on .event span, .as-calendar .well .day-off .event  span {*/
+  /*font-size: 11px;*/
+  /*position: relative;*/
+  /*top: -25px;*/
+  /*left: 0;*/
+  /*width: 85px;*/
+/*}*/
+
+/*.as-calendar .well .day-on {*/
+  /*background-color: #ece7dc;*/
+/*}*/
+
+/*.as-calendar .well .day-off {*/
+  /*background-color: #d2c7af;*/
+/*}*/
+
+/*.as-calendar .well .day-event {*/
+  /*background-color: #316291;*/
+/*}*/
