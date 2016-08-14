@@ -1,6 +1,7 @@
 <div class="as-calendar">
 
   <table>
+
     <thead>
       <!--<tr>-->
 
@@ -22,21 +23,21 @@
 
       <!--</tr>-->
 
-      <!--<tr>-->
-        <!--<th class="day-name">Sun</th>-->
-        <!--<th class="day-name">Mon</th>-->
-        <!--<th class="day-name">Tue</th>-->
-        <!--<th class="day-name">Wed</th>-->
-        <!--<th class="day-name">Thu</th>-->
-        <!--<th class="day-name">Fri</th>-->
-        <!--<th class="day-name">Sat</th>-->
-      <!--</tr>-->
+      <tr>
+        <th class="day-name">Sun</th>
+        <th class="day-name">Mon</th>
+        <th class="day-name">Tue</th>
+        <th class="day-name">Wed</th>
+        <th class="day-name">Thu</th>
+        <th class="day-name">Fri</th>
+        <th class="day-name">Sat</th>
+      </tr>
     </thead>
 
     <tbody>
-
       <tr *ngFor="let week of currentMonthData">
         <td *ngFor="let day of week">
+
           <!--day not in month-->
           <div *ngIf="!day.date" class="day-off">
           </div>
@@ -46,17 +47,17 @@
             <span>{{day.date}}</span>
           </div>
 
-
           <!--day with event if there's an event-->
           <div *ngIf="day.hasEvents" class="day-event">
             <span *ngFor="let event of day.events">
               <span (click)="selectEvent(event)">{{event.title}}</span>
             </span>
           </div>
+
         </td>
       </tr>
-
     </tbody>
+
   </table>
 
 </div>

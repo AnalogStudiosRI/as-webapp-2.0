@@ -41,22 +41,21 @@ export class EventsCalendarComponent extends OnInit {
 
   private calculateCurrentMonthData(): void {
     this.currentMonthData = [];
-
     let week:Array<Object> = [];
     let monthDateCounter: number = 1;
-    let startingDay = new Date(this.currentYear, this.currentMonthIndex).getDay();
+    let startingDayOfMonth = new Date(this.currentYear, this.currentMonthIndex).getDay();
+    let daysInMonth = this.CALENDAR[this.currentMonthIndex].DAYS;
 
     for(let i = 0, j = this.MAX_CALENDAR_SPACES; i < j; i += 1){
-      let daysInMonth = this.CALENDAR[this.currentMonthIndex].DAYS;
+      //use null as date default to block out tiles in our calenader that aren't in the month
+      //while still keeping the calendar looking "full"
       let day = {
         date: null,
         hasEvents: false,
         events: []
       };
 
-      //use null to block out dates from previous or future months
-      //while still keeping the calendar looking "full"
-      if (i >= startingDay && i <= daysInMonth) {
+      if (i >= startingDayOfMonth && i <= daysInMonth) {
         day.date = monthDateCounter;
         monthDateCounter += 1;
 
@@ -77,15 +76,12 @@ export class EventsCalendarComponent extends OnInit {
 
       week.push(day);
 
-      console.log('day.date', day.date);
       if(week.length === this.DAYS_IN_WEEK) {
         this.currentMonthData.push(week);
         week = [];
       }
 
     }
-
-    console.log('currentMonthData', this.currentMonthData);
   }
 
   private calculatePreviousMonth(): void{

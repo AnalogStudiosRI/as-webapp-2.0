@@ -5,12 +5,18 @@
 
 .as-calendar {
   min-height:290px;
-  margin: 0px auto;
-  width: 77%
+  margin: 0 auto;
+  width: 80%;
 }
 
 .as-calendar h4, i:before{
   color: #316291;
+}
+
+.as-calendar th {
+  display: inline-block;
+  width: 122px;
+  text-align: center;
 }
 
 .as-calendar td {
@@ -21,10 +27,6 @@
   text-align: center;
   color: #8c7446;
   margin: 1px;
-}
-
-.as-calendar .day-name {
-  color: #020202;
 }
 
 .as-calendar .day-on {
@@ -39,4 +41,5 @@
 
 .as-calendar .day-event {
   background-color: #316291;
+  cursor: pointer;
 }
