@@ -57,7 +57,8 @@ const options = {
     source: '/api',
     target: 'http://analogstudios.thegreenhouse.io/api'
   }],
-  root: './'
+  root: './',
+  fallback: './index.html'
 };
 
 gulp.task('serve', function () {
