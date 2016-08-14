@@ -10,8 +10,6 @@ export class PostsService {
   constructor(private http: Http) {
   }
 
-
-  //getPosts() {
   getPosts(): Observable<PostInterface[]> {
     return this.http.get(this.postsApiUrl)
       .map((response: Response) => {

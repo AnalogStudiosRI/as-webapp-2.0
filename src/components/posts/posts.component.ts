@@ -16,13 +16,13 @@ export class PostsComponent implements OnInit {
   constructor(private postsService: PostsService){
   }
 
-  ngOnInit() {
-    // this.postsService.getPosts().subscribe(data => {
-    //   this.posts = data;
-    // })
+  ngOnInit(): void {
+    this.postsService.getPosts().subscribe(data => {
+      this.posts = data;
+    })
   }
 
-  getMaxPosts() {
+  getMaxPosts(): number {
     return this.MAX_POSTS;
   }
 }

@@ -5,13 +5,13 @@ import { EventInterface } from "./event.interface";
 
 @Injectable()
 export class EventsService {
-  private eventsApiUrl = '/api/events';
+  private API_URL_EVENTS: string = '/api/events';
 
   constructor(private http: Http){
   }
 
   getEvents(): Observable<EventInterface[]> {
-    return this.http.get(this.eventsApiUrl)
+    return this.http.get(this.API_URL_EVENTS)
       .map((response: Response) => {
         return response.json() || {};
       }).catch(() => {

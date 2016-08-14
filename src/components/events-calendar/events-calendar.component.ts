@@ -10,7 +10,7 @@ import { EventsService } from './events.service';
 })
 
 export class EventsCalendarComponent extends OnInit {
-  //TODO make true constants
+  //TODO make true constants ???
   private DAYS_IN_WEEK: number = 7;
   private MAX_CALENDAR_SPACES: number = 35;
   private CALENDAR: Array<any> = [
@@ -39,11 +39,11 @@ export class EventsCalendarComponent extends OnInit {
     this.currentYear = now.getFullYear();
   }
 
-  private calculateCurrentMonthData() {
+  private calculateCurrentMonthData(): void {
     this.currentMonthData = [];
 
-    let week = [];
-    let date = 1;
+    let week:Array<Object> = [];
+    let monthDateCounter: number = 1;
     let startingDay = new Date(this.currentYear, this.currentMonthIndex).getDay();
 
     for(let i = 0, j = this.MAX_CALENDAR_SPACES; i < j; i += 1){
@@ -57,18 +57,35 @@ export class EventsCalendarComponent extends OnInit {
       //use null to block out dates from previous or future months
       //while still keeping the calendar looking "full"
       if (i >= startingDay && i <= daysInMonth) {
-        day.date = date;
-        date += 1;
+        day.date = monthDateCounter;
+        monthDateCounter += 1;
+
+        //check if day has an event
+        for(let k = 0, m = this.events.length; k < m; k +=1 ){
+          let event: any = this.events[k];  //TODO any
+          let eventStartTimeTimestamp: number = event.startTime;
+          let currentDayStartTimestamp: number = new Date(this.currentYear, this.currentMonthIndex, monthDateCounter, 0, 0, 0).getTime() / 1000;
+          let currentDayEndTimestamp: number = new Date(this.currentYear, this.currentMonthIndex, monthDateCounter, 23, 0, 0).getTime() / 1000;
+
+          if(eventStartTimeTimestamp >= currentDayStartTimestamp &&
+             eventStartTimeTimestamp <= currentDayEndTimestamp){
+            day.events.push(event);
+            day.hasEvents = true;
+          }
+        }
       }
 
       week.push(day);
 
+      console.log('day.date', day.date);
       if(week.length === this.DAYS_IN_WEEK) {
         this.currentMonthData.push(week);
         week = [];
       }
 
     }
+
+    console.log('currentMonthData', this.currentMonthData);
   }
 
   private calculatePreviousMonth(): void{
@@ -109,13 +126,15 @@ export class EventsCalendarComponent extends OnInit {
     this.calculateNextMonth();
   }
 
-  //callback
+  public selectEvent(selectedEvent): void {
+    console.log('selectedEvent', selectedEvent);
+    //TODO goto event
+  }
 
-  ngOnInit() {
-    this.calculateCurrentMonthData();
-    // this.eventsService.getEvents().subscribe((data: Array<EventInterface>) => {
-    //   this.events = data;
-    //   this.calendar = this.generateCalendar();
-    // });
+  ngOnInit(): void {
+    this.eventsService.getEvents().subscribe((data: Array<EventInterface>) => {
+      this.events = data;
+      this.calculateCurrentMonthData();
+    });
   }
 }
