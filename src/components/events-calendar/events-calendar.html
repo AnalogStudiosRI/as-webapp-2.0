@@ -1,27 +1,30 @@
 <div class="as-calendar">
 
   <table>
-
     <thead>
-      <!--<tr>-->
+      <tr>
+        <th>
+          <button type="button" class="btn btn-default btn-sm pull-left" (click)="shiftToPreviousMonth()" tabindex="-1">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+          </button>
+        </th>
 
-        <!--<th>-->
-          <!--<button type="button" class="btn btn-default btn-sm pull-left" (click)="shiftToPreviousMonth()" tabindex="-1">-->
-            <!--<i class="glyphicon glyphicon-chevron-left"></i>-->
-          <!--</button>-->
-        <!--</th>-->
+        <th></th>
+        <th></th>
 
-        <!--<th colspan="5">-->
-          <!--<h4 class="txt-secondary">{{getCurrentMonth()}} - {{getCurrentYear()}}</h4>-->
-        <!--</th>-->
+        <th>
+          <h4 class="txt-secondary">{{getHeaderText()}}</h4>
+        </th>
 
-        <!--<th>-->
-          <!--<button type="button" class="btn btn-default btn-sm pull-right" (click)="shiftToNextMonth()" tabindex="-1">-->
-            <!--<i class="glyphicon glyphicon-chevron-right"></i>-->
-          <!--</button>-->
-        <!--</th>-->
+        <th></th>
+        <th></th>
 
-      <!--</tr>-->
+        <th>
+          <button type="button" class="btn btn-default btn-sm pull-right" (click)="shiftToNextMonth()" tabindex="-1">
+            <i class="glyphicon glyphicon-chevron-right"></i>
+          </button>
+        </th>
+      </tr>
 
       <tr>
         <th class="day-name">Sun</th>
@@ -32,6 +35,7 @@
         <th class="day-name">Fri</th>
         <th class="day-name">Sat</th>
       </tr>
+
     </thead>
 
     <tbody>
@@ -57,7 +61,6 @@
         </td>
       </tr>
     </tbody>
-
   </table>
 
 </div>

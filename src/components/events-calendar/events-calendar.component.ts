@@ -14,18 +14,18 @@ export class EventsCalendarComponent extends OnInit {
   private DAYS_IN_WEEK: number = 7;
   private MAX_CALENDAR_SPACES: number = 35;
   private CALENDAR: Array<any> = [
-    { NAME: 'January', DAYS: 31 },
-    { NAME: 'February', DAYS: 28 },
+    { NAME: 'Jan.', DAYS: 31 },
+    { NAME: 'Feb.', DAYS: 28 },
     { NAME: 'March', DAYS: 31 },
     { NAME: 'April', DAYS: 30 },
     { NAME: 'May', DAYS: 31 },
     { NAME: 'June', DAYS: 30 },
     { NAME: 'July', DAYS: 31 },
-    { NAME: 'August', DAYS: 31 },
-    { NAME: 'September', DAYS: 30 },
-    { NAME: 'October', DAYS: 31 },
-    { NAME: 'November', DAYS: 30 },
-    { NAME: 'December', DAYS: 31 }
+    { NAME: 'Aug.', DAYS: 31 },
+    { NAME: 'Sept.', DAYS: 30 },
+    { NAME: 'Oct.', DAYS: 31 },
+    { NAME: 'Nov.', DAYS: 30 },
+    { NAME: 'Dec.', DAYS: 31 }
   ];
   private events: Array<EventInterface> = [];
   private currentMonthIndex: number;
@@ -106,12 +106,8 @@ export class EventsCalendarComponent extends OnInit {
     this.calculateCurrentMonthData();
   }
 
-  public getCurrentYear(): number {
-    return this.currentYear;
-  }
-
-  public getCurrentMonth(): number {
-    return this.CALENDAR[this.currentMonthIndex].NAME;
+  public getHeaderText(): string {
+    return this.CALENDAR[this.currentMonthIndex].NAME + ' ' + this.currentYear;
   }
 
   public shiftToPreviousMonth(): void {
