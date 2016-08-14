@@ -170,6 +170,7 @@ TODO
 8. build dev / prod (NPM scripts)
 9. Update README installation (note have to install jspm packages with `npm install --save-dev` to satisfy Webstorm resolution)
 10. unit testing
+11. document server setup (eg. `{fallback: 'index.html')` in gulp-webserver
 
 
 ```

@@ -1,9 +1,13 @@
 <header class="row as-header">
 
   <!-- TODO add navigation -->
-  <img class="visible-xs-inline-block" ui-sref="home" src="./src/components/header/images/old-banner-mobile.jpg"/>
+  <a routerLink="/home" routerLinkActive="active">
+    <img class="visible-xs-inline-block" ui-sref="home" src="./src/components/header/images/old-banner-mobile.jpg"/>
+  </a>
 
-  <img class="hidden-xs" ui-sref="home" src="./src/components/header/images/old-banner.jpg"/>
+  <a routerLink="/home" routerLinkActive="active">
+    <img class="hidden-xs" ui-sref="home" src="./src/components/header/images/old-banner.jpg"/>
+  </a>
 
 </header>
 

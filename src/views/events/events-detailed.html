@@ -1,0 +1,20 @@
+<events-detailed>
+  <div class="col-xs-12 event-details-section">
+
+    <div class="event-details-container">
+      <div class="col-xs-4">
+        <i class="fa fa-calendar-o cal-icon"></i>
+      </div>
+
+      <div class="col-xs-8 event-details">
+        <div *ngIf="getEventDetails()">
+          <p>Event Title: {{ getEventDetails().title }}</p>
+          <p>Event Date: {{ (getEventDetails().startTime * 1000) | date : 'EEEE, MMMM d, yyyy, h:mm a' }}</p>
+          <p>Event Info:</p>
+          <p [innerHTML]="getEventDetails().description"></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</events-detailed>

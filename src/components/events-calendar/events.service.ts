@@ -10,6 +10,15 @@ export class EventsService {
   constructor(private http: Http){
   }
 
+  getEvent(id: number): Observable<EventInterface> {
+    return this.http.get(this.API_URL_EVENTS + '/' + id)
+      .map((response: Response) => {
+        return response.json()[0] || {};
+      }).catch(() => {
+        return Observable.throw('EventsService.getEvent() Observable thrown');
+      })
+  }
+
   getEvents(): Observable<EventInterface[]> {
     return this.http.get(this.API_URL_EVENTS)
       .map((response: Response) => {

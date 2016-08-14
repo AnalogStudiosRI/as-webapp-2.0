@@ -32,7 +32,7 @@ export class EventsCalendarComponent extends OnInit {
   private currentYear: number;
   public currentMonthData: Array<any> = [];
 
-  constructor(private eventsService: EventsService) {
+  constructor(private EventsService: EventsService) {
     super();
     let now = new Date();
     this.currentMonthIndex = now.getMonth();
@@ -124,7 +124,7 @@ export class EventsCalendarComponent extends OnInit {
   }
 
   ngOnInit(): void {
-    this.eventsService.getEvents().subscribe((data: Array<EventInterface>) => {
+    this.EventsService.getEvents().subscribe((data: Array<EventInterface>) => {
       this.events = data;
       this.calculateCurrentMonthData();
     });

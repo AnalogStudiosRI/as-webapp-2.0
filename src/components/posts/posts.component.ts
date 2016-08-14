@@ -13,11 +13,11 @@ export class PostsComponent implements OnInit {
   private MAX_POSTS: number = 2;
   private posts: Array<PostInterface> = [];
 
-  constructor(private postsService: PostsService){
+  constructor(private PostsService: PostsService){
   }
 
   ngOnInit(): void {
-    this.postsService.getPosts().subscribe(data => {
+    this.PostsService.getPosts().subscribe(data => {
       this.posts = data;
     })
   }
