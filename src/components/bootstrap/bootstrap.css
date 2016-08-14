@@ -30,3 +30,8 @@ a{
   cursor: pointer;
   text-decoration: underline;
 }
+
+.router-outlet {
+  margin-top: 20px;
+  display: block;
+}

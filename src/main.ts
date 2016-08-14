@@ -3,6 +3,7 @@ import { bootstrap } from '@angular/platform-browser-dynamic';
 import { BootstrapComponent } from './components/bootstrap/bootstrap.component';
 import { HTTP_PROVIDERS } from '@angular/http';
 
+// TODO HTTP_PROVIDERS warning
 bootstrap(<any> BootstrapComponent, [
   APP_ROUTER_PROVIDERS,
   HTTP_PROVIDERS

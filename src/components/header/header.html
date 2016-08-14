@@ -1,12 +1,9 @@
 <header class="row as-header">
 
-  <!-- TODO add navigation -->
-  <a routerLink="/home" routerLinkActive="active">
-    <img class="visible-xs-inline-block" ui-sref="home" src="./src/components/header/images/old-banner-mobile.jpg"/>
-  </a>
+  <a [routerLink]="['/home']">
+    <img class="visible-xs-inline-block" src="./src/components/header/images/old-banner-mobile.jpg"/>
 
-  <a routerLink="/home" routerLinkActive="active">
-    <img class="hidden-xs" ui-sref="home" src="./src/components/header/images/old-banner.jpg"/>
+    <img class="hidden-xs" src="./src/components/header/images/old-banner.jpg"/>
   </a>
 
 </header>

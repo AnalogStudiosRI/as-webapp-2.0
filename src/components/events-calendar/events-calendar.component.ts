@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EventInterface } from './event.interface';
 import { EventsService } from './events.service';
 
@@ -32,7 +33,7 @@ export class EventsCalendarComponent extends OnInit {
   private currentYear: number;
   public currentMonthData: Array<any> = [];
 
-  constructor(private EventsService: EventsService) {
+  constructor(private Router: Router, private EventsService: EventsService) {
     super();
     let now = new Date();
     this.currentMonthIndex = now.getMonth();
@@ -106,6 +107,12 @@ export class EventsCalendarComponent extends OnInit {
     this.calculateCurrentMonthData();
   }
 
+  public getEventTitle(index: number): string {
+    let title: string = this.events[index].title;
+
+    return title.length >= 15 ? title.substring(0, 13) + '&hellip;' : title;
+  }
+
   public getHeaderText(): string {
     return this.CALENDAR[this.currentMonthIndex].NAME + ' ' + this.currentYear;
   }
@@ -119,8 +126,8 @@ export class EventsCalendarComponent extends OnInit {
   }
 
   public selectEvent(selectedEvent): void {
-    console.log('selectedEvent', selectedEvent);
-    //TODO goto event
+    //TODO make this a callback from the consumer???
+    this.Router.navigate(['events', selectedEvent.id]);
   }
 
   ngOnInit(): void {

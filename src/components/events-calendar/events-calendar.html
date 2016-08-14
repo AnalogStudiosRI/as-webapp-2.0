@@ -53,8 +53,8 @@
 
           <!--day with event if there's an event-->
           <div *ngIf="day.hasEvents" class="day-event">
-            <span *ngFor="let event of day.events">
-              <span (click)="selectEvent(event)">{{event.title}}</span>
+            <span *ngFor="let event of day.events, let idx = index">
+              <span [routerLink]="['/events', event.id]" [innerHTML]="getEventTitle(idx)"></span>
             </span>
           </div>
 
