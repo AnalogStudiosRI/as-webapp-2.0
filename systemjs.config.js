@@ -12,7 +12,8 @@
     'moment':                     'node_modules/moment',
     'ng2-bootstrap':              'node_modules/ng2-bootstrap',  //aded by me
     'rxjs':                       'node_modules/rxjs',
-    'symbol-observable':          'node_modules/symbol-observable'  //aded by me
+    'symbol-observable':          'node_modules/symbol-observable',  //aded by me
+    'angular2-localstorage':      'node_modules/angular2-localstorage'  //aded by me
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
@@ -23,7 +24,8 @@
     'ng2-bootstrap':              { main: 'ng2-bootstrap.js', defaultExtension: 'js' },  //aded by me
     'moment':                     { main: 'moment.js', defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
-    'symbol-observable':          { main: 'index.js', defaultExtension: 'js' }  //aded by me
+    'symbol-observable':          { main: 'index.js', defaultExtension: 'js' },  //aded by me
+    'angular2-localstorage':      { main: 'index.js', defaultExtension: 'js' }  //aded by me
   };
 
   var ngPackageNames = [

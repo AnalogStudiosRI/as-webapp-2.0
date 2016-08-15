@@ -54,7 +54,7 @@ export class AdminViewComponent {
   }
 
   public getIsAuthenticated(): boolean {
-    return this.AuthenticationService.hasAuthenticated();
+    return this.AuthenticationService.isAuthenticated();
   }
 
 }
