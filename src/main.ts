@@ -5,6 +5,7 @@ import { HTTP_PROVIDERS } from '@angular/http';
 import { provideForms } from '@angular/forms';
 
 // TODO HTTP_PROVIDERS warning
+// TODO bootstrap
 bootstrap(<any> BootstrapComponent, [
   APP_ROUTER_PROVIDERS,
   HTTP_PROVIDERS,

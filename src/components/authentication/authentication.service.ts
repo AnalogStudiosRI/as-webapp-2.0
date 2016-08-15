@@ -9,23 +9,28 @@ export class AuthenticationService {
   private JWT_KEY: string = 'token';
   private API_URL_LOGIN: string = '/api/login';
   private isAuthenticated: boolean = false;
+  private token: string;
 
   constructor(private Http: Http){
 
   }
 
-  public login(username: string, password: string): Observable<any> {
-    console.log('username', username);
-    console.log('password', password);
+  //set token
+  //get token
+
+  public authenticate(username: string, password: string): Observable<any> {
     return this.Http.post(this.API_URL_LOGIN, {
       username: username,
       password: password
     }).map((response: Response) => {
-      return response.json()[0] || {};
+      this.isAuthenticated = true;
+      this.token = response.json().data.token;
+
+      return this.hasAuthenticated();
     })
   }
 
-  public isAuthentcated(): boolean{
+  public hasAuthenticated(): boolean{
     return this.isAuthenticated;
   }
 }

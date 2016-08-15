@@ -16,16 +16,17 @@ import { ModalDirective } from 'ng2-bootstrap/components/modal';
 
 export class AdminViewComponent {
   public credentials: FormGroup;
+  public isAuthenticated: boolean = false;
 
-  @ViewChild('childModal') public childModal: ModalDirective;
-
-  public showChildModal():void {
-    this.childModal.show();
-  }
-
-  public hideChildModal():void {
-    this.childModal.hide();
-  }
+  // @ViewChild('childModal') public childModal: ModalDirective;
+  //
+  // public showChildModal():void {
+  //   this.childModal.show();
+  // }
+  //
+  // public hideChildModal():void {
+  //   this.childModal.hide();
+  // }
 
   constructor(private AuthenticationService: AuthenticationService, private FormBuilder: FormBuilder) {
     this.credentials = this.FormBuilder.group({
@@ -38,8 +39,10 @@ export class AdminViewComponent {
     let username: string = this.credentials.controls['username'].value;
     let password: string = this.credentials.controls['password'].value;
 
-    this.AuthenticationService.login(username, password).subscribe((response) => {
-      console.log('login response success', response);
+    this.AuthenticationService.authenticate(username, password).subscribe((isAuthenticated: boolean) => {
+      console.log('login response success', isAuthenticated);
+      //TODO anything here?
+      //stop spinner?
     },(err) => {
       console.error('login response error', err);
       //TODO modal
@@ -51,7 +54,7 @@ export class AdminViewComponent {
   }
 
   public getIsAuthenticated(): boolean {
-    return this.AuthenticationService.isAuthentcated();
+    return this.AuthenticationService.hasAuthenticated();
   }
 
 }
