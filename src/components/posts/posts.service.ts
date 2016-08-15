@@ -14,8 +14,6 @@ export class PostsService {
     return this.http.get(this.postsApiUrl)
       .map((response: Response) => {
         return response.json() || {};
-      }).catch(() => {
-        return Observable.throw('PostsService.getPosts() Observable thrown');
       });
   }
 }

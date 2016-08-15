@@ -1,0 +1,44 @@
+<section class="row view">
+
+  <div class="col-md-3">
+    <div *ngIf="getIsAuthenticated()">
+
+      <ul>
+        <li><span class="link">Events</span></li>
+        <li><span class="link">Posts</span></li>
+        <li><span class="link" (click)="logout()">Logout</span></li>
+      </ul>
+
+    </div>
+
+  </div>
+
+  <div class="col-md-9">
+
+    <div *ngIf="!getIsAuthenticated()">
+
+      <form (ngSubmit)="login()" [formGroup]="credentials">
+
+        <label for="username">Username:</label>
+        <input id="username" name="username" [formControl]="credentials.controls['username']" type="text" required/>
+
+        <label for="password">Password:</label>
+        <input id="password" name="password" [formControl]="credentials.controls['password']" type="password" required/>
+
+        <br/>
+
+        <button class="btn" type="submit">Submit</button>
+
+      </form>
+
+      <!--<span us-spinner spinner-key="spinner-1"></span>-->
+
+    </div>
+
+    <div *ngIf="getIsAuthenticated()">
+      <p>Inner Router goes here</p>
+    </div>
+
+  </div>
+
+</section>

@@ -23,8 +23,6 @@ export class EventsService {
     return this.http.get(this.API_URL_EVENTS)
       .map((response: Response) => {
         return response.json() || {};
-      }).catch(() => {
-        return Observable.throw('EventsService.getEvents() Observable thrown');
       })
   }
 }

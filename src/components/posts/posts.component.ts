@@ -19,6 +19,9 @@ export class PostsComponent implements OnInit {
   ngOnInit(): void {
     this.PostsService.getPosts().subscribe(data => {
       this.posts = data;
+    }, (err) => {
+      console.log('err', err);
+      //modal
     })
   }
 

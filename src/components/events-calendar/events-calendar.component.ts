@@ -134,6 +134,8 @@ export class EventsCalendarComponent extends OnInit {
     this.EventsService.getEvents().subscribe((data: Array<EventInterface>) => {
       this.events = data;
       this.calculateCurrentMonthData();
-    });
+    }, (err) => {
+      console.log('err', err);
+    })
   }
 }
