@@ -1,4 +1,4 @@
-//import { LocalStorageService } from 'angular2-localstorage/LocalStorageEmitter';
+import { LocalStorage } from 'angular2-localstorage/WebStorage';
 import { Http, Response } from "@angular/http";
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
@@ -6,70 +6,57 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class AuthenticationService {
   //TODO constant
-  private JWT_KEY: string = 'token';
   private API_URL_LOGIN: string = '/api/login';
-  private isAuthenticated: boolean = false;
-  private token: string;
+  @LocalStorage('token') private token: string = null;
 
+  //TODO $httpInterceptor?
   constructor(private Http: Http){
-
+    //TODO check token expiration here, unauthenticate immediately if expired
   }
 
-  //set token
-  //get token
+  private setToken(value:string) {
+    this.token = value || '';
+  }
+
+  private clearToken(): void {
+    this.token = null;
+  }
+
+  private isValidAuthenticationResponse(resp): boolean {
+    let data = resp.data;
+
+    //TODO validate token expiration
+    return resp.success && data && data.jwt && data.jwt !== '';
+  }
 
   public authenticate(username: string, password: string): Observable<any> {
     return this.Http.post(this.API_URL_LOGIN, {
       username: username,
       password: password
     }).map((response: Response) => {
-      this.isAuthenticated = true;
-      this.token = response.json().data.token;
+      let resp = response.json();
 
-      return this.hasAuthenticated();
+      if(this.isValidAuthenticationResponse){
+        this.setToken(resp.data.jwt);
+      }else{
+        this.clearToken();
+        console.error('authenticate call failed');
+      }
+
+      return this.isAuthenticated();
     })
   }
 
-  public hasAuthenticated(): boolean{
-    return this.isAuthenticated;
+  public unauthenticate(): void{
+    this.clearToken();
+  }
+
+  public isAuthenticated(): boolean {
+    //TODO check token expiration
+    return this.token ? true : false;
+  }
+
+  public getToken(): string {
+    return this.token;
   }
 }
-//     return {
-//
-//       getToken: function () {
-//         return localStorageService.get(JWT_KEY);
-//       },
-//
-//       isAuthenticated: function () {
-//         var token = localStorageService.get(JWT_KEY) || '';
-//         var isValid = token && angular.isString(token) && token !== '' && !jwtHelper.isTokenExpired(token);
-//
-//         return isValid;
-//       },
-//
-//       login: function (username, password) {
-//         var deferred = $q.defer();
-//
-//         $http.post('/api/login', {
-//           username: username ? username : '',
-//           password: password ? password : ''
-//         }).success(function (response) {
-//           deferred.resolve(response);
-//           localStorageService.set(JWT_KEY, response.data.jwt);
-//         }).error(function(response) {
-//           deferred.reject(response);
-//           $log.error('error in $http request');
-//           $log.debug(response);
-//         });
-//
-//         return deferred.promise;
-//       },
-//
-//       logout: function () {
-//         return localStorageService.remove(JWT_KEY);
-//       }
-//
-//     };
-//
-//   }
-// }(angular));

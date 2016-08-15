@@ -3,7 +3,7 @@ import { CORE_DIRECTIVES } from '@angular/common';
 import { AuthenticationService } from '../../components/authentication/authentication.service';
 import { FormBuilder, FormGroup, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES} from "@angular/forms";
 import { MODAL_DIRECTIVES, BS_VIEW_PROVIDERS } from 'ng2-bootstrap/ng2-bootstrap';
-import { ModalDirective } from 'ng2-bootstrap/components/modal';
+//import { ModalDirective } from 'ng2-bootstrap/components/modal';
 
 @Component({
   selector: 'admin-view',
@@ -11,7 +11,7 @@ import { ModalDirective } from 'ng2-bootstrap/components/modal';
   styleUrls: ['/node_modules/bootstrap/dist/css/bootstrap.min.css', './src/views/admin/admin.css'],
   directives: [ CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, MODAL_DIRECTIVES ],
   providers: [ FormBuilder, AuthenticationService ],
-  viewProviders: [BS_VIEW_PROVIDERS]
+  viewProviders: [ BS_VIEW_PROVIDERS ]
 })
 
 export class AdminViewComponent {
@@ -40,7 +40,7 @@ export class AdminViewComponent {
     let password: string = this.credentials.controls['password'].value;
 
     this.AuthenticationService.authenticate(username, password).subscribe((isAuthenticated: boolean) => {
-      console.log('login response success', isAuthenticated);
+      //console.log('login response success', isAuthenticated);
       //TODO anything here?
       //stop spinner?
     },(err) => {
@@ -51,6 +51,7 @@ export class AdminViewComponent {
 
   public logout(): void {
     console.log('logout');
+    this.AuthenticationService.unauthenticate();
   }
 
   public getIsAuthenticated(): boolean {
