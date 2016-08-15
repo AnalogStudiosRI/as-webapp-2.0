@@ -1,21 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { CORE_DIRECTIVES } from '@angular/common';
 import { AuthenticationService } from '../../components/authentication/authentication.service';
 import { FormBuilder, FormGroup, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES} from "@angular/forms";
+import { MODAL_DIRECTIVES, BS_VIEW_PROVIDERS } from 'ng2-bootstrap/ng2-bootstrap';
+import { ModalDirective } from 'ng2-bootstrap/components/modal';
 
 @Component({
   selector: 'admin-view',
   templateUrl: './src/views/admin/admin.html',
   styleUrls: ['/node_modules/bootstrap/dist/css/bootstrap.min.css', './src/views/admin/admin.css'],
-  directives: [ FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES ],
-  providers: [AuthenticationService, FormBuilder]
+  directives: [ CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, MODAL_DIRECTIVES ],
+  providers: [ FormBuilder, AuthenticationService ],
+  viewProviders: [BS_VIEW_PROVIDERS]
 })
 
 export class AdminViewComponent {
   public credentials: FormGroup;
 
-  constructor(private AuthenticationService: AuthenticationService, private FormBuilder: FormBuilder) {
-    console.log('AdminViewComponent');
+  @ViewChild('childModal') public childModal: ModalDirective;
 
+  public showChildModal():void {
+    this.childModal.show();
+  }
+
+  public hideChildModal():void {
+    this.childModal.hide();
+  }
+
+  constructor(private AuthenticationService: AuthenticationService, private FormBuilder: FormBuilder) {
     this.credentials = this.FormBuilder.group({
       username: '',
       password: ''
@@ -23,17 +35,14 @@ export class AdminViewComponent {
   }
 
   public login(): void {
-    console.log('on submit');
-    console.log('login !!!!');
-    console.log('credentials', this.credentials);
     let username: string = this.credentials.controls['username'].value;
-    let password: string = this.credentials.controls['password'].value
-    console.log('username =>', username);
-    console.log('password =>', password);
+    let password: string = this.credentials.controls['password'].value;
+
     this.AuthenticationService.login(username, password).subscribe((response) => {
-      console.log('login response', response);
+      console.log('login response success', response);
     },(err) => {
-      console.log('err', err);
+      console.error('login response error', err);
+      //TODO modal
     })
   }
 
