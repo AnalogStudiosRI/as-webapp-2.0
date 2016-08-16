@@ -1,4 +1,3 @@
-import { AdminViewEventsComponent } from './admin-events.component';
 import { AuthenticationService } from '../../components/authentication/authentication.service';
 import { Component, ViewChild } from '@angular/core';
 import { CORE_DIRECTIVES } from '@angular/common';

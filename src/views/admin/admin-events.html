@@ -1,1 +1,37 @@
-<p>Inner Router goes here - Events</p>
+<section class="row view">
+
+  <div class="col-md-12">
+
+    <form (ngSubmit)="submitForm()" [formGroup]="event">
+      <label for="select-event">Select an event to update it:</label>
+
+      <br/>
+
+      <select id="select-event" (change)="onSelected($event.target.selectedIndex)">
+        <option *ngFor="let event of getEvents()" value="event.id">{{event.title}}</option>
+      </select>
+
+      <!--<select  ng-model="view.event" ng-options="event as event.title for event in view.events">-->
+      <!--</select>-->
+
+      <label for="title">Title:</label>
+      <input id="title" name="title" [formControl]="event.controls['title']" type="text" required/>
+
+      <!--<label for="description">Description:</label>-->
+      <!--<text-angular id="description" data-ng-model="view.event.description" required></text-angular>-->
+
+      <!--<label for="date">Date:</label>-->
+      <!--<input id="date" data-ng-model="view.event.date" type="date" required>-->
+
+      <!--<label>Time:</label>-->
+      <!--<timepicker ng-model="view.event.date"></timepicker>-->
+
+      <br/>
+
+      <button class="btn" type="reset">Reset</button>
+
+    </form>
+
+  </div>
+
+</section>
