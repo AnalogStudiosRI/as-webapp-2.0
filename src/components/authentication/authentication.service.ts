@@ -25,7 +25,7 @@ export class AuthenticationService {
     this.token = null;
   }
 
-  private static isValidAuthenticationResponse(resp): boolean {
+  private isValidAuthenticationResponse(resp): boolean {
     let data = resp.data;
 
     //TODO validate token expiration !this.JwtHelper.isTokenExpired(this.token)
@@ -40,7 +40,7 @@ export class AuthenticationService {
     }).map((response: Response) => {
       let resp = response.json();
 
-      if(self.isValidAuthenticationResponse(resp)){
+      if(this.isValidAuthenticationResponse(resp)){
         //TODO decode token this.JwtHelper.decodeToken(resp.data.jwt)
         this.setToken(resp.data.jwt);
       }else{
