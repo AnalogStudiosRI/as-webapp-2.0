@@ -14,6 +14,7 @@
     'rxjs':                       'node_modules/rxjs',
     'symbol-observable':          'node_modules/symbol-observable',  //aded by me
     'angular2-localstorage':      'node_modules/angular2-localstorage'  //aded by me
+    //'angular2-jwt':               'node_modules/angular2-jwt'  //aded by me
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
@@ -26,6 +27,7 @@
     'rxjs':                       { defaultExtension: 'js' },
     'symbol-observable':          { main: 'index.js', defaultExtension: 'js' },  //aded by me
     'angular2-localstorage':      { main: 'index.js', defaultExtension: 'js' }  //aded by me
+    //'angular2-jwt':               { main: 'index.js', defaultExtension: 'js' }  //aded by me
   };
 
   var ngPackageNames = [

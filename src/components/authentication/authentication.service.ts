@@ -1,6 +1,7 @@
-import { LocalStorage } from 'angular2-localstorage/WebStorage';
 import { Http, Response } from "@angular/http";
 import { Injectable } from '@angular/core';
+//import { JwtHelper } from 'angular2-jwt';
+import { LocalStorage } from 'angular2-localstorage/WebStorage';
 import { Observable } from 'rxjs/Rx';
 
 @Injectable()
@@ -10,23 +11,26 @@ export class AuthenticationService {
   @LocalStorage('token') private token: string = null;
 
   //TODO $httpInterceptor?
+  //TODO private JwtHelper: JwtHelper
   constructor(private Http: Http){
-    //TODO check token expiration here, unauthenticate immediately if expired
+    //TODO validate token expiration !this.JwtHelper.isTokenExpired(this.token)
   }
 
-  private setToken(value:string) {
-    this.token = value || '';
+  private setToken(value: string) {
+    //TODO validate token value
+    this.token = value || null;
   }
 
   private clearToken(): void {
     this.token = null;
   }
 
-  private isValidAuthenticationResponse(resp): boolean {
+  private static isValidAuthenticationResponse(resp): boolean {
     let data = resp.data;
 
-    //TODO validate token expiration
-    return resp.success && data && data.jwt && data.jwt !== '';
+    //TODO validate token expiration !this.JwtHelper.isTokenExpired(this.token)
+    //TODO validate token decoding? this.JwtHelper.decodeToken(data.jwt)
+    return resp.success && data && data.jwt && typeof data.jwt === 'string';
   }
 
   public authenticate(username: string, password: string): Observable<any> {
@@ -36,11 +40,12 @@ export class AuthenticationService {
     }).map((response: Response) => {
       let resp = response.json();
 
-      if(this.isValidAuthenticationResponse){
+      if(self.isValidAuthenticationResponse(resp)){
+        //TODO decode token this.JwtHelper.decodeToken(resp.data.jwt)
         this.setToken(resp.data.jwt);
       }else{
-        this.clearToken();
         console.error('authenticate call failed');
+        this.clearToken();
       }
 
       return this.isAuthenticated();
@@ -52,7 +57,7 @@ export class AuthenticationService {
   }
 
   public isAuthenticated(): boolean {
-    //TODO check token expiration
+    //TODO validate token expiration !this.JwtHelper.isTokenExpired(this.token)
     return this.token ? true : false;
   }
 
