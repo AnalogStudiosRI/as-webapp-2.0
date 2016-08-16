@@ -23,11 +23,13 @@
   <div class="col-md-3">
     <div *ngIf="getIsAuthenticated()">
 
-      <ul>
-        <li><span class="link">Events</span></li>
-        <li><span class="link">Posts</span></li>
-        <li><span class="link" (click)="logout()">Logout</span></li>
-      </ul>
+      <nav>
+        <ul>
+          <li><span class="link" [routerLink]="['events']">Events</span></li>
+          <li><span class="link" [routerLink]="['posts']">Posts</span></li>
+          <li><span class="link" (click)="logout()">Logout</span></li>
+        </ul>
+      </nav>
 
     </div>
 
@@ -56,7 +58,7 @@
     </div>
 
     <div *ngIf="getIsAuthenticated()">
-      <p>Inner Router goes here</p>
+      <router-outlet></router-outlet>
     </div>
 
   </div>

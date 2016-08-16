@@ -1,8 +1,10 @@
+import { AdminViewEventsComponent } from './admin-events.component';
+import { AuthenticationService } from '../../components/authentication/authentication.service';
 import { Component, ViewChild } from '@angular/core';
 import { CORE_DIRECTIVES } from '@angular/common';
-import { AuthenticationService } from '../../components/authentication/authentication.service';
 import { FormBuilder, FormGroup, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES} from "@angular/forms";
 import { MODAL_DIRECTIVES, BS_VIEW_PROVIDERS } from 'ng2-bootstrap/ng2-bootstrap';
+import { Router } from '@angular/router';
 //import { ModalDirective } from 'ng2-bootstrap/components/modal';
 
 @Component({
@@ -10,9 +12,10 @@ import { MODAL_DIRECTIVES, BS_VIEW_PROVIDERS } from 'ng2-bootstrap/ng2-bootstrap
   templateUrl: './src/views/admin/admin.html',
   styleUrls: ['/node_modules/bootstrap/dist/css/bootstrap.min.css', './src/views/admin/admin.css'],
   directives: [ CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, MODAL_DIRECTIVES ],
-  providers: [ FormBuilder, AuthenticationService ],
+  providers: [ AuthenticationService, FormBuilder ],
   viewProviders: [ BS_VIEW_PROVIDERS ]
 })
+
 
 export class AdminViewComponent {
   public credentials: FormGroup;
@@ -29,7 +32,7 @@ export class AdminViewComponent {
   // }
 
   //TODO spinner
-  constructor(private AuthenticationService: AuthenticationService, private FormBuilder: FormBuilder) {
+  constructor(private AuthenticationService: AuthenticationService, private FormBuilder: FormBuilder, private Router: Router) {
     this.credentials = this.FormBuilder.group({
       username: '',
       password: ''
@@ -42,6 +45,7 @@ export class AdminViewComponent {
 
     this.AuthenticationService.authenticate(username, password).subscribe((isAuthenticated: boolean) => {
       //TODO anything here? spinner?
+      //TODO load initial route this.Router.navigate(['../events']);
     },(err) => {
       console.error('login response error', err);
       //TODO modal
@@ -49,8 +53,8 @@ export class AdminViewComponent {
   }
 
   public logout(): void {
-    console.log('logout');
     this.AuthenticationService.unauthenticate();
+    this.Router.navigate(['admin']);
   }
 
   public getIsAuthenticated(): boolean {
