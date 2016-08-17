@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
 
 
 export class AdminViewComponent {
-  public credentials: FormGroup;
+  public loginForm: FormGroup;
   public isAuthenticated: boolean = false;
 
   // @ViewChild('childModal') public childModal: ModalDirective;
@@ -32,15 +32,15 @@ export class AdminViewComponent {
 
   //TODO spinner
   constructor(private AuthenticationService: AuthenticationService, private FormBuilder: FormBuilder, private Router: Router) {
-    this.credentials = this.FormBuilder.group({
+    this.loginForm = this.FormBuilder.group({
       username: '',
       password: ''
     })
   }
 
   public login(): void {
-    let username: string = this.credentials.controls['username'].value;
-    let password: string = this.credentials.controls['password'].value;
+    let username: string = this.loginForm.controls['username'].value;
+    let password: string = this.loginForm.controls['password'].value;
 
     this.AuthenticationService.authenticate(username, password).subscribe((isAuthenticated: boolean) => {
       //TODO anything here? spinner?

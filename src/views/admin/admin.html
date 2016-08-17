@@ -39,13 +39,13 @@
 
     <div *ngIf="!getIsAuthenticated()">
 
-      <form (ngSubmit)="login()" [formGroup]="credentials">
+      <form (ngSubmit)="login()" [formGroup]="loginForm">
 
         <label for="username">Username:</label>
-        <input id="username" name="username" [formControl]="credentials.controls['username']" type="text" required/>
+        <input id="username" name="username" [formControl]="loginForm.controls['username']" type="text" required/>
 
         <label for="password">Password:</label>
-        <input id="password" name="password" [formControl]="credentials.controls['password']" type="password" required/>
+        <input id="password" name="password" [formControl]="loginForm.controls['password']" type="password" required/>
 
         <br/>
 

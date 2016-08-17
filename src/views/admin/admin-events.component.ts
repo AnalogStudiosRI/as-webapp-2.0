@@ -4,13 +4,14 @@ import { CORE_DIRECTIVES } from '@angular/common'
 import { EventInterface } from '../../components/events-calendar/event.interface';
 import { EventsService } from '../../components/events-calendar/events.service';
 import { FormBuilder, FormGroup, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
+import { TimepickerComponent } from 'ng2-bootstrap';
 
 @Component({
   selector: 'admin-events',
   templateUrl: './src/views/admin/admin-events.html',
   styleUrls: [ './src/view/admin/admin.css' ],
   providers: [ EventsService, FormBuilder ],
-  directives: [ CKEditor, CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES ]
+  directives: [ CKEditor, CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, TimepickerComponent ]
 })
 
 export class AdminViewEventsComponent extends OnInit {
@@ -24,8 +25,8 @@ export class AdminViewEventsComponent extends OnInit {
       id: null,
       title: '',
       description: '',
-      startTime: null,
-      endTime: null
+      startDate: '',
+      startTime: ''
     });
   }
 
@@ -43,10 +44,6 @@ export class AdminViewEventsComponent extends OnInit {
     let event = this.events[index];
 
     this.eventForm = this.FormBuilder.group(event);
-  }
-
-  public onEditorChange(something: any):void {
-    console.log('onEditorChange', something);
   }
 
   public submitForm(): void {

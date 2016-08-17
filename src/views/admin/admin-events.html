@@ -24,16 +24,17 @@
         id="description"
         [formControl]="eventForm.controls['description']"
         [config]="{uiColor: '#99000'}"
-        (change)="onEditorChange($event)"
         debounce="500">
       </ckeditor>
-      <!--<text-angular id="description" data-ng-model="view.event.description" required></text-angular>-->
 
-      <!--<label for="date">Date:</label>-->
-      <!--<input id="date" data-ng-model="view.event.date" type="date" required>-->
+      <br/>
+      <br/>
 
-      <!--<label>Time:</label>-->
-      <!--<timepicker ng-model="view.event.date"></timepicker>-->
+      <label for="date">Date:</label>
+      <input id="date" name="time" [formControl]="eventForm.controls['startDate']" type="date" required>
+
+      <label>Time:</label>
+      <timepicker id="time" name="time" [formControl]="eventForm.controls['startTime']"></timepicker>
 
       <br/>
       <br/>
