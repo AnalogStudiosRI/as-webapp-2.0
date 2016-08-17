@@ -13,7 +13,8 @@
     'ng2-bootstrap':              'node_modules/ng2-bootstrap',  //aded by me
     'rxjs':                       'node_modules/rxjs',
     'symbol-observable':          'node_modules/symbol-observable',  //aded by me
-    'angular2-localstorage':      'node_modules/angular2-localstorage'  //aded by me
+    'angular2-localstorage':      'node_modules/angular2-localstorage',  //aded by me
+    'ng2-ckeditor':               'node_modules/ng2-ckeditor'  //aded by me
     //'angular2-jwt':               'node_modules/angular2-jwt'  //aded by me
   };
 
@@ -26,7 +27,8 @@
     'moment':                     { main: 'moment.js', defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
     'symbol-observable':          { main: 'index.js', defaultExtension: 'js' },  //aded by me
-    'angular2-localstorage':      { main: 'index.js', defaultExtension: 'js' }  //aded by me
+    'angular2-localstorage':      { main: 'index.js', defaultExtension: 'js' },  //aded by me
+    'ng2-ckeditor':               { main: 'lib/CKEditor.js', defaultExtension: 'js' }  //aded by me
     //'angular2-jwt':               { main: 'index.js', defaultExtension: 'js' }  //aded by me
   };
 

@@ -1,3 +1,4 @@
+import { CKEditor } from 'ng2-ckeditor';
 import { Component, OnInit } from '@angular/core';
 import { CORE_DIRECTIVES } from '@angular/common'
 import { EventInterface } from '../../components/events-calendar/event.interface';
@@ -9,17 +10,17 @@ import { FormBuilder, FormGroup, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES } fro
   templateUrl: './src/views/admin/admin-events.html',
   styleUrls: [ './src/view/admin/admin.css' ],
   providers: [ EventsService, FormBuilder ],
-  directives: [ CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES ]
+  directives: [ CKEditor, CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES ]
 })
 
 export class AdminViewEventsComponent extends OnInit {
   private events: Array<EventInterface> = [];
-  public event: FormGroup;
+  public eventForm: FormGroup;
 
   constructor(private EventsService: EventsService, private FormBuilder: FormBuilder){
     super();
     //TODO map to EventInterface???
-    this.event = this.FormBuilder.group({
+    this.eventForm = this.FormBuilder.group({
       id: null,
       title: '',
       description: '',
@@ -38,17 +39,18 @@ export class AdminViewEventsComponent extends OnInit {
     return this.events;
   }
 
-  public onSelected(index: number): void {
-    console.log('eventSelected', index);
+  public onEventSelected(index: number): void {
     let event = this.events[index];
 
-    //this.event.controls['id'].value.set(event.id);
-    //this.event.controls['title'].value = event.title);
-    console.log(this.event);
+    this.eventForm = this.FormBuilder.group(event);
+  }
+
+  public onEditorChange(something: any):void {
+    console.log('onEditorChange', something);
   }
 
   public submitForm(): void {
-    console.log('submitForm', this.event.controls);
+    console.log('submitForm', this.eventForm.controls);
   }
 
 }

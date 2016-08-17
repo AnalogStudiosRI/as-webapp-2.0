@@ -1,23 +1,32 @@
-<section class="row view">
+<section class="row view" xmlns="http://www.w3.org/1999/html">
 
   <div class="col-md-12">
 
-    <form (ngSubmit)="submitForm()" [formGroup]="event">
+    <form (ngSubmit)="submitForm()" [formGroup]="eventForm">
       <label for="select-event">Select an event to update it:</label>
 
       <br/>
 
-      <select id="select-event" (change)="onSelected($event.target.selectedIndex)">
+      <select id="select-event" (change)="onEventSelected($event.target.selectedIndex)">
         <option *ngFor="let event of getEvents()" value="event.id">{{event.title}}</option>
       </select>
 
       <!--<select  ng-model="view.event" ng-options="event as event.title for event in view.events">-->
       <!--</select>-->
+      <br/>
+      <br/>
 
       <label for="title">Title:</label>
-      <input id="title" name="title" [formControl]="event.controls['title']" type="text" required/>
+      <input id="title" name="title" [formControl]="eventForm.controls['title']" type="text" required/>
 
-      <!--<label for="description">Description:</label>-->
+      <label for="description">Description:</label>
+      <ckeditor
+        id="description"
+        [formControl]="eventForm.controls['description']"
+        [config]="{uiColor: '#99000'}"
+        (change)="onEditorChange($event)"
+        debounce="500">
+      </ckeditor>
       <!--<text-angular id="description" data-ng-model="view.event.description" required></text-angular>-->
 
       <!--<label for="date">Date:</label>-->
@@ -26,6 +35,7 @@
       <!--<label>Time:</label>-->
       <!--<timepicker ng-model="view.event.date"></timepicker>-->
 
+      <br/>
       <br/>
 
       <button class="btn" type="reset">Reset</button>
