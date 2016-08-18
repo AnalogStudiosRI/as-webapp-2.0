@@ -1,1 +1,40 @@
-<p>Inner Router goes here - Posts</p>
+<section class="admin-view-posts">
+
+  <div class="col-md-12">
+
+    <form [formGroup]="postForm" (ngSubmit)="submitForm()">
+
+      <label for="select-post">Select a post to update it:</label>
+
+      <br/>
+
+      <select id="select-post" (change)="onPostSelected($event.target.selectedIndex)">
+        <option *ngFor="let post of getPosts()" value="post.id">{{post.title}}</option>
+      </select>
+
+      <label for="title">Title:</label>
+      <input id="title" name="title" [formControl]="postForm.controls['title']" type="text" placeholder="Post Title"required/>
+
+      <br/>
+      <br/>
+
+      <label for="summary">Summary:</label>
+      <ckeditor
+        id="summary"
+        name="summary"
+        placeholder="Post Summary"
+        [formControl]="postForm.controls['summary']"
+        debounce="500">
+      </ckeditor>
+
+      <br/>
+      <br/>
+
+      <button class="btn" type="submit">Submit</button>
+      <button class="btn" type="reset">Reset</button>
+
+    </form>
+
+  </div>
+
+</section>

@@ -6,7 +6,7 @@ label {
   display: block;
 }
 
-input, textarea, input[type="datetime"] {
+input, textarea, input[type="datetime"], select {
   color: #020202;
 }
 

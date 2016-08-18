@@ -58,7 +58,6 @@ export class AdminViewEventsComponent extends OnInit {
     })
   }
 
-  private submitEvent(){}
   public getEvents(): Array<EventInterface> {
     return this.events;
   }
