@@ -1,4 +1,5 @@
-import { Http, Response } from '@angular/http';
+import { AuthenticationService } from '../authentication/authentication.service';
+import { Headers, Http, RequestOptions, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs/Rx";
 import { EventInterface } from "./event.interface";
@@ -7,15 +8,13 @@ import { EventInterface } from "./event.interface";
 export class EventsService {
   private API_URL_EVENTS: string = '/api/events';
 
-  constructor(private http: Http){
+  constructor(private http: Http, private AuthenticationService: AuthenticationService){
   }
 
   getEvent(id: number): Observable<EventInterface> {
     return this.http.get(this.API_URL_EVENTS + '/' + id)
       .map((response: Response) => {
         return response.json()[0] || {};
-      }).catch(() => {
-        return Observable.throw('EventsService.getEvent() Observable thrown');
       })
   }
 
@@ -23,6 +22,19 @@ export class EventsService {
     return this.http.get(this.API_URL_EVENTS)
       .map((response: Response) => {
         return response.json() || {};
+      })
+  }
+
+  //TODO any
+  addEvent(body: EventInterface): Observable <any>{
+    let headers = new Headers({'Authorization': 'Bearer ' + this.AuthenticationService.getToken() });
+    let options = new RequestOptions({'headers': headers});
+
+    console.log('options', options);
+    return this.http.post(this.API_URL_EVENTS, body, options)
+      .map((response: Response) => {
+        console.log('addEvent success');
+        return response.json || {};
       })
   }
 }

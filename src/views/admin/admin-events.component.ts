@@ -5,7 +5,6 @@ import { EventInterface } from '../../components/events-calendar/event.interface
 import { EventsService } from '../../components/events-calendar/events.service';
 import { FormBuilder, FormGroup, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 import { TimepickerComponent } from 'ng2-bootstrap';
-import {start} from "repl";
 
 @Component({
   selector: 'admin-events',
@@ -35,7 +34,6 @@ export class AdminViewEventsComponent extends OnInit {
   ngOnInit(): void {
     this.EventsService.getEvents().subscribe((data: Array<EventInterface>) => {
       this.events = data;
-      this.setEventFormGroup(this.events[0]);
     })
   }
 
@@ -60,6 +58,7 @@ export class AdminViewEventsComponent extends OnInit {
     })
   }
 
+  private submitEvent(){}
   public getEvents(): Array<EventInterface> {
     return this.events;
   }
@@ -72,6 +71,25 @@ export class AdminViewEventsComponent extends OnInit {
 
   public submitForm(): void {
     console.log('submitForm', this.eventForm.controls);
+    let controls = this.eventForm.controls;
+
+    if(!controls['id'].value) {
+      //TODO modal
+      console.log('ADD and Then Refresh');
+      this.EventsService.addEvent({
+        title: controls['title'].value,
+        description: controls['title'].value,
+        endTime: controls['startTime'].value,
+        startTime: controls['startTime'].value
+      }).subscribe((response) => {
+        console.log('addEvent sucess and refresh!', response);
+      }, (error) => {
+        console.error('addEvent failure!', error);
+      });
+    }else{
+      //TODO modal
+      console.log('Update and Then Refresh');
+    }
   }
 
 }

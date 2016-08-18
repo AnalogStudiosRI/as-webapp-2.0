@@ -1,8 +1,8 @@
 export interface EventInterface {
-  id: number,
+  id?: number,
   title: string,
   description: string,
   startTime: number,
   endTime: number,
-  createdTime: number
+  createdTime?: number
 }
