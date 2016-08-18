@@ -3,6 +3,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 
+//TODO global bootstrap CSS??
 @Component({
   selector: 'as-webapp',
   templateUrl: './src/components/bootstrap/bootstrap.html',

@@ -6,11 +6,11 @@ label {
   display: block;
 }
 
-input, textarea{
+input, textarea, input[type="datetime"] {
   color: #020202;
 }
 
-input[type="text"], input[type="password"], textarea{
+input[type="text"], input[type="password"], textarea {
   width: 200px;
   margin-bottom: 20px;
 }

@@ -1,4 +1,4 @@
-<section class="row view" xmlns="http://www.w3.org/1999/html">
+<section class="admin-view-events" xmlns="http://www.w3.org/1999/html">
 
   <div class="col-md-12">
 
@@ -17,28 +17,27 @@
       <br/>
 
       <label for="title">Title:</label>
-      <input id="title" name="title" [formControl]="eventForm.controls['title']" type="text" required/>
+      <input id="title" name="title" [formControl]="eventForm.controls['title']" type="text" placeholder="Event Title" required/>
 
       <label for="description">Description:</label>
       <ckeditor
         id="description"
+        name="description"
+        placeholder="Event Description"
         [formControl]="eventForm.controls['description']"
-        [config]="{uiColor: '#99000'}"
         debounce="500">
       </ckeditor>
 
       <br/>
       <br/>
 
-      <label for="date">Date:</label>
-      <input id="date" name="time" [formControl]="eventForm.controls['startDate']" type="date" required>
-
-      <label>Time:</label>
-      <timepicker id="time" name="time" [formControl]="eventForm.controls['startTime']"></timepicker>
+      <label for="startTime">Date / Time:</label>
+      <input id="startTime" name="startTime" [formControl]="eventForm.controls['startTime']" type="datetime-local" required>
 
       <br/>
       <br/>
 
+      <button class="btn" type="submit">Submit</button>
       <button class="btn" type="reset">Reset</button>
 
     </form>
