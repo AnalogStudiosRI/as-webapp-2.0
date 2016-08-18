@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './src/views/admin/admin.html',
   styleUrls: ['/node_modules/bootstrap/dist/css/bootstrap.min.css', './src/views/admin/admin.css'],
   directives: [ CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, MODAL_DIRECTIVES ],
-  providers: [ AuthenticationService, FormBuilder ],
+  providers: [ FormBuilder ],
   viewProviders: [ BS_VIEW_PROVIDERS ]
 })
 

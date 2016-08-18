@@ -173,6 +173,12 @@ TODO
 11. document server setup (eg. `{fallback: 'index.html')` in gulp-webserver
 12. folder organization (services directory?)
 
+Rando Bugs
+1. click header from admin page - breaks, doesn't load home page (all pages?)
+2. admin init onload should default to events
+3. reset form doesn't reset WYSIWYG editor
+
+
 ```
 `./node_modules/.bin/typings install dt~core-js --save --global`
 
