@@ -177,7 +177,8 @@ Rando Bugs
 1. click header from admin page - breaks, doesn't load home page (all pages?)
 2. admin init onload should default to events
 3. reset form doesn't reset WYSIWYG editor
-
+4. admin links (events and posts don't quite work right)
+5. console error when logging out
 
 ```
 `./node_modules/.bin/typings install dt~core-js --save --global`
