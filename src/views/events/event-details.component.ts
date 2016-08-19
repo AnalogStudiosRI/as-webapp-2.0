@@ -1,7 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { EventInterface } from '../../components/events-calendar/event.interface';
-import { EventsService } from '../../components/events-calendar/events.service';
+import { EventInterface, EventsService } from '../../services/events.service';
 
 @Component({
   selector: 'events-detailed',

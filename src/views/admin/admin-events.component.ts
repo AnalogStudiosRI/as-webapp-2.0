@@ -1,8 +1,7 @@
 import { CKEditor } from 'ng2-ckeditor';
 import { Component, OnInit } from '@angular/core';
 import { CORE_DIRECTIVES } from '@angular/common'
-import { EventInterface } from '../../components/events-calendar/event.interface';
-import { EventsService } from '../../components/events-calendar/events.service';
+import { EventInterface, EventsService } from '../../services/events.service';
 import { FormBuilder, FormGroup, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 import { TimepickerComponent } from 'ng2-bootstrap';
 

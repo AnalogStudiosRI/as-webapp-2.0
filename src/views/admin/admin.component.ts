@@ -1,4 +1,4 @@
-import { AuthenticationService } from '../../components/authentication/authentication.service';
+import { AuthenticationService } from '../../services/authentication.service';
 import { Component, ViewChild } from '@angular/core';
 import { CORE_DIRECTIVES } from '@angular/common';
 import { FormBuilder, FormGroup, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES} from "@angular/forms";

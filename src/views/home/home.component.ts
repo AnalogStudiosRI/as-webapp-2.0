@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { PostsComponent } from '../../components/posts/posts.component';
-import { EventsCalendarComponent } from "../../components/events-calendar/events-calendar.component";
+import { EventsCalendarComponent } from '../../components/events-calendar/events-calendar.component';
+import { PostsComponent } from '../../components/posts-list/posts-list.component';
+
 
 @Component({
   selector: 'home',

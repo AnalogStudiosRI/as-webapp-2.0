@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { PostInterface } from './post.interface';
-import { PostsService } from './posts.service';
+import { PostInterface, PostsService  } from '../../services/posts.service';
 
 @Component({
-  selector: 'as-posts',
-  templateUrl: './src/components/posts/posts.html',
-  styleUrls: ['./src/components/posts/posts.css'],
-  providers: <any>[PostsService]
+  selector: 'as-posts-list',
+  templateUrl: './src/components/posts-list/posts-list.html',
+  styleUrls: ['./src/components/posts-list/posts-list.css'],
+  providers: <any>[ PostsService ]
 })
 
 export class PostsComponent implements OnInit {

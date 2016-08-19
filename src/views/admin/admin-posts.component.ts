@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { PostInterface } from '../../components/posts/post.interface';
-import { PostsService } from '../../components/posts/posts.service';
+import { PostInterface, PostsService } from '../../services/posts.service';
 
 @Component({
   selector: 'admin-posts',

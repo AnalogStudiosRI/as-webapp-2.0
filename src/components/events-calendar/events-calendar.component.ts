@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EventInterface, EventsService } from '../../services/events.service';
 import { Router } from '@angular/router';
-import { EventInterface } from './event.interface';
-import { EventsService } from './events.service';
 
 @Component({
   selector: 'as-events-calendar',

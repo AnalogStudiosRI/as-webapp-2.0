@@ -1,8 +1,16 @@
-import { AuthenticationService } from '../authentication/authentication.service';
+import { AuthenticationService } from './authentication.service';
 import { Headers, Http, RequestOptions, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs/Rx";
-import { EventInterface } from "./event.interface";
+
+export interface EventInterface {
+  id?: number,
+  title: string,
+  description: string,
+  startTime: number,
+  endTime: number,
+  createdTime?: number
+}
 
 @Injectable()
 export class EventsService {
