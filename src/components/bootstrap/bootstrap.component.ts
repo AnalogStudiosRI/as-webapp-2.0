@@ -1,6 +1,7 @@
 import { AuthenticationService } from "../../services/authentication.service";
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
+import { JwtHelper } from 'angular2-jwt/angular2-jwt';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
@@ -9,7 +10,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
   selector: 'as-webapp',
   templateUrl: './src/components/bootstrap/bootstrap.html',
   directives: <any>[ROUTER_DIRECTIVES, HeaderComponent, FooterComponent],
-  providers: [ AuthenticationService ]
+  providers: [ AuthenticationService, JwtHelper ]
 })
 
 export class BootstrapComponent {
