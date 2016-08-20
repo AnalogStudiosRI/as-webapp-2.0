@@ -14,8 +14,7 @@ export class AdminViewPostsComponent extends OnInit {
   private pristinePost: PostInterface = {
     id: null,
     title: '',
-    summary: '',
-    createdTime: null
+    summary: ''
   };
   public postForm: FormGroup;
 
@@ -39,7 +38,6 @@ export class AdminViewPostsComponent extends OnInit {
   }
 
   private modelPostsRequestBody(): PostInterface {
-    //yes, it is known we are picking the endTime for the user.  it is a required field
     let controls = this.postForm.controls;
 
     return {
@@ -52,8 +50,8 @@ export class AdminViewPostsComponent extends OnInit {
     //TODO modal / error handling
     let body = this.modelPostsRequestBody();
 
-    this.PostsService.createPost(body).subscribe((response) => {
-      console.log('createPost sucess and refresh!', response);
+    this.PostsService.createPost(body).subscribe(() => {
+      this.setPostFormGroup(this.pristinePost);
     }, (error) => {
       console.error('createPost failure!', error);
     });
@@ -64,8 +62,8 @@ export class AdminViewPostsComponent extends OnInit {
     let id: number = this.postForm.controls['id'].value;
     let body: PostInterface = this.modelPostsRequestBody();
 
-    this.PostsService.updatePost(id, body).subscribe((response) => {
-      console.log('Update sucess and refresh!', response);
+    this.PostsService.updatePost(id, body).subscribe(() => {
+      this.setPostFormGroup(this.pristinePost);
     }, (error) => {
       console.error('Update failure!', error);
     });

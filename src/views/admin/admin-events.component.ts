@@ -50,7 +50,7 @@ export class AdminViewEventsComponent extends OnInit {
     let dayPieces: Array<string> = datePieces[0].split('-');
     let timePieces: Array<string> = datePieces[1].split(':');
 
-    return new Date(parseInt(dayPieces[0], 10), parseInt(dayPieces[1] - 1, 10), parseInt(dayPieces[2], 10), parseInt(timePieces[0], 10), parseInt(timePieces[1], 10), 0).getTime() / 1000;
+    return new Date(parseInt(dayPieces[0], 10), (parseInt(dayPieces[1], 10) - 1), parseInt(dayPieces[2], 10), parseInt(timePieces[0], 10), parseInt(timePieces[1], 10), 0).getTime() / 1000;
   }
 
   private setEventFormGroup(event: EventInterface): void  {
@@ -80,8 +80,8 @@ export class AdminViewEventsComponent extends OnInit {
     //TODO modal / error handling
     let body = this.modelEventsRequestBody();
 
-    this.EventsService.createEvent(body).subscribe((response) => {
-      console.log('addEvent sucess and refresh!', response);
+    this.EventsService.createEvent(body).subscribe(() => {
+      this.setEventFormGroup(this.pristineEvent);
     }, (error) => {
       console.error('addEvent failure!', error);
     });
@@ -92,8 +92,8 @@ export class AdminViewEventsComponent extends OnInit {
     let id: number = this.eventForm.controls['id'].value;
     let body: EventInterface = this.modelEventsRequestBody();
 
-    this.EventsService.updateEvent(id, body).subscribe((response) => {
-      console.log('Update sucess and refresh!', response);
+    this.EventsService.updateEvent(id, body).subscribe(() => {
+      this.setEventFormGroup(this.pristineEvent);
     }, (error) => {
       console.error('Update failure!', error);
     });
