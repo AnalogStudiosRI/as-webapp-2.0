@@ -10,7 +10,7 @@ import { EventInterface, EventsService } from '../../services/events.service';
 })
 
 export class EventDetailsViewComponent extends OnInit {
-  //TODO any
+  //TODO any - https://thegreenhouse.atlassian.net/browse/AS-246
   private activeRouteSubscriber: any;
   private event: EventInterface;
 

@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 
 export class EventsCalendarComponent extends OnInit {
-  //TODO make true constants ???
+  //TODO make true constants https://thegreenhouse.atlassian.net/browse/AS-246
   private DAYS_IN_WEEK: number = 7;
   private MAX_CALENDAR_SPACES: number = 35;
   private CALENDAR: Array<any> = [
@@ -61,7 +61,7 @@ export class EventsCalendarComponent extends OnInit {
 
         //check if day has an event
         for(let k = 0, m = this.events.length; k < m; k +=1 ){
-          let event: any = this.events[k];  //TODO any
+          let event: any = this.events[k];  //TODO any https://thegreenhouse.atlassian.net/browse/AS-246
           let eventStartTimeTimestamp: number = event.startTime;
           let currentDayStartTimestamp: number = new Date(this.currentYear, this.currentMonthIndex, monthDateCounter, 0, 0, 0).getTime() / 1000;
           let currentDayEndTimestamp: number = new Date(this.currentYear, this.currentMonthIndex, monthDateCounter, 23, 0, 0).getTime() / 1000;

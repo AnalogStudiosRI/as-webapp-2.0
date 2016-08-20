@@ -26,7 +26,7 @@ export class EventsService {
     return options;
   }
 
-  //TODO combine
+  //TODO combine?
   public getEvent(id: number): Observable<EventInterface> {
 
     return this.http.get(this.API_URL_EVENTS + '/' + id)
@@ -35,7 +35,7 @@ export class EventsService {
       })
   }
 
-  //TODO combine
+  //TODO combine?
   public getEvents(): Observable<EventInterface[]> {
 
     return this.http.get(this.API_URL_EVENTS)
@@ -44,7 +44,7 @@ export class EventsService {
       })
   }
 
-  //TODO any
+  //TODO any - https://thegreenhouse.atlassian.net/browse/AS-246
   public createEvent(body: EventInterface): Observable <any>{
 
     return this.http.post(this.API_URL_EVENTS, body, this.getOptionsForAuthentication())

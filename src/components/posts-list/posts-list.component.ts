@@ -9,7 +9,7 @@ import { PostInterface, PostsService  } from '../../services/posts.service';
 })
 
 export class PostsComponent implements OnInit {
-  //TODO make constant - typescript 2.0
+  //TODO make constant - https://thegreenhouse.atlassian.net/browse/AS-246
   //TODO make configurable?
   private MAX_POSTS: number = 2;
   private posts: Array<PostInterface> = [];

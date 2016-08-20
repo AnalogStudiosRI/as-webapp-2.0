@@ -47,7 +47,7 @@ export class AdminViewPostsComponent extends OnInit {
   }
 
   private createPost(): void {
-    //TODO modal / error handling
+    //TODO modal / error handling - https://thegreenhouse.atlassian.net/browse/AS-250
     let body = this.modelPostsRequestBody();
 
     this.PostsService.createPost(body).subscribe(() => {
@@ -58,7 +58,7 @@ export class AdminViewPostsComponent extends OnInit {
   }
 
   private updatePost(): void {
-    //TODO modal / error handling, make ticket
+    //TODO modal / error handling - https://thegreenhouse.atlassian.net/browse/AS-250
     let id: number = this.postForm.controls['id'].value;
     let body: PostInterface = this.modelPostsRequestBody();
 

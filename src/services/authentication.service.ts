@@ -6,11 +6,11 @@ import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class AuthenticationService {
-  //TODO constant
+  //TODO constant - https://thegreenhouse.atlassian.net/browse/AS-246
   private API_URL_LOGIN: string = '/api/login';
   @LocalStorage('token') private token: string = null;
 
-  //TODO $httpInterceptor?
+  //TODO $httpInterceptor? - https://thegreenhouse.atlassian.net/browse/AS-256
   constructor(private Http: Http, private JwtHelper: JwtHelper){
     if (!this.isValidToken(this.token)) {
       this.clearToken();

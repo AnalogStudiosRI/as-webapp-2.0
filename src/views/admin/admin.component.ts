@@ -30,7 +30,7 @@ export class AdminViewComponent {
   //   this.childModal.hide();
   // }
 
-  //TODO spinner
+  //TODO spinner - https://thegreenhouse.atlassian.net/browse/AS-254
   constructor(private AuthenticationService: AuthenticationService, private FormBuilder: FormBuilder, private Router: Router) {
     this.loginForm = this.FormBuilder.group({
       username: '',
@@ -43,11 +43,11 @@ export class AdminViewComponent {
     let password: string = this.loginForm.controls['password'].value;
 
     this.AuthenticationService.authenticate(username, password).subscribe((isAuthenticated: boolean) => {
-      //TODO make ticket for routing
-      //TODO make ticket for spinner
+      //TODO make ticket for routing - https://thegreenhouse.atlassian.net/browse/AS-255
+      //TODO make ticket for spinner - https://thegreenhouse.atlassian.net/browse/AS-254
     },(err) => {
       console.error('login response error', err);
-      //TODO modal
+      //TODO modal - https://thegreenhouse.atlassian.net/browse/AS-259
     })
   }
 
