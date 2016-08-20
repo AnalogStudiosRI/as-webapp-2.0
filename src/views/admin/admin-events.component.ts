@@ -15,13 +15,11 @@ import { TimepickerComponent } from 'ng2-bootstrap';
 
 export class AdminViewEventsComponent extends OnInit {
   private events: Array<EventInterface> = [];
-  private pristineEvent: EventInterface = {
+  private pristineEvent: any = {
     id: null,
     title: '',
     description: '',
-    startTime: 0,
-    endTime: 0,
-    createdTime: 0
+    startTime: '',
   };
   public eventForm: FormGroup;
 
@@ -37,13 +35,22 @@ export class AdminViewEventsComponent extends OnInit {
   }
 
   //yyyy-MM-ddThh:mm
-  private getStartTimeAsDateTimeLocal(date: Date): string {
+  private getEventStartTimeAsDateTimeLocal(date: Date): string {
     let monthFormatted: string = ((date.getMonth() + 1) < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1).toString();
     let dateFormatted: string = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()).toString();
     let hoursFormatted: string = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()).toString();
     let minutesFormatted: string = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()).toString();
 
     return date.getFullYear() + '-' + monthFormatted + '-' + dateFormatted + 'T' + hoursFormatted + ':' + minutesFormatted;
+  }
+
+  //2016-08-27T12:12
+  private getCurrentEventStartTimeAsTimestemp(): number {
+    let datePieces: Array<string> = this.eventForm.controls['startTime'].value.split('T');
+    let dayPieces: Array<string> = datePieces[0].split('-');
+    let timePieces: Array<string> = datePieces[1].split(':');
+
+    return new Date(parseInt(dayPieces[0], 10), parseInt(dayPieces[1] - 1, 10), parseInt(dayPieces[2], 10), parseInt(timePieces[0], 10), parseInt(timePieces[1], 10), 0).getTime() / 1000;
   }
 
   private setEventFormGroup(event: EventInterface): void  {
@@ -53,8 +60,43 @@ export class AdminViewEventsComponent extends OnInit {
       id: event.id || null,
       title: event.title || '',
       description: event.description || '',
-      startTime: this.getStartTimeAsDateTimeLocal(startDay)
+      startTime: this.getEventStartTimeAsDateTimeLocal(startDay)
     })
+  }
+
+  private modelEventsRequestBody(): EventInterface {
+    //yes, it is known we are picking the endTime for the user.  it is a required field
+    let controls = this.eventForm.controls;
+
+    return {
+      title: controls['title'].value,
+      description: controls['description'].value,
+      endTime: this.getCurrentEventStartTimeAsTimestemp(),
+      startTime: this.getCurrentEventStartTimeAsTimestemp()
+    }
+  }
+
+  private addEvent(): void {
+    //TODO modal / error handling
+    let body = this.modelEventsRequestBody();
+
+    this.EventsService.addEvent(body).subscribe((response) => {
+      console.log('addEvent sucess and refresh!', response);
+    }, (error) => {
+      console.error('addEvent failure!', error);
+    });
+  }
+
+  private updateEvent(): void {
+    //TODO modal / error handling
+    let id: number = this.eventForm.controls['id'].value;
+    let body: EventInterface = this.modelEventsRequestBody();
+
+    this.EventsService.updateEvent(id, body).subscribe((response) => {
+      console.log('Update sucess and refresh!', response);
+    }, (error) => {
+      console.error('Update failure!', error);
+    });
   }
 
   public getEvents(): Array<EventInterface> {
@@ -67,27 +109,18 @@ export class AdminViewEventsComponent extends OnInit {
     this.setEventFormGroup(event);
   }
 
-  public submitForm(): void {
-    console.log('submitForm', this.eventForm.controls);
-    let controls = this.eventForm.controls;
+  public submitForm(): boolean {
+    let isUpdatingEvent: boolean = this.eventForm.controls['id'].value ? true : false;
 
-    if(!controls['id'].value) {
-      //TODO modal
-      console.log('ADD and Then Refresh');
-      this.EventsService.addEvent({
-        title: controls['title'].value,
-        description: controls['title'].value,
-        endTime: controls['startTime'].value,
-        startTime: controls['startTime'].value
-      }).subscribe((response) => {
-        console.log('addEvent sucess and refresh!', response);
-      }, (error) => {
-        console.error('addEvent failure!', error);
-      });
-    }else{
-      //TODO modal
-      console.log('Update and Then Refresh');
+    if(isUpdatingEvent) {
+      this.updateEvent();
+    } else if(!isUpdatingEvent){
+      this.addEvent();
+    } else {
+      console.error('unable to submit form');
     }
+
+    return false;
   }
 
 }

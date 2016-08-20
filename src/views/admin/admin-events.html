@@ -2,7 +2,7 @@
 
   <div class="col-md-12">
 
-    <form (ngSubmit)="submitForm()" [formGroup]="eventForm">
+    <form [formGroup]="eventForm">
       <label for="select-event">Select an event to update it:</label>
 
       <br/>
@@ -35,7 +35,7 @@
       <br/>
       <br/>
 
-      <button class="btn" type="submit">Submit</button>
+      <button class="btn" (click)="submitForm()" type="submit">Submit</button>
       <button class="btn" type="reset">Reset</button>
 
     </form>

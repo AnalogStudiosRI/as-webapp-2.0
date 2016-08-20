@@ -45,4 +45,16 @@ export class EventsService {
         return response.json || {};
       })
   }
+
+  updateEvent(id: number, body: EventInterface): Observable <any>{
+    let headers = new Headers({'Authorization': 'Bearer ' + this.AuthenticationService.getToken() });
+    let options = new RequestOptions({'headers': headers});
+
+    console.log('options', options);
+    return this.http.put(this.API_URL_EVENTS + '/' + id, body, options)
+      .map((response: Response) => {
+        console.log('updateEvent success');
+        return response.json || {};
+      })
+  }
 }
