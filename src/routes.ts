@@ -12,7 +12,7 @@ import { EventDetailsViewComponent } from './views/events/event-details.componen
 export const appRoutes: any = [
   { path: '', component: <any>HomeViewComponent, terminal: true },
   { path: 'admin', name: 'AdminView', component: <any> AdminViewComponent, children: [
-    { path: '', component: <any> AdminViewEventsComponent },
+    { path: '' },
     { path: 'events', component: <any> AdminViewEventsComponent },
     { path: 'posts', component: <any> AdminViewPostsComponent }
   ]},

@@ -165,10 +165,7 @@ TODO
 10. unit testing
 11. document server setup (eg. `{fallback: 'index.html')` in gulp-webserver
 12. ~folder organization (services directory?)~
-
-Rando Bugs
-1. click header from admin page - breaks, doesn't load home page (all pages?)
-2. admin init onload should default to events
-3. reset form doesn't reset WYSIWYG editor
-4. admin links (events and posts don't quite work right)
-5. console error when logging out
+13. Track TODOs / Refactoring (a lot of boilerplate in admin, token refresh story)
+14. spinners story (admin)
+15. init on events views story (admin)
+16. refresh after create / update in admin section

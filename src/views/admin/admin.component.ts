@@ -43,8 +43,8 @@ export class AdminViewComponent {
     let password: string = this.loginForm.controls['password'].value;
 
     this.AuthenticationService.authenticate(username, password).subscribe((isAuthenticated: boolean) => {
-      //TODO anything here? spinner?
-      //TODO load initial route this.Router.navigate(['../events']);
+      //TODO make ticket for routing
+      //TODO make ticket for spinner
     },(err) => {
       console.error('login response error', err);
       //TODO modal

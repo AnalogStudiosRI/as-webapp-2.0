@@ -60,7 +60,7 @@ export class AdminViewPostsComponent extends OnInit {
   }
 
   private updatePost(): void {
-    //TODO modal / error handling
+    //TODO modal / error handling, make ticket
     let id: number = this.postForm.controls['id'].value;
     let body: PostInterface = this.modelPostsRequestBody();
 

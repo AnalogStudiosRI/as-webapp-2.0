@@ -88,7 +88,7 @@ export class AdminViewEventsComponent extends OnInit {
   }
 
   private updateEvent(): void {
-    //TODO modal / error handling
+    //TODO modal / error handling, make ticket
     let id: number = this.eventForm.controls['id'].value;
     let body: EventInterface = this.modelEventsRequestBody();
 
