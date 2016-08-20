@@ -61,15 +61,19 @@ export class EventsCalendarComponent extends OnInit {
 
         //check if day has an event
         for(let k = 0, m = this.events.length; k < m; k +=1 ){
-          let event: any = this.events[k];  //TODO any https://thegreenhouse.atlassian.net/browse/AS-246
+          //TODO any https://thegreenhouse.atlassian.net/browse/AS-246
+          let event: any = this.events[k];
           let eventStartTimeTimestamp: number = event.startTime;
           let currentDayStartTimestamp: number = new Date(this.currentYear, this.currentMonthIndex, monthDateCounter, 0, 0, 0).getTime() / 1000;
           let currentDayEndTimestamp: number = new Date(this.currentYear, this.currentMonthIndex, monthDateCounter, 23, 0, 0).getTime() / 1000;
 
           if(eventStartTimeTimestamp >= currentDayStartTimestamp &&
              eventStartTimeTimestamp <= currentDayEndTimestamp){
-            day.events.push(event);
-            day.hasEvents = true;
+            //TODO support multiple events on same day https://thegreenhouse.atlassian.net/browse/AS-260
+            if(!day.hasEvents) {
+              day.events.push(event);
+              day.hasEvents = true;
+            }
           }
         }
       }

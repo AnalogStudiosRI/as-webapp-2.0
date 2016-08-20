@@ -157,7 +157,7 @@ TODO
 2. ~~typescript~~
 3. ~~IDE autocomplete~~
 4. ~~get bootstrap.ts working / migrate modules/bootstrap, typings~~
-5. migrate view / components
+5. migrate ~~view / components /~~ third party (google, social share)
 6. Gulp integration  ???
 8. JSPM integration  ???
 8. build dev / prod (NPM scripts) - Webpack??
