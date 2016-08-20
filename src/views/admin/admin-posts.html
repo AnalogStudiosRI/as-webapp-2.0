@@ -2,7 +2,7 @@
 
   <div class="col-md-12">
 
-    <form [formGroup]="postForm" (ngSubmit)="submitForm()">
+    <form [formGroup]="postForm">
 
       <label for="select-post">Select a post to update it:</label>
 
@@ -30,7 +30,7 @@
       <br/>
       <br/>
 
-      <button class="btn" type="submit">Submit</button>
+      <button (click)="submitForm()" class="btn" type="submit">Submit</button>
       <button class="btn" type="reset">Reset</button>
 
     </form>

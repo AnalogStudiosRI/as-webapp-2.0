@@ -19,14 +19,25 @@ export class EventsService {
   constructor(private http: Http, private AuthenticationService: AuthenticationService){
   }
 
-  getEvent(id: number): Observable<EventInterface> {
+  private getOptionsForAuthentication(): RequestOptions{
+    let headers = new Headers({'Authorization': 'Bearer ' + this.AuthenticationService.getToken() });
+    let options = new RequestOptions({'headers': headers});
+
+    return options;
+  }
+
+  //TODO combine
+  public getEvent(id: number): Observable<EventInterface> {
+
     return this.http.get(this.API_URL_EVENTS + '/' + id)
       .map((response: Response) => {
         return response.json()[0] || {};
       })
   }
 
-  getEvents(): Observable<EventInterface[]> {
+  //TODO combine
+  public getEvents(): Observable<EventInterface[]> {
+
     return this.http.get(this.API_URL_EVENTS)
       .map((response: Response) => {
         return response.json() || {};
@@ -34,26 +45,18 @@ export class EventsService {
   }
 
   //TODO any
-  addEvent(body: EventInterface): Observable <any>{
-    let headers = new Headers({'Authorization': 'Bearer ' + this.AuthenticationService.getToken() });
-    let options = new RequestOptions({'headers': headers});
+  public createEvent(body: EventInterface): Observable <any>{
 
-    console.log('options', options);
-    return this.http.post(this.API_URL_EVENTS, body, options)
+    return this.http.post(this.API_URL_EVENTS, body, this.getOptionsForAuthentication())
       .map((response: Response) => {
-        console.log('addEvent success');
         return response.json || {};
       })
   }
 
-  updateEvent(id: number, body: EventInterface): Observable <any>{
-    let headers = new Headers({'Authorization': 'Bearer ' + this.AuthenticationService.getToken() });
-    let options = new RequestOptions({'headers': headers});
+  public updateEvent(eventId: number, body: EventInterface): Observable <any>{
 
-    console.log('options', options);
-    return this.http.put(this.API_URL_EVENTS + '/' + id, body, options)
+    return this.http.put(this.API_URL_EVENTS + '/' + eventId, body, this.getOptionsForAuthentication())
       .map((response: Response) => {
-        console.log('updateEvent success');
         return response.json || {};
       })
   }

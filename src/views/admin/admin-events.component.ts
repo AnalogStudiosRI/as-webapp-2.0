@@ -76,11 +76,11 @@ export class AdminViewEventsComponent extends OnInit {
     }
   }
 
-  private addEvent(): void {
+  private createEvent(): void {
     //TODO modal / error handling
     let body = this.modelEventsRequestBody();
 
-    this.EventsService.addEvent(body).subscribe((response) => {
+    this.EventsService.createEvent(body).subscribe((response) => {
       console.log('addEvent sucess and refresh!', response);
     }, (error) => {
       console.error('addEvent failure!', error);
@@ -115,7 +115,7 @@ export class AdminViewEventsComponent extends OnInit {
     if(isUpdatingEvent) {
       this.updateEvent();
     } else if(!isUpdatingEvent){
-      this.addEvent();
+      this.createEvent();
     } else {
       console.error('unable to submit form');
     }

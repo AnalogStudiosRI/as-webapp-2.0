@@ -34,9 +34,41 @@ export class AdminViewPostsComponent extends OnInit {
     this.postForm = this.FormBuilder.group({
       id: post.id || null,
       title: post.title || '',
-      summary: post.summary || '',
-      createdTime: post.createdTime || ''
+      summary: post.summary || ''
     })
+  }
+
+  private modelPostsRequestBody(): PostInterface {
+    //yes, it is known we are picking the endTime for the user.  it is a required field
+    let controls = this.postForm.controls;
+
+    return {
+      title: controls['title'].value,
+      summary: controls['summary'].value
+    }
+  }
+
+  private createPost(): void {
+    //TODO modal / error handling
+    let body = this.modelPostsRequestBody();
+
+    this.PostsService.createPost(body).subscribe((response) => {
+      console.log('createPost sucess and refresh!', response);
+    }, (error) => {
+      console.error('createPost failure!', error);
+    });
+  }
+
+  private updatePost(): void {
+    //TODO modal / error handling
+    let id: number = this.postForm.controls['id'].value;
+    let body: PostInterface = this.modelPostsRequestBody();
+
+    this.PostsService.updatePost(id, body).subscribe((response) => {
+      console.log('Update sucess and refresh!', response);
+    }, (error) => {
+      console.error('Update failure!', error);
+    });
   }
 
   private getPosts(): Array<PostInterface> {
@@ -44,11 +76,24 @@ export class AdminViewPostsComponent extends OnInit {
   }
 
   public onPostSelected(index: number): void {
-    console.log('onPostSelected', index);
-    this.setPostFormGroup(this.posts[index]);
+    let post = this.posts[index];
+
+    this.setPostFormGroup(post);
   }
 
-  public submitForm(): void {
+  public submitForm(): boolean {
     console.log('submitForm', this.postForm);
+    let isUpdatingPost: boolean = this.postForm.controls['id'].value ? true : false;
+
+    if(isUpdatingPost) {
+      this.updatePost();
+    } else if(!isUpdatingPost){
+      this.createPost();
+    } else {
+      console.error('unable to submit form');
+    }
+
+    return false;
   }
+
 }
