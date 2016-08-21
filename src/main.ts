@@ -5,8 +5,8 @@ import { HTTP_PROVIDERS } from '@angular/http';
 import { LocalStorageService, LocalStorageSubscriber } from 'angular2-localstorage/LocalStorageEmitter';
 import { provideForms } from '@angular/forms';
 
-// TODO HTTP_PROVIDERS, provideForms warnings
-// TODO bootstrap
+// TODO HTTP_PROVIDERS, provideForms warnings - https://thegreenhouse.atlassian.net/browse/AS-245
+// TODO bootstrap - https://thegreenhouse.atlassian.net/browse/AS-246
 let appPromise = bootstrap(<any> BootstrapComponent, [
   APP_ROUTER_PROVIDERS,
   HTTP_PROVIDERS,

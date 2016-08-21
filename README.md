@@ -152,17 +152,4 @@ See documentation posted [here][]
 [here]: https://thegreenhouse.atlassian.net/wiki/display/ASWEB/Release+Management#ReleaseManagement-UI(StaticFrontend)
 
 
-TODO
-1. ~~systemjs~~
-2. ~~typescript~~
-3. ~~IDE autocomplete~~
-4. ~~get bootstrap.ts working / migrate modules/bootstrap, typings~~
-5. migrate ~~view / components /~~ third party (google, social share)
-6. Gulp integration  ???
-8. JSPM integration  ???
-8. build dev / prod (NPM scripts) - Webpack??
-9. Update README installation (note have to install jspm packages with `npm install --save-dev` to satisfy Webstorm resolution)
-10. unit testing
-11. document server setup (eg. `{fallback: 'index.html')` in gulp-webserver
-12. ~folder organization (services directory?)~
-13. ~Track TODOs~
+TODO - https://thegreenhouse.atlassian.net/browse/TGH-73

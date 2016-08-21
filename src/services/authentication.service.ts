@@ -12,7 +12,7 @@ export class AuthenticationService {
 
   //TODO $httpInterceptor? - https://thegreenhouse.atlassian.net/browse/AS-256
   constructor(private Http: Http, private JwtHelper: JwtHelper){
-    if (!this.isValidToken(this.token)) {
+    if (this.token && !this.isValidToken(this.token)) {
       this.clearToken();
     }
   }
@@ -27,8 +27,12 @@ export class AuthenticationService {
 
   private isValidToken(tokenToValidate: string): boolean {
 
-    return tokenToValidate && this.JwtHelper.decodeToken(tokenToValidate)
-                           && !this.JwtHelper.isTokenExpired(tokenToValidate);
+    try{
+      return tokenToValidate && this.JwtHelper.decodeToken(tokenToValidate)
+        && !this.JwtHelper.isTokenExpired(tokenToValidate);
+    }catch(err){
+      console.log('err', err);
+    }
   }
 
   private isValidAuthenticationResponse(resp): boolean {

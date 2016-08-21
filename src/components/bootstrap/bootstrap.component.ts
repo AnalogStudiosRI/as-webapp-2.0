@@ -1,4 +1,4 @@
-import { AuthenticationService } from "../../services/authentication.service";
+import { AuthenticationService } from '../../services/authentication.service';
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { JwtHelper } from 'angular2-jwt/angular2-jwt';
@@ -13,5 +13,4 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
   providers: [ AuthenticationService, JwtHelper ]
 })
 
-export class BootstrapComponent {
-}
+export class BootstrapComponent {}
