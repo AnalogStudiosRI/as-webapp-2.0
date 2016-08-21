@@ -3,8 +3,8 @@ import { PostInterface, PostsService  } from '../../services/posts.service';
 
 @Component({
   selector: 'as-posts-list',
-  templateUrl: './src/components/posts-list/posts-list.html',
-  styleUrls: ['./src/components/posts-list/posts-list.css'],
+  templateUrl: './posts-list.html',
+  //styleUrls: [ './posts-list.css' ],
   providers: <any>[ PostsService ]
 })
 

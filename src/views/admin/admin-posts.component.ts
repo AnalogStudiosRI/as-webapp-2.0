@@ -4,8 +4,8 @@ import { PostInterface, PostsService } from '../../services/posts.service';
 
 @Component({
   selector: 'admin-posts',
-  templateUrl: './src/views/admin/admin-posts.html',
-  styleUrls: [ './src/views/admin/admin.css' ],
+  templateUrl: './admin-posts.html',
+  //styleUrls: [ './admin.css' ],
   providers: [ FormBuilder, PostsService ]
 })
 

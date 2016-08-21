@@ -1,3 +1,5 @@
+console.log('webpack.dev.js');
+
 var webpackMerge = require('webpack-merge');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var commonConfig = require('./webpack.common.js');
@@ -7,8 +9,8 @@ module.exports = webpackMerge(commonConfig, {
   devtool: 'cheap-module-eval-source-map',
 
   output: {
-    path: helpers.root('dest'),
-    publicPath: 'http://localhost:6789/',
+    path: helpers.root('build'),
+    publicPath: '/',
     filename: '[name].js',
     chunkFilename: '[id].chunk.js'
   },
@@ -17,6 +19,7 @@ module.exports = webpackMerge(commonConfig, {
     new ExtractTextPlugin('[name].css')
   ],
 
+  //TODO reload on CSS / LESS / HTLM file change
   devServer: {
     proxy:{
       '/api/*': {

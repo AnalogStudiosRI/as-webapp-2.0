@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'admin-view',
-  templateUrl: './src/views/admin/admin.html',
-  styleUrls: ['/node_modules/bootstrap/dist/css/bootstrap.min.css', './src/views/admin/admin.css'],
+  templateUrl: './admin.html',
+  //styleUrls: [ './admin.css' ],
   directives: [ CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, MODAL_DIRECTIVES ],
   providers: [ FormBuilder ],
   viewProviders: [ BS_VIEW_PROVIDERS ]

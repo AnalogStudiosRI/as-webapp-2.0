@@ -4,8 +4,8 @@ import { EventInterface, EventsService } from '../../services/events.service';
 
 @Component({
   selector: 'events-detailed',
-  templateUrl: './src/views/events/event-details.html',
-  styleUrls: ['./node_modules/bootstrap/dist/css/bootstrap.min.css', './src/views/events/event-details.css'],
+  templateUrl: './event-details.html',
+  //styleUrls: [ './event-details.css' ],
   providers: [EventsService]
 })
 

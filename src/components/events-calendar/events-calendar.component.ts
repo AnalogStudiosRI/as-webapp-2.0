@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'as-events-calendar',
-  templateUrl: './src/components/events-calendar/events-calendar.html',
-  styleUrls: ['./src/components/events-calendar/events-calendar.css'],
-  providers: [EventsService]
+  templateUrl: './events-calendar.html',
+  //styleUrls: [ './events-calendar.css' ],
+  providers: [ EventsService ]
 })
 
 export class EventsCalendarComponent extends OnInit {

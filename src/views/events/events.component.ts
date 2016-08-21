@@ -3,9 +3,8 @@ import { EventsCalendarComponent } from '../../components/events-calendar/events
 
 @Component({
   selector: 'events',
-  templateUrl: './src/views/events/events.html',
-  styleUrls: ['./node_modules/bootstrap/dist/css/bootstrap.min.css'],
+  templateUrl: './events.html',
   directives: <any>[EventsCalendarComponent]
 })
 
-export class EventsViewComponent { }
+export class EventsViewComponent {}
