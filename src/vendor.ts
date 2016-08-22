@@ -8,3 +8,6 @@ import '@angular/router';
 
 // RxJS
 import 'rxjs';
+
+//ckeditor
+require('ckeditor');

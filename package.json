@@ -5,9 +5,8 @@
     "name": "Owen Buckley",
     "email": "owen@analogstudios.net"
   },
-  "description": "Analog Studios Website 2.0 Redesign",
+  "description": "This is the front end application for the analogstudios.net 2.0 website redesign.",
   "license": "UNLICENSED",
-  "main": "gulpfile.js",
   "engines": {
     "node": ">=4.4.x",
     "npm": ">=3.8.x"
@@ -17,8 +16,8 @@
     "url": "https://bitbucket.org/thegreenhouse/as-webapp-2.0/"
   },
   "scripts": {
-    "build": "rimraf build && webpack --progress --profile --bail",
-    "develop": "ebpack-dev-server --config ./webpack.dev.js --inline --progress --port 6789",
+    "build": "webpack -p --config ./webpack.config.prod.js --progress --profile --bail",
+    "develop": "webpack-dev-server --config ./webpack.config.dev.js --inline --progress --port 6789",
     "install:typings": "./node_modules/.bin/typings install",
     "test": "karma start"
   },
@@ -50,8 +49,8 @@
   "devDependencies": {
     "angular2-template-loader": "0.4.0",
     "css-loader": "0.23.1",
-    "extract-text-webpack-plugin": "^1.0.1",
-    "file-loader": "^0.9.0",
+    "extract-text-webpack-plugin": "1.0.1",
+    "file-loader": "0.9.0",
     "html-loader": "0.4.3",
     "html-webpack-plugin": "2.22.0",
     "jasmine-core": "2.4.1",
@@ -70,7 +69,7 @@
     "typescript": "1.8.10",
     "typings": "1.3.2",
     "webpack": "1.13.2",
-    "webpack-dev-server": "^1.14.1",
+    "webpack-dev-server": "1.14.1",
     "webpack-merge": "0.14.1"
   }
 }
