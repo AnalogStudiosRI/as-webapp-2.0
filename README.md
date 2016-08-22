@@ -48,7 +48,7 @@ Recommended plugins to have are:
 
 [Webstorm]: https://www.jetbrains.com/webstorm/
 
-### Vagrant (Recommended)
+### Vagrant
 This project uses Vagrant to provision Virtual Machines for use with development.  It is very easy to use
 
 First, install the following
