@@ -16,7 +16,7 @@
     "url": "https://bitbucket.org/thegreenhouse/as-webapp-2.0/"
   },
   "scripts": {
-    "build": "webpack -p --config ./webpack.config.prod.js --progress --profile --bail",
+    "build": "rimraf build && webpack -p --config ./webpack.config.prod.js --progress --profile --bail",
     "develop": "webpack-dev-server --config ./webpack.config.dev.js --inline --progress --port 6789",
     "install:typings": "./node_modules/.bin/typings install",
     "test": "karma start"
@@ -59,6 +59,7 @@
     "karma-phantomjs-launcher": "1.0.0",
     "karma-sourcemap-loader": "0.3.7",
     "karma-webpack": "1.7.0",
+    "live-server": "^1.1.0",
     "null-loader": "0.1.1",
     "phantomjs-prebuilt": "2.1.7",
     "raw-loader": "0.5.1",

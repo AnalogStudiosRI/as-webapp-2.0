@@ -3,13 +3,12 @@ console.log('webpack.dev.js');
 var webpackMerge = require('webpack-merge');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var commonConfig = require('./webpack.config.common.js');
-var helpers = require('./helpers');
 
 module.exports = webpackMerge(commonConfig, {
   devtool: 'cheap-module-eval-source-map',
 
   output: {
-    path: helpers.root('./build'),
+    path: __dirname + '/build',
     publicPath: '/',
     filename: '[name].js',
     chunkFilename: '[id].chunk.js'

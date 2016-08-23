@@ -1,7 +1,19 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var helpers = require('./helpers');
+
+//TODO is this needed?
+// var path = require('path');
+// var _root = path.resolve(__dirname, '..');
+//
+// // function root(args) {
+// //   console.log('enter', args);
+// //   args = Array.prototype.slice.call(arguments, 0);
+// //   console.log('after', args);
+// //   console.log('return', path.join.apply(path, [_root].concat(args)));
+// //   return path.join.apply(path, [_root].concat(args));
+// // }
+
 
 module.exports = {
   entry: {
@@ -30,7 +42,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: helpers.root('./src', 'app'),
+        include: __dirname + '/src/', //root('./src', 'app'),
         loader: 'raw'
       }
     ]

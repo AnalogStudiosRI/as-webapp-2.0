@@ -143,6 +143,13 @@ application and runs unit tests.
 $ npm run build
 ```
 
+To view a production build run
+
+```
+$ cd build
+$ ../node_modules/.bin/live-server
+```
+
 
 ## Testing
 To run unit tests locally using Karma, run 
