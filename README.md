@@ -143,12 +143,14 @@ application and runs unit tests.
 $ npm run build
 ```
 
-To view a production build run
+###
+To serve a production build locally (like for a demo) run:
 
 ```
-$ cd build
-$ ../node_modules/.bin/live-server
+$ npm run demo
 ```
+
+**Note: if you open up a new terminal window and run `npm run build` from the project
 
 
 ## Testing
