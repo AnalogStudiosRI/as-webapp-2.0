@@ -215,11 +215,21 @@ module.exports = {
      *
      * See: https://www.npmjs.com/package/copy-webpack-plugin
      */
-    //TODO remove?  copy 3rd part node_modules for index.html?
-    // new CopyWebpackPlugin([{
-    //   from: 'src/**/**/*.png',
-    //   to: 'assets'
-    // }]),
+    new CopyWebpackPlugin([{
+      from: './src/components/bootstrap/images/favicon.png',
+      to: './assets/images/favicon.png'
+    }, {  //TODO add using import?
+      from: './node_modules/bootstrap/dist/css/bootstrap.min.css',
+      to: './assets/vendor/bootstrap.min.css'
+    }, {  //TODO add using import?
+      context: './node_modules/bootstrap/dist/fonts/',
+      from: '*',
+      to: './assets/fonts/'  //bootstrap hardcoded path to fonts one directory up from the CSS... >:
+    }, {  //TODO add using import?
+      context: './node_modules/ckeditor/',
+      from: '**/**',
+      to: './assets/vendor/ckeditor/'
+    }]),
 
     /*
      * Plugin: HtmlWebpackPlugin
@@ -233,42 +243,6 @@ module.exports = {
       template: 'src/index.html',
       chunksSortMode: 'dependency'
     }),
-
-    /*
-     * Plugin: HtmlHeadConfigPlugin
-     * Description: Generate html tags based on javascript maps.
-     *
-     * If a publicPath is set in the webpack output configuration, it will be automatically added to
-     * href attributes, you can disable that by adding a "=href": false property.
-     * You can also enable it to other attribute by settings "=attName": true.
-     *
-     * The configuration supplied is map between a location (key) and an element definition object (value)
-     * The location (key) is then exported to the template under then htmlElements property in webpack configuration.
-     *
-     * Example:
-     *  Adding this plugin configuration
-     *  new HtmlElementsPlugin({
-     *    headTags: { ... }
-     *  })
-     *
-     *  Means we can use it in the template like this:
-     *  <%= webpackConfig.htmlElements.headTags %>
-     *
-     * Dependencies: HtmlWebpackPlugin
-     */
-     // TODO get into webpack
-  // <link rel="icon" type="image/png" href="./src/components/bootstrap/images/favicon.png">
-  // <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  // <link rel="stylesheet" href="">
-  //   new HtmlElementsPlugin({
-  //     headTags: {
-  //       link: [
-  //         // { rel: "icon", type: "image/png", sizes: "16x16", href: "./src/components/bootstrap/images/favicon.png" }
-  //         {rel: "stylesheet", href: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"},
-  //         {rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Oxygen"}
-  //       ]
-  //     }
-  //   })
 
   ],
 

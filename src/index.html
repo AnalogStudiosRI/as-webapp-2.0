@@ -12,12 +12,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
-    <!-- TODO get into webpack -->
-    <link rel="icon" type="image/png" href="./src/components/bootstrap/images/favicon.png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oxygen">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
 
-    <!-- TODO move -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oxygen">
+    <link rel="stylesheet" href="/assets/vendor/bootstrap.min.css">
+
+    <!-- TODO move to the application??? -->
     <style>
       body{
         background-color: #ae996b;
@@ -28,9 +28,15 @@
 
   </head>
 
-  <!-- 3. Display the application -->
   <body>
-    <as-webapp>Loading...</as-webapp>
+
+    <as-webapp class="app">Loading...</as-webapp>
+
+    <script>
+      var CKEDITOR_BASEPATH = '/assets/vendor/ckeditor/';
+    </script>
+    <script src="/assets/vendor/ckeditor/ckeditor.js" async></script>
+
   </body>
 
 </html>

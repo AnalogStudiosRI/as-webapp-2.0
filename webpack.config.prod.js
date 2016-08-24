@@ -30,7 +30,6 @@ const METADATA = webpackMerge(commonConfig.metadata, {
   HMR: false
 });
 
-console.log('ENTER webpack-prod.js');
 module.exports = webpackMerge(commonConfig, {
 
   /**
