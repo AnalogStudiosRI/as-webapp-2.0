@@ -33,5 +33,5 @@ echo "install typings"
 npm run install:typings
 
 echo "running the build..."
-npm run tsc
+npm run build
 #./node_modules/.bin/gulp build --production

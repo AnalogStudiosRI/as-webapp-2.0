@@ -6,7 +6,7 @@ console.log('ENTER webpack-common.js');
 
 //TOOD get rid of helpers?
 const webpack = require('webpack');
-const helpers = require('./helpers');
+const helpers = require('./webpack.helpers');
 
 /*
  * Webpack Plugins
