@@ -9,7 +9,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 @Component({
   selector: 'as-webapp',
   templateUrl: './bootstrap.html',
-  styleUrls: [ './bootstrap.css' ],
+  styleUrls: [ './bootstrap.less' ],
   directives: <any>[ROUTER_DIRECTIVES, HeaderComponent, FooterComponent],
   providers: [ AuthenticationService, JwtHelper ]
 })

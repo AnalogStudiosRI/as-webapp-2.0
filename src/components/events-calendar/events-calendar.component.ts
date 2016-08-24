@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'as-events-calendar',
   templateUrl: './events-calendar.html',
-  styleUrls: [ './events-calendar.css' ],
+  styleUrls: [ 'events-calendar.less' ],
   providers: [ EventsService ]
 })
 

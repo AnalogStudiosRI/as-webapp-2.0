@@ -5,7 +5,7 @@ import { PostsComponent } from '../../components/posts-list/posts-list.component
 @Component({
   selector: 'home',
   templateUrl: './home.html',
-  styleUrls: [ './home.css' ],
+  styleUrls: [ './home.less' ],
   directives: <any>[EventsCalendarComponent, PostsComponent]
 })
 

@@ -129,24 +129,25 @@ module.exports = {
       },
 
       /*
-       * Json loader support for *.json files.
-       *
-       * See: https://github.com/webpack/json-loader
-       */
-      {
-        test: /\.json$/,
-        loader: 'json-loader'
-      },
-
-      /*
        * to string and css loader support for *.css files
        * Returns file content as string
        *
+       * less-loader added by me
        */
       {
-        test: /\.css$/,
+        test: /\.less/,
+        loader: "to-string!css!less"
+      },
+
+
+      /*
+       * TODO Remove after converting to LESS
+       */
+      {
+        test: /\.css/,
         loaders: ['to-string-loader', 'css-loader']
       },
+
 
       /* Raw loader support for *.html
        * Returns file content as string

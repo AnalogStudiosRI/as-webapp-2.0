@@ -4,7 +4,7 @@ import { PostInterface, PostsService  } from '../../services/posts.service';
 @Component({
   selector: 'as-posts-list',
   templateUrl: './posts-list.html',
-  styleUrls: [ './posts-list.css' ],
+  styleUrls: [ './posts-list.less' ],
   providers: <any>[ PostsService ]
 })
 

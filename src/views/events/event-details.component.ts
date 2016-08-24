@@ -5,7 +5,7 @@ import { EventInterface, EventsService } from '../../services/events.service';
 @Component({
   selector: 'events-detailed',
   templateUrl: './event-details.html',
-  styleUrls: [ './event-details.css' ],
+  styleUrls: [ './events.less' ],
   providers: [EventsService]
 })
 

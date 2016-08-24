@@ -2,7 +2,7 @@
 
   <h2>Latest Posts</h2>
 
-  <div class="posts" *ngFor="let post of posts; let idx=index">
+  <div class="posts-list" *ngFor="let post of posts; let idx=index">
 
     <div *ngIf="idx < getMaxPosts()" class="post">
       <h4 class="post-header">{{post.title}}
