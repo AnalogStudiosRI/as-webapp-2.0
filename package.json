@@ -46,6 +46,7 @@
     "zone.js": "0.6.12"
   },
   "devDependencies": {
+    "@angularclass/hmr-loader": "1.0.1",
     "angular2-template-loader": "0.4.0",
     "awesome-typescript-loader": "1.1.1",
     "copy-webpack-plugin": "3.0.1",
