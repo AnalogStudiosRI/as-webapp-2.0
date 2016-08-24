@@ -13,7 +13,6 @@ const helpers = require('./webpack.helpers');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
-//const HtmlElementsPlugin = require('./html-elements-plugin');
 
 /*
  * Webpack Constants
@@ -76,7 +75,7 @@ module.exports = {
     extensions: ['', '.ts', '.js', '.json'],
 
     // Make sure root is src
-    root: helpers.root('src'),
+    root: __dirname + './src',
 
     // remove other default values
     modulesDirectories: ['node_modules'],
@@ -145,7 +144,7 @@ module.exports = {
        */
       {
         test: /\.css/,
-        loaders: ['to-string-loader', 'css-loader']
+        loader: 'to-string-loader|css-loader'
       },
 
 
@@ -157,7 +156,7 @@ module.exports = {
       {
         test: /\.html$/,
         loader: 'raw-loader',
-        exclude: [helpers.root('src/index.html')]
+        exclude: [__dirname + './src/index.html']
       },
 
       /* File loader for supporting images, for example, in CSS files.
@@ -262,17 +261,3 @@ module.exports = {
   }
 
 };
-
-
-//TODO reload on CSS / LESS / HTLM file change
-// devServer: {
-//   proxy:{
-//     '/api/*': {
-//       target: 'http://analogstudios.thegreenhouse.io',
-//         secure: false,
-//         changeOrigin: true
-//     }
-//   },
-//   historyApiFallback: true,
-//     stats: 'minimal'
-// }
