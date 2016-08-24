@@ -9,4 +9,4 @@ for d in /var/www/analogstudios/html/*/ ; do
 done
 
 echo "deploy to webroot..."
-sudo cp -rvf build /var/www/analogstudios/html/
+sudo cp -rvf build/* /var/www/analogstudios/html/
