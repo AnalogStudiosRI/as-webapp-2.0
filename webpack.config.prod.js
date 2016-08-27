@@ -46,17 +46,17 @@ module.exports = webpackMerge(commonConfig, {
   plugins: [
 
     new WebpackMd5Hash(),
-    //new DedupePlugin(),
-    //
-    // new DefinePlugin({
-    //   'ENV': JSON.stringify(METADATA.ENV),
-    //   'HMR': METADATA.HMR,
-    //   'process.env': {
-    //     'ENV': JSON.stringify(METADATA.ENV),
-    //     'NODE_ENV': JSON.stringify(METADATA.ENV),
-    //     'HMR': METADATA.HMR,
-    //   }
-    // }),
+    new DedupePlugin(),
+
+    new DefinePlugin({
+      'ENV': JSON.stringify(METADATA.ENV),
+      'HMR': METADATA.HMR,
+      'process.env': {
+        'ENV': JSON.stringify(METADATA.ENV),
+        'NODE_ENV': JSON.stringify(METADATA.ENV),
+        'HMR': METADATA.HMR,
+      }
+    }),
 
     /**
      * Plugin: UglifyJsPlugin
@@ -66,12 +66,12 @@ module.exports = webpackMerge(commonConfig, {
      * See: https://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
      */
     // NOTE: To debug prod builds uncomment //debug lines and comment //prod lines
-    // new UglifyJsPlugin({
-    //   beautify: false, //prod
-    //   mangle: { screw_ie8 : true }, //prod
-    //   compress: { screw_ie8: true }, //prod
-    //   comments: false //prod
-    // }),
+    new UglifyJsPlugin({
+      beautify: false, //prod
+      mangle: { screw_ie8 : true, keep_fnames: true }, //prod
+      compress: { screw_ie8: true }, //prod
+      comments: false //prod
+    }),
 
     /**
      * Plugin: NormalModuleReplacementPlugin

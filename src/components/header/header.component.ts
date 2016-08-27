@@ -1,5 +1,3 @@
-console.log('ENTER header.component.ts file');
-
 import { Component } from '@angular/core';
 
 @Component({
@@ -9,8 +7,4 @@ import { Component } from '@angular/core';
 })
 
 
-export class HeaderComponent {
-  constructor() {
-    console.log('ENTER HeaderComponent constructor');
-  }
-}
+export class HeaderComponent {}

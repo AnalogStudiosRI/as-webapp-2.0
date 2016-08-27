@@ -16,9 +16,9 @@
     "url": "https://bitbucket.org/thegreenhouse/as-webapp-2.0/"
   },
   "scripts": {
-    "build": "rimraf build && NODE_ENV=production webpack --config ./webpack.config.prod.js -p --progress --profile --bail",
+    "build": "rimraf build && NODE_ENV=production webpack --config ./webpack.config.prod.js --progress --profile --bail",
     "develop": "rimraf build && webpack-dev-server --config ./webpack.config.dev.js  --inline --progress --port 6789",
-    "demo": "rimraf build && npm run build && cd build && ../node_modules/.bin/live-server --entry-file=./build/index.html",
+    "demo": "rimraf build && npm run build && cd build && ../node_modules/.bin/live-server --entry-file=./index.html",
     "install:typings": "./node_modules/.bin/typings install"
   },
   "private": true,
