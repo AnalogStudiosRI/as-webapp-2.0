@@ -17,6 +17,8 @@ import { AuthenticationService } from './services/authentication.service';
 import { JwtHelper } from 'angular2-jwt/angular2-jwt';
 import { PostsService } from './services/posts.service';
 import { EventsService } from './services/events.service';
+import {EventsCalendarComponent} from "./components/events-calendar/events-calendar.component";
+import {PostsListComponent} from "./components/posts-list/posts-list.component";
 
 //TODO EventsCalendarComponent and PostsListComponent?
 //Is this still good for module bundling by putting everything here
@@ -28,15 +30,21 @@ import { EventsService } from './services/events.service';
     RouterModule.forRoot(APP_ROUTES)
   ],
   declarations: [ //component and directives
-    AdminViewComponent,
-    AdminViewEventsComponent,
-    AdminViewPostsComponent,
-    BootstrapComponent,
-    EventDetailsViewComponent,
-    EventsViewComponent,
+
+    EventsCalendarComponent,
+    PostsListComponent,
+
     FooterComponent,
     HeaderComponent,
-    HomeViewComponent
+
+    EventDetailsViewComponent,
+    EventsViewComponent,
+    HomeViewComponent,
+    AdminViewEventsComponent,
+    AdminViewPostsComponent,
+    AdminViewComponent,
+    BootstrapComponent
+
   ],
   bootstrap: [ BootstrapComponent ],  //root component
   providers: [ //services (eg. @injectables)
