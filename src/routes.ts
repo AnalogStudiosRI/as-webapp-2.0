@@ -6,19 +6,17 @@ import { AdminViewPostsComponent } from "./views/admin/admin-posts.component";
 import { HomeViewComponent } from './views/home/home.component';
 import { EventsViewComponent } from './views/events/events.component';
 import { EventDetailsViewComponent } from './views/events/event-details.component';
-import { Routes, RouterModule} from '@angular/router';
+import { Routes } from '@angular/router';
 
-//TODO <any>
-const appRoutes: Routes = [
+
+export const APP_ROUTES: Routes = [
   { path: '', component: <any>HomeViewComponent, terminal: true },
-  // { path: 'admin', component: <any> AdminViewComponent, children: [
-  //   { path: '' },
-  //   { path: 'events', component: <any> AdminViewEventsComponent },
-  //   { path: 'posts', component: <any> AdminViewPostsComponent }
-  // ]},
-  // { path: 'events', component: <any> EventsViewComponent },
-  // { path: 'events/:id', component: <any> EventDetailsViewComponent },
+  { path: 'admin', component: <any> AdminViewComponent, children: [
+    { path: '' },
+    { path: 'events', component: <any> AdminViewEventsComponent },
+    { path: 'posts', component: <any> AdminViewPostsComponent }
+  ]},
+  { path: 'events', component: <any> EventsViewComponent },
+  { path: 'events/:id', component: <any> EventDetailsViewComponent },
   { path: 'home', component: <any> HomeViewComponent }
 ];
-
-export const AppRoutes = RouterModule.forRoot(appRoutes);

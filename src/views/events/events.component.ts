@@ -4,7 +4,7 @@ import { EventsCalendarComponent } from '../../components/events-calendar/events
 @Component({
   selector: 'events',
   templateUrl: './events.html',
-  directives: <any>[EventsCalendarComponent]
+  directives: <any>[ EventsCalendarComponent ]
 })
 
 export class EventsViewComponent {}

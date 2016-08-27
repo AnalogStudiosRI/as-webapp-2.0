@@ -4,11 +4,10 @@ import { PostInterface, PostsService  } from '../../services/posts.service';
 @Component({
   selector: 'as-posts-list',
   templateUrl: './posts-list.html',
-  styleUrls: [ './posts-list.less' ],
-  providers: <any>[ PostsService ]
+  styleUrls: [ './posts-list.less' ]
 })
 
-export class PostsComponent implements OnInit {
+export class PostsListComponent implements OnInit {
   //TODO make constant - https://thegreenhouse.atlassian.net/browse/AS-246
   //TODO make configurable?
   private MAX_POSTS: number = 2;

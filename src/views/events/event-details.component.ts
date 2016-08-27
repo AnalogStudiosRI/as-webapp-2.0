@@ -5,8 +5,7 @@ import { EventInterface, EventsService } from '../../services/events.service';
 @Component({
   selector: 'events-detailed',
   templateUrl: './event-details.html',
-  styleUrls: [ './events.less' ],
-  providers: [EventsService]
+  styleUrls: [ './events.less' ]
 })
 
 export class EventDetailsViewComponent extends OnInit {
