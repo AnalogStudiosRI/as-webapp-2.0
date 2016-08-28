@@ -155,7 +155,7 @@ module.exports = {
        */
       {
         test: /\.html$/,
-        loader: 'raw-loader',
+        loader: 'html-loader',
         exclude: [__dirname + './src/index.html']
       },
 
