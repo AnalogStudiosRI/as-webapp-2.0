@@ -1,42 +1,54 @@
 # Analog Studios 2.0
-This is the front end component for the analogstudios.net 2.0 website redesign.
+This is the front end application for the analogstudios.net 2.0 website redesign.  The webapp will allow users to view
+events for artists and the studio, browser artists and events, listen to music and consumer other digital media, and
+ideally participate through online social networks.  There is back end API application project as well.
 
 ## Tooling
 The following tools are used in the application
 
-- [Node][] as the local development environment
-- [NPM][] / [Bower][] as the dependency managers
-- [Gulp][] as the task runner
-- [Angular][] as the framework (1.4.x)
-- [Karma][] and [Mocha][] for unit testing
-- [Protractor][] for E2E testing Angular apps
+- [Node][] 4.4.x as the local development environment
+- [NPM][]  3.8.x package manager for node modules
+- [Angular 2][] as the Front-End framework
+- [TypeScript][] - superset of JavaScript for writing application code
+- [Webpack][] - Module loader / bundler, primary build tool
+- [Karma][] - task runner for unit testing
+- [Jasmine][] - testing framework
+- [LESS][] - CSS preprocessor
+- [Bootstrap 3.x] - Mobile first CSS framework
 
 
 [Node]: https://nodejs.org/
 [NPM]: https://www.npmjs.com/
-[Bower]: http://bower.io/
-[Gulp]: http://gulpjs.com/
-[Angular]: https://angularjs.org/
-[Karma]: http://karma-runner.github.io/
-[Mocha]: http://mochajs.org/
-[Protractor]: https://angular.github.io/protractor/
+[Angular 2]: https://angular.io/
+[TypeScript]: https://www.typescriptlang.org/
+[Webpack]: https://webpack.github.io/
+[Karma]: https://karma-runner.github.io/1.0/index.html
+[Jasmine]: http://jasmine.github.io/
+[LESS]: http://lesscss.org/
+[Bootstrap]: http://getbootstrap.com/
 
+## Links
+* Repository (Bitbucket)- https://bitbucket.org/thegreenhouse/as-webapp-2.0
+* Documentation (Confluence) - https://thegreenhouse.atlassian.net/wiki/display/ASWEB/Website
+* Issue Tracker (JIRA) - https://thegreenhouse.atlassian.net/secure/RapidBoard.jspa?rapidView=2
+* Jenkins - http://thegreenhouse.io:8080
+* Development Environment - http://analogstudios.thegreenhouse.io
+* Production Enviornment - http://www.analogstudios.net
 
 ## Project Setup
-
-*Note*: It is recommended that for UI development, a Javascript based IDE is used, like [Webstorm][] or [Sublime Text 2][],
+*Note*: It is recommended that a Javascript based IDE is used, like [Webstorm][],
 as they have a lot of the code quality and syntax tooling supported as plugins, often times right out of the box.
+
 Recommended plugins to have are:
 - Git (can show changed lines in the gutter when viewing a file)
 - EditorConfig
-- JSCS
-- JSHint
 - gitignore
 - LESS
+- TypeScript
 
-Edit your _etc/hosts_ file by adding this entry `127.0.0.1      local.analogstudios.thegreenhouse.io`
+[Webstorm]: https://www.jetbrains.com/webstorm/
 
-### Vagrant (Recommended)
+### Vagrant
 This project uses Vagrant to provision Virtual Machines for use with development.  It is very easy to use
 
 First, install the following
@@ -51,6 +63,7 @@ guest additions as well.
 ```
 vagrant up
 ```
+
 2. SSH into the VM
 ```
 vagrant ssh
@@ -67,75 +80,124 @@ cd /vagrant
 
 ### Manual
 
-1. If you don't already have it, download and install NodeJS (which comes with NPM).
+1. If you don't already have it, download and install NodeJS 4.x (which comes with NPM).
 
-2. This project favors version 2.x or higher, so make sure you have the latest by updating it after install Node `npm install -g npm`
+2. This project favors version 3.x or higher, so make sure you have the latest by updating it after installing Node 
+by running 
 
-3. Install Gulp and Bower (globally is recommended, in which case you might need to use `sudo`) `npm install -g gulp bower`
+```
+$ npm install -g npm@3.8.8
+```
 
-4. Now install the build and application dependencies for the front end project `npm install && bower install`
+3. Now install the build and application dependencies by running
 
-5. Edit your _etc/hosts_ file by adding this entry `127.0.0.1      local.analogstudios.thegreenhouse.io`
+```
+$ npm install 
+$ npm run install:typings
+```
 
+## Project Layout
+An overview of important files and configurations for the applications
 
-## Documentation
-https://thegreenhouse.atlassian.net/wiki/display/ASWEB/Website
+* _src_ - application code
+* _src/components/_ - resusable UI features
+* _src/services/_ -  APIs for handling with backend REST API or browser APIs
+* _src/view/_ -  routable states, "pages"
+* _src/index.html_ - main layout of the application //TODO
+* _src/main.ts_ - main entry way into the application and Angular bootstrapper
+* _src/polyfills.ts_ - collection of polyfills needed by the application
+* _src/routes.ts_ - routes for the application, maps to different views
+* _src/vendor.ts_ - vendor files from _node_modules_
+* _package.json_ - NPM dependency configuration file, for build related dependencies
+* _tsconfig.json_ - TypeScript compiler configuration
+* _typings.json_ - Type Definitions configuration, for prividing _.d.ts_ files for the TypeScript compiler
+* _webpack.config.dev.js_ - webpack config for local development
+* _webpack.config.prod.js_ - webpack config for production builds
+* _webpack.config.test.js_ - webpack config for running unit tests
 
-## Build
+## Tasks
+This project uses Webpack as the build tool, but called via NPM scripts.  All available tasks are in the `scripts`
+section of _package.json_
 
-### Tasks
-#### development
-This will start up a node server with all files deployed and watches for changes and "redeploys" as needed.  This is the
+### Development
+This will start up a node (Express) server with all files deployed and watches for changes and "redeploys" as needed.  This is the
 default task and primary task of the development workflow.
 
 ```
-$ gulp build --local
+$ npm run develop
 ```
 
 See it in a browser by opening up
 
 ```
-http://local.analogstudios.thegreenhouse.io:6789/#home
+http://localhost:6789/
 ```
 
-#### building
-This is the build task for the project.
+**note: currently you have to refresh the page after changing HTML and CSS files.  Typescirpt files should tirgger a page refresh**
+
+### Production
+This is the production build task for the project.  It is used prior to deploying to an environment and bundles the
+application and runs unit tests.
 
 ```
-$ gulp build --production build
+$ npm run build
 ```
 
-#### showing a production build
-To previews the production build locally against dev
+###
+** TODO - local proxy support - https://thegreenhouse.atlassian.net/browse/AS-289 **
+To serve a production build locally (like for a demo) run:
 
 ```
-$ grunt build --production --show
+$ npm run demo
 ```
 
-## Project Layout
-TBD as the final form of 1p-frontend-new is not certain yet.  Expected structure
+**Note: if you open up a new terminal window and run `npm run build` from the project the server should reload"
 
-* _pipelines_ - gulp tasks organized by responsibility
-* _src_ - application code
-* _src/assets/_ - common / misc assets (xml, .json, images, etc) for the application
-* _src/layouts_ - templatable page layouts
-* _src/less/_ - application styles / styleguide
-* _src/modules/_ - reusable angular modules grouped by role (view, component, bootstrap)
 
 ## Testing
-TDD is supported for development
+** TODO - not implemented - https://thegreenhouse.atlassian.net/browse/AS-294 **
+To run unit tests locally using Karma, run 
 
-`gulp test:tdd`
+```
+$ npm run test:unit
+```
+
+
+## Dependency Management
+There are two types of dependencies tracked in the application
+
+#### Node Modules
+Build packages are installed through NPM into _package.json_, using
+ 
+```
+$ npm install <package-name>  --save-dev
+```
+
+Dependencies for the application (like Angular) are installed by running 
+
+```
+$ npm install <some-package> --save
+```
+
+#### TypeScript Typings
+All dependencies are either managed by Typings through _typings.json_.  Install new typings using 
+
+```
+$ ./node_modules/.bin/typings <typing-name> --save
+```
+
 
 ## Continuous Integration
-Three builds are for the project in Jenkins, to support automated continues integration, deployment, and delivery.
+Three builds are for the project in [Jenkins][], to support automated continues integration, deployment, and delivery.
 Each job uses a specific version controlled shell script for use in Jenkins.
 
-* CI - Watches all branches, and builds the app to run linting and testing and does analysis and reporting.
+* CI - Watches for PRs in Bitbucket, and runs production build and generates analysis and reporting.
 * DEV - The CI task, but in addition deploys to dev upon success
-* RELEASE - To release the application
+* RELEASE (TODO) - To release the application
+
+[Jenkins]: http://www.thegreenhouse.io:8080/
 
 ## Release Procedure
-See documentation posted [here][]
+See documentation [here][]
 
 [here]: https://thegreenhouse.atlassian.net/wiki/display/ASWEB/Release+Management#ReleaseManagement-UI(StaticFrontend)

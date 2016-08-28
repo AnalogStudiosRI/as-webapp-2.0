@@ -1,8 +1,9 @@
 .idea/
 .vagrant/
 npm-debug.log
-bower_components/
-dest/
+build/
 node_modules/
 reports/
-tmp/
+typings/
+src/**/**/*.js*
+src/modules

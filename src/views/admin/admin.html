@@ -1,0 +1,66 @@
+<!--http://blog.ng-book.com/the-ultimate-guide-to-forms-in-angular-2/-->
+<section class="admin-view">
+
+  <!-- Small modal -->
+  <!--<button type="button" class="btn btn-primary" (click)="smModal.show()">Small modal</button>-->
+
+  <!--<div bsModal #smModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="false">-->
+    <!--<div class="modal-dialog modal-sm">-->
+      <!--<div class="modal-content">-->
+        <!--<div class="modal-header">-->
+          <!--<button type="button" class="close" aria-label="Close" (click)="smModal.hide()">-->
+            <!--<span aria-hidden="true">&times;</span>-->
+          <!--</button>-->
+          <!--<h4 class="modal-title">Small modal</h4>-->
+        <!--</div>-->
+        <!--<div class="modal-body">-->
+          <!--...-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <div class="col-md-3">
+    <div *ngIf="getIsAuthenticated()">
+
+      <nav>
+        <ul>
+          <li><span class="link" [routerLink]="['events']">Manage Events</span></li>
+          <li><span class="link" [routerLink]="['posts']">Manage Posts</span></li>
+          <li><span class="link" (click)="logout()">Logout</span></li>
+        </ul>
+      </nav>
+
+    </div>
+
+  </div>
+
+  <div class="col-md-9">
+
+    <div *ngIf="!getIsAuthenticated()">
+
+      <form (ngSubmit)="login()" [formGroup]="loginForm">
+
+        <label for="username">Username:</label>
+        <input id="username" name="username" [formControl]="loginForm.controls['username']" type="text" required/>
+
+        <label for="password">Password:</label>
+        <input id="password" name="password" [formControl]="loginForm.controls['password']" type="password" required/>
+
+        <br/>
+
+        <button class="btn" type="submit">Submit</button>
+
+      </form>
+
+      <!--<span us-spinner spinner-key="spinner-1"></span>-->
+
+    </div>
+
+    <div *ngIf="getIsAuthenticated()">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+
+</section>

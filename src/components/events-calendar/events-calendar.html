@@ -1,0 +1,66 @@
+<div class="as-calendar">
+
+  <table>
+    <thead>
+      <tr>
+        <th>
+          <button type="button" class="btn btn-default btn-sm pull-left" (click)="shiftToPreviousMonth()" tabindex="-1">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+          </button>
+        </th>
+
+        <th></th>
+        <th></th>
+
+        <th>
+          <h4 class="txt-secondary">{{getHeaderText()}}</h4>
+        </th>
+
+        <th></th>
+        <th></th>
+
+        <th>
+          <button type="button" class="btn btn-default btn-sm pull-right" (click)="shiftToNextMonth()" tabindex="-1">
+            <i class="glyphicon glyphicon-chevron-right"></i>
+          </button>
+        </th>
+      </tr>
+
+      <tr>
+        <th class="day-name">Sun</th>
+        <th class="day-name">Mon</th>
+        <th class="day-name">Tue</th>
+        <th class="day-name">Wed</th>
+        <th class="day-name">Thu</th>
+        <th class="day-name">Fri</th>
+        <th class="day-name">Sat</th>
+      </tr>
+
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let week of currentMonthData">
+        <td *ngFor="let day of week">
+
+          <!--day not in month-->
+          <div *ngIf="!day.date" class="day-off">
+          </div>
+
+          <!--day in month without event-->
+          <div *ngIf="day.date && !day.hasEvents" class="day-on">
+            <span>{{day.date}}</span>
+          </div>
+
+          <!--day with event if there's an event-->
+          <div *ngIf="day.hasEvents" class="day-event">
+            <span *ngFor="let event of day.events, let idx = index">
+              <span [routerLink]="['/events', event.id]" [innerHTML]="getEventTitle(idx)"></span>
+            </span>
+          </div>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
