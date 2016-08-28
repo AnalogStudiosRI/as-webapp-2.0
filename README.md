@@ -14,7 +14,7 @@ The following tools are used in the application
 - [Karma][] - task runner for unit testing
 - [Jasmine][] - testing framework
 - [LESS][] - CSS preprocessor
-- [Bootstrap 3.x] - Mobile first CSS framework
+- [Bootstrap 3.x][] - Mobile first CSS framework
 
 
 [Node]: https://nodejs.org/
@@ -25,7 +25,7 @@ The following tools are used in the application
 [Karma]: https://karma-runner.github.io/1.0/index.html
 [Jasmine]: http://jasmine.github.io/
 [LESS]: http://lesscss.org/
-[Bootstrap]: http://getbootstrap.com/
+[Bootstrap 3.x]: http://getbootstrap.com/
 
 ## Links
 * Repository (Bitbucket)- https://bitbucket.org/thegreenhouse/as-webapp-2.0
@@ -101,19 +101,22 @@ An overview of important files and configurations for the applications
 
 * _src_ - application code
 * _src/components/_ - resusable UI features
-* _src/services/_ -  APIs for handling with backend REST API or browser APIs
-* _src/view/_ -  routable states, "pages"
-* _src/index.html_ - main layout of the application //TODO
+* _src/services/_ -  APIs for handling  backend REST APIs or browser APIs, non UI related "helpers"
+* _src/view/_ -  routable states ("pages")
+* _src/index.html_ - main layout of the application
 * _src/main.ts_ - main entry way into the application and Angular bootstrapper
 * _src/polyfills.ts_ - collection of polyfills needed by the application
 * _src/routes.ts_ - routes for the application, maps to different views
 * _src/vendor.ts_ - vendor files from _node_modules_
-* _package.json_ - NPM dependency configuration file, for build related dependencies
+* _package.json_ - NPM dependency configuration file, for build related dependencies and runnable scripts
 * _tsconfig.json_ - TypeScript compiler configuration
+* _tslint.json_ - configuration rules for [TSLint][]
 * _typings.json_ - Type Definitions configuration, for prividing _.d.ts_ files for the TypeScript compiler
 * _webpack.config.dev.js_ - webpack config for local development
 * _webpack.config.prod.js_ - webpack config for production builds
 * _webpack.config.test.js_ - webpack config for running unit tests
+
+[TSLint]: http://palantir.github.io/tslint/
 
 ## Tasks
 This project uses Webpack as the build tool, but called via NPM scripts.  All available tasks are in the `scripts`
