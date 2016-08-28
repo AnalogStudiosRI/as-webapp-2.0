@@ -144,16 +144,18 @@ $ npm run build
 ```
 
 ###
+** TODO - local proxy support - https://thegreenhouse.atlassian.net/browse/AS-289 **
 To serve a production build locally (like for a demo) run:
 
 ```
 $ npm run demo
 ```
 
-**Note: if you open up a new terminal window and run `npm run build` from the project
+**Note: if you open up a new terminal window and run `npm run build` from the project the server should reload"
 
 
 ## Testing
+** TODO - not implemented - https://thegreenhouse.atlassian.net/browse/AS-294 **
 To run unit tests locally using Karma, run 
 
 ```
@@ -171,17 +173,17 @@ Build packages are installed through NPM into _package.json_, using
 $ npm install <package-name>  --save-dev
 ```
 
-These are installed by running 
+Dependencies for the application (like Angular) are installed by running 
 
 ```
-$ npm install {some-package} --save
+$ npm install <some-package> --save
 ```
 
 #### TypeScript Typings
 All dependencies are either managed by Typings through _typings.json_.  Install new typings using 
 
 ```
-$ ./node_modules/.bin/typings {typingsName} --save
+$ ./node_modules/.bin/typings <typing-name> --save
 ```
 
 
@@ -196,10 +198,6 @@ Each job uses a specific version controlled shell script for use in Jenkins.
 [Jenkins]: http://www.thegreenhouse.io:8080/
 
 ## Release Procedure
-See documentation posted [here][]
+See documentation [here][]
 
 [here]: https://thegreenhouse.atlassian.net/wiki/display/ASWEB/Release+Management#ReleaseManagement-UI(StaticFrontend)
-
-
-## TODO 
-https://thegreenhouse.atlassian.net/browse/TGH-73
