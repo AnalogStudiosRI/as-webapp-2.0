@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AnalyticsService } from '../../services/analytics.service';
+
 
 //TODO global bootstrap CSS??, all services?
 @Component({
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
   styleUrls: [ './bootstrap.less' ]
 })
 
-export class BootstrapComponent {}
+export class BootstrapComponent {
+
+  constructor(private AnalyticsService: AnalyticsService){
+    AnalyticsService.initAnalytics();
+  }
+
+}
