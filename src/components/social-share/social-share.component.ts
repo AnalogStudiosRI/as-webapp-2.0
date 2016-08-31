@@ -11,10 +11,18 @@ import { Component } from '@angular/core';
 
 export class SocialShareComponent {
   private currentUrl: string;
+  //TODO make domain dynamic, and const - https://thegreenhouse.atlassian.net/browse/AS-246
+  private domain: string = 'http://www.analogstudios.net';
+
+  private getSlug(): string {
+    //TODO any - https://thegreenhouse.atlassian.net/browse/AS-246
+    let url: any = this.ActivatedRoute.snapshot.url;
+
+    return url[0].path + '/' + url[1].path;
+  }
 
   constructor(private ActivatedRoute: ActivatedRoute){
-    console.log('ActivatedRoute', ActivatedRoute);
-    this.currentUrl = 'http://www.analogstudios.net';
+    this.currentUrl = this.domain + '/' + this.getSlug();
   }
 
   public getCurrentPageUrl(): string {
