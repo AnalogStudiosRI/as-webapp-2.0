@@ -148,13 +148,13 @@ $ npm run build
 
 ###
 ** TODO - local proxy support - https://thegreenhouse.atlassian.net/browse/AS-289 **
-To serve a production build locally (like for a demo) run:
+To serve a production build locally , like for a demo run:
 
 ```
 $ npm run demo
 ```
 
-**Note: if you open up a new terminal window and run `npm run build` from the project the server should reload"
+**Note: it is recommended you run this command from the master branch.  Ny default this proxies to dev.**
 
 
 ## Testing
