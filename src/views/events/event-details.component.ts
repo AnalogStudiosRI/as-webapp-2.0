@@ -1,11 +1,13 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { EventInterface, EventsService } from '../../services/events.service';
+import { SocialShareComponent } from '../../components/social-share/social-share.component';
 
 @Component({
   selector: 'events-detailed',
   templateUrl: './event-details.html',
-  styleUrls: [ './events.less' ]
+  styleUrls: [ './events.less' ],
+  directives: [ SocialShareComponent ]
 })
 
 export class EventDetailsViewComponent extends OnInit {
