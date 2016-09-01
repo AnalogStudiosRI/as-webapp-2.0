@@ -1,14 +1,14 @@
 # Analog Studios 2.0
 This is the front end application for the analogstudios.net 2.0 website redesign.  The webapp will allow users to view
-events for artists and the studio, browser artists and events, listen to music and consumer other digital media, and
+events for artists and the studio, browse artists and events, listen to music and consumer other digital media, and
 ideally participate through online social networks.  There is back end API application project as well.
 
 ## Tooling
 The following tools are used in the application
 
-- [Node][] 4.4.x as the local development environment
-- [NPM][]  3.8.x package manager for node modules
-- [Angular 2][] as the Front-End framework
+- [Node][] - 4.4.x as the local development environment
+- [NPM][] - 3.8.x package manager for node modules
+- [Angular 2][] - as the Front-End framework
 - [TypeScript][] - superset of JavaScript for writing application code
 - [Webpack][] - Module loader / bundler, primary build tool
 - [Karma][] - task runner for unit testing
@@ -31,9 +31,9 @@ The following tools are used in the application
 * Repository (Bitbucket)- https://bitbucket.org/thegreenhouse/as-webapp-2.0
 * Documentation (Confluence) - https://thegreenhouse.atlassian.net/wiki/display/ASWEB/Website
 * Issue Tracker (JIRA) - https://thegreenhouse.atlassian.net/secure/RapidBoard.jspa?rapidView=2
-* Jenkins - http://thegreenhouse.io:8080
-* Development Environment - http://analogstudios.thegreenhouse.io
-* Production Enviornment - http://www.analogstudios.net
+* Jenkins - http://thegreenhouse.io:8080/
+* Development Environment - http://analogstudios.thegreenhouse.io/
+* Production Enviornment - http://www.analogstudios.net/
 
 ## Project Setup
 *Note*: It is recommended that a Javascript based IDE is used, like [Webstorm][],
@@ -80,10 +80,9 @@ cd /vagrant
 
 ### Manual
 
-1. If you don't already have it, download and install NodeJS 4.x (which comes with NPM).
+1. If you don't already have it, download and install NodeJS 4.x (comes with NPM).
 
-2. This project favors version 3.x or higher, so make sure you have the latest by updating it after installing Node 
-by running 
+2. This project favors version 3.x or higher, so make sure you have the latest by updating it after installing Node by running 
 
 ```
 $ npm install -g npm@3.8.8
@@ -104,14 +103,15 @@ An overview of important files and configurations for the applications
 * _src/services/_ -  APIs for handling  backend REST APIs or browser APIs, non UI related "helpers"
 * _src/view/_ -  routable states ("pages")
 * _src/index.html_ - main layout of the application
-* _src/main.ts_ - main entry way into the application and Angular bootstrapper
+* _src/main.ts_ - main entry way into the application and Angular "bootstrapper" (@NgModule)
 * _src/polyfills.ts_ - collection of polyfills needed by the application
 * _src/routes.ts_ - routes for the application, maps to different views
 * _src/vendor.ts_ - vendor files from _node_modules_
 * _package.json_ - NPM dependency configuration file, for build related dependencies and runnable scripts
-* _tsconfig.json_ - TypeScript compiler configuration
+* _tsconfig.json_ - TypeScript compiler configuration file
 * _tslint.json_ - configuration rules for [TSLint][]
 * _typings.json_ - Type Definitions configuration, for prividing _.d.ts_ files for the TypeScript compiler
+* _webpack.config.common.js_ - webpack config for managing shared webpack configurations
 * _webpack.config.dev.js_ - webpack config for local development
 * _webpack.config.prod.js_ - webpack config for production builds
 * _webpack.config.test.js_ - webpack config for running unit tests
@@ -119,12 +119,11 @@ An overview of important files and configurations for the applications
 [TSLint]: http://palantir.github.io/tslint/
 
 ## Tasks
-This project uses Webpack as the build tool, but called via NPM scripts.  All available tasks are in the `scripts`
+This project uses Webpack as the build tool, called via NPM scripts.  All available tasks are in the `scripts`
 section of _package.json_
 
 ### Development
-This will start up a node (Express) server with all files deployed and watches for changes and "redeploys" as needed.  This is the
-default task and primary task of the development workflow.
+This will start up a Node (Express) server which watches for changes and "redeploys" as needed.
 
 ```
 $ npm run develop
@@ -136,8 +135,6 @@ See it in a browser by opening up
 http://localhost:6789/
 ```
 
-**note: currently you have to refresh the page after changing HTML and CSS files.  Typescirpt files should tirgger a page refresh**
-
 ### Production
 This is the production build task for the project.  It is used prior to deploying to an environment and bundles the
 application and runs unit tests.
@@ -147,14 +144,13 @@ $ npm run build
 ```
 
 ###
-** TODO - local proxy support - https://thegreenhouse.atlassian.net/browse/AS-289 **
 To serve a production build locally , like for a demo run:
 
 ```
 $ npm run demo
 ```
 
-**Note: it is recommended you run this command from the master branch.  Ny default this proxies to dev.**
+**Note: it is recommended you run this command from the master branch or a tag.  By Default this proxies to dev.**
 
 
 ## Testing
@@ -170,7 +166,7 @@ $ npm run test:unit
 There are two types of dependencies tracked in the application
 
 #### Node Modules
-Build packages are installed through NPM into _package.json_, using
+Build packages (like Webpack) are installed through NPM into _package.json_, using
  
 ```
 $ npm install <package-name>  --save-dev
@@ -183,7 +179,7 @@ $ npm install <some-package> --save
 ```
 
 #### TypeScript Typings
-All dependencies are either managed by Typings through _typings.json_.  Install new typings using 
+Typescript definitation are either managed by the Typings binary into _typings.json_.  Install new typings using 
 
 ```
 $ ./node_modules/.bin/typings <typing-name> --save
@@ -194,7 +190,7 @@ $ ./node_modules/.bin/typings <typing-name> --save
 Three builds are for the project in [Jenkins][], to support automated continues integration, deployment, and delivery.
 Each job uses a specific version controlled shell script for use in Jenkins.
 
-* CI - Watches for PRs in Bitbucket, and runs production build and generates analysis and reporting.
+* CI - Watches for PRs in Bitbucket, and runs the production build and generates analysis and reporting.
 * DEV - The CI task, but in addition deploys to dev upon success
 * RELEASE (TODO) - To release the application
 
