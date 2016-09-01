@@ -204,3 +204,7 @@ Each job uses a specific version controlled shell script for use in Jenkins.
 See documentation [here][]
 
 [here]: https://thegreenhouse.atlassian.net/wiki/display/ASWEB/Release+Management#ReleaseManagement-UI(StaticFrontend)
+
+## AWS Info
+* s3 bucket - static.analogstudios.net.s3-website-us-west-2.amazonaws.com
+* cloudfront distribution - d3cpag05e1ba19.cloudfront.net

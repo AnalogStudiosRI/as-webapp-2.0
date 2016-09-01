@@ -1,0 +1,87 @@
+<section class="admin-view-artists">
+
+  <div class="col-md-12">
+
+    <form [formGroup]="artistForm">
+
+      <label for="select-artist">Select an artist to update it:</label>
+
+      <br/>
+
+      <select id="select-artist" (change)="onArtistSelected($event.target.selectedIndex)">
+        <option *ngFor="let artist of getArtists()" value="artist.id">{{artist.name}}</option>
+      </select>
+
+      <br/>
+      <br/>
+
+      <label for="name">Name:</label>
+      <input id="name" name="name" [formControl]="artistForm.controls['name']" type="text" placeholder="Artist Name" required/>
+
+      <br/>
+      <br/>
+
+      <label for="Bio">Bio:</label>
+      <ckeditor
+        id="bio"
+        name="bio"
+        placeholder="Artist Bio"
+        [formControl]="artistForm.controls['bio']"
+        debounce="500"
+        required>
+      </ckeditor>
+
+      <br/>
+      <br/>
+
+      <label for="location">Location:</label>
+      <input id="location" name="location" [formControl]="artistForm.controls['location']" type="text" placeholder="Artist Location"/>
+
+      <br/>
+      <br/>
+
+      <label for="label">Label:</label>
+      <input id="label" name="label" [formControl]="artistForm.controls['label']" type="text" placeholder="Artist Label"/>
+
+      <br/>
+      <br/>
+
+      <label for="genre">Label:</label>
+      <input id="genre" name="label" [formControl]="artistForm.controls['genre']" type="text" placeholder="Artist Genre"/>
+
+      <br/>
+      <br/>
+
+      <label for="imageUrl">Location:</label>
+      <input id="imageUrl" name="imageUrl" [formControl]="artistForm.controls['imageUrl']" type="text" placeholder="Artist Image"/>
+
+      <br/>
+
+      Image preview
+      <img src="{{artistForm.controls['imageUrl'].value}}"/>
+
+      <br/>
+      <br/>
+
+      <label for="contactPhone">Phone Number:</label>
+      <input id="contactPhone" name="contactPhone" [formControl]="artistForm.controls['contactPhone']" type="text" placeholder="Artist Phone Number"/>
+
+      <br/>
+      <br/>
+
+      <label for="contactEmail">Email:</label>
+      <input id="contactEmail" name="contactEmail" [formControl]="artistForm.controls['contactEmail']" type="text" placeholder="Artist Email"/>
+
+      <br/>
+      <br/>
+
+      <!--isActive: null,-->
+
+      <button (click)="submitForm()" class="btn" type="submit">Submit</button>
+      <button class="btn" type="reset">Reset</button>
+
+    </form>
+
+  </div>
+
+</section>
