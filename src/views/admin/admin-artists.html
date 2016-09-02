@@ -52,25 +52,25 @@
       <br/>
       <br/>
 
-      <label for="imageUrl">Location:</label>
+      <label for="imageUrl">Image URL:</label>
       <input id="imageUrl" name="imageUrl" [formControl]="artistForm.controls['imageUrl']" type="text" placeholder="Artist Image"/>
 
       <br/>
 
       Image preview
-      <img src="{{artistForm.controls['imageUrl'].value}}"/>
+      <img [src]="artistForm.controls['imageUrl'].value"/>
 
       <br/>
       <br/>
 
       <label for="contactPhone">Phone Number:</label>
-      <input id="contactPhone" name="contactPhone" [formControl]="artistForm.controls['contactPhone']" type="text" placeholder="Artist Phone Number"/>
+      <input id="contactPhone" name="contactPhone" [formControl]="artistForm.controls['contactPhone']" type="tel" placeholder="Artist Phone Number"/>
 
       <br/>
       <br/>
 
       <label for="contactEmail">Email:</label>
-      <input id="contactEmail" name="contactEmail" [formControl]="artistForm.controls['contactEmail']" type="text" placeholder="Artist Email"/>
+      <input id="contactEmail" name="contactEmail" [formControl]="artistForm.controls['contactEmail']" type="email" placeholder="Artist Email"/>
 
       <br/>
       <br/>
