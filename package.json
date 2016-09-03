@@ -16,11 +16,11 @@
     "url": "https://bitbucket.org/thegreenhouse/as-webapp-2.0/"
   },
   "scripts": {
-    "build": "export NODE_ENV=production && rimraf build && npm run test:unit && webpack --config ./webpack.config.prod.js --progress --profile --bail",
-    "develop": "rimraf build && webpack-dev-server --config ./webpack.config.dev.js  --inline --progress --port 6789",
+    "build": "export NODE_ENV=production && rimraf ./build && npm run test:unit && webpack --config ./webpack.config.prod.js --progress --profile --bail",
+    "develop": "rimraf ./build && webpack-dev-server --config ./webpack.config.dev.js  --inline --progress --port 6789",
     "demo": "npm run build && ./node_modules/.bin/gulp serve",
     "install:typings": "./node_modules/.bin/typings install",
-    "test:unit": "karma start ./karma.conf.js"
+    "test:unit": "rimraf ./reports && karma start ./karma.conf.js"
   },
   "private": true,
   "readmeFilename": "README.md",
@@ -64,6 +64,7 @@
     "html-webpack-plugin": "2.22.0",
     "jasmine-core": "2.5.0",
     "karma": "1.2.0",
+    "karma-coverage": "^1.1.1",
     "karma-jasmine": "1.0.2",
     "karma-junit-reporter": "1.1.0",
     "karma-phantomjs-launcher": "1.0.2",

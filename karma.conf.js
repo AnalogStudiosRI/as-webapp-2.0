@@ -10,15 +10,15 @@ module.exports = function (config) {
       {pattern: './node_modules/systemjs/dist/system.src.js', included: true, watched: false},
       {pattern: './node_modules/systemjs/dist/system-polyfills.js', included: true, watched: false},
       {pattern: './karma-test-shim.js', included: true, watched: false},
-      {pattern: 'src/**/**/*.ts', included: false, watched: shouldWatch}
+      {pattern: './src/**/**/*.ts', included: false, watched: shouldWatch}
     ],
     preprocessors: {
-      '**/*.ts': ['typescript']
+      '**/**/*.ts': ['typescript', 'coverage']
     },
     typescriptPreprocessor: {
       typings: [ './typings/index.d.ts' ]
     },
-    reporters: ['progress', 'junit'],
+    reporters: ['progress', 'dots', 'junit', 'coverage'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
@@ -31,6 +31,11 @@ module.exports = function (config) {
       outputFile: 'test-results.xml',
       suite: 'as-webapp',
       useBrowserName: false
+    },
+    coverageReporter: {
+      type : 'html',
+      dir : './reports',
+      subdir: 'coverage'
     }
   })
 };
