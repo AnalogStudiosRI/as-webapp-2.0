@@ -13,7 +13,7 @@ module.exports = function (config) {
       {pattern: './src/**/**/*.ts', included: false, watched: shouldWatch}
     ],
     preprocessors: {
-      '**/**/*.ts': ['typescript', 'coverage']
+      './src/**/**/*.ts': ['typescript', 'coverage']
     },
     typescriptPreprocessor: {
       typings: [ './typings/index.d.ts' ]
