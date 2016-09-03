@@ -154,7 +154,6 @@ $ npm run demo
 
 
 ## Testing
-** TODO - not implemented - https://thegreenhouse.atlassian.net/browse/AS-294 **
 To run unit tests locally using Karma, run 
 
 ```
@@ -183,6 +182,12 @@ Typescript definitation are either managed by the Typings binary into _typings.j
 
 ```
 $ ./node_modules/.bin/typings <typing-name> --save
+```
+
+example installing globally and form definitely typed (not NPM)
+
+```
+./node_modules/.bin/typings install dt~karma-jasmine --save --global
 ```
 
 
