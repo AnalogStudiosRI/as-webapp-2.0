@@ -5,6 +5,7 @@ import { AdminViewArtistsComponent } from './views/admin/admin-artists.component
 import { AdminViewEventsComponent } from './views/admin/admin-events.component';
 import { AdminViewPostsComponent } from "./views/admin/admin-posts.component";
 import { ArtistsViewComponent } from './views/artists/artists.component';
+import { ArtistDetailsViewComponent } from './views/artists/artist-details.component';
 import { HomeViewComponent } from './views/home/home.component';
 import { EventsViewComponent } from './views/events/events.component';
 import { EventDetailsViewComponent } from './views/events/event-details.component';
@@ -20,6 +21,7 @@ export const APP_ROUTES: Routes = [
     { path: 'posts', component: <any> AdminViewPostsComponent }
   ]},
   { path: 'artists', component: <any> ArtistsViewComponent },
+  { path: 'artists/:id', component: <any> ArtistDetailsViewComponent },
   { path: 'events', component: <any> EventsViewComponent },
   { path: 'events/:id', component: <any> EventDetailsViewComponent },
   { path: 'home', component: <any> HomeViewComponent }
