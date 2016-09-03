@@ -3,9 +3,10 @@ import { AdminViewComponent } from './views/admin/admin.component';
 import { AdminViewArtistsComponent } from './views/admin/admin-artists.component';
 import { AdminViewEventsComponent } from './views/admin/admin-events.component';
 import { AdminViewPostsComponent } from './views/admin/admin-posts.component';
-import { APP_ROUTES } from './routes';
 import { AnalyticsService } from './services/analytics.service';
+import { APP_ROUTES } from './routes';
 import { ArtistsService } from './services/artists.service';
+import { ArtistsViewComponent } from './views/artists/artists.component';
 import { AuthenticationService } from './services/authentication.service';
 import { BootstrapComponent } from './components/bootstrap/bootstrap.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -49,6 +50,7 @@ import { RouterModule } from '@angular/router';
     AdminViewEventsComponent,
     AdminViewPostsComponent,
     AdminViewComponent,
+    ArtistsViewComponent,
     BootstrapComponent
   ],
   bootstrap: [ BootstrapComponent ],  //root component
