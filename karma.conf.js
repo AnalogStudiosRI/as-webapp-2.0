@@ -33,7 +33,7 @@ module.exports = function (config) {
       useBrowserName: false
     },
     coverageReporter: {
-      type : 'html',
+      type : 'cobertura',
       dir : './reports',
       subdir: 'coverage'
     }
