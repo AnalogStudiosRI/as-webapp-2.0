@@ -1,6 +1,7 @@
 const isProductionBuild = process.env.NODE_ENV === 'production';
 const shouldWatch = !isProductionBuild;
 const shouldSingleRun = isProductionBuild;
+const browser = isProductionBuild ? 'PhantomJS' : 'Chrome';
 
 module.exports = function (config) {
   config.set({
@@ -23,7 +24,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['PhantomJS'],
+    browsers: [browser],
     singleRun: shouldSingleRun,
     concurrency: Infinity,
     junitReporter: {
