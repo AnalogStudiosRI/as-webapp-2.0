@@ -1,12 +1,12 @@
 'use strict';
-import { ArtistInterface } from './artists.service';
+//import { ArtistInterface } from './artists.service';
 
 describe('First Test Suite', () => {
-  console.log('here!!!!!!!&&&&&!!!!!********');
+  console.log('here!!!!!!!&&&&&!!!!!******** ##########');
 
   it('should pass', () => {
-    console.log(ArtistInterface);
-    let artist: ArtistInterface = {
+    //console.log(ArtistInterface);
+    let artist = {
       id: 1,
       name: 'Super Cat',
       bio: 'This bio'
