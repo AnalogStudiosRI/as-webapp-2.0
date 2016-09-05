@@ -20,7 +20,7 @@
     "develop": "rimraf ./build && webpack-dev-server --config ./webpack.config.dev.js  --inline --progress --port 6789",
     "demo": "npm run build && ./node_modules/.bin/gulp serve",
     "install:typings": "./node_modules/.bin/typings install",
-    "test:unit": "rimraf ./reports && karma start ./karma.conf.js"
+    "test:unit": "rimraf ./reports && karma start"
   },
   "private": true,
   "readmeFilename": "README.md",

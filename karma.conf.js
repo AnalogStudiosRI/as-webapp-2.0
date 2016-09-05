@@ -32,7 +32,7 @@ module.exports = function(config) {
 
     reporters: ['progress', 'dots', 'junit', 'coverage'],
     port: 9876,
-    logLevel: config.LOG_DEBUG,  //logLevel
+    logLevel: logLevel,
     autoWatch: shouldWatch,
     browsers: [browser],
     singleRun: shouldSingleRun,
