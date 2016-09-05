@@ -122,6 +122,13 @@ An overview of important files and configurations for the applications
 This project uses Webpack as the build tool, called via NPM scripts.  All available tasks are in the `scripts`
 section of _package.json_
 
+To "force" which build environment you want a command to run against, export either production or development ENV variables, eg
+
+```
+ $ export NODE_ENV=production|development npm run <task>
+ ```
+
+
 ### Development
 This will start up a Node (Express) server which watches for changes and "redeploys" as needed.
 
@@ -137,14 +144,23 @@ http://localhost:6789/
 
 ### Production
 This is the production build task for the project.  It is used prior to deploying to an environment and bundles the
-application and runs unit tests.
+application for production.
 
 ```
 $ npm run build
 ```
 
+## Continuous Integration
+There is a convenience task called `ci` for continuous integration environments, which builds and runs tests.  This is
+recommended for all non-local environments
+
+```
+$ npm run ci
+```
+
+
 ###
-To serve a production build locally , like for a demo run:
+To serve a production build locally (not test), like for a demo, run:
 
 ```
 $ npm run demo
