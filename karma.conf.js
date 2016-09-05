@@ -20,7 +20,10 @@ module.exports = function(config) {
     basePath: './',
     frameworks: ['jasmine'],
     files: [
+      //PhantomJS is missing these files
       {pattern: 'node_modules/reflect-metadata/Reflect.js'},
+      //https://github.com/wallabyjs/public/issues/542
+      {pattern: 'node_modules/babel-polyfill/browser.js'},
       {pattern: 'src/**/*.spec.ts'},
     ],
 

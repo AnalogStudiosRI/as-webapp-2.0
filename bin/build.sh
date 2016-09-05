@@ -34,4 +34,3 @@ npm run install:typings
 
 echo "running the build..."
 npm run build
-#./node_modules/.bin/gulp build --production
