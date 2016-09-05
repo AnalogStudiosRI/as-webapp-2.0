@@ -1,5 +1,3 @@
-//TODO get rid of helpers
-const helpers = require('./webpack.helpers');
 const webpackMerge = require('webpack-merge');
 const commonConfig = require('./webpack.config.common.js');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
@@ -7,7 +5,7 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 3000;
-const HMR = helpers.hasProcessFlag('hot');
+const HMR = process.argv.join('').indexOf('hot') > -1;
 const METADATA = webpackMerge(commonConfig.metadata, {
   host: HOST,
   port: PORT,

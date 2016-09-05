@@ -12,7 +12,7 @@ The following tools are used in the application
 - [TypeScript][] - superset of JavaScript for writing application code
 - [Webpack][] - Module loader / bundler, primary build tool
 - [Karma][] - task runner for unit testing
-- [Jasmine][] - testing framework
+- [Jasmine 2.x][] - testing framework
 - [LESS][] - CSS preprocessor
 - [Bootstrap 3.x][] - Mobile first CSS framework
 
@@ -107,6 +107,7 @@ An overview of important files and configurations for the applications
 * _src/polyfills.ts_ - collection of polyfills needed by the application
 * _src/routes.ts_ - routes for the application, maps to different views
 * _src/vendor.ts_ - vendor files from _node_modules_
+* _karma.conf.js_ - karma configuration file
 * _package.json_ - NPM dependency configuration file, for build related dependencies and runnable scripts
 * _tsconfig.json_ - TypeScript compiler configuration file
 * _tslint.json_ - configuration rules for [TSLint][]
@@ -114,13 +115,19 @@ An overview of important files and configurations for the applications
 * _webpack.config.common.js_ - webpack config for managing shared webpack configurations
 * _webpack.config.dev.js_ - webpack config for local development
 * _webpack.config.prod.js_ - webpack config for production builds
-* _webpack.config.test.js_ - webpack config for running unit tests
 
 [TSLint]: http://palantir.github.io/tslint/
 
 ## Tasks
 This project uses Webpack as the build tool, called via NPM scripts.  All available tasks are in the `scripts`
 section of _package.json_
+
+To "force" which build environment you want a command to run against, export either production or development ENV variables, eg
+
+```
+ $ export NODE_ENV=production|development npm run <task>
+ ```
+
 
 ### Development
 This will start up a Node (Express) server which watches for changes and "redeploys" as needed.
@@ -137,14 +144,23 @@ http://localhost:6789/
 
 ### Production
 This is the production build task for the project.  It is used prior to deploying to an environment and bundles the
-application and runs unit tests.
+application for production.
 
 ```
 $ npm run build
 ```
 
+## Continuous Integration
+There is a convenience task called `ci` for continuous integration environments, which builds and runs tests.  This is
+recommended for all non-local environments
+
+```
+$ npm run ci
+```
+
+
 ###
-To serve a production build locally , like for a demo run:
+To serve a production build locally (not test), like for a demo, run:
 
 ```
 $ npm run demo

@@ -1,29 +1,43 @@
 const isProductionBuild = process.env.NODE_ENV === 'production';
 const shouldWatch = !isProductionBuild;
 const shouldSingleRun = isProductionBuild;
+const browser = isProductionBuild ? 'PhantomJS' : 'Chrome';
+const webpackConfig = require('./webpack.config.common');
 
-module.exports = function (config) {
+//*** webpack hacks *** //
+// use this to allow spec.ts to be processed by Karma.  TODO better way to do this?
+webpackConfig.module.loaders[0].exclude = [];
+
+// TODO issues with karma and CommonChunksPlugin
+// https://github.com/webpack/karma-webpack/issues/24
+webpackConfig.plugins[2] = function() {};
+
+
+module.exports = function(config) {
+  const logLevel = isProductionBuild ? config.LOG_DEBUG : config.LOG_INFO;
+
   config.set({
-    basePath: '.',
+    basePath: './',
     frameworks: ['jasmine'],
     files: [
-      {pattern: './node_modules/systemjs/dist/system.src.js', included: true, watched: false},
-      {pattern: './node_modules/systemjs/dist/system-polyfills.js', included: true, watched: false},
-      {pattern: './karma-test-shim.js', included: true, watched: false},
-      {pattern: './src/**/**/*.ts', included: false, watched: shouldWatch}
+      //PhantomJS is missing these files
+      {pattern: 'node_modules/reflect-metadata/Reflect.js'},
+      //PhantomJS is missing these files - https://github.com/wallabyjs/public/issues/542
+      {pattern: 'node_modules/babel-polyfill/browser.js'},
+      {pattern: 'src/**/*.spec.ts'},
     ],
+
     preprocessors: {
-      './src/**/**/*.ts': ['typescript', 'coverage']
+      '**/*.spec.ts': ['webpack', 'coverage'],
     },
-    typescriptPreprocessor: {
-      typings: [ './typings/index.d.ts' ]
-    },
+
+    webpack: webpackConfig,
+
     reporters: ['progress', 'dots', 'junit', 'coverage'],
     port: 9876,
-    colors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['PhantomJS'],
+    logLevel: logLevel,
+    autoWatch: shouldWatch,
+    browsers: [browser],
     singleRun: shouldSingleRun,
     concurrency: Infinity,
     junitReporter: {
@@ -37,5 +51,6 @@ module.exports = function (config) {
       dir : './reports',
       subdir: 'coverage'
     }
-  })
+  });
+
 };
