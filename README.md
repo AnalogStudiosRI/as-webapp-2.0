@@ -12,7 +12,7 @@ The following tools are used in the application
 - [TypeScript][] - superset of JavaScript for writing application code
 - [Webpack][] - Module loader / bundler, primary build tool
 - [Karma][] - task runner for unit testing
-- [Jasmine][] - testing framework
+- [Jasmine 2.x][] - testing framework
 - [LESS][] - CSS preprocessor
 - [Bootstrap 3.x][] - Mobile first CSS framework
 
@@ -107,6 +107,7 @@ An overview of important files and configurations for the applications
 * _src/polyfills.ts_ - collection of polyfills needed by the application
 * _src/routes.ts_ - routes for the application, maps to different views
 * _src/vendor.ts_ - vendor files from _node_modules_
+* _karma.conf.js_ - karma configuration file
 * _package.json_ - NPM dependency configuration file, for build related dependencies and runnable scripts
 * _tsconfig.json_ - TypeScript compiler configuration file
 * _tslint.json_ - configuration rules for [TSLint][]
@@ -114,7 +115,6 @@ An overview of important files and configurations for the applications
 * _webpack.config.common.js_ - webpack config for managing shared webpack configurations
 * _webpack.config.dev.js_ - webpack config for local development
 * _webpack.config.prod.js_ - webpack config for production builds
-* _webpack.config.test.js_ - webpack config for running unit tests
 
 [TSLint]: http://palantir.github.io/tslint/
 

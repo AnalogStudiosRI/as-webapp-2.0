@@ -5,7 +5,7 @@ const browser = isProductionBuild ? 'PhantomJS' : 'Chrome';
 const webpackConfig = require('./webpack.config.common');
 
 //*** webpack hacks *** //
-// TODO use this to allow spec.ts to be processed by Karma from.  better way to do this?
+// use this to allow spec.ts to be processed by Karma.  TODO better way to do this?
 webpackConfig.module.loaders[0].exclude = [];
 
 // TODO issues with karma and CommonChunksPlugin
@@ -22,7 +22,7 @@ module.exports = function(config) {
     files: [
       //PhantomJS is missing these files
       {pattern: 'node_modules/reflect-metadata/Reflect.js'},
-      //https://github.com/wallabyjs/public/issues/542
+      //PhantomJS is missing these files - https://github.com/wallabyjs/public/issues/542
       {pattern: 'node_modules/babel-polyfill/browser.js'},
       {pattern: 'src/**/*.spec.ts'},
     ],

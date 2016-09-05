@@ -1,16 +1,10 @@
 //TODO get rid of helpers?
 const webpack = require('webpack');
-const helpers = require('./webpack.helpers');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
-const METADATA = {
-  baseUrl: '/',
-  isDevServer: helpers.isWebpackDevServer()
-};
 
 module.exports = {
-  metadata: METADATA,
   entry: {
     'polyfills': './src/polyfills.ts',
     'vendor':    './src/vendor.ts',

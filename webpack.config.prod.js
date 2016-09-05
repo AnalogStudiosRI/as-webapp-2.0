@@ -1,5 +1,3 @@
-//TODO get rid of helpers
-const helpers = require('./webpack.helpers');
 const webpackMerge = require('webpack-merge');
 const commonConfig = require('./webpack.config.common');
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
@@ -58,7 +56,7 @@ module.exports = webpackMerge(commonConfig, {
     //TODO ?
     // new NormalModuleReplacementPlugin(
     //   /angular2-hmr/,
-    //   helpers.root('config/modules/angular2-hmr-prod.js')
+    //   __dirname + 'config/modules/angular2-hmr-prod.js')
     // ),
   ],
 

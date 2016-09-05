@@ -33,4 +33,5 @@ echo "install typings"
 npm run install:typings
 
 echo "running the build..."
+npm run test:unit
 npm run build

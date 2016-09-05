@@ -16,8 +16,8 @@
     "url": "https://bitbucket.org/thegreenhouse/as-webapp-2.0/"
   },
   "scripts": {
-    "build": "export NODE_ENV=production && rimraf ./build && npm run test:unit && webpack --config ./webpack.config.prod.js --progress --profile --bail",
-    "develop": "rimraf ./build && webpack-dev-server --config ./webpack.config.dev.js  --inline --progress --port 6789",
+    "build": "export NODE_ENV=production && rimraf ./build && webpack --config ./webpack.config.prod.js --progress --profile --bail",
+    "develop": "export NODE_ENV=development && rimraf ./build && webpack-dev-server --config ./webpack.config.dev.js  --inline --progress --port 6789",
     "demo": "npm run build && ./node_modules/.bin/gulp serve",
     "install:typings": "./node_modules/.bin/typings install",
     "test:unit": "rimraf ./reports && karma start ./karma.conf.js"
