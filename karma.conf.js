@@ -14,12 +14,13 @@ webpackConfig.plugins[2] = function() {};
 
 
 module.exports = function(config) {
-  //const logLevel = isProductionBuild ? config.LOG_DEBUG : config.LOG_INFO;
+  const logLevel = isProductionBuild ? config.LOG_DEBUG : config.LOG_INFO;
 
   config.set({
     basePath: './',
     frameworks: ['jasmine'],
     files: [
+      {pattern: 'node_modules/reflect-metadata/Reflect.js'},
       {pattern: 'src/**/*.spec.ts'},
     ],
 
@@ -29,13 +30,8 @@ module.exports = function(config) {
 
     webpack: webpackConfig,
 
-    webpackMiddleware: {
-      stats: 'errors-only'
-    },
-
     reporters: ['progress', 'dots', 'junit', 'coverage'],
     port: 9876,
-    colors: true,
     logLevel: config.LOG_DEBUG,  //logLevel
     autoWatch: shouldWatch,
     browsers: [browser],
