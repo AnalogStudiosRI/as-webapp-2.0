@@ -33,6 +33,4 @@ echo "install typings"
 npm run install:typings
 
 echo "running the build..."
-export NODE_ENV=production 
-npm run test:unit
-npm run build
+npm run ci
