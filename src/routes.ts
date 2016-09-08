@@ -1,3 +1,4 @@
+import { AlbumsViewDetailsComponent } from './views/albums/album-details.component';
 import { AdminViewComponent } from './views/admin/admin.component';
 import { AdminViewManageAlbumsComponent } from './views/admin/manage-albums/manage-albums.component';
 import { AdminViewManageArtistsComponent } from './views/admin/manage-artists/manage-artists.component';
@@ -7,7 +8,7 @@ import { ArtistsViewComponent } from './views/artists/artists.component';
 import { ArtistDetailsViewComponent } from './views/artists/artist-details.component';
 import { HomeViewComponent } from './views/home/home.component';
 import { EventsViewComponent } from './views/events/events.component';
-import { EventDetailsViewComponent } from './views/events/event-details.component';
+import { EventsViewDetailsComponent } from './views/events/event-details.component';
 import { Routes } from '@angular/router';
 
 export const APP_ROUTES: Routes = [
@@ -19,9 +20,10 @@ export const APP_ROUTES: Routes = [
     { path: 'events', component: <any> AdminViewManageEventsComponent },
     { path: 'posts', component: <any> AdminViewManagePostsComponent }
   ]},
+  { path: 'albums/:id', component: <any> AlbumsViewDetailsComponent },
   { path: 'artists', component: <any> ArtistsViewComponent },
   { path: 'artists/:id', component: <any> ArtistDetailsViewComponent },
   { path: 'events', component: <any> EventsViewComponent },
-  { path: 'events/:id', component: <any> EventDetailsViewComponent },
+  { path: 'events/:id', component: <any> EventsViewDetailsComponent },
   { path: 'home', component: <any> HomeViewComponent }
 ];

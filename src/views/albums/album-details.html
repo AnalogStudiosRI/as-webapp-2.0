@@ -1,0 +1,31 @@
+<section class="col-xs-12">
+
+  <div class="album-details">
+
+    <div class="col-xs-4">
+      <as-social-share></as-social-share>
+    </div>
+
+    <div class="col-xs-8 event-details">
+      <div class="row">
+
+        <div class="col-xs-12">
+          <div *ngIf="getAlbumDetails()">
+            <!-- TODO GET aritst name here -->
+            <h2>{{ getAlbumDetails().title }} ({{ getAlbumDetails().year }})</h2>
+
+            <div>
+              <img src="{{ getAlbumDetails().imageUrl }}"/>
+              <div [innerHTML]="getAlbumDetails().description"></div>
+            </div>
+
+            <p><a href="{{ getAlbumDetails().downloadUrl }}">Download Link</a></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
