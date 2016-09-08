@@ -1,5 +1,6 @@
 //TODO make an admin module - https://thegreenhouse.atlassian.net/browse/AS-285
 import { AlbumsService } from './services/albums.service';
+import { AlbumsViewComponent } from './views/albums/albums.component';
 import { AlbumsViewDetailsComponent } from './views/albums/album-details.component';
 import { AdminViewComponent } from './views/admin/admin.component';
 import { AdminViewManageAlbumsComponent } from './views/admin/manage-albums/manage-albums.component';
@@ -50,6 +51,7 @@ import { SocialShareComponent } from './components/social-share/social-share.com
     HeaderComponent,
     NavigationComponent,
 
+    AlbumsViewComponent,
     AlbumsViewDetailsComponent,
     EventsViewDetailsComponent,
     EventsViewComponent,
