@@ -1,49 +1,63 @@
+import { AlbumInterface, AlbumsService } from '../../../services/albums.service';
+import { ArtistInterface, ArtistsService } from '../../../services/artists.service';
 import { CKEditor } from 'ng2-ckeditor';
 import { Component, OnInit } from '@angular/core';
 import { CORE_DIRECTIVES } from '@angular/common'
-import { AlbumInterface, AlbumsService } from '../../../services/albums.service';
 import { FormBuilder, FormGroup, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
-import { TimepickerComponent } from 'ng2-bootstrap';
+
 
 @Component({
   selector: 'admin-view-manage-albums',
   templateUrl: './manage-albums.html',
   styleUrls: [ '../admin.less' ],
   providers: [ AlbumsService, FormBuilder ],
-  directives: [ CKEditor, CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, TimepickerComponent ]
+  directives: [ CKEditor, CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES ]
 })
 
 export class AdminViewManageAlbumsComponent extends OnInit {
+  private isEditing: boolean = false;
+  public selectedArtistId: number = null;
   private albums: Array<AlbumInterface> = [];
-  private pristineAlbum: any = {
+  private artists: Array<ArtistInterface> = [];
+  private pristineAlbum: AlbumInterface = {
     id: null,
     title: '',
     description: '',
     year: null,
     imageUrl: null,
-    downloadUrl: null
+    downloadUrl: null,
+    artistId: null
   };
   public albumForm: FormGroup;
 
-  constructor(private AlbumsService: AlbumsService, private FormBuilder: FormBuilder){
+  constructor(private AlbumsService: AlbumsService, private ArtistsService: ArtistsService, private FormBuilder: FormBuilder){
     super();
     this.setAlbumFormGroup(this.pristineAlbum);
   }
 
   ngOnInit(): void {
-    this.AlbumsService.getArtists().subscribe((data: Array<AlbumInterface>) => {
+    this.AlbumsService.getAlbums().subscribe((data: Array<AlbumInterface>) => {
       this.albums = data;
-    })
+    });
+
+    this.ArtistsService.getArtists().subscribe((data: Array<ArtistInterface>) => {
+      this.artists = data;
+      this.selectedArtistId = this.artists[0].id;
+    });
   }
 
   private setAlbumFormGroup(album: AlbumInterface): void  {
+    this.isEditing = album.id ? true : false;
+    this.selectedArtistId = this.isEditing ? this.selectedArtistId : null;
+
     this.albumForm = this.FormBuilder.group({
       id: album.id || null,
       title: album.title || '',
       description: album.description || '',
       year: album.year || '',
       imageUrl: album.imageUrl || '',
-      downloadUrl: album.downloadUrl || ''
+      downloadUrl: album.downloadUrl || '',
+      artistId: album.artistId || null
     })
   }
 
@@ -56,7 +70,8 @@ export class AdminViewManageAlbumsComponent extends OnInit {
       description: controls['description'].value || '',
       year: controls['year'].value || '',
       imageUrl: controls['imageUrl'].value || '',
-      downloadUrl: controls['downloadUrl'].value || ''
+      downloadUrl: controls['downloadUrl'].value || '',
+      artistId: this.selectedArtistId || null
     }
   }
 
@@ -64,7 +79,7 @@ export class AdminViewManageAlbumsComponent extends OnInit {
     //TODO modal / error handling - https://thegreenhouse.atlassian.net/browse/AS-250
     let body = this.modelAlbumsRequestBody();
 
-    this.AlbumsService.createArtist(body).subscribe(() => {
+    this.AlbumsService.createAlbum(body).subscribe(() => {
       this.setAlbumFormGroup(this.pristineAlbum);
     }, (error) => {
       console.error('addEvent failure!', error);
@@ -76,7 +91,7 @@ export class AdminViewManageAlbumsComponent extends OnInit {
     let id: number = this.albumForm.controls['id'].value;
     let body: AlbumInterface = this.modelAlbumsRequestBody();
 
-    this.AlbumsService.updateArtist(id, body).subscribe(() => {
+    this.AlbumsService.updateAlbum(id, body).subscribe(() => {
       this.setAlbumFormGroup(this.pristineAlbum);
     }, (error) => {
       console.error('Update failure!', error);
@@ -87,18 +102,39 @@ export class AdminViewManageAlbumsComponent extends OnInit {
     return this.albums;
   }
 
+  public getArtists(): Array<ArtistInterface> {
+    return this.artists;
+  }
+
   public onAlbumSelected(index: number): void {
     let album = this.albums[index];
 
     this.setAlbumFormGroup(album);
   }
 
-  public submitForm(): boolean {
-    let isUpdatingAlbum: boolean = this.albumForm.controls['id'].value ? true : false;
 
-    if(isUpdatingAlbum) {
+  public onArtistSelected(index: number): void {
+    this.selectedArtistId = this.artists[index].id;
+  }
+
+  public getIsEditing(): boolean {
+    return this.isEditing;
+  }
+
+  public getCurrentlySelectedArtistId(): number {
+    return this.selectedArtistId;
+  }
+
+  public resetForm() {
+    this.isEditing = false;
+    this.selectedArtistId = null;
+  }
+
+  public submitForm(): boolean {
+
+    if(this.isEditing) {
       this.updateAlbum();
-    } else if(!isUpdatingAlbum){
+    } else if(!this.isEditing){
       this.createAlbum();
     } else {
       console.error('unable to submit form');

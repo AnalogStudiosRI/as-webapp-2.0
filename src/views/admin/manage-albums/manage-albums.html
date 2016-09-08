@@ -55,17 +55,24 @@
       <input id="downloadUrl" name="downloadUrl" [formControl]="albumForm.controls['downloadUrl']" type="text" placeholder="Album Download Link"/>
 
       <br/>
+      <br/>
 
-      Image preview
-      <img [src]="albumForm.controls['downloadUrl'].value"/>
+      <div *ngIf="!getIsEditing()">
+        <label for="select-artist">Select an Artist for this album:</label>
+
+        <select id="select-artist" (change)="onArtistSelected($event.target.selectedIndex)">
+          <option *ngFor="let artist of getArtists()" value="artist.id">{{artist.name}}</option>
+        </select>
+
+        <input type="hidden" [formControl]="albumForm.controls['artistId']" value="{{getCurrentlySelectedArtistId()}}">
+      </div>
+
 
       <br/>
       <br/>
-
-      <!--isActive: null,-->
 
       <button (click)="submitForm()" class="btn" type="submit">Submit</button>
-      <button class="btn" type="reset">Reset</button>
+      <button (click)="resetForm()" class="btn" type="reset">Reset</button>
 
     </form>
 
