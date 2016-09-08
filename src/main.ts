@@ -1,4 +1,6 @@
 //TODO make an admin module - https://thegreenhouse.atlassian.net/browse/AS-285
+import { AlbumsService } from './services/albums.service';
+import { AlbumsViewDetailsComponent } from './views/albums/album-details.component';
 import { AdminViewComponent } from './views/admin/admin.component';
 import { AdminViewManageAlbumsComponent } from './views/admin/manage-albums/manage-albums.component';
 import { AdminViewManageArtistsComponent } from './views/admin/manage-artists/manage-artists.component';
@@ -13,7 +15,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { BootstrapComponent } from './components/bootstrap/bootstrap.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { EventsCalendarComponent } from './components/events-calendar/events-calendar.component';
-import { EventDetailsViewComponent } from './views/events/event-details.component';
+import { EventsViewDetailsComponent } from './views/events/event-details.component';
 import { EventsService } from './services/events.service';
 import { EventsViewComponent } from './views/events/events.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -27,7 +29,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { PostsListComponent } from './components/posts-list/posts-list.component';
 import { PostsService } from './services/posts.service';
 import { RouterModule } from '@angular/router';
-
+import { SocialShareComponent } from './components/social-share/social-share.component';
 
 //TODO EventsCalendarComponent and PostsListComponent?
 //Is this still good for module bundling by putting everything here
@@ -38,14 +40,16 @@ import { RouterModule } from '@angular/router';
     HttpModule,
     RouterModule.forRoot(APP_ROUTES)
   ],
-  declarations: [ //component and directives, order matters!! )for now)
+  declarations: [ //component and directives, order matters!! (for now)
     EventsCalendarComponent,
     PostsListComponent,
+    SocialShareComponent,
 
     FooterComponent,
     HeaderComponent,
 
-    EventDetailsViewComponent,
+    AlbumsViewDetailsComponent,
+    EventsViewDetailsComponent,
     EventsViewComponent,
     HomeViewComponent,
     AdminViewManageAlbumsComponent,
@@ -59,14 +63,15 @@ import { RouterModule } from '@angular/router';
   ],
   bootstrap: [ BootstrapComponent ],  //root component
   providers: [ //services (eg. @injectables)
+    AlbumsService,
     AnalyticsService,
-    LocalStorage,
-    WEB_STORAGE_PROVIDERS,
+    ArtistsService,
     AuthenticationService,
     EventsService,
     JwtHelper,
+    LocalStorage,
     PostsService,
-    ArtistsService
+    WEB_STORAGE_PROVIDERS
   ]
 })
 

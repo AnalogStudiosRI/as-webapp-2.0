@@ -1,16 +1,14 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { EventInterface, EventsService } from '../../services/events.service';
-import { SocialShareComponent } from '../../components/social-share/social-share.component';
 
 @Component({
   selector: 'events-detailed',
   templateUrl: './event-details.html',
-  styleUrls: [ './events.less' ],
-  directives: [ SocialShareComponent ]
+  styleUrls: [ './events.less' ]
 })
 
-export class EventDetailsViewComponent extends OnInit {
+export class EventsViewDetailsComponent extends OnInit {
   //TODO any - https://thegreenhouse.atlassian.net/browse/AS-246
   private activeRouteSubscriber: any;
   private event: EventInterface;
