@@ -24,6 +24,7 @@ import { HomeViewComponent } from './views/home/home.component';
 import { HttpModule } from '@angular/http';
 import { JwtHelper } from 'angular2-jwt/angular2-jwt';
 import { LocalStorage, WEB_STORAGE_PROVIDERS } from 'h5webstorage';
+import { NavigationComponent } from './components/navigation/navigation.component';
 import { NgModule } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { PostsListComponent } from './components/posts-list/posts-list.component';
@@ -47,6 +48,7 @@ import { SocialShareComponent } from './components/social-share/social-share.com
 
     FooterComponent,
     HeaderComponent,
+    NavigationComponent,
 
     AlbumsViewDetailsComponent,
     EventsViewDetailsComponent,
