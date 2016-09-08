@@ -1,3 +1,4 @@
+import { AlbumsViewComponent } from './views/albums/albums.component';
 import { AlbumsViewDetailsComponent } from './views/albums/album-details.component';
 import { AdminViewComponent } from './views/admin/admin.component';
 import { AdminViewManageAlbumsComponent } from './views/admin/manage-albums/manage-albums.component';
@@ -20,6 +21,7 @@ export const APP_ROUTES: Routes = [
     { path: 'events', component: <any> AdminViewManageEventsComponent },
     { path: 'posts', component: <any> AdminViewManagePostsComponent }
   ]},
+  { path: 'albums', component: <any> AlbumsViewComponent },
   { path: 'albums/:id', component: <any> AlbumsViewDetailsComponent },
   { path: 'artists', component: <any> ArtistsViewComponent },
   { path: 'artists/:id', component: <any> ArtistDetailsViewComponent },

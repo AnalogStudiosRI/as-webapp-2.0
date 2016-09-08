@@ -1,0 +1,31 @@
+import { AlbumInterface, AlbumsService } from '../../services/albums.service';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'albums-view',
+  templateUrl: './albums.html',
+  styleUrls: [ './albums.less' ]
+})
+
+export class AlbumsViewComponent implements OnInit {
+  private albums: Array<AlbumInterface> = [];
+
+  constructor(private Router: Router, private AlbumsService: AlbumsService){
+
+  }
+
+  ngOnInit(): void {
+    this.AlbumsService.getAlbums().subscribe((data: Array<AlbumInterface>) => {
+      this.albums = data;
+    })
+  }
+
+  public getAlbums(): Array<AlbumInterface> {
+    return this.albums;
+  }
+
+  public onAlbumSelected(album: AlbumInterface){
+    this.Router.navigate(['albums', album.id]);
+  }
+}
