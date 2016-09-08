@@ -1,24 +1,22 @@
 <section class="admin-view-manage-albums">
 
-  <pre>{{getAlbums() | json}}</pre>
-
   <div class="col-md-12">
 
-    <form [formGroup]="artistForm">
+    <form [formGroup]="albumForm">
 
       <label for="select-album">Select an album to update it:</label>
 
       <br/>
 
       <select id="select-album" (change)="onAlbumSelected($event.target.selectedIndex)">
-        <option *ngFor="let album of getAlbum()" value="album.id">{{album.title}}</option>
+        <option *ngFor="let album of getAlbums()" value="album.id">{{album.title}}</option>
       </select>
 
       <br/>
       <br/>
 
       <label for="title">Title:</label>
-      <input id="title" name="title" [formControl]="albumForm.controls['title']" type="text" placeholder="Album Name" required/>
+      <input id="title" name="title" [formControl]="albumForm.controls['title']" type="text" placeholder="Album Title" required/>
 
       <br/>
       <br/>

@@ -54,12 +54,9 @@ export class AdminViewManageAlbumsComponent extends OnInit {
       id: controls['id'].value || null,
       title: controls['title'].value || '',
       description: controls['description'].value || '',
-      location: controls['location'].value || null,
-      label: controls['label'].value || '',
-      contactPhone: controls['contactPhone'].value || '',
-      contactEmail: controls['contactEmail'].value || '',
+      year: controls['year'].value || '',
       imageUrl: controls['imageUrl'].value || '',
-      genre: controls['genre'].value || ''
+      downloadUrl: controls['downloadUrl'].value || ''
     }
   }
 
@@ -86,14 +83,14 @@ export class AdminViewManageAlbumsComponent extends OnInit {
     });
   }
 
-  public getArtists(): Array<AlbumInterface> {
+  public getAlbums(): Array<AlbumInterface> {
     return this.albums;
   }
 
   public onAlbumSelected(index: number): void {
-    let artist = this.albumForm[index];
+    let album = this.albums[index];
 
-    this.setAlbumFormGroup(artist);
+    this.setAlbumFormGroup(album);
   }
 
   public submitForm(): boolean {
