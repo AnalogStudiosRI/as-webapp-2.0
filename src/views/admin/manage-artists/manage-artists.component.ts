@@ -3,19 +3,18 @@ import { Component, OnInit } from '@angular/core';
 import { CORE_DIRECTIVES } from '@angular/common'
 import { ArtistInterface, ArtistsService } from '../../../services/artists.service';
 import { FormBuilder, FormGroup, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
-import { TimepickerComponent } from 'ng2-bootstrap';
 
 @Component({
   selector: 'admin-view-manage-artists',
   templateUrl: './manage-artists.html',
   styleUrls: [ '../admin.less' ],
   providers: [ ArtistsService, FormBuilder ],
-  directives: [ CKEditor, CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, TimepickerComponent ]
+  directives: [ CKEditor, CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES ]
 })
 
 export class AdminViewManageArtistsComponent extends OnInit {
   private artists: Array<ArtistInterface> = [];
-  private pristineArtist: any = {
+  private pristineArtist: ArtistInterface = {
     id: null,
     name: '',
     bio: '',

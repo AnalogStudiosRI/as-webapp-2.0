@@ -9,7 +9,8 @@ export interface AlbumInterface {
   description: string,
   year?: number,
   imageUrl?: string,
-  downloadUrl?: string
+  downloadUrl?: string,
+  artistId?: number
 }
 
 @Injectable()
@@ -28,7 +29,7 @@ export class AlbumsService {
   }
 
   //TODO combine?
-  public getArtist(artistId: number): Observable<AlbumInterface> {
+  public getAlbum(artistId: number): Observable<AlbumInterface> {
 
     return this.http.get(this.API_URL_ALBUMS + '/' + artistId)
       .map((response: Response) => {
@@ -37,7 +38,7 @@ export class AlbumsService {
   }
 
   //TODO combine?
-  public getArtists(): Observable<AlbumInterface[]> {
+  public getAlbums(): Observable<AlbumInterface[]> {
 
     return this.http.get(this.API_URL_ALBUMS)
       .map((response: Response) => {
@@ -46,7 +47,7 @@ export class AlbumsService {
   }
 
   //TODO any - https://thegreenhouse.atlassian.net/browse/AS-246
-  public createArtist(body: AlbumInterface): Observable <any>{
+  public createAlbum(body: AlbumInterface): Observable <any>{
 
     return this.http.post(this.API_URL_ALBUMS, body, this.getOptionsForAuthentication())
       .map((response: Response) => {
@@ -54,7 +55,7 @@ export class AlbumsService {
       })
   }
 
-  public updateArtist(artistId: number, body: AlbumInterface): Observable <any>{
+  public updateAlbum(artistId: number, body: AlbumInterface): Observable <any>{
 
     return this.http.put(this.API_URL_ALBUMS + '/' + artistId, body, this.getOptionsForAuthentication())
       .map((response: Response) => {

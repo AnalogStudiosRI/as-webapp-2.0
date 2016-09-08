@@ -15,11 +15,13 @@ import { TimepickerComponent } from 'ng2-bootstrap';
 
 export class AdminViewManageEventsComponent extends OnInit {
   private events: Array<EventInterface> = [];
-  private pristineEvent: any = {
+  private pristineEvent: EventInterface = {
     id: null,
     title: '',
     description: '',
-    startTime: '',
+    startTime: null,
+    endTime: null,
+    createdTime: null
   };
   public eventForm: FormGroup;
 
