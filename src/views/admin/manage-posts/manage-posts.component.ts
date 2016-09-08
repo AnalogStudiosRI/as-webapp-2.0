@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { PostInterface, PostsService } from '../../services/posts.service';
+import { PostInterface, PostsService } from '../../../services/posts.service';
 
 @Component({
-  selector: 'admin-posts',
-  templateUrl: './admin-posts.html',
-  styleUrls: [ './admin.less' ],
+  selector: 'admin-view-manage-posts',
+  templateUrl: './manage-posts.html',
+  styleUrls: [ '../admin.less' ],
   providers: [ FormBuilder, PostsService ]
 })
 
-export class AdminViewPostsComponent extends OnInit {
+export class AdminViewManagePostsComponent extends OnInit {
   private posts: Array<PostInterface> = [];
   private pristinePost: PostInterface = {
     id: null,

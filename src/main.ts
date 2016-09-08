@@ -1,8 +1,9 @@
 //TODO make an admin module - https://thegreenhouse.atlassian.net/browse/AS-285
 import { AdminViewComponent } from './views/admin/admin.component';
-import { AdminViewArtistsComponent } from './views/admin/admin-artists.component';
-import { AdminViewEventsComponent } from './views/admin/admin-events.component';
-import { AdminViewPostsComponent } from './views/admin/admin-posts.component';
+import { AdminViewManageAlbumsComponent } from './views/admin/manage-albums/manage-albums.component';
+import { AdminViewManageArtistsComponent } from './views/admin/manage-artists/manage-artists.component';
+import { AdminViewManageEventsComponent } from './views/admin/manage-events/manage-events.component';
+import { AdminViewManagePostsComponent } from './views/admin/manage-posts/manage-posts.component';
 import { AnalyticsService } from './services/analytics.service';
 import { APP_ROUTES } from './routes';
 import { ArtistsService } from './services/artists.service';
@@ -47,9 +48,10 @@ import { RouterModule } from '@angular/router';
     EventDetailsViewComponent,
     EventsViewComponent,
     HomeViewComponent,
-    AdminViewArtistsComponent,
-    AdminViewEventsComponent,
-    AdminViewPostsComponent,
+    AdminViewManageAlbumsComponent,
+    AdminViewManageArtistsComponent,
+    AdminViewManageEventsComponent,
+    AdminViewManagePostsComponent,
     AdminViewComponent,
     ArtistsViewComponent,
     ArtistDetailsViewComponent,
