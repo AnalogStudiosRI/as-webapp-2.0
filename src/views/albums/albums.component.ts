@@ -21,11 +21,19 @@ export class AlbumsViewComponent implements OnInit {
     })
   }
 
+  private gotoAlbumDetailsView(albumId: number) {
+    this.Router.navigate(['albums', albumId]);
+  }
+
   public getAlbums(): Array<AlbumInterface> {
     return this.albums;
   }
 
-  public onAlbumSelected(album: AlbumInterface){
-    this.Router.navigate(['albums', album.id]);
+  public onAlbumSelected(selectedIndex: number){
+    this.gotoAlbumDetailsView(this.albums[selectedIndex].id);
+  }
+
+  public onAlbumClicked(album: AlbumInterface){
+    this.gotoAlbumDetailsView(album.id);
   }
 }
