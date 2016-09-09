@@ -7,17 +7,17 @@
       <p>Quick Links</p>
 
       <select (change)="onArtistSelected($event.target.selectedIndex)">
-        <option *ngFor="let artists of getArtists()" value="artist.id">{{artist.name}}</option>
+        <option *ngFor="let artist of getArtists()" value="artist.id">{{artist.name}}</option>
       </select>
 
     </div>
 
     <div class="col-xs-8">
 
-      <div *ngFor="let artists of getArtists()" class="media artists-row" (click)="onArtistClicked(artist)">
+      <div *ngFor="let artist of getArtists()" class="media artists-row" (click)="onArtistClicked(artist)">
 
         <div class="media-left">
-          <img class="media-object" [src]="artist.imageUrl" alt="{{album.name}}">
+          <img class="media-object" [src]="artist.imageUrl" alt="{{artist.name}}">
         </div>
 
         <div class="media-body">

@@ -25,15 +25,15 @@ export class ArtistsViewComponent implements OnInit {
     this.Router.navigate(['artists', albumId]);
   }
 
-  public getAlbums(): Array<ArtistInterface> {
+  public getArtists(): Array<ArtistInterface> {
     return this.artists;
   }
 
-  public onAlbumSelected(selectedIndex: number){
+  public onArtistSelected(selectedIndex: number){
     this.gotoAlbumDetailsView(this.artists[selectedIndex].id);
   }
 
-  public onAlbumClicked(artist: ArtistInterface){
+  public onArtistClicked(artist: ArtistInterface){
     this.gotoAlbumDetailsView(artist.id);
   }
 }
