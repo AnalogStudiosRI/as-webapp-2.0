@@ -15,7 +15,7 @@
             <h2>{{ getAlbumDetails().title }} ({{ getAlbumDetails().year }})</h2>
 
             <div>
-              <img src="{{ getAlbumDetails().imageUrl }}"/>
+              <img src="{{ getAlbumDetails().imageUrl }}" alt="{{ getAlbumDetails().title }}"/>
               <div [innerHTML]="getAlbumDetails().description"></div>
             </div>
 
