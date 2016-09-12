@@ -1,90 +1,98 @@
 <div class="container as-events-calendar">
 
-  <table class="row visible-lg-block calendar">
-    <thead>
-      <tr>
-        <th>
-          <button type="button" class="btn btn-default btn-sm pull-left" (click)="shiftToPreviousMonth()" tabindex="-1">
-            <i class="glyphicon glyphicon-chevron-left"></i>
-          </button>
-        </th>
+  <div class="row visible-lg-block">
 
-        <th></th>
-        <th></th>
+    <table class="calendar">
+      <thead>
+        <tr>
+          <th>
+            <button type="button" class="btn btn-default btn-sm pull-left" (click)="shiftToPreviousMonth()" tabindex="-1">
+              <i class="glyphicon glyphicon-chevron-left"></i>
+            </button>
+          </th>
 
-        <th>
-          <h4 class="txt-secondary">{{getHeaderText()}}</h4>
-        </th>
+          <th></th>
+          <th></th>
 
-        <th></th>
-        <th></th>
+          <th>
+            <h4 class="txt-secondary">{{getHeaderText()}}</h4>
+          </th>
 
-        <th>
-          <button type="button" class="btn btn-default btn-sm pull-right" (click)="shiftToNextMonth()" tabindex="-1">
-            <i class="glyphicon glyphicon-chevron-right"></i>
-          </button>
-        </th>
-      </tr>
+          <th></th>
+          <th></th>
 
-      <tr>
-        <th class="day-name">Sun</th>
-        <th class="day-name">Mon</th>
-        <th class="day-name">Tue</th>
-        <th class="day-name">Wed</th>
-        <th class="day-name">Thu</th>
-        <th class="day-name">Fri</th>
-        <th class="day-name">Sat</th>
-      </tr>
+          <th>
+            <button type="button" class="btn btn-default btn-sm pull-right" (click)="shiftToNextMonth()" tabindex="-1">
+              <i class="glyphicon glyphicon-chevron-right"></i>
+            </button>
+          </th>
+        </tr>
 
-    </thead>
+        <tr>
+          <th class="day-name">Sun</th>
+          <th class="day-name">Mon</th>
+          <th class="day-name">Tue</th>
+          <th class="day-name">Wed</th>
+          <th class="day-name">Thu</th>
+          <th class="day-name">Fri</th>
+          <th class="day-name">Sat</th>
+        </tr>
 
-    <tbody>
-      <tr *ngFor="let week of currentMonthData">
-        <td *ngFor="let day of week">
+      </thead>
 
-          <!--day not in month-->
-          <div *ngIf="!day.date" class="day-off">
-          </div>
+      <tbody>
+        <tr *ngFor="let week of currentMonthData">
+          <td *ngFor="let day of week">
 
-          <!--day in month without event-->
-          <div *ngIf="day.date && !day.hasEvents" class="day-on">
-            <span>{{day.date}}</span>
-          </div>
+            <!--day not in month-->
+            <div *ngIf="!day.date" class="day-off">
+            </div>
 
-          <!--day with event if there's an event-->
-          <div *ngIf="day.hasEvents" class="day-event">
-            <span *ngFor="let event of day.events, let idx = index">
-              <span [routerLink]="['/events', event.id]" [innerHTML]="getEventTitle(idx)"></span>
-            </span>
-          </div>
+            <!--day in month without event-->
+            <div *ngIf="day.date && !day.hasEvents" class="day-on">
+              <span>{{day.date}}</span>
+            </div>
 
-        </td>
-      </tr>
-    </tbody>
-  </table>
+            <!--day with event if there's an event-->
+            <div *ngIf="day.hasEvents" class="day-event">
+              <span *ngFor="let event of day.events, let idx = index">
+                <span [routerLink]="['/events', event.id]" [innerHTML]="getEventTitle(idx)"></span>
+              </span>
+            </div>
 
-  <div class="row hidden-lg carousel">
-    <div *ngIf="getHasEvents()" class="col-xs-12">
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-      <div class="col-sm-3 visible-*-block">
-        <span class="link">
-          <i class="glyphicon glyphicon-chevron-left pull-right arrow" (click)="shiftToPreviousCarousel()"></i>
-        </span>
+  </div>
+
+  <div class="row hidden-lg">
+
+    <div class="carousel">
+      <div *ngIf="getHasEvents()" class="col-xs-12">
+
+        <div class="col-sm-3 visible-*-block">
+          <span class="link">
+            <i class="glyphicon glyphicon-chevron-left pull-right arrow" (click)="shiftToPreviousCarousel()"></i>
+          </span>
+        </div>
+
+        <div class="col-sm-6 event-tile">
+          <h4 [routerLink]="['/events', getCurrentEvent().id ]">{{ getCurrentEvent().title }}</h4>
+          <h6> {{ (getCurrentEvent().startTime * 1000) | date : 'EEEE @ h:mm a' }}</h6>
+          <h6> {{ (getCurrentEvent().startTime * 1000) | date : 'MMMM d, yyyy' }}</h6>
+        </div>
+
+        <div class="col-sm-3 visible-*-block">
+          <span class="link">
+            <i class="glyphicon glyphicon-chevron-right arrow" (click)="shiftToNextCarousel()"></i>
+          </span>
+        </div>
+
       </div>
-
-      <div class="col-sm-6 event-tile">
-        <h4 [routerLink]="['/events', getCurrentEvent().id ]">{{ getCurrentEvent().title }}</h4>
-        <h6> {{ (getCurrentEvent().startTime * 1000) | date : 'EEEE @ h:mm a' }}</h6>
-        <h6> {{ (getCurrentEvent().startTime * 1000) | date : 'MMMM d, yyyy' }}</h6>
-      </div>
-
-      <div class="col-sm-3 visible-*-block">
-        <span class="link">
-          <i class="glyphicon glyphicon-chevron-right arrow" (click)="shiftToNextCarousel()"></i>
-        </span>
-      </div>
-
     </div>
+
   </div>
 
 </div>
