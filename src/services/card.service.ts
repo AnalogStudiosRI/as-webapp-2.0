@@ -19,7 +19,7 @@ export class CardService {
       headingText: artist.name,
       bodyText: artist.bio,
       imageAltText: artist.name,
-      link: 'artist/' + artist.id
+      link: '/artists/' + artist.id
     }
   }
 }

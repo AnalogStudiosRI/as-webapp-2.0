@@ -1,9 +1,9 @@
 <div class="container as-card">
   <div class="row">
     <!-- why doesn't col-xs-12 work here -->
-    <div class="col-xs-8 hidden-xs">
+    <div class="col-xs-8">
 
-      <div class="card-row" [routerLink]="['home']">
+      <div class="card-row hidden-xs" [routerLink]="getCardOptions().link">
         <div class="media">
 
           <div class="media-left">
@@ -19,15 +19,12 @@
         </div>
       </div>
 
-    </div>
-
-    <div class="col-xs-8 visivle-*-xs">
-
-      <div class="card-row" [routerLink]="['home']">
+      <div class="card-row hidden-lg hidden-md hidden-sm" [routerLink]="getCardOptions().link">
         <h4 class="media-heading">{{getCardOptions().headingText}}</h4>
         <img class="media-object" src="{{getCardOptions().imagePath}}" alt="{{getCardOptions().imageAltText}}">
       </div>
 
     </div>
+
   </div>
 </div>
