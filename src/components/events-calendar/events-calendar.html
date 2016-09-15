@@ -72,19 +72,19 @@
     <div class="carousel">
       <div *ngIf="getHasEvents()" class="col-xs-12">
 
-        <div class="col-sm-3 visible-*-block">
+        <div class="col-xs-3">
           <span class="link">
             <i class="glyphicon glyphicon-chevron-left pull-right arrow" (click)="shiftToPreviousCarousel()"></i>
           </span>
         </div>
 
-        <div class="col-sm-6 event-tile">
+        <div class="col-xs-6 event-tile">
           <h4 [routerLink]="['/events', getCurrentEvent().id ]">{{ getCurrentEvent().title }}</h4>
           <h6> {{ (getCurrentEvent().startTime * 1000) | date : 'EEEE @ h:mm a' }}</h6>
           <h6> {{ (getCurrentEvent().startTime * 1000) | date : 'MMMM d, yyyy' }}</h6>
         </div>
 
-        <div class="col-sm-3 visible-*-block">
+        <div class="col-xs-3">
           <span class="link">
             <i class="glyphicon glyphicon-chevron-right arrow" (click)="shiftToNextCarousel()"></i>
           </span>
