@@ -1,40 +1,42 @@
-<section class="admin-view-manage-posts">
+<section class="container as-view-admin-manage-posts">
+  <div class="row">
 
-  <div class="col-md-12">
+    <div class="col-xs-9">
 
-    <form [formGroup]="postForm">
+      <form [formGroup]="postForm">
 
-      <label for="select-post">Select a post to update it:</label>
+        <label for="select-post">Select a post to update it:</label>
 
-      <br/>
+        <br/>
 
-      <select id="select-post" (change)="onPostSelected($event.target.selectedIndex)">
-        <option *ngFor="let post of getPosts()" value="post.id">{{post.title}}</option>
-      </select>
+        <select id="select-post" (change)="onPostSelected($event.target.selectedIndex)">
+          <option *ngFor="let post of getPosts()" value="post.id">{{post.title}}</option>
+        </select>
 
-      <label for="title">Title:</label>
-      <input id="title" name="title" [formControl]="postForm.controls['title']" type="text" placeholder="Post Title"required/>
+        <label for="title">Title:</label>
+        <input id="title" name="title" [formControl]="postForm.controls['title']" type="text" placeholder="Post Title"required/>
 
-      <br/>
-      <br/>
+        <br/>
+        <br/>
 
-      <label for="summary">Summary:</label>
-      <ckeditor
-        id="summary"
-        name="summary"
-        placeholder="Post Summary"
-        [formControl]="postForm.controls['summary']"
-        debounce="500">
-      </ckeditor>
+        <label for="summary">Summary:</label>
+        <ckeditor
+          id="summary"
+          name="summary"
+          placeholder="Post Summary"
+          [formControl]="postForm.controls['summary']"
+          debounce="500">
+        </ckeditor>
 
-      <br/>
-      <br/>
+        <br/>
+        <br/>
 
-      <button (click)="submitForm()" class="btn" type="submit">Submit</button>
-      <button class="btn" type="reset">Reset</button>
+        <button (click)="submitForm()" class="btn" type="submit">Submit</button>
+        <button class="btn" type="reset">Reset</button>
 
-    </form>
+      </form>
+
+    </div>
 
   </div>
-
 </section>
