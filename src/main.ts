@@ -15,6 +15,8 @@ import { ArtistDetailsViewComponent } from './views/artists/artist-details.compo
 import { AuthenticationService } from './services/authentication.service';
 import { BootstrapComponent } from './components/bootstrap/bootstrap.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { CardComponent } from './components/card/card.component';
+import { CardService } from './services/card.service';
 import { EventsCalendarComponent } from './components/events-calendar/events-calendar.component';
 import { EventsViewDetailsComponent } from './views/events/event-details.component';
 import { EventsService } from './services/events.service';
@@ -43,27 +45,27 @@ import { SocialShareComponent } from './components/social-share/social-share.com
     RouterModule.forRoot(APP_ROUTES)
   ],
   declarations: [ //component and directives, order matters!! (for now)
+    CardComponent,
     EventsCalendarComponent,
-    PostsListComponent,
-    SocialShareComponent,
-
     FooterComponent,
     HeaderComponent,
     NavigationComponent,
+    PostsListComponent,
+    SocialShareComponent,
 
-    AlbumsViewComponent,
-    AlbumsViewDetailsComponent,
-    EventsViewDetailsComponent,
-    EventsViewComponent,
-    HomeViewComponent,
+    BootstrapComponent,
     AdminViewManageAlbumsComponent,
     AdminViewManageArtistsComponent,
     AdminViewManageEventsComponent,
     AdminViewManagePostsComponent,
     AdminViewComponent,
+    AlbumsViewComponent,
+    AlbumsViewDetailsComponent,
     ArtistsViewComponent,
     ArtistDetailsViewComponent,
-    BootstrapComponent
+    EventsViewDetailsComponent,
+    EventsViewComponent,
+    HomeViewComponent
   ],
   bootstrap: [ BootstrapComponent ],  //root component
   providers: [ //services (eg. @injectables)
@@ -71,6 +73,7 @@ import { SocialShareComponent } from './components/social-share/social-share.com
     AnalyticsService,
     ArtistsService,
     AuthenticationService,
+    CardService,
     EventsService,
     JwtHelper,
     LocalStorage,

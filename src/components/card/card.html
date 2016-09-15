@@ -1,0 +1,33 @@
+<div class="container as-card">
+  <div class="row">
+    <!-- why doesn't col-xs-12 work here -->
+    <div class="col-xs-8 hidden-xs">
+
+      <div class="card-row" [routerLink]="['home']">
+        <div class="media">
+
+          <div class="media-left">
+            <img class="media-object" src="{{getCardOptions().imagePath}}" alt="{{getCardOptions().imageAltText}}">
+          </div>
+
+          <div class="media-body">
+            <!-- TODO anchor link here (click)="onArtistClicked(artist)" -->
+            <h4 class="media-heading">{{getCardOptions().headingText}}</h4>
+            <p [innerHTML]="getCardOptions().bodyText"></p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-xs-8 visivle-*-xs">
+
+      <div class="card-row" [routerLink]="['home']">
+        <h4 class="media-heading">{{getCardOptions().headingText}}</h4>
+        <img class="media-object" src="{{getCardOptions().imagePath}}" alt="{{getCardOptions().imageAltText}}">
+      </div>
+
+    </div>
+  </div>
+</div>
