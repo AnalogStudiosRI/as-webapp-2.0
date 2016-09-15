@@ -1,22 +1,22 @@
 @import (reference) '../../components/bootstrap/bootstrap';
 
 .as-events-calendar {
-  min-height:290px;
-  margin: 0 auto;
-  width: 80%;
 
   h4, i:before{
     color: @font-color-secondary;
   }
 
-  button{
-    border: none!important;
-    background-color: transparent!important;
-  }
-
   table.calendar {
+    min-height:290px;
+    margin: 0 auto;
+    width: 80%;
 
-    th{
+    button {
+      border: none!important;
+      background-color: transparent!important;
+    }
+
+    th {
       display: inline-block;
       width: 122px;
     }
@@ -59,7 +59,7 @@
 
     .event-tile {
 
-      border: solid 1px black;
+      border: solid 1px @black;
 
       h4 {
         cursor: pointer;
