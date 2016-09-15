@@ -1,4 +1,4 @@
-<div class="container as-view-album">
+<div class="container as-view-albums">
   <div class="row">
 
     <div class="col-xs-4">
@@ -13,17 +13,8 @@
 
     <div class="col-xs-8">
 
-      <div *ngFor="let album of getAlbums()" class="media album-row" (click)="onAlbumClicked(album)">
-
-        <div class="media-left">
-          <img class="media-object" [src]="album.imageUrl" alt="{{album.title}}">
-        </div>
-
-        <div class="media-body">
-          <h4 class="media-heading" (click)="onAlbumClicked(album)">{{album.title}}</h4>
-          <p [innerHTML]="album.description"></p>
-        </div>
-
+      <div *ngFor="let album of getAlbums()">
+        <as-card [cardOptions]="getModeledAlbumForCard(album)"></as-card>
       </div>
 
     </div>

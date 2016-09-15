@@ -1,4 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
+import { CardOptionsInterface, CardService } from '../../services/card.service';
 import { Component, OnInit } from '@angular/core';
 import { AlbumInterface, AlbumsService } from '../../services/albums.service';
 
@@ -11,9 +12,13 @@ import { AlbumInterface, AlbumsService } from '../../services/albums.service';
 export class AlbumsViewDetailsComponent extends OnInit {
   //TODO any - https://thegreenhouse.atlassian.net/browse/AS-246
   private activeRouteSubscriber: any;
-  private album: AlbumInterface;
+  private album: AlbumInterface = {
+    title: '',
+    description: '',
+    imageUrl: ''
+  };
 
-  constructor(private ActivatedRoute: ActivatedRoute, private AlbumsService: AlbumsService) {
+  constructor(private ActivatedRoute: ActivatedRoute, private AlbumsService: AlbumsService, private CardService: CardService) {
     super();
   }
 
@@ -33,6 +38,10 @@ export class AlbumsViewDetailsComponent extends OnInit {
 
   public getAlbumDetails(): AlbumInterface {
     return this.album;
+  }
+
+  public getModeledAlbumForCard(): CardOptionsInterface {
+    return this.CardService.modelAlbum(this.album);
   }
 
 }
