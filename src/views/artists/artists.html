@@ -13,17 +13,8 @@
 
     <div class="col-xs-8">
 
-      <div *ngFor="let artist of getArtists()" class="media artist-row" (click)="onArtistClicked(artist)">
-
-        <div class="media-left">
-          <img class="media-object" [src]="artist.imageUrl" alt="{{artist.name}}">
-        </div>
-
-        <div class="media-body">
-          <h4 class="media-heading" (click)="onArtistClicked(artist)">{{artist.name}}</h4>
-          <p [innerHTML]="artist.bio"></p>
-        </div>
-
+      <div *ngFor="let artist of getArtists()">
+        <as-card [cardOptions]="getModeledArtistForCard(artist)"></as-card>
       </div>
 
     </div>

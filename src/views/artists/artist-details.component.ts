@@ -1,6 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
 import { ArtistInterface, ArtistsService } from "../../services/artists.service";
+import { CardOptionsInterface, CardService} from "../../services/card.service";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'artist-details',
@@ -17,7 +18,7 @@ export class ArtistDetailsViewComponent extends OnInit {
     imageUrl: ''
   };
 
-  constructor(private ActivatedRoute: ActivatedRoute, private ArtistsService: ArtistsService) {
+  constructor(private ActivatedRoute: ActivatedRoute, private ArtistsService: ArtistsService, private CardService: CardService) {
     super();
   }
 
@@ -37,6 +38,10 @@ export class ArtistDetailsViewComponent extends OnInit {
 
   public getArtistDetails(): ArtistInterface {
     return this.artist;
+  }
+
+  public getModeledArtistForCard(): CardOptionsInterface {
+    return this.CardService.modelArtist(this.artist);
   }
 
 }

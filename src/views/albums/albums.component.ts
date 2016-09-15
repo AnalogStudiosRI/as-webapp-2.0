@@ -1,4 +1,5 @@
 import { AlbumInterface, AlbumsService } from '../../services/albums.service';
+import { CardService } from '../../services/card.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class AlbumsViewComponent implements OnInit {
   private albums: Array<AlbumInterface> = [];
 
-  constructor(private Router: Router, private AlbumsService: AlbumsService){
+  constructor(private AlbumsService: AlbumsService, private CardService: CardService, private Router: Router){
 
   }
 
@@ -21,19 +22,15 @@ export class AlbumsViewComponent implements OnInit {
     })
   }
 
-  private gotoAlbumDetailsView(albumId: number) {
-    this.Router.navigate(['albums', albumId]);
-  }
-
   public getAlbums(): Array<AlbumInterface> {
     return this.albums;
   }
 
   public onAlbumSelected(selectedIndex: number){
-    this.gotoAlbumDetailsView(this.albums[selectedIndex].id);
+    this.Router.navigate(['albums', this.albums[selectedIndex].id]);
   }
 
-  public onAlbumClicked(album: AlbumInterface){
-    this.gotoAlbumDetailsView(album.id);
+  public getModeledAlbumForCard(album: AlbumInterface) {
+    return this.CardService.modelAlbum(album);
   }
 }
