@@ -1,6 +1,6 @@
 @import (reference) '../../components/bootstrap/bootstrap';
 
-.as-calendar {
+.as-events-calendar {
   min-height:290px;
   margin: 0 auto;
   width: 80%;
@@ -14,7 +14,8 @@
     background-color: transparent!important;
   }
 
-  table {
+  table.calendar {
+
     th{
       display: inline-block;
       width: 122px;
@@ -49,4 +50,26 @@
       text-align: center;
     }
   }
+
+  .carousel {
+    .arrow {
+      padding-top: 35px;
+      cursor: pointer;
+    }
+
+    .event-tile {
+
+      border: solid 1px black;
+
+      h4 {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
+      h4, h6 {
+        text-align: center;
+      }
+    }
+  }
+
 }

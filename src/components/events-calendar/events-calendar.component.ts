@@ -30,6 +30,8 @@ export class EventsCalendarComponent extends OnInit {
   private events: Array<EventInterface> = [];
   private currentMonthIndex: number;
   private currentYear: number;
+  private currentEventIndex: number = 0;
+  private hasEvents: boolean = false;
   public currentMonthData: Array<any> = [];
 
   constructor(private Router: Router, private EventsService: EventsService) {
@@ -88,6 +90,17 @@ export class EventsCalendarComponent extends OnInit {
     }
   }
 
+  private generateEventsCarouselData(): void {
+    let now = new Date().getTime() / 1000;
+
+    for(let i = 0, l = this.events.length; i < l; i++){
+
+      if(now > this.events[i].startTime){
+        this.currentEventIndex++;
+      }
+    }
+  }
+
   private calculatePreviousMonth(): void{
     if(this.currentMonthIndex === 0){
       this.currentMonthIndex = 11;
@@ -133,10 +146,36 @@ export class EventsCalendarComponent extends OnInit {
     this.Router.navigate(['events', selectedEvent.id]);
   }
 
+  public getCurrentEvent(): EventInterface {
+    return this.events[this.currentEventIndex];
+  }
+
+  public shiftToPreviousCarousel(): void{
+    if(this.currentEventIndex === 0){
+      this.currentEventIndex = this.events.length - 1;
+    }else{
+      this.currentEventIndex -= 1;
+    }
+  }
+
+  public shiftToNextCarousel(): void {
+    if(this.currentEventIndex === this.events.length - 1){
+      this.currentEventIndex = 0;
+    }else{
+      this.currentEventIndex += 1;
+    }
+  }
+
+  public getHasEvents(): boolean {
+    return this.hasEvents;
+  }
+
   ngOnInit(): void {
     this.EventsService.getEvents().subscribe((data: Array<EventInterface>) => {
       this.events = data;
-      this.calculateCurrentMonthData();
+      this.calculateCurrentMonthData(); //for desktop
+      this.generateEventsCarouselData();  //for mobile / tablet
+      this.hasEvents = this.events.length === 0 ? false : true;
     }, (err) => {
       console.log('err', err);
     })
