@@ -11,15 +11,15 @@ export interface CardOptionsInterface {
 
 @Injectable()
 export class CardService {
-  constructor(){}
+  constructor() {}
 
   public modelArtist(artist: ArtistInterface): CardOptionsInterface {
     return {
-      imagePath: artist.imageUrl,
-      headingText: artist.name,
-      bodyText: artist.bio,
-      imageAltText: artist.name,
-      link: '/artists/' + artist.id
+      imagePath: artist ? artist.imageUrl : '',
+      headingText: artist ? artist.name : '',
+      bodyText: artist ? artist.bio : '',
+      imageAltText: artist ? artist.name : '',
+      link: artist ? '/artists/' + artist.id : ''
     }
   }
 }
