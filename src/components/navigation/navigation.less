@@ -1,11 +1,25 @@
+@import (reference) '../bootstrap/bootstrap';
+
 .as-navigation {
 
   ul {
     list-style: none;
 
     li {
-      float: left;
-      width: 100px;
+      float: right;
+      width: 120px;
+      text-align: right;
+      font-size: 1.1em;
+      margin: 10px 0;
+
+      a {
+        color: @primary;
+        text-decoration: underline;
+      }
+
+      a:hover {
+        color: @white;
+      }
     }
   }
 
