@@ -1,10 +1,10 @@
 <nav class="container as-navigation">
   <div class="row">
 
-    <ul class="row">
-      <li><a [routerLink]="['artists']">Artists</a></li>
-      <li><a [routerLink]="['albums']">Albums</a></li>
-      <li><a [routerLink]="['events']">Events</a></li>
+    <ul class="col-xs-12">
+      <li><a [ngClass]="{'active-route': isCurrentRoute('artists') }" [routerLink]="['artists']">artists</a></li>
+      <li><a [ngClass]="{'active-route': isCurrentRoute('albums') }" [routerLink]="['albums']">albums</a></li>
+      <li><a [ngClass]="{'active-route': isCurrentRoute('events') }" [routerLink]="['events']">events</a></li>
     </ul>
 
   </div>
