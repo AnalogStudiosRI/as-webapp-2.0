@@ -9,5 +9,9 @@ import '@angular/router';
 // RxJS
 import 'rxjs';
 
+//safari polyfill for internationalization API
+import 'intl';
+import 'intl/locale-data/jsonp/en';
+
 //ckeditor
 require('ckeditor');
