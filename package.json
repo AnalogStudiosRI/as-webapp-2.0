@@ -42,6 +42,7 @@
     "core-js": "2.4.1",
     "font-awesome": "4.6.3",
     "h5webstorage": "0.5.2",
+    "intl": "1.2.4",
     "moment": "2.14.1",
     "ng2-bootstrap": "1.0.24",
     "ng2-ckeditor": "1.0.6",
