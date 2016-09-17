@@ -21,9 +21,10 @@ s3.listBuckets(function(err, data) {
   }
 });
 
+console.log('DIR NAME!!!!!!',  __dirname);
 //uploads the build directory to S3
 glob('**/**', { cwd: '../build' }, function (er, files) {
-
+  console.log('DIR NAME!!!!!!',  __dirname);
   for (var i = 0, l = files.length; i < l; i += 1) {
     let filename = files[i];
 
