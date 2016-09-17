@@ -23,13 +23,13 @@ s3.listBuckets(function(err, data) {
 
 console.log('DIR NAME!!!!!!',  __dirname);
 //uploads the build directory to S3
-glob('../build/**/**', function (er, files) {
+glob('./build/**/**', function (er, files) {
   console.log('DIR NAME!!!!!!',  __dirname);
   console.log('er', er);
   console.log('files', files);
   for (var i = 0, l = files.length; i < l; i += 1) {
     let filename = files[i];
-    let s3Filename = filename.replace('../build/', '');
+    let s3Filename = filename.replace('./build/', '');
 
     //upload only files
     console.log('s3Filename', s3Filename);
