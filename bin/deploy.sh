@@ -1,12 +1,13 @@
 #!/bin/sh
 
-echo "deploy"
+echo "deploying to dev"
 
-echo "clean webroot..."
-for d in /var/www/analogstudios/*/ ; do
-  sudo rm -rvf "$d"
-  echo
-done
+echo "clean webroot for webapp..."
+sudo rm -fv /var/www/analogstudios/html/*.html
+sudo rm -fv /var/www/analogstudios/html/*.js
+sudo rm -fv /var/www/analogstudios/html/*.map
+sudo rm -fv /var/www/analogstudios/html/*.jpg
+sudo rm -rfv /var/www/analogstudios/assets/**/*
 
 echo "deploy to webroot..."
-sudo cp -rvf dest/* /var/www/analogstudios/
+sudo cp -rvf build/* /var/www/analogstudios/html/
