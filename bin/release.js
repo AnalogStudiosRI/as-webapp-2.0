@@ -9,39 +9,30 @@ let packageJson = require('../package.json');
 AWS.config.region = 'us-west-2';
 
 //can be used as a simple test of auth
-let s3 = new AWS.S3();
-s3.listBuckets(function(err, data) {
-  if (err) {
-    console.log("Error:", err);
-  } else {
-    for (var index in data.Buckets) {
-      let bucket = data.Buckets[index];
-      console.log("Bucket: ", bucket.Name, ' : ', bucket.CreationDate);
-    }
-  }
-});
+// let s3 = new AWS.S3();
+// s3.listBuckets(function(err, data) {
+//   if (err) {
+//     console.log("Error:", err);
+//   } else {
+//     for (var index in data.Buckets) {
+//       let bucket = data.Buckets[index];
+//       console.log("Bucket: ", bucket.Name, ' : ', bucket.CreationDate);
+//     }
+//   }
+// });
 
-console.log('DIR NAME!!!!!!',  __dirname);
 //uploads the build directory to S3
 glob('./build/**/**', function (er, files) {
-  console.log('DIR NAME!!!!!!',  __dirname);
-  console.log('er', er);
-  console.log('files', files);
   for (var i = 0, l = files.length; i < l; i += 1) {
     let filename = files[i];
     let s3Filename = filename.replace('./build/', '');
 
     //upload only files
-    console.log('s3Filename', s3Filename);
-    console.log('idxOf', s3Filename.indexOf('.') > 0);
     if (s3Filename.indexOf('.') > 0) {
-      console.log('here????');
-
       let extension = filename.slice(filename.lastIndexOf('.'));
       let contentType = getContentType(extension);
       let body = fs.readFileSync(filename); //.pipe(zlib.createGzip());
 
-      console.log('key => ' + packageJson.name + '/' + s3Filename);
       let s3 = new AWS.S3({
         params: {
           Bucket: 'static.analogstudios.net',
