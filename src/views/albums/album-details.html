@@ -8,10 +8,11 @@
     <div class="col-xs-8">
 
       <div class="hidden-xs">
+        <a class="download-url hidden-md hidden-sm" *ngIf="getAlbumDetails().downloadUrl" [href]="getAlbumDetails().downloadUrl">Download Link</a>
         <as-card [cardOptions]="getModeledAlbumForCard()"></as-card>
       </div>
 
-      <div class="card-row hidden-lg hidden-md hidden-sm" >
+      <div class="card-row hidden-lg hidden-md hidden-sm">
         <h4>{{ getAlbumDetails().title }}</h4>
         <img [src]="getAlbumDetails().imageUrl" alt="getAlbumDetails().title"/>
         <p [innerHTML]="getAlbumDetails().description"></p>
