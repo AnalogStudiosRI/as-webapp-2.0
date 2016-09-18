@@ -5,7 +5,6 @@
 let AWS = require('aws-sdk');
 let fs = require('fs');
 let glob = require('glob');
-let packageJson = require('../package.json');
 AWS.config.region = 'us-west-2';
 
 //can be used as a simple test of auth
@@ -35,8 +34,8 @@ glob('./build/**/**', function (er, files) {
 
       let s3 = new AWS.S3({
         params: {
-          Bucket: 'static.analogstudios.net',
-          Key: packageJson.name + '/' + s3Filename,
+          Bucket: 'webapp.analogstudios.net',
+          Key: s3Filename,
           ContentType: contentType
         }
       });
