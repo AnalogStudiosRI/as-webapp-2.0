@@ -7,6 +7,7 @@ const IgnorePlugin = require('webpack/lib/IgnorePlugin');
 const DedupePlugin = require('webpack/lib/optimize/DedupePlugin');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
+const version = require('./package.json').version;
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 const HOST = process.env.HOST || 'localhost';
@@ -26,8 +27,8 @@ module.exports = webpackMerge(commonConfig, {
 
   output: {
     path: __dirname + '/build',
-    filename: '[name].[chunkhash].bundle.js',
-    sourceMapFilename: '[name].[chunkhash].bundle.map',
+    filename: '[name].' + version + '.[chunkhash].bundle.js',
+    sourceMapFilename: '[name].' + version + '.[chunkhash].bundle.map',
     chunkFilename: '[id].[chunkhash].chunk.js'
   },
 
