@@ -223,5 +223,11 @@ See documentation [here][]
 [here]: https://thegreenhouse.atlassian.net/wiki/display/ASWEB/Release+Management#ReleaseManagement-UI(StaticFrontend)
 
 ## AWS Info
-* s3 bucket - static.analogstudios.net.s3-website-us-west-2.amazonaws.com
-* cloudfront distribution - d3cpag05e1ba19.cloudfront.net
+### S3 Buckets
+
+* hosted - hosted.analogstudios.net.s3-website-us-east-1.amazonaws.com
+* webapp - webapp.analogstudios.net.s3-website-us-east-1.amazonaws.com
+
+### CloudFront Distributions
+* hosted - d34k5cjnk2rcze.cloudfront.net
+* webapp - d3cpag05e1ba19.cloudfront.net
