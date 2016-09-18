@@ -21,7 +21,7 @@
 
       <div class="card-row hidden-lg hidden-md hidden-sm" [routerLink]="getCardOptions().link">
         <h4>{{getCardOptions().headingText}}</h4>
-        <img src="{{getCardOptions().imagePath}}" alt="{{getCardOptions().imageAltText}}">
+        <img [src]="getCardOptions().imagePath" alt="{{getCardOptions().imageAltText}}">
       </div>
 
     </div>
