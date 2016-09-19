@@ -123,12 +123,6 @@ export class EventsCalendarComponent extends OnInit {
     this.calculateCurrentMonthData();
   }
 
-  public getEventTitle(index: number): string {
-    let title: string = this.events[index].title;
-
-    return title.length >= 15 ? title.substring(0, 13) + '&hellip;' : title;
-  }
-
   public getHeaderText(): string {
     return this.CALENDAR[this.currentMonthIndex].NAME + ' ' + this.currentYear;
   }
