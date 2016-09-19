@@ -56,7 +56,7 @@
             <!--day with event if there's an event-->
             <div *ngIf="day.hasEvents" class="day-event">
               <span *ngFor="let event of day.events, let idx = index">
-                <span [routerLink]="['/events', event.id]" [innerHTML]="getEventTitle(idx)"></span>
+                <span [routerLink]="['/events', event.id]">{{event.title}}</span>
               </span>
             </div>
 
