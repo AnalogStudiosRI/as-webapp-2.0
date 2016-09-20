@@ -59,10 +59,9 @@ export class EventsCalendarComponent extends OnInit {
 
       if (i >= startingDayOfMonth && i <= daysInMonth) {
         day.date = monthDateCounter;
-        monthDateCounter += 1;
 
         //check if day has an event
-        for(let k = 0, m = this.events.length; k < m; k +=1 ){
+        for(let k = 0, m = this.events.length; k < m; k += 1){
           //TODO any https://thegreenhouse.atlassian.net/browse/AS-246
           let event: any = this.events[k];
           let eventStartTimeTimestamp: number = event.startTime;
@@ -78,6 +77,8 @@ export class EventsCalendarComponent extends OnInit {
             }
           }
         }
+
+        monthDateCounter += 1;
       }
 
       week.push(day);
@@ -94,7 +95,6 @@ export class EventsCalendarComponent extends OnInit {
     let now = new Date().getTime() / 1000;
 
     for(let i = 0, l = this.events.length; i < l; i++){
-
       if(now > this.events[i].startTime){
         this.currentEventIndex++;
       }
