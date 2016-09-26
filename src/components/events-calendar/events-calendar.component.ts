@@ -96,7 +96,7 @@ export class EventsCalendarComponent extends OnInit {
 
     for(let i = 0, l = this.events.length; i < l; i++){
       if(now > this.events[i].startTime){
-        this.currentEventIndex++;
+        this.currentEventIndex = i;
       }
     }
   }
