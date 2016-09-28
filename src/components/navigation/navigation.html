@@ -1,11 +1,9 @@
-<nav class="container as-navigation">
-  <div class="row">
-
-    <ul class="col-xs-12">
-      <li><a [ngClass]="{'active-route': isCurrentRoute('artists') }" [routerLink]="['artists']">artists</a></li>
-      <li><a [ngClass]="{'active-route': isCurrentRoute('albums') }" [routerLink]="['albums']">albums</a></li>
-      <li><a [ngClass]="{'active-route': isCurrentRoute('events') }" [routerLink]="['events']">events</a></li>
-    </ul>
-
-  </div>
+<nav class="as-navigation">
+  <ul class="list-unstyled as-navigation__list">
+    <li><a [ngClass]="{'active-route': isCurrentRoute('studio') }" [routerLink]="['studio']">the studio</a></li>
+    <li><a [ngClass]="{'active-route': isCurrentRoute('artists') }" [routerLink]="['artists']">artists</a></li>
+    <li><a [ngClass]="{'active-route': isCurrentRoute('albums') }" [routerLink]="['albums']">albums</a></li>
+    <li><a [ngClass]="{'active-route': isCurrentRoute('events') }" [routerLink]="['events']">events</a></li>
+    <li><a [ngClass]="{'active-route': isCurrentRoute('contact') }" [routerLink]="['contact']">contact</a></li>
+  </ul>
 </nav>
