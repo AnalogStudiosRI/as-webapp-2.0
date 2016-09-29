@@ -30,8 +30,8 @@ module.exports = {
       exclude: [/\.(spec|e2e)\.ts$/]
     },
     {
-      test: /\.less/,
-      loader: "to-string!css!less"
+      test: /\.scss$/,
+      loader: "to-string!css!sass"
     },
     {
       test: /\.html$/,

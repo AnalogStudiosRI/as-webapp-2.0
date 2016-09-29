@@ -4,7 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 @Component({
   selector: 'as-navigation',
   templateUrl: './navigation.html',
-  styleUrls: [ './navigation.less' ]
+  styleUrls: [ './navigation.scss' ]
 })
 
 export class NavigationComponent {

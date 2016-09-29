@@ -8,13 +8,13 @@ The following tools are used in the application
 
 - [Node][] - 4.4.x as the local development environment
 - [NPM][] - 3.8.x package manager for node modules
-- [Angular 2][] - as the Front-End framework
+- [Angular 2][] (rc5) - as the Front-End framework
 - [TypeScript][] - superset of JavaScript for writing application code
 - [Webpack][] - Module loader / bundler, primary build tool
 - [Karma][] - task runner for unit testing
 - [Jasmine 2.x][] - testing framework
 - [LESS][] - CSS preprocessor
-- [Bootstrap 3.x][] - Mobile first CSS framework
+- [Bootstrap 4][] (alpha) - Mobile first CSS framework
 
 
 [Node]: https://nodejs.org/
@@ -25,7 +25,7 @@ The following tools are used in the application
 [Karma]: https://karma-runner.github.io/1.0/index.html
 [Jasmine]: http://jasmine.github.io/
 [LESS]: http://lesscss.org/
-[Bootstrap 3.x]: http://getbootstrap.com/
+[Bootstrap 4]: https://v4-alpha.getbootstrap.com/
 
 ## Links
 * Repository (Bitbucket)- https://bitbucket.org/thegreenhouse/as-webapp-2.0

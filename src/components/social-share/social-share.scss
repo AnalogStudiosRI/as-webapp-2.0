@@ -1,11 +1,11 @@
-@import (reference) "../../components/bootstrap/bootstrap";
+@import "../../components/bootstrap/bootstrap";
 
 .as-social-share {
 
   .header {
     margin: 0;
     text-decoration: underline;
-    color: @font-color-secondary;
+    color: $font-color-secondary;
   }
 
   a {

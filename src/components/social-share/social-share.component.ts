@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'as-social-share',
   templateUrl: './social-share.html',
-  styleUrls: ['./social-share.less'],
+  styleUrls: ['./social-share.scss'],
   directives: [ CeiboShare ]
 })
 

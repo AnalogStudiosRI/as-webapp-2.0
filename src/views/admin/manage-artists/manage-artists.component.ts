@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES } fro
 @Component({
   selector: 'admin-view-manage-artists',
   templateUrl: './manage-artists.html',
-  styleUrls: [ '../admin.less' ],
+  styleUrls: [ '../admin.scss' ],
   providers: [ ArtistsService, FormBuilder ],
   directives: [ CKEditor, CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES ]
 })

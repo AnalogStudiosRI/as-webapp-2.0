@@ -5,7 +5,7 @@ import { PostInterface, PostsService } from '../../../services/posts.service';
 @Component({
   selector: 'admin-view-manage-posts',
   templateUrl: './manage-posts.html',
-  styleUrls: [ '../admin.less' ],
+  styleUrls: [ '../admin.scss' ],
   providers: [ FormBuilder, PostsService ]
 })
 

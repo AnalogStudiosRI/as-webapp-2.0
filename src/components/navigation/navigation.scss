@@ -1,4 +1,4 @@
-@import (reference) '../bootstrap/bootstrap';
+@import '../bootstrap/bootstrap';
 
 :host {
   flex-grow: 1;
@@ -14,16 +14,16 @@
       font-size: 1.1em;
 
       a {
-        color: @primary;
+        color: $primary;
         text-decoration: underline;
       }
 
       a.active-route {
-        color: @white;
+        color: $white;
       }
 
       a:hover {
-        color: @white;
+        color: $white;
       }
     }
   }

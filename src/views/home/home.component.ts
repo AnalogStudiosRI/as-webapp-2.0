@@ -5,7 +5,7 @@ import { PostsListComponent } from '../../components/posts-list/posts-list.compo
 @Component({
   selector: 'home',
   templateUrl: './home.html',
-  styleUrls: [ './home.less' ]
+  styleUrls: [ './home.scss' ]
 })
 
 export class HomeViewComponent { }

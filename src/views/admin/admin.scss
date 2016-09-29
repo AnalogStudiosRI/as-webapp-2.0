@@ -1,7 +1,7 @@
-@import (reference) '../../components/bootstrap/bootstrap';
+@import '../../components/bootstrap/bootstrap';
 
 .as-view-admin {
-  color: @black;
+  color: $black;
 
   .link {
     cursor: pointer;
@@ -12,7 +12,7 @@
   }
 
   input, textarea, input[type="datetime"], select {
-    color: @black;
+    color: $black;
   }
 
   input[type="text"], input[type="password"], textarea {
@@ -21,6 +21,6 @@
   }
 
   button {
-    color: @black;
+    color: $black;
   }
 }

@@ -4,7 +4,7 @@ import { NavigationComponent } from '../../components/navigation/navigation.comp
 @Component({
   selector: 'as-header',
   templateUrl: './header.html',
-  styleUrls: [ './header.less' ],
+  styleUrls: [ './header.scss' ],
   directives: [ NavigationComponent ]
 })
 

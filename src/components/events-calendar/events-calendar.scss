@@ -1,9 +1,9 @@
-@import (reference) '../../components/bootstrap/bootstrap';
+@import '../../components/bootstrap/bootstrap';
 
 .as-events-calendar {
 
   h4, i:before{
-    color: @font-color-secondary;
+    color: $font-color-secondary;
   }
 
   table.calendar {
@@ -42,7 +42,7 @@
     }
 
     .day-event {
-      background-color: @font-color-secondary;
+      background-color: $font-color-secondary;
       cursor: pointer;
     }
 
@@ -59,7 +59,7 @@
 
     .event-tile {
 
-      border: solid 1px @black;
+      border: solid 1px $black;
 
       h4 {
         cursor: pointer;
