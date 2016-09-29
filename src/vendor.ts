@@ -15,3 +15,6 @@ import 'intl/locale-data/jsonp/en';
 
 //ckeditor
 require('ckeditor');
+
+//font awesome
+require("font-awesome-webpack");
