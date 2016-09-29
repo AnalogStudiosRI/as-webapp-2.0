@@ -81,9 +81,7 @@ module.exports = {
     }),
 
     new CopyWebpackPlugin([{
-      from: './node_modules/bootstrap-social/bootstrap-social.css',
-      to: './assets/vendor/bootstrap-social.css'
-    }, {  //TODO add using import?
+      //TODO add using import?
       context: './node_modules/ckeditor/',
       from: '**/**',
       to: './assets/vendor/ckeditor/'
