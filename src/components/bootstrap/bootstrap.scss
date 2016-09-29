@@ -1,5 +1,5 @@
 //TODO make this work?
-//@import '../../../node_modules/bootstrap/less/bootstrap';
+@import "../../../node_modules/bootstrap/scss/bootstrap";
 //@import '../../../node_modules/bootstrap-social/bootstrap-social';
 
 //variables
@@ -26,12 +26,6 @@ $img-width-mobile: 200px;
     color: $white;
   }
 
-  .page-container {
-    margin: 0 auto;
-    min-height: 500px;
-    background-color: $bg-primary;
-  }
-
   .link {
     cursor: pointer;
     text-decoration: underline;
@@ -42,9 +36,4 @@ $img-width-mobile: 200px;
     display: block;
   }
 
-  //card
-  .as-card {
-
-  }
 }
-

@@ -58,9 +58,6 @@ module.exports = {
       from: './src/components/bootstrap/images/favicon.png',
       to: './assets/images/favicon.png'
     }, {  //TODO add using import?
-      from: './node_modules/bootstrap/dist/css/bootstrap.min.css',
-      to: './assets/vendor/bootstrap.min.css'
-    }, {  //TODO add using import?
       from: './node_modules/font-awesome/css/font-awesome.css',
       to: './assets/vendor/font-awesome.css'
     }, {  //TODO add using import?
