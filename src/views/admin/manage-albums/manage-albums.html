@@ -1,83 +1,77 @@
 <section class="container as-view-admin-manage-albums">
-  <div class="row">
 
-    <div class="col-xs-9">
+  <form [formGroup]="albumForm">
 
-      <form [formGroup]="albumForm">
+    <label for="select-album">Select an album to update it:</label>
 
-        <label for="select-album">Select an album to update it:</label>
+    <br/>
 
-        <br/>
+    <select id="select-album" (change)="onAlbumSelected($event.target.selectedIndex)">
+      <option *ngFor="let album of getAlbums()" value="album.id">{{album.title}}</option>
+    </select>
 
-        <select id="select-album" (change)="onAlbumSelected($event.target.selectedIndex)">
-          <option *ngFor="let album of getAlbums()" value="album.id">{{album.title}}</option>
-        </select>
+    <br/>
+    <br/>
 
-        <br/>
-        <br/>
+    <label for="title">Title:</label>
+    <input id="title" name="title" [formControl]="albumForm.controls['title']" type="text" placeholder="Album Title" required/>
 
-        <label for="title">Title:</label>
-        <input id="title" name="title" [formControl]="albumForm.controls['title']" type="text" placeholder="Album Title" required/>
+    <br/>
+    <br/>
 
-        <br/>
-        <br/>
+    <label for="description">Description:</label>
+    <ckeditor
+      id="description"
+      name="description"
+      placeholder="Album Desctiption"
+      [formControl]="albumForm.controls['description']"
+      debounce="500"
+      required>
+    </ckeditor>
 
-        <label for="description">Description:</label>
-        <ckeditor
-          id="description"
-          name="description"
-          placeholder="Album Desctiption"
-          [formControl]="albumForm.controls['description']"
-          debounce="500"
-          required>
-        </ckeditor>
+    <br/>
+    <br/>
 
-        <br/>
-        <br/>
+    <label for="year">Year:</label>
+    <input id="year" name="year" [formControl]="albumForm.controls['year']" type="number" placeholder="Album Year"/>
 
-        <label for="year">Year:</label>
-        <input id="year" name="year" [formControl]="albumForm.controls['year']" type="number" placeholder="Album Year"/>
+    <br/>
+    <br/>
 
-        <br/>
-        <br/>
+    <label for="imageUrl">Album Cover Artwork URL:</label>
+    <input id="imageUrl" name="imageUrl" [formControl]="albumForm.controls['imageUrl']" type="text" placeholder="Album Cover Art"/>
 
-        <label for="imageUrl">Album Cover Artwork URL:</label>
-        <input id="imageUrl" name="imageUrl" [formControl]="albumForm.controls['imageUrl']" type="text" placeholder="Album Cover Art"/>
+    <br/>
 
-        <br/>
+    Image preview
+    <img [src]="albumForm.controls['imageUrl'].value"/>
 
-        Image preview
-        <img [src]="albumForm.controls['imageUrl'].value"/>
+    <br/>
+    <br/>
 
-        <br/>
-        <br/>
+    <label for="downloadUrl">Album Download Link URL:</label>
+    <input id="downloadUrl" name="downloadUrl" [formControl]="albumForm.controls['downloadUrl']" type="text" placeholder="Album Download Link"/>
 
-        <label for="downloadUrl">Album Download Link URL:</label>
-        <input id="downloadUrl" name="downloadUrl" [formControl]="albumForm.controls['downloadUrl']" type="text" placeholder="Album Download Link"/>
+    <br/>
+    <br/>
 
-        <br/>
-        <br/>
+    <div *ngIf="!getIsEditing()">
+      <label for="select-artist">Select an Artist for this album:</label>
 
-        <div *ngIf="!getIsEditing()">
-          <label for="select-artist">Select an Artist for this album:</label>
+      <select id="select-artist" (change)="onArtistSelected($event.target.selectedIndex)">
+        <option *ngFor="let artist of getArtists()" value="artist.id">{{artist.name}}</option>
+      </select>
 
-          <select id="select-artist" (change)="onArtistSelected($event.target.selectedIndex)">
-            <option *ngFor="let artist of getArtists()" value="artist.id">{{artist.name}}</option>
-          </select>
-
-          <input type="hidden" [formControl]="albumForm.controls['artistId']" value="{{getCurrentlySelectedArtistId()}}">
-        </div>
-
-
-        <br/>
-        <br/>
-
-        <button (click)="submitForm()" class="btn" type="submit">Submit</button>
-        <button (click)="resetForm()" class="btn" type="reset">Reset</button>
-
-      </form>
-
+      <input type="hidden" [formControl]="albumForm.controls['artistId']" value="{{getCurrentlySelectedArtistId()}}">
     </div>
 
-  </div>
+
+    <br/>
+    <br/>
+
+    <button (click)="submitForm()" class="btn" type="submit">Submit</button>
+    <button (click)="resetForm()" class="btn" type="reset">Reset</button>
+
+  </form>
+
 </section>
