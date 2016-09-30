@@ -32,7 +32,7 @@ module.exports = {
       exclude: [/\.(spec|e2e)\.ts$/]
     }, {
       test: /\.scss$/,
-      loader: "to-string!css!sass"
+      loader: "css-to-string-loader!css!sass"
     }, {
       test: /\.html$/,
       loader: 'html-loader',

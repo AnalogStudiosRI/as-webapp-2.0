@@ -11,4 +11,11 @@
     margin: 0;
     cursor: pointer;
   }
+
+  .as-header__view-banner {
+    height: 100px;
+    width: 100px;
+    background-color: red;
+    background: url("../bootstrap/images/view-banner.png");
+  }
 }
