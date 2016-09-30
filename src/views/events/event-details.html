@@ -1,28 +1,23 @@
-<div class="container">
-  <div class="row as-view-event-details">
+<div class="container-flex as-view-event-details">
+  <div class="row">
 
-    <div class="col-xs-4">
-        <as-social-share></as-social-share>
+    <div class="col-xs-5">
+      <p>hello world</p>
+      <!--<as-social-share></as-social-share>-->
     </div>
 
-    <div class="col-xs-8">
-      <div class="row">
-
-        <div class="col-xs-2">
-          <i class="cal-icon fa fa-calendar-o"></i>
-        </div>
-
-        <div class="col-xs-10">
-          <div *ngIf="getEventDetails()">
-            <p>Event Title: {{ getEventDetails().title }}</p>
-            <p>Event Date: {{ (getEventDetails().startTime * 1000) | date : 'EEEE, MMMM d, yyyy, h:mm a' }}</p>
-            <p>Event Info:</p>
-            <p [innerHTML]="getEventDetails().description"></p>
-          </div>
-        </div>
-
-      </div>
+    <div class="col-xs-5">
+      <i class="cal-icon fa fa-calendar-o"></i>
     </div>
+
+    <!--<div class="col-xs-2">-->
+      <!--<div *ngIf="getEventDetails()">-->
+        <!--<p>Event Title: {{ getEventDetails().title }}</p>-->
+        <!--<p>Event Date: {{ (getEventDetails().startTime * 1000) | date : 'EEEE, MMMM d, yyyy, h:mm a' }}</p>-->
+        <!--&lt;!&ndash;<p>Event Info:</p>&ndash;&gt;-->
+        <!--&lt;!&ndash;<p [innerHTML]="getEventDetails().description"></p>&ndash;&gt;-->
+      <!--</div>-->
+    <!--</div>-->
 
   </div>
 </div>
