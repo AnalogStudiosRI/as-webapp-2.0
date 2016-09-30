@@ -31,6 +31,7 @@ $img-width-mobile: 200px;
   color: $font-color-primary;
   background-color: $bg-secondary;
   font-family: $font-family-primary;
+  min-height: 1000px;
 
   .router-outlet {
     margin-top: 20px;
