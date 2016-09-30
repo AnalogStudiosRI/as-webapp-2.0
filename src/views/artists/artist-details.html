@@ -5,15 +5,15 @@
       <as-social-share></as-social-share>
     </div>
 
-    <div class="col-xs-8">
+    <div class="col-xs-6">
 
-      <div class="hidden-xs">
+      <div class="card-row hidden-sm-down">
         <as-card [cardOptions]="getModeledArtistForCard()"></as-card>
       </div>
 
-      <div class="card-row hidden-lg hidden-md hidden-sm" >
+
+      <div class="card-row hidden-md-up">
         <h4>{{ getArtistDetails().name }}</h4>
-        <img [src]="getArtistDetails().imageUrl" alt="getArtistDetails().name"/>
         <p [innerHTML]="getArtistDetails().bio"></p>
       </div>
 

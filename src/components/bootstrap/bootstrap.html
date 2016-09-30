@@ -1,33 +1,21 @@
-<div class="container-flex app">
+<section class="container-flex app">
+  <div class="row">
 
-    <section class="row">
-      <div class="col-xs-1">
-      </div>
-      <div class="col-xs-10">
-        <as-header></as-header>
-      </div>
-      <div class="col-xs-1">
-      </div>
-    </section>
+    <div class="col-xs-1">
+    </div>
 
-    <section class="row">
-      <div class="col-xs-1">
-      </div>
-      <div class="col-xs-10">
-        <router-outlet></router-outlet>
-      </div>
-      <div class="col-xs-1">
-      </div>
-    </section>
+    <div class="col-xs-10">
 
-    <section class="row">
-      <div class="col-xs-1">
-      </div>
-      <div class="col-xs-10">
-        <as-footer></as-footer>
-      </div>
-      <div class="col-xs-1">
-      </div>
-    </section>
+      <as-header></as-header>
 
-</div>
+      <router-outlet></router-outlet>
+
+      <as-footer></as-footer>
+
+    </div>
+
+    <div class="col-xs-1">
+    </div>
+
+  </div>
+</section>
