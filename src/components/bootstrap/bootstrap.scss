@@ -18,25 +18,21 @@ $font-color-primary: $white;
 $font-color-secondary: #316291;
 $font-color-tertiary: $black;
 
+$img-width-mobile: 200px;
+
 .as-view {
   box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
 }
 
-$img-width-mobile: 200px;
+.link {
+  cursor: pointer;
+  text-decoration: underline;
+}
 
 .app {
   color: $font-color-primary;
   background-color: $bg-secondary;
   font-family: $font-family-primary;
-
-  a {
-    color: $white;
-  }
-
-  .link {
-    cursor: pointer;
-    text-decoration: underline;
-  }
 
   .router-outlet {
     margin-top: 20px;
