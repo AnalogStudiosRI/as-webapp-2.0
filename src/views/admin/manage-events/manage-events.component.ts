@@ -8,7 +8,7 @@ import { TimepickerComponent } from 'ng2-bootstrap';
 @Component({
   selector: 'admin-view-manage-events',
   templateUrl: './manage-events.html',
-  styleUrls: [ '../admin.less' ],
+  styleUrls: [ '../admin.scss' ],
   providers: [ EventsService, FormBuilder ],
   directives: [ CKEditor, CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, TimepickerComponent ]
 })

@@ -1,9 +1,9 @@
-@import (reference) '../bootstrap/bootstrap';
+@import "../bootstrap/bootstrap";
 
 .as-card {
 
   img {
-    max-width: @img-width-mobile;
+    max-width: $img-width-mobile;
     cursor: pointer;
   }
 

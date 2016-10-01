@@ -1,13 +1,7 @@
-<header class="container as-header">
-  <div class="row">
+<header class="as-header">
+  <div class="as-header__view-banner"></div>
 
-    <a [routerLink]="['home']">
-      <img class="visible-xs-inline-block" src="./images/old-banner-mobile.jpg"/>
+  <h1 class="as-header__logo" [routerLink]="['home']">Analog Studios</h1>
 
-      <img class="hidden-xs" src="./images/old-banner.jpg"/>
-    </a>
-
-    <as-navigation></as-navigation>
-
-  </div>
+  <as-navigation></as-navigation>
 </header>

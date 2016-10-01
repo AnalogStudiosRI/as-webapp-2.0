@@ -1,0 +1,40 @@
+//TODO make this work?
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/css?family=Oxygen");
+
+//variables
+$white: #efefef;
+$black: #020202;
+
+$primary: #3a2915;
+$bg-primary: #c2b08b;
+$bg-secondary: #ae996b;
+$bg-tertiary: #d3c6ae;
+
+$font-family-primary: 'Oxygen', cursive;
+$font-color-primary: $white;
+$font-color-secondary: #316291;
+$font-color-tertiary: $black;
+
+$img-width-mobile: 200px;
+
+.as-view {
+  box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
+}
+
+.link {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.app {
+  color: $font-color-primary;
+  background-color: $bg-secondary;
+  font-family: $font-family-primary;
+
+  .router-outlet {
+    margin-top: 20px;
+    display: block;
+  }
+
+}

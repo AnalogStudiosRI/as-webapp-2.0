@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'admin-view',
   templateUrl: './admin.html',
-  styleUrls: [ './admin.less' ],
+  styleUrls: [ './admin.scss' ],
   directives: [ CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, MODAL_DIRECTIVES ],
   providers: [ FormBuilder ],
   viewProviders: [ BS_VIEW_PROVIDERS ]

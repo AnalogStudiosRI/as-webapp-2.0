@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'artists-view',
   templateUrl: './artists.html',
-  styleUrls: [ './artists.less' ]
+  styleUrls: [ './artists.scss' ]
 })
 
 export class ArtistsViewComponent implements OnInit {

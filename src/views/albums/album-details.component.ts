@@ -6,7 +6,7 @@ import { AlbumInterface, AlbumsService } from '../../services/albums.service';
 @Component({
   selector: 'albums-detailed',
   templateUrl: './album-details.html',
-  styleUrls: [ './albums.less' ]
+  styleUrls: [ './albums.scss' ]
 })
 
 export class AlbumsViewDetailsComponent extends OnInit {

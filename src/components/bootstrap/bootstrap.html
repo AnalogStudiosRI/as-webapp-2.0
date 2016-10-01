@@ -1,15 +1,21 @@
-<div class="container-fluid">
+<section class="container-flex app">
+  <div class="row">
 
-  <section class="row">
-    <as-header></as-header>
-  </section>
+    <div class="col-xs-1">
+    </div>
 
-  <section class="row">
-    <router-outlet></router-outlet>
-  </section>
+    <div class="col-xs-10">
 
-  <section class="row">
-    <as-footer></as-footer>
-  </section>
+      <as-header></as-header>
 
-</div>
+      <router-outlet></router-outlet>
+
+      <as-footer></as-footer>
+
+    </div>
+
+    <div class="col-xs-1">
+    </div>
+
+  </div>
+</section>

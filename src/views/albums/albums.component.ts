@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'albums-view',
   templateUrl: './albums.html',
-  styleUrls: [ './albums.less' ]
+  styleUrls: [ './albums.scss' ]
 })
 
 export class AlbumsViewComponent implements OnInit {

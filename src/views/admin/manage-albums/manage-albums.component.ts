@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES } fro
 @Component({
   selector: 'admin-view-manage-albums',
   templateUrl: './manage-albums.html',
-  styleUrls: [ '../admin.less' ],
+  styleUrls: [ '../admin.scss' ],
   providers: [ AlbumsService, FormBuilder ],
   directives: [ CKEditor, CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES ]
 })

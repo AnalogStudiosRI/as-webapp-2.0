@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'as-footer',
   templateUrl: './footer.html',
-  styleUrls: [ './footer.less' ]
+  styleUrls: [ './footer.scss' ]
 })
 
 export class FooterComponent {

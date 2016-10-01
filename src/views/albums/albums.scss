@@ -1,0 +1,19 @@
+@import '../../components/bootstrap/bootstrap';
+
+.as-view-albums {
+
+  color: $black;
+
+}
+
+.as-view-album-details {
+
+  .download-url {
+    padding-left: 20px;
+  }
+
+  img {
+    max-width: $img-width-mobile;
+  }
+
+}

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'artist-details',
   templateUrl: './artist-details.html',
-  styleUrls: [ './artists.less' ]
+  styleUrls: [ './artists.scss' ]
 })
 
 export class ArtistDetailsViewComponent extends OnInit {

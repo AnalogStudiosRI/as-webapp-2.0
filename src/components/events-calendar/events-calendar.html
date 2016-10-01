@@ -1,6 +1,6 @@
-<div class="container as-events-calendar">
+<div class="container-flex as-events-calendar">
 
-  <div class="row visible-lg-block">
+  <div class="row hidden-md-down">
 
     <table class="calendar">
       <thead>
@@ -67,18 +67,18 @@
 
   </div>
 
-  <div class="row hidden-lg">
+  <div class="row hidden-lg-up">
 
     <div class="carousel">
       <div *ngIf="getHasEvents()" class="col-xs-12">
 
         <div class="col-xs-3">
           <span class="link">
-            <i class="glyphicon glyphicon-chevron-left pull-right arrow" (click)="shiftToPreviousCarousel()"></i>
+            <i class="fa fa-arrow-left pull-right arrow" (click)="shiftToPreviousCarousel()"></i>
           </span>
         </div>
 
-        <div class="col-xs-6 event-tile">
+        <div class="col-xs-4 event-tile">
           <h4 [routerLink]="['/events', getCurrentEvent().id ]">{{ getCurrentEvent().title }}</h4>
           <h6> {{ (getCurrentEvent().startTime * 1000) | date : 'EEEE' }} @ {{ (getCurrentEvent().startTime * 1000) | date : 'shortTime' }}</h6>
           <h6> {{ (getCurrentEvent().startTime * 1000) | date : 'MMMM d, yyyy' }}</h6>
@@ -86,7 +86,7 @@
 
         <div class="col-xs-3">
           <span class="link">
-            <i class="glyphicon glyphicon-chevron-right arrow" (click)="shiftToNextCarousel()"></i>
+            <i class="fa fa-arrow-right arrow" (click)="shiftToNextCarousel()"></i>
           </span>
         </div>
 

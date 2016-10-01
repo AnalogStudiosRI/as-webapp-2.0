@@ -6,7 +6,7 @@ import { AnalyticsService } from '../../services/analytics.service';
 @Component({
   selector: 'as-webapp',
   templateUrl: './bootstrap.html',
-  styleUrls: [ './bootstrap.less' ]
+  styleUrls: [ './bootstrap.scss' ]
 })
 
 export class BootstrapComponent {
