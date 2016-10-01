@@ -2,25 +2,19 @@
   <div class="row">
 
     <div class="col-xs-4">
-        <as-social-share></as-social-share>
+      <as-social-share></as-social-share>
     </div>
 
-    <div class="col-xs-6">
-      <div class="row">
+    <div class="col-xs-1">
+      <i class="cal-icon fa fa-calendar-o"></i>
+    </div>
 
-        <div class="col-xs-2">
-          <i class="cal-icon fa fa-calendar-o"></i>
-        </div>
-
-        <div class="col-xs-10">
-          <div *ngIf="getEventDetails()">
-            <p>Event Title: {{ getEventDetails().title }}</p>
-            <p>Event Date: {{ (getEventDetails().startTime * 1000) | date : 'EEEE, MMMM d, yyyy, h:mm a' }}</p>
-            <p>Event Info:</p>
-            <p [innerHTML]="getEventDetails().description"></p>
-          </div>
-        </div>
-
+    <div class="col-xs-5">
+      <div *ngIf="getEventDetails()">
+        <p>Event Title: {{ getEventDetails().title }}</p>
+        <p>Event Date: {{ (getEventDetails().startTime * 1000) | date : 'EEEE, MMMM d, yyyy, h:mm a' }}</p>
+        <p>Event Info:</p>
+        <p [innerHTML]="getEventDetails().description"></p>
       </div>
     </div>
 
