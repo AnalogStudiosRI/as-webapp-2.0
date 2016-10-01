@@ -33,6 +33,15 @@ $img-width-mobile: 200px;
   font-family: $font-family-primary;
   min-height: 1000px;
 
+  a {
+    color: $white;
+  }
+
+  .link {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
   .router-outlet {
     margin-top: 20px;
     display: block;
