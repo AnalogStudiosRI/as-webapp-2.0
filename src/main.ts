@@ -17,6 +17,7 @@ import { BootstrapComponent } from './components/bootstrap/bootstrap.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { CardComponent } from './components/card/card.component';
 import { CardService } from './services/card.service';
+import { ContactViewComponent } from './views/contact/contact.component';
 import { EventsCalendarComponent } from './components/events-calendar/events-calendar.component';
 import { EventsViewDetailsComponent } from './views/events/event-details.component';
 import { EventsService } from './services/events.service';
@@ -63,6 +64,7 @@ import { SocialShareComponent } from './components/social-share/social-share.com
     AlbumsViewDetailsComponent,
     ArtistsViewComponent,
     ArtistDetailsViewComponent,
+    ContactViewComponent,
     EventsViewDetailsComponent,
     EventsViewComponent,
     HomeViewComponent
