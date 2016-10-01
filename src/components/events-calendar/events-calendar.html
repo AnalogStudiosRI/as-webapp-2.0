@@ -1,4 +1,4 @@
-<div class="container as-events-calendar">
+<div class="container-flex as-events-calendar">
 
   <div class="row hidden-md-down">
 
@@ -78,7 +78,7 @@
           </span>
         </div>
 
-        <div class="col-xs-6 event-tile">
+        <div class="col-xs-4 event-tile">
           <h4 [routerLink]="['/events', getCurrentEvent().id ]">{{ getCurrentEvent().title }}</h4>
           <h6> {{ (getCurrentEvent().startTime * 1000) | date : 'EEEE' }} @ {{ (getCurrentEvent().startTime * 1000) | date : 'shortTime' }}</h6>
           <h6> {{ (getCurrentEvent().startTime * 1000) | date : 'MMMM d, yyyy' }}</h6>
