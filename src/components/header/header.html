@@ -1,7 +1,11 @@
 <header class="as-header">
-  <div class="as-header__view-banner"></div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <h1 class="as-header__logo" [routerLink]="['home']">Analog Studios</h1>
+    </div>
 
-  <h1 class="as-header__logo" [routerLink]="['home']">Analog Studios</h1>
-
-  <as-navigation></as-navigation>
+    <div class="col-xs-12 col-sm-6">
+      <as-navigation></as-navigation>
+    </div>
+  </div>
 </header>

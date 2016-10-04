@@ -1,5 +1,5 @@
-//TODO make this work?
-@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+@import "../../../node_modules/bootstrap/scss/bootstrap-flex";
 @import url("https://fonts.googleapis.com/css?family=Oxygen");
 
 //variables
@@ -18,10 +18,6 @@ $font-color-tertiary: $black;
 
 $img-width-mobile: 200px;
 
-.as-view {
-  box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
-}
-
 .link {
   cursor: pointer;
   text-decoration: underline;
@@ -29,8 +25,9 @@ $img-width-mobile: 200px;
 
 .app {
   color: $font-color-primary;
-  background-color: $bg-secondary;
   font-family: $font-family-primary;
+  background-color: transparentize($bg-primary, .05);
+  box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
   min-height: 1000px;
 
   a {
