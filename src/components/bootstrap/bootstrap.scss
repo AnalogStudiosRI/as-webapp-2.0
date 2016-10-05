@@ -18,9 +18,14 @@ $font-color-tertiary: $black;
 
 $img-width-mobile: 200px;
 
-.link {
-  cursor: pointer;
-  text-decoration: underline;
+//TODO scope this within .app or :host
+body {
+  margin: 0;
+  background-image: url("http://d34k5cjnk2rcze.cloudfront.net/images/website/view-banner.png");
+  background-size: 100% 377px;
+  background-color: $bg-secondary;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 .app {
@@ -34,9 +39,10 @@ $img-width-mobile: 200px;
     color: $white;
   }
 
-  .link {
+  .as-link {
     cursor: pointer;
     text-decoration: underline;
+    color: $primary;
   }
 
   .router-outlet {
