@@ -12,7 +12,7 @@
 
   @include media-breakpoint-down(xs) {
     // Override to make mobile nav display full-width
-    margin: 0 (-$grid-gutter-width-base/2);
+    margin: 0 (-$grid-gutter-width/2);
   }
 
   @include media-breakpoint-up(lg) {
