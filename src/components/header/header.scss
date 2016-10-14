@@ -1,20 +1,41 @@
 @import "../../components/bootstrap/bootstrap";
 
+
+// ==========================================================================
+// AS Header Component
+// ==========================================================================
+
 .as-header {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  padding: 70px 0;
+  flex-direction: column;
+  padding: 30px 0;
+
+  @include media-breakpoint-down(xs) {
+    // Override to make mobile nav display full-width
+    margin: 0 (-$grid-gutter-width/2);
+  }
+
+  @include media-breakpoint-up(lg) {
+    flex-direction: row;
+    align-items: center;
+    padding: 60px 0;
+    margin: 0;
+  }
 
   .as-header__logo {
     flex-grow: 1;
-    margin: 0;
+    align-self: center;
+    margin-bottom: 15px;
+    color: $black;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
     cursor: pointer;
-  }
 
-  .as-header__view-banner {
-    height: 100px;
-    width: 100px;
-    background: url("../bootstrap/images/view-banner.png");
+    @include media-breakpoint-up(lg) {
+      align-self: auto;
+      margin: 0;
+    }
   }
 }

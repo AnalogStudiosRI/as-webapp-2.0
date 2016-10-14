@@ -1,5 +1,10 @@
 @import '../bootstrap/bootstrap';
 
+
+// ==========================================================================
+// AS Navigation Component
+// ==========================================================================
+
 :host {
   flex-grow: 1;
 }
@@ -7,24 +12,48 @@
 .as-navigation {
   .as-navigation__list {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
     margin: 0;
 
-    li {
-      font-size: 1.1em;
+    @include media-breakpoint-down(xs) {
+      background-color: $black;
+    }
 
-      a {
-        color: $primary;
-        text-decoration: underline;
-      }
+    @include media-breakpoint-up(sm) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
 
-      a.active-route {
-        color: $white;
-      }
+  .as-navigation__list-item {
+    @include media-breakpoint-down(xs) {
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+      border-top: 1px solid darken($black, 2.5%);
 
-      a:hover {
-        color: $white;
+      &:first-child {
+        border: 0;
       }
+    }
+  }
+
+  .as-navigation__link {
+    color: $black;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    @include media-breakpoint-down(xs) {
+      color: $creme;
+    }
+
+    &.active-route,
+    &:hover,
+    &:active,
+    &:focus {
+      color: $creme;
+      text-decoration: none;
     }
   }
 }
