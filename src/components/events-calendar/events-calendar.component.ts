@@ -170,8 +170,8 @@ export class EventsCalendarComponent extends OnInit {
       this.calculateCurrentMonthData(); //for desktop
       this.generateEventsCarouselData();  //for mobile / tablet
       this.hasEvents = this.events.length === 0 ? false : true;
-    }, (err) => {
-      console.log('err', err);
+    }, (error) => {
+      console.error('error', error);
     })
   }
 }

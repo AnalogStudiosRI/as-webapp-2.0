@@ -1,4 +1,4 @@
-<div class="container-flex as-events-calendar">
+<div class="container as-events-calendar">
 
   <div class="row hidden-md-down">
 
@@ -67,30 +67,25 @@
 
   </div>
 
-  <div class="row hidden-lg-up">
+  <div class="carousel row hidden-lg-up col-xs-12" *ngIf="getHasEvents()">
 
-    <div class="carousel">
-      <div *ngIf="getHasEvents()" class="col-xs-12">
+    <div class="col-xs-3">
+      <span class="as-link">
+        <i class="fa fa-arrow-left pull-right arrow" (click)="shiftToPreviousCarousel()"></i>
+      </span>
+    </div>
 
-        <div class="col-xs-3">
-          <span class="as-link">
-            <i class="fa fa-arrow-left pull-right arrow" (click)="shiftToPreviousCarousel()"></i>
-          </span>
-        </div>
+    <div class="event-tile col-xs-6">
+      <h4 [routerLink]="['/events', getCurrentEvent().id ]">{{ getCurrentEvent().title }}</h4>
+      <!-- TODO move this logic to the component's class -->
+      <h6> {{ (getCurrentEvent().startTime * 1000) | date : 'EEEE' }} @ {{ (getCurrentEvent().startTime * 1000) | date : 'shortTime' }}</h6>
+      <h6> {{ (getCurrentEvent().startTime * 1000) | date : 'MMMM d, yyyy' }}</h6>
+    </div>
 
-        <div class="col-xs-4 event-tile">
-          <h4 [routerLink]="['/events', getCurrentEvent().id ]">{{ getCurrentEvent().title }}</h4>
-          <h6> {{ (getCurrentEvent().startTime * 1000) | date : 'EEEE' }} @ {{ (getCurrentEvent().startTime * 1000) | date : 'shortTime' }}</h6>
-          <h6> {{ (getCurrentEvent().startTime * 1000) | date : 'MMMM d, yyyy' }}</h6>
-        </div>
-
-        <div class="col-xs-3">
-          <span class="as-link">
-            <i class="fa fa-arrow-right arrow" (click)="shiftToNextCarousel()"></i>
-          </span>
-        </div>
-
-      </div>
+    <div class="col-xs-3">
+      <span class="as-link">
+        <i class="fa fa-arrow-right arrow" (click)="shiftToNextCarousel()"></i>
+      </span>
     </div>
 
   </div>
