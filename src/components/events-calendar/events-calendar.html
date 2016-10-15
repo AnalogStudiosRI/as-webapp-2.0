@@ -13,7 +13,8 @@
 
           <th></th>
 
-          <th [colSpan]="3" [innerHTML]="getHeaderText()"></th>
+          <!-- TODO why doesn't colSpan work here ??? -->
+          <th class="header-th" [colSpan]="3"><h4 class="header-text" [innerHTML]="getHeaderText()"></h4></th>
 
           <th></th>
 
