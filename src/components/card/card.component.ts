@@ -13,7 +13,6 @@ export class CardComponent {
   constructor(){}
 
   public getCardOptions(): CardOptionsInterface {
-    //console.log('getCardOptions', this.cardOptions);
     return this.cardOptions;
   }
 }
