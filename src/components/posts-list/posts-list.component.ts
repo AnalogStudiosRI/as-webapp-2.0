@@ -17,11 +17,10 @@ export class PostsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.PostsService.getPosts().subscribe(data => {
-      this.posts = data;
+    this.PostsService.getPosts().subscribe((data: Array<PostInterface>) => {
+      this.posts = data.reverse();
     }, (err) => {
-      console.log('err', err);
-      //modal
+      console.error('error', err);
     })
   }
 
