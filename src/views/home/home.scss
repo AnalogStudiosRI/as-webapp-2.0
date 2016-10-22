@@ -1,16 +1,21 @@
 @import "../../components/bootstrap/bootstrap";
 
 .as-view-home {
-
   margin-bottom: 15px;
 
-  .welcome-text-heading {
-    color: $black;
-    text-decoration: underline;
+  .as-media-carousel {
+    margin-bottom: 45px;
   }
 
-  .welcome-text-body {
-    color: $black;
+  .as-welcome {
+    margin-bottom: 45px;
   }
 
+  .as-welcome__heading {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
 }
