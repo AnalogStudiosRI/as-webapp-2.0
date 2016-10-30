@@ -1,4 +1,4 @@
-<div class="container as-view-contact">
+<div class="container as-view-contact" xmlns="http://www.w3.org/1999/html">
 
   <div class="row">
     <div class="col-xs-12">
@@ -11,9 +11,28 @@
     </div>
 
     <div class="row col-xs-10">
-      <p>Analog Studios is located in Newport RI and run by Owen Buckley and Dave Flamand.<p>
+      <p>Analog Studios is located in Newport RI and run by Owen Buckley and Dave Flamand.  You can call us at
+        (401)-608-3021 or use the contact form below to send us a message!</p>
 
-      <p>You can call us at (401)-608-3021</p>
+      <form (ngSubmit)="contact()" [formGroup]="contactForm">
+
+        <label for="subject">Subject</label>
+        <br/>
+        <input id="subject" name="subject" [formControl]="contactForm.controls['subject']" type="text" required/>
+
+        <br/>
+        <br/>
+
+        <label for="message">Message:</label>
+        <br/>
+        <textarea id="message" name="message" [formControl]="contactForm.controls['message']" required></textarea>
+
+        <br/>
+
+        <button class="btn" type="submit">Submit</button>
+
+      </form>
+
     </div>
   </div>
 
