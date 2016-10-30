@@ -1,3 +1,4 @@
+import { ContactInterface, ContactService } from '../../services/contact.services';
 import { Component } from '@angular/core';
 import { CORE_DIRECTIVES } from '@angular/common';
 import { FormBuilder, FormGroup, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES} from "@angular/forms";
@@ -12,11 +13,19 @@ import { FormBuilder, FormGroup, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES} from
 
 export class ContactViewComponent {
   public contactForm: FormGroup;
+  private pristineContactInfo: ContactInterface = {
+    subject: '',
+    message: ''
+  };
 
-  constructor(private FormBuilder: FormBuilder) {
+  constructor(private ContactService: ContactService, private FormBuilder: FormBuilder) {
+    this.setContactFormGroup(this.pristineContactInfo);
+  }
+
+  private setContactFormGroup(contactInfo: ContactInterface): void  {
     this.contactForm = this.FormBuilder.group({
-      subject: '',
-      message: ''
+      subject: contactInfo.subject || '',
+      message: contactInfo.message || ''
     })
   }
 
@@ -26,5 +35,15 @@ export class ContactViewComponent {
 
     console.log('subject', subject);
     console.log('message', message);
+    this.ContactService.contact({
+      subject: subject,
+      message: message
+    }).subscribe(() => {
+      console.log('success');
+      this.setContactFormGroup(this.pristineContactInfo);
+    }, (error) => {
+      console.log('error');
+      this.setContactFormGroup(this.pristineContactInfo);
+    })
   }
 }
