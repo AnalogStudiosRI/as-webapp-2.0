@@ -2,6 +2,20 @@
 
 .as-view-contact {
 
+  .feedback-message {
+    height: 20px;
+    background-color: transparentize($creme, .1);
+  }
+
+  .show{
+    opacity: 1 !important;
+  }
+
+  .step{
+    opacity: 0;
+    transition: .5s ease-in-out all;
+  }
+
   .header {
     text-align: center;
   }

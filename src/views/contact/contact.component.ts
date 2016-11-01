@@ -13,6 +13,8 @@ import { FormBuilder, FormGroup, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES} from
 
 export class ContactViewComponent {
   public contactForm: FormGroup;
+  private messageSent: boolean = false;
+  private messageSuccess: boolean = false;
   private pristineContactInfo: ContactInterface = {
     subject: '',
     message: ''
@@ -30,20 +32,29 @@ export class ContactViewComponent {
   }
 
   public contact(): void {
+    this.messageSent = false;
+    this.messageSuccess = false;
+
     let subject: string = this.contactForm.controls['subject'].value;
     let message: string = this.contactForm.controls['message'].value;
 
-    console.log('subject', subject);
-    console.log('message', message);
     this.ContactService.contact({
       subject: subject,
       message: message
     }).subscribe(() => {
-      console.log('success');
+      this.messageSent = true;
+      this.messageSuccess = true;
       this.setContactFormGroup(this.pristineContactInfo);
     }, (error) => {
-      console.log('error');
+      console.error('error', error);
       this.setContactFormGroup(this.pristineContactInfo);
     })
+  }
+
+  public hasMessageBeenSent(): boolean {
+    return this.messageSent;
+  }
+  public wasMessageSuccessful(): boolean {
+    return this.messageSuccess;
   }
 }

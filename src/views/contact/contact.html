@@ -14,6 +14,20 @@
       <p>Analog Studios is located in Newport RI and run by Owen Buckley and Dave Flamand.  You can call us at
         (401)-608-3021 or use the contact form below to send us a message!</p>
 
+      <p [class.show]="hasMessageBeenSent()" class="step feedback-message">
+        <span *ngIf="hasMessageBeenSent() && wasMessageSuccessful()" class="text-success">Thank you for your message!</span>
+        <span *ngIf="hasMessageBeenSent() && !wasMessageSuccessful()" class="text-danger">Sorry, there was a problem.
+          Please try again or give us a call instead!</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-2">
+    </div>
+
+    <div class="row col-xs-10">
+
       <form (ngSubmit)="contact()" [formGroup]="contactForm">
 
         <label for="subject">Subject</label>
