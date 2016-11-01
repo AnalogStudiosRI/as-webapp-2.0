@@ -17,8 +17,6 @@ export class ContactService {
   }
 
   contact(body: ContactInterface){
-    console.log('body', body);
-
     return this.Http.post(this.API_URL_CONTACT, body)
       .map((response: Response) => {
         return response.json()[0] || {};
