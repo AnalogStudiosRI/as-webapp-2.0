@@ -1,16 +1,34 @@
 @import "../../components/bootstrap/bootstrap";
 
 .as-view-home {
-
   margin-bottom: 15px;
 
-  .welcome-text-heading {
-    color: $black;
-    text-decoration: underline;
+  .as-media-carousel {
+    position: relative;
+    margin-bottom: 15px;
   }
 
-  .welcome-text-body {
-    color: $black;
+  .as-media-carousel__label {
+    @include media-breakpoint-down(xs) {
+      display: none;
+    }
+
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    padding: 15px 30px;
+    background-color: transparentize($creme, .1);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    @include media-breakpoint-between(sm, md) {
+      font-size: 1rem;
+      text-align: center;
+    }
   }
 
+  .as-welcome {
+    margin-bottom: 45px;
+  }
 }

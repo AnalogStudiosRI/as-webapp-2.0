@@ -1,31 +1,43 @@
-<div class="container as-view-home">
-
+<div class="as-view-home">
   <div class="row">
-
     <div class="col-xs-12">
 
-      <h2 class="welcome-text-heading">Welcome to Analog Studios</h2>
+      <div class="as-media-carousel">
+        <!-- TODO if loading from cloudfront works (TGH-171), remove this??? -->
+        <img src="http://d34k5cjnk2rcze.cloudfront.net/images/website/home-banner.jpg" class="img-fluid">
 
-      <p class="welcome-text-body">Welcome to the up and coming new version of the Analog Studios website.  We have a
-        lot of plans in-store and a lot of great features for sharing music and representing artists.  Over the next
-        couple of months, we'll be gradually updating the site with more and more content and features.</p>
-
-      <p>Checkout our latest posts and upcoming events, below!</p>
+        <span class="as-media-carousel__label">Welcome to Analog Studios!</span>
+      </div>
 
     </div>
-
   </div>
 
   <div class="row">
     <div class="col-xs-12">
+
+      <div class="as-welcome text-center">
+        <p>Welcome to the up and coming, new version of the Analog Studios website.  We have a
+          lot of plans in store and a lot of great features for sharing music and representing artists.  Over the next
+          couple of months, we'll be gradually updating the site with more and more content and features.  Checkout our latest posts
+          and upcoming events, below.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+
       <as-posts-list></as-posts-list>
+
     </div>
   </div>
 
   <div class="row">
     <div class="col-xs-12">
+
       <as-events-calendar></as-events-calendar>
+
     </div>
   </div>
-
 </div>
