@@ -2,8 +2,38 @@
 
 .as-view-contact {
 
+  .feedback-message {
+    background-color: transparentize($creme, .1);
+  }
+
+  .show{
+    opacity: 1 !important;
+  }
+
+  .step{
+    opacity: 0;
+    transition: .5s ease-in-out all;
+  }
+
   .header {
     text-align: center;
   }
 
+  form {
+    width: 500px;
+  }
+
+  input{
+    width: 70%;
+  }
+
+  textarea {
+    width: 100%;
+    height: 200px;
+  }
+
+  //hide the honeypot
+  .cheerios {
+    display: none;
+  }
 }

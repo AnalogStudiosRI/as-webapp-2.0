@@ -18,6 +18,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CardComponent } from './components/card/card.component';
 import { CardService } from './services/card.service';
 import { ContactViewComponent } from './views/contact/contact.component';
+import { ContactService } from './services/contact.service';
 import { EventsCalendarComponent } from './components/events-calendar/events-calendar.component';
 import { EventsViewDetailsComponent } from './views/events/event-details.component';
 import { EventsService } from './services/events.service';
@@ -76,6 +77,7 @@ import { SocialShareComponent } from './components/social-share/social-share.com
     ArtistsService,
     AuthenticationService,
     CardService,
+    ContactService,
     EventsService,
     JwtHelper,
     LocalStorage,
