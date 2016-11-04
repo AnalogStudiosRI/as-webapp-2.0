@@ -4,7 +4,8 @@ import { Observable } from "rxjs/Rx";
 
 export interface ContactInterface {
   subject: string,
-  message: string
+  message: string,
+  username?: string
 }
 
 @Injectable()
@@ -13,7 +14,6 @@ export class ContactService {
   private API_URL_CONTACT: string = '/api/contact';
 
   constructor(private Http: Http) {
-
   }
 
   contact(body: ContactInterface){

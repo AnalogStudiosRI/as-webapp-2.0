@@ -1,4 +1,4 @@
-import { ContactInterface, ContactService } from '../../services/contact.services';
+import { ContactInterface, ContactService } from '../../services/contact.service';
 import { Component } from '@angular/core';
 import { CORE_DIRECTIVES } from '@angular/common';
 import { FormBuilder, FormGroup, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES} from "@angular/forms";
@@ -17,7 +17,8 @@ export class ContactViewComponent {
   private messageSuccess: boolean = false;
   private pristineContactInfo: ContactInterface = {
     subject: '',
-    message: ''
+    message: '',
+    username: null
   };
 
   constructor(private ContactService: ContactService, private FormBuilder: FormBuilder) {
@@ -27,7 +28,8 @@ export class ContactViewComponent {
   private setContactFormGroup(contactInfo: ContactInterface): void  {
     this.contactForm = this.FormBuilder.group({
       subject: contactInfo.subject || '',
-      message: contactInfo.message || ''
+      message: contactInfo.message || '',
+      username: contactInfo.username || null
     })
   }
 
@@ -37,10 +39,12 @@ export class ContactViewComponent {
 
     let subject: string = this.contactForm.controls['subject'].value;
     let message: string = this.contactForm.controls['message'].value;
+    let username: string = this.contactForm.controls['username'].value;  //honeypot
 
     this.ContactService.contact({
       subject: subject,
-      message: message
+      message: message,
+      username: username
     }).subscribe(() => {
       this.messageSent = true;
       this.messageSuccess = true;

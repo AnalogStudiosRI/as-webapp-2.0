@@ -3,7 +3,6 @@
 .as-view-contact {
 
   .feedback-message {
-    height: 20px;
     background-color: transparentize($creme, .1);
   }
 
@@ -33,4 +32,8 @@
     height: 200px;
   }
 
+  //hide the honeypot
+  .cheerios {
+    display: none;
+  }
 }
