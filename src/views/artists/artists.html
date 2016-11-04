@@ -1,19 +1,19 @@
 <div class="container-flex as-view-artists">
   <div class="row">
 
-    <div class="col-xs-3">
+    <div class="hidden-sm-down col-xs-3">
 
       <p>Quick Links</p>
 
-      <select (change)="onArtistSelected($event.target.selectedIndex)">
-        <option *ngFor="let artist of getArtists()" value="artist.id">{{artist.name}}</option>
+      <select class="hidden-sm-down" (change)="onArtistSelected($event.target.selectedIndex)">
+        <option *ngFor="let artist of getArtists()" value="artist.id">{{artist.name | ellipsis: 15}}</option>
       </select>
 
     </div>
 
     <div class="col-xs-7">
 
-      <div *ngFor="let artist of getArtists()">
+      <div class="artist-cards-list" *ngFor="let artist of getArtists()">
         <as-card [cardOptions]="getModeledArtistForCard(artist)"></as-card>
       </div>
 

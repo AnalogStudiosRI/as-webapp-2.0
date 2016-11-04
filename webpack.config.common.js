@@ -56,7 +56,7 @@ module.exports = {
       prefix: 'icons/',
       statsFilename: 'icons/stats.json',
       inject: true,
-      title: 'The Greenhouse',
+      title: 'Analog Studios',
       background: '#efefef',
       icons: {
         android: true,

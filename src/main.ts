@@ -19,6 +19,7 @@ import { CardComponent } from './components/card/card.component';
 import { CardService } from './services/card.service';
 import { ContactViewComponent } from './views/contact/contact.component';
 import { ContactService } from './services/contact.service';
+import { EllipsisPipe } from './pipes/ellipsis.pipe';
 import { EventsCalendarComponent } from './components/events-calendar/events-calendar.component';
 import { EventsViewDetailsComponent } from './views/events/event-details.component';
 import { EventsService } from './services/events.service';
@@ -48,6 +49,7 @@ import { SocialShareComponent } from './components/social-share/social-share.com
   ],
   declarations: [ //component and directives, order matters!! (for now)
     CardComponent,
+    EllipsisPipe,
     EventsCalendarComponent,
     FooterComponent,
     HeaderComponent,
