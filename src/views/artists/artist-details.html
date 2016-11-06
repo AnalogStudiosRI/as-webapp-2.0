@@ -13,6 +13,7 @@
 
       <div class="card-row hidden-md-up" >
         <h4>{{ getArtistDetails().name }}</h4>
+        <img [src]="getArtistDetails().imageUrl" [alt]="getArtistDetails().name"/>
         <p [innerHTML]="getArtistDetails().bio"></p>
       </div>
 
