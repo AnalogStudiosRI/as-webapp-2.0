@@ -53,7 +53,7 @@
             <!--day with event if there's an event-->
             <div *ngIf="day.hasEvents" class="day-event">
               <span *ngFor="let event of day.events, let idx = index">
-                <span [routerLink]="['/events', event.id]">{{event.title}}</span>
+                <span [routerLink]="['/events', event.id]">{{event.title | ellipsis: 10}}</span>
               </span>
             </div>
 
