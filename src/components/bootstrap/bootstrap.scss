@@ -1,6 +1,5 @@
 @import "../../../node_modules/bootstrap/scss/bootstrap-flex";
-@import url("https://fonts.googleapis.com/css?family=Oxygen");
-@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 
 
 // ==========================================================================
@@ -9,11 +8,12 @@
 
 //variables
 $white: #efefef;
-$black: #3F3C38;
+$black: #1a1a1a;
+$gold: #a48f65;
 $creme: #f1e7d3;
 
 $primary: $black;
-$bg-primary: #af9c76;
+$bg-primary: $gold;
 
 $font-family-primary: 'Montserrat', sans-serif;
 $font-color-primary: $black;
@@ -31,6 +31,25 @@ body {
   background-repeat: no-repeat;
 }
 
+h1 {
+  font-size: 2rem;
+  letter-spacing: 4px;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h2,
+h3,
+h4 {
+  letter-spacing: 2px;
+}
+
 .app {
   color: $font-color-primary;
   font-family: $font-family-primary;
@@ -42,7 +61,7 @@ body {
   min-height: 1000px;
 
   a {
-    color: $white;
+    color: $creme;
   }
 
   .as-link {

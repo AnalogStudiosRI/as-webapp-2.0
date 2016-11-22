@@ -1,13 +1,40 @@
+@import "../../components/bootstrap/bootstrap";
+
+:host img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 .as-posts-list {
+  padding: 30px 15px;
+  background-color: $black;
+  color: $creme;
+
+  .as-posts-list__heading {
+    margin: 0;
+  }
 
   .post {
-    .post-header {
-      text-decoration: underline;
-    }
+    margin-top: 30px;
+  }
 
-    .post-time {
-      font-size: .7rem;
-      text-decoration: none;
+  .post__heading {
+    margin-bottom: 7.5px;
+    color: $gold;
+    font-size: 1rem;
+  }
+
+  .post__time {
+    margin-bottom: 7.5px;
+  }
+
+  .post__summary {
+    color: $gold;
+    cursor: pointer;
+
+    &:focus {
+      outline: 0;
     }
   }
 }

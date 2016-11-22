@@ -1,23 +1,13 @@
-<div class="container as-posts-list">
-  <div class="row">
-    <div class="col-xs-12">
+<div class="as-posts-list">
+  <h3 class="as-posts-list__heading">Latest Posts</h3>
 
-      <h2>Latest Posts</h2>
+  <div *ngFor="let post of posts; let idx=index">
+    <div *ngIf="idx < getMaxPosts()" class="post">
+      <h4 class="post__heading">{{post.title}}</h4>
 
-      <div *ngFor="let post of posts; let idx=index">
+      <div class="post__time">{{ (post.createdTime * 1000) | date : 'EEEE, MMMM d, yyyy, h:mm a' }}</div>
 
-        <div *ngIf="idx < getMaxPosts()" class="post">
-          <h4 class="post-header">{{post.title}}
-            <span class="post-time">{{ (post.createdTime * 1000) | date : 'EEEE, MMMM d, yyyy, h:mm a' }}</span>
-          </h4>
-
-          <details [innerHTML]="post.summary" class="post-summary"></details>
-
-          <hr/>
-        </div>
-
-      </div>
-
+      <details [innerHTML]="post.summary" class="post__summary"></details>
     </div>
   </div>
 </div>
