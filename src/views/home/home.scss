@@ -4,22 +4,25 @@
   margin-bottom: 15px;
 
   .as-media-carousel {
+    @include media-breakpoint-down(xs) {
+      margin-top: -30px;
+    }
+
+    @include media-breakpoint-only(sm) {
+      margin-top: 0;
+    }
+
     position: relative;
-    margin-bottom: 15px;
+    margin: 0 -15px 30px -15px;
   }
 
   .as-media-carousel__label {
-    @include media-breakpoint-down(xs) {
-      display: none;
-    }
-
     position: absolute;
-    bottom: 30px;
+    bottom: 45px;
     width: 100%;
-    padding: 15px 30px;
+    padding: 15px;
     background-color: transparentize($creme, .1);
     font-size: 1.25rem;
-    font-weight: 700;
     letter-spacing: 2px;
 
     @include media-breakpoint-between(sm, md) {
@@ -29,7 +32,24 @@
   }
 
   .as-media-carousel__attribution-label {
-    font-size: .6rem;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    padding: 2px 4px;
+    background: transparentize($black, .5);
+    font-size: .5rem;
+  }
+
+  .as-media-carousel__attribution-label,
+  .as-media-carousel__attribution-label-link {
+    color: $creme;
+  }
+
+  .as-media-carousel__label,
+  .as-media-carousel__attribution-label {
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
   }
 
   .as-welcome {

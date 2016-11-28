@@ -10,7 +10,7 @@
   flex-direction: column;
   padding: 30px 0;
 
-  @include media-breakpoint-down(xs) {
+  @include media-breakpoint-only(xs) {
     // Override to make mobile nav display full-width
     margin: 0 (-$grid-gutter-width/2);
   }
@@ -18,7 +18,7 @@
   @include media-breakpoint-up(lg) {
     flex-direction: row;
     align-items: center;
-    padding: 60px 0 45px 0;
+    padding: 45px 0 30px 0;
     margin: 0;
   }
 
@@ -27,11 +27,15 @@
     align-self: center;
     margin-bottom: 15px;
     color: $black;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: 4px;
     text-transform: uppercase;
     cursor: pointer;
+
+    @include media-breakpoint-up(sm) {
+      font-size: 2rem;
+    }
 
     @include media-breakpoint-up(lg) {
       align-self: auto;
