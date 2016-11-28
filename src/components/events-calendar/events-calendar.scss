@@ -1,82 +1,58 @@
 @import '../../components/bootstrap/bootstrap';
 
 .as-events-calendar {
-
-  h4, i:before{
-    color: $font-color-secondary;
+  .as-events-calendar__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
   }
 
-  table.calendar {
-    min-height:290px;
-    margin: 0 auto;
-
-    button {
-      border: none!important;
-      background-color: transparent!important;
-    }
-
-    .header-th {
-      width: 370px;
-    }
-
-    .header-text {
-      text-align: center;
-    }
-
-    th {
-      display: inline-block;
-      width: 122px;
-    }
-
-    td {
-      display: inline-block;
-      width: 120px;
-      height: 110px;
-      line-height: 110px;
-      text-align: center;
-      color: #8c7446;
-      margin: 1px;
-    }
-
-    .day-on {
-      background-color: #ece7dc;
-    }
-
-    .day-off {
-      width: 120px;
-      height: 110px;
-      background-color: #d2c7af;
-    }
-
-    .day-event {
-      background-color: $font-color-secondary;
-      cursor: pointer;
-    }
-
-    .day-name {
-      text-align: center;
-    }
+  .as-events-calendar__header-text {
+    margin: 0;
+    text-align: center;
   }
 
-  .carousel {
-    .arrow {
-      padding-top: 35px;
-      cursor: pointer;
-    }
-
-    .event-tile {
-
-      border: solid 1px $black;
-
-      h4 {
-        cursor: pointer;
-        text-decoration: underline;
-      }
-
-      h4, h6 {
-        text-align: center;
-      }
-    }
+  .as-events-calendar__month {
+    font-size: 1.25rem;
+    font-weight: 700;
   }
 
+  .as-events-calendar__btn {
+    background-color: $black;
+    color: $creme;
+  }
+
+  .as-events-calendar__days {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .as-events-calendar__week {
+    display: flex;
+    height: 60px;
+  }
+
+  .as-events-calendar__day-name {
+    display: flex;
+    justify-content: center;
+    width: 14.285%;
+  }
+
+  .as-events-calendar__day {
+    display: flex;
+    width: 14.285%;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid darken($black, 10%);
+    background-color: $black;
+    color: $creme;
+    font-size: 1rem;
+  }
+
+  .as-events-calendar__day-event {
+    color: $gold;
+    font-size: 2rem;
+    cursor: pointer;
+  }
 }

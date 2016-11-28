@@ -1,90 +1,46 @@
-<div class="container as-events-calendar">
+<div class="as-events-calendar">
+  <div class="as-events-calendar__header">
+    <button type="button" class="btn btn-default btn-sm as-events-calendar__btn" (click)="shiftToPreviousMonth()" tabindex="-1">
+      <i class="fa fa-arrow-left"></i>
+    </button>
 
-  <div class="row hidden-md-down">
+    <h3 class="as-events-calendar__header-text">Event Calendar<br><span class="as-events-calendar__month" [innerHTML]="getHeaderText()"></span></h3>
 
-    <table class="calendar">
-      <thead>
-        <tr>
-          <th>
-            <button type="button" class="btn btn-default btn-sm pull-left" (click)="shiftToPreviousMonth()" tabindex="-1">
-              <i class="fa fa-arrow-left"></i>
-            </button>
-          </th>
-
-          <th></th>
-
-          <!-- TODO why doesn't colSpan work here ??? -->
-          <th class="header-th" [colSpan]="3"><h4 class="header-text" [innerHTML]="getHeaderText()"></h4></th>
-
-          <th></th>
-
-          <th>
-            <button type="button" class="btn btn-default btn-sm pull-right" (click)="shiftToNextMonth()" tabindex="-1">
-              <i class="fa fa-arrow-right"></i>
-            </button>
-          </th>
-        </tr>
-
-        <tr>
-          <th class="day-name">Sun</th>
-          <th class="day-name">Mon</th>
-          <th class="day-name">Tue</th>
-          <th class="day-name">Wed</th>
-          <th class="day-name">Thu</th>
-          <th class="day-name">Fri</th>
-          <th class="day-name">Sat</th>
-        </tr>
-
-      </thead>
-
-      <tbody>
-        <tr *ngFor="let week of currentMonthData">
-          <td *ngFor="let day of week">
-
-            <!--day not in month-->
-            <div *ngIf="!day.date" class="day-off">
-            </div>
-
-            <!--day in month without event-->
-            <div *ngIf="day.date && !day.hasEvents" class="day-on">
-              <span>{{day.date}}</span>
-            </div>
-
-            <!--day with event if there's an event-->
-            <div *ngIf="day.hasEvents" class="day-event">
-              <span *ngFor="let event of day.events, let idx = index">
-                <span [routerLink]="['/events', event.id]">{{event.title | ellipsis: 10}}</span>
-              </span>
-            </div>
-
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
+    <button type="button" class="btn btn-default btn-sm as-events-calendar__btn" (click)="shiftToNextMonth()" tabindex="-1">
+      <i class="fa fa-arrow-right"></i>
+    </button>
   </div>
 
-  <div class="carousel row hidden-lg-up col-xs-12" *ngIf="getHasEvents()">
-
-    <div class="col-xs-1">
-      <span class="as-link">
-        <i class="fa fa-arrow-left pull-right arrow" (click)="shiftToPreviousCarousel()"></i>
-      </span>
-    </div>
-
-    <div class="event-tile col-xs-9">
-      <h4 [routerLink]="['/events', getCurrentEvent().id ]">{{ getCurrentEvent().title }}</h4>
-      <!-- TODO move this logic to the component's class -->
-      <h6> {{ (getCurrentEvent().startTime * 1000) | date : 'EEEE' }} @ {{ (getCurrentEvent().startTime * 1000) | date : 'shortTime' }}</h6>
-      <h6> {{ (getCurrentEvent().startTime * 1000) | date : 'MMMM d, yyyy' }}</h6>
-    </div>
-
-    <div class="col-xs-1">
-      <span class="as-link">
-        <i class="fa fa-arrow-right arrow" (click)="shiftToNextCarousel()"></i>
-      </span>
-    </div>
-
+  <div class="as-events-calendar__days">
+    <div class="as-events-calendar__day-name">Sun</div>
+    <div class="as-events-calendar__day-name">Mon</div>
+    <div class="as-events-calendar__day-name">Tue</div>
+    <div class="as-events-calendar__day-name">Wed</div>
+    <div class="as-events-calendar__day-name">Thu</div>
+    <div class="as-events-calendar__day-name">Fri</div>
+    <div class="as-events-calendar__day-name">Sat</div>
   </div>
 
+  <div class="as-events-calendar__week" *ngFor="let week of currentMonthData">
+    <div class="as-events-calendar__day" *ngFor="let day of week">
+
+      <!--day not in month-->
+      <div *ngIf="!day.date"></div>
+
+      <!--day in month without event-->
+      <div *ngIf="day.date && !day.hasEvents">
+        <span>{{day.date}}</span>
+      </div>
+
+      <!--day with event if there's an event-->
+      <div *ngIf="day.hasEvents" class="as-events-calendar__day-event">
+        <span *ngFor="let event of day.events, let idx = index">
+          <span [routerLink]="['/events', event.id]" title="{{event.title | ellipsis: 30}}">
+            <i class="fa fa-calendar-check-o"></i>
+          </span>
+        </span>
+      </div>
+
+    </div>
+  </div>
 </div>

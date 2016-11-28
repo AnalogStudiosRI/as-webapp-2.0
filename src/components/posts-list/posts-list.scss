@@ -9,10 +9,19 @@
 .as-posts-list {
   padding: 30px 15px;
   background-color: $black;
-  color: $creme;
+  color: $gold;
+
+  @include media-breakpoint-down(md) {
+    margin-bottom: 30px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    min-height: 387px;
+  }
 
   .as-posts-list__heading {
     margin: 0;
+    color: $creme;
   }
 
   .post {
@@ -21,8 +30,7 @@
 
   .post__heading {
     margin-bottom: 7.5px;
-    color: $gold;
-    font-size: 1rem;
+    color: $creme;
   }
 
   .post__time {
@@ -30,7 +38,6 @@
   }
 
   .post__summary {
-    color: $gold;
     cursor: pointer;
 
     &:focus {

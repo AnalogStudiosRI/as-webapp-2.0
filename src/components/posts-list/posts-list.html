@@ -3,9 +3,9 @@
 
   <div *ngFor="let post of posts; let idx=index">
     <div *ngIf="idx < getMaxPosts()" class="post">
-      <h4 class="post__heading">{{post.title}}</h4>
+      <div class="post__time">Posted: {{ (post.createdTime * 1000) | date : 'EEEE, MMMM d, yyyy, h:mm a' }}</div>
 
-      <div class="post__time">{{ (post.createdTime * 1000) | date : 'EEEE, MMMM d, yyyy, h:mm a' }}</div>
+      <h4 class="post__heading">{{post.title}}</h4>
 
       <details [innerHTML]="post.summary" class="post__summary"></details>
     </div>
