@@ -57,7 +57,7 @@ export class EventsCalendarComponent extends OnInit {
         events: []
       };
 
-      if (i >= startingDayOfMonth && i <= daysInMonth) {
+      if (i >= startingDayOfMonth && monthDateCounter <= daysInMonth) {
         day.date = monthDateCounter;
 
         //check if day has an event
@@ -91,6 +91,7 @@ export class EventsCalendarComponent extends OnInit {
     }
   }
 
+  //TODO delete
   private generateEventsCarouselData(): void {
     let now = new Date().getTime() / 1000;
 
@@ -140,10 +141,12 @@ export class EventsCalendarComponent extends OnInit {
     this.Router.navigate(['events', selectedEvent.id]);
   }
 
+  //TODO delete
   public getCurrentEvent(): EventInterface {
     return this.events[this.currentEventIndex];
   }
 
+  //TODO delete
   public shiftToPreviousCarousel(): void{
     if(this.currentEventIndex === 0){
       this.currentEventIndex = this.events.length - 1;
@@ -152,6 +155,7 @@ export class EventsCalendarComponent extends OnInit {
     }
   }
 
+  //TODO delete
   public shiftToNextCarousel(): void {
     if(this.currentEventIndex === this.events.length - 1){
       this.currentEventIndex = 0;
@@ -160,6 +164,7 @@ export class EventsCalendarComponent extends OnInit {
     }
   }
 
+  //TODO delete
   public getHasEvents(): boolean {
     return this.hasEvents;
   }
@@ -168,8 +173,8 @@ export class EventsCalendarComponent extends OnInit {
     this.EventsService.getEvents().subscribe((data: Array<EventInterface>) => {
       this.events = data;
       this.calculateCurrentMonthData(); //for desktop
-      this.generateEventsCarouselData();  //for mobile / tablet
-      this.hasEvents = this.events.length === 0 ? false : true;
+      this.generateEventsCarouselData();  //for mobile / tablet  //TODO delete
+      this.hasEvents = this.events.length !== 0;
     }, (error) => {
       console.error('error', error);
     })
