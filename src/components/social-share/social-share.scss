@@ -1,27 +1,25 @@
 @import "../../components/bootstrap/bootstrap";
 @import "../../../node_modules/bootstrap-social/bootstrap-social.css";
 
-.as-social-share {
+.header {
+  margin: 0 5px;
+  text-decoration: underline;
+  color: $font-color-secondary;
+}
 
-  .header {
-    margin: 0 0 5px;
-    text-decoration: underline;
-    color: $font-color-secondary;
-  }
+a {
+  display: inline-block;
+  margin-right: 10px;
+}
 
-  a {
-    display: inline-block;
-  }
+span {
+  font-size: 1.5rem;
+  color: $white;
+  margin-left: -7px; //oh the shame... :(
+}
 
-  span {
-    font-size: 1.5rem;
-    color: $white;
-    margin-left: -7px; //oh the shame... :(
-  }
-
-  button {
-    color: transparent;
-    border: none;
-    background: none;
-  }
+button {
+  color: transparent;
+  border: none;
+  background: none;
 }
