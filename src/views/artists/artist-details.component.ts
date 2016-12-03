@@ -1,6 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
-import { ArtistInterface, ArtistsService } from "../../services/artists.service";
-import { CardOptionsInterface, CardService} from "../../services/card.service";
+import { AlbumInterface, AlbumsService } from '../../services/albums.service';
+import { ArtistInterface, ArtistsService } from '../../services/artists.service';
+import { CardOptionsInterface, CardService} from '../../services/card.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,13 +13,14 @@ import { Component, OnInit } from '@angular/core';
 export class ArtistDetailsViewComponent extends OnInit {
   //TODO any - https://thegreenhouse.atlassian.net/browse/AS-246
   private activeRouteSubscriber: any;
+  private artistAlbums: Array<AlbumInterface> = [];
   private artist: ArtistInterface = {
     name: '',
     bio: '',
     imageUrl: ''
   };
 
-  constructor(private ActivatedRoute: ActivatedRoute, private ArtistsService: ArtistsService, private CardService: CardService) {
+  constructor(private ActivatedRoute: ActivatedRoute, private ArtistsService: ArtistsService, private AlbumsService: AlbumsService, private CardService: CardService) {
     super();
   }
 
@@ -28,6 +30,10 @@ export class ArtistDetailsViewComponent extends OnInit {
 
       this.ArtistsService.getArtist(artistId).subscribe((data: ArtistInterface) => {
         this.artist = data;
+      });
+
+      this.AlbumsService.getAlbums(artistId).subscribe((data: AlbumInterface[]) => {
+        this.artistAlbums = data;
       });
     });
   }
@@ -40,8 +46,16 @@ export class ArtistDetailsViewComponent extends OnInit {
     return this.artist;
   }
 
+  public getArtistAlbums(): AlbumInterface[] {
+    return this.artistAlbums;
+  }
+
   public getModeledArtistForCard(): CardOptionsInterface {
     return this.CardService.modelArtist(this.artist);
+  }
+
+  public getModeledAlbumForCard(album): CardOptionsInterface {
+    return this.CardService.modelAlbum(album);
   }
 
 }

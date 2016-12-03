@@ -24,9 +24,9 @@ export class AlbumsViewDetailsComponent extends OnInit {
 
   ngOnInit(): void {
     this.activeRouteSubscriber = this.ActivatedRoute.params.subscribe((params) => {
-      let eventId: number = parseInt(params['id'], 10);
+      let albumId: number = parseInt(params['id'], 10);
 
-      this.AlbumsService.getAlbum(eventId).subscribe((data: AlbumInterface) => {
+      this.AlbumsService.getAlbum(albumId).subscribe((data: AlbumInterface) => {
         this.album = data;
       });
     });
