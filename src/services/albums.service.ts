@@ -38,9 +38,11 @@ export class AlbumsService {
   }
 
   //TODO combine?
-  public getAlbums(): Observable<AlbumInterface[]> {
+  public getAlbums(artistId?): Observable<AlbumInterface[]> {
+    let id = artistId ? artistId : null;
+    let query: string = id ? '?artistId=' + id : '';
 
-    return this.http.get(this.API_URL_ALBUMS)
+    return this.http.get(this.API_URL_ALBUMS + query)
       .map((response: Response) => {
         return response.json() || {};
       })
