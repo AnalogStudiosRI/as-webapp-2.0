@@ -17,9 +17,12 @@
         <p [innerHTML]="getArtistDetails().bio"></p>
       </div>
 
-      <h2>Albums by {{ getArtistDetails().name }}</h2>
-      <div *ngFor="let album of getArtistAlbums()">
-        <as-card [cardOptions]="getModeledAlbumForCard(album)"></as-card>
+      <div *ngIf="getArtistAlbums().length > 0">
+        <h2>Albums by {{ getArtistDetails().name }}</h2>
+
+        <div *ngFor="let album of getArtistAlbums()">
+          <as-card [cardOptions]="getModeledAlbumForCard(album)"></as-card>
+        </div>
       </div>
 
     </div>
