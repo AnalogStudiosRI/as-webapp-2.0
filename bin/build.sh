@@ -16,7 +16,6 @@ rm -rf node_modules/ > /dev/null 2>&1
 echo "clearing NPM caches..."
 npm cache clean
 
-echo "installing project dependencie"
 echo "installing NPM packages"
 npm install
 
@@ -25,12 +24,6 @@ echo "gulp version"
 
 echo "typescript version"
 ./node_modules/.bin/tsc --version
-
-echo "typings version"
-./node_modules/.bin/typings --version
-
-echo "install typings"
-npm run install:typings
 
 echo "running the build..."
 npm run ci
