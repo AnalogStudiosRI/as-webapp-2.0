@@ -6,14 +6,14 @@ ideally participate through online social networks.  There is back end API appli
 ## Tooling
 The following tools are used in the application
 
-- [Node][] - 4.4.x as the local development environment
-- [NPM][] - 3.8.x package manager for node modules
+- [Node][] 6.x - as the local development environment
+- [NPM][] 3.x - package manager for node modules
 - [Angular 2][] (rc5) - as the Front-End framework
-- [TypeScript][] - superset of JavaScript for writing application code
-- [Webpack][] - Module loader / bundler, primary build tool
+- [TypeScript][] 1.8 - superset of JavaScript for writing application code
+- [Webpack][]- Module loader / bundler, primary build tool
 - [Karma][] - task runner for unit testing
-- [Jasmine 2.x][] - testing framework
-- [LESS][] - CSS preprocessor
+- [Jasmine][] 2.x - testing framework
+- [Sass][] - CSS preprocessor
 - [Bootstrap 4][] (alpha) - Mobile first CSS framework
 
 
@@ -24,7 +24,7 @@ The following tools are used in the application
 [Webpack]: https://webpack.github.io/
 [Karma]: https://karma-runner.github.io/1.0/index.html
 [Jasmine]: http://jasmine.github.io/
-[LESS]: http://lesscss.org/
+[Sass]: http://sass-lang.com/
 [Bootstrap 4]: https://v4-alpha.getbootstrap.com/
 
 ## Links
@@ -43,7 +43,7 @@ Recommended plugins to have are:
 - Git (can show changed lines in the gutter when viewing a file)
 - EditorConfig
 - gitignore
-- LESS
+- Sass
 - TypeScript
 
 [Webstorm]: https://www.jetbrains.com/webstorm/
