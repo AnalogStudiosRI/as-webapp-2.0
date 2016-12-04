@@ -48,7 +48,7 @@ Recommended plugins to have are:
 
 [Webstorm]: https://www.jetbrains.com/webstorm/
 
-### Vagrant
+### Vagrant (Optional)
 This project uses Vagrant to provision Virtual Machines for use with development.  It is very easy to use
 
 First, install the following
@@ -80,7 +80,7 @@ cd /vagrant
 
 ### Manual
 
-1. If you don't already have it, download and install NodeJS 4.x (comes with NPM).
+1. If you don't already have it, download and install NodeJS 6.x (comes with NPM).
 
 2. This project favors version 3.x or higher, so make sure you have the latest by updating it after installing Node by running 
 
