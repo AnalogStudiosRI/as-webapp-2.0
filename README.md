@@ -9,7 +9,7 @@ The following tools are used in the application
 - [Node][] 6.x - as the local development environment
 - [NPM][] 3.x - package manager for node modules
 - [Angular 2][] (rc5) - as the Front-End framework
-- [TypeScript][] 1.8 - superset of JavaScript for writing application code
+- [TypeScript][] 2.x - superset of JavaScript for writing application code
 - [Webpack][]- Module loader / bundler, primary build tool
 - [Karma][] - task runner for unit testing
 - [Jasmine][] 2.x - testing framework
@@ -194,17 +194,13 @@ $ npm install <some-package> --save
 ```
 
 #### TypeScript Typings
-Typescript definitation are either managed by the Typings binary into _typings.json_.  Install new typings using 
+Typescript definitions provide type information for third-party packages and can be installed with NPM 
 
 ```
-$ ./node_modules/.bin/typings <typing-name> --save
+$ npm install @type/{name} --save-dev
 ```
 
-example installing globally and form definitely typed (not NPM)
-
-```
-./node_modules/.bin/typings install dt~karma-jasmine --save --global
-```
+Then add that name to the `compilerOptions.types` array in _tsconfig.json_
 
 
 ## Continuous Integration
