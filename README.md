@@ -166,7 +166,7 @@ To serve a production build locally (not test), like for a demo, run:
 $ npm run demo
 ```
 
-**Note: it is recommended you run this command from the master branch or a tag.  By Default this proxies to dev.**
+**Note: it is recommended you run this command from the master branch or a tag.  By default this proxies to dev.**
 
 
 ## Testing
