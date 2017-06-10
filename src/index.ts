@@ -17,6 +17,7 @@ import { BootstrapComponent } from './components/bootstrap/bootstrap.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { CardComponent } from './components/card/card.component';
 import { CardService } from './services/card.service';
+import { CKEditorModule } from 'ng2-ckeditor';
 import { ContactViewComponent } from './views/contact/contact.component';
 import { ContactService } from './services/contact.service';
 import { EllipsisPipe } from './pipes/ellipsis.pipe';
@@ -44,6 +45,7 @@ import { SocialShareComponent } from './components/social-share/social-share.com
 @NgModule({
   imports: [ //modules
     BrowserModule,
+    CKEditorModule,
     HttpModule,
     RouterModule.forRoot(APP_ROUTES)
   ],

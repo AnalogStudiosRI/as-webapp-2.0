@@ -1,6 +1,5 @@
 import { AlbumInterface, AlbumsService } from '../../../services/albums.service';
 import { ArtistInterface, ArtistsService } from '../../../services/artists.service';
-import { CKEditor } from 'ng2-ckeditor';
 import { Component, OnInit } from '@angular/core';
 import { CORE_DIRECTIVES } from '@angular/common'
 import { FormBuilder, FormGroup, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
@@ -11,7 +10,7 @@ import { FormBuilder, FormGroup, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES } fro
   templateUrl: './manage-albums.html',
   styleUrls: [ '../admin.scss' ],
   providers: [ AlbumsService, FormBuilder ],
-  directives: [ CKEditor, CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES ]
+  directives: [ CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES ]
 })
 
 export class AdminViewManageAlbumsComponent extends OnInit {

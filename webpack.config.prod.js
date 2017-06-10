@@ -1,64 +1,47 @@
-const webpackMerge = require('webpack-merge');
 const commonConfig = require('./webpack.config.common');
-const ProvidePlugin = require('webpack/lib/ProvidePlugin');
-const DefinePlugin = require('webpack/lib/DefinePlugin');
-const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplacementPlugin');
-const IgnorePlugin = require('webpack/lib/IgnorePlugin');
 const DedupePlugin = require('webpack/lib/optimize/DedupePlugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
+const webpackMerge = require('webpack-merge');
 const WebpackMd5Hash = require('webpack-md5-hash');
-const version = require('./package.json').version;
-
-const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
-const HOST = process.env.HOST || 'localhost';
-const PORT = process.env.PORT || 8080;
-const METADATA = webpackMerge(commonConfig.metadata, {
-  host: HOST,
-  port: PORT,
-  ENV: ENV,
-  HMR: false
-});
 
 module.exports = webpackMerge(commonConfig, {
 
   debug: false,
-
   devtool: 'source-map',
 
-  output: {
-    path: __dirname + '/build',
-    filename: '[name].' + version + '.[chunkhash].bundle.js',
-    sourceMapFilename: '[name].' + version + '.[chunkhash].bundle.map',
-    chunkFilename: '[id].[chunkhash].chunk.js'
-  },
-
   plugins: [
+    new FaviconsWebpackPlugin({
+      logo: './src/components/bootstrap/images/favicon.png',
+      emitStats: true,
+      prefix: 'icons/',
+      statsFilename: 'icons/stats.json',
+      inject: true,
+      title: 'Analog Studios',
+      background: '#efefef',
+      icons: {
+        android: true,
+        appleIcon: true,
+        appleStartup: true,
+        coast: false,
+        favicons: true,
+        firefox: true,
+        opengraph: true,
+        twitter: true,
+        yandex: true,
+        windows: true
+      }
+    }),
 
     new WebpackMd5Hash(),
     new DedupePlugin(),
 
-    new DefinePlugin({
-      'ENV': JSON.stringify(METADATA.ENV),
-      'HMR': METADATA.HMR,
-      'process.env': {
-        'ENV': JSON.stringify(METADATA.ENV),
-        'NODE_ENV': JSON.stringify(METADATA.ENV),
-        'HMR': METADATA.HMR,
-      }
-    }),
-
     new UglifyJsPlugin({
-      beautify: false, //prod
-      mangle: { screw_ie8 : true, keep_fnames: true }, //prod
-      compress: { screw_ie8: true }, //prod
-      comments: false //prod
-    }),
-
-    //TODO ?
-    // new NormalModuleReplacementPlugin(
-    //   /angular2-hmr/,
-    //   __dirname + 'config/modules/angular2-hmr-prod.js')
-    // ),
+      beautify: false,
+      mangle: { screw_ie8: true, keep_fnames: true }, // eslint-disable-line camelcase
+      compress: { screw_ie8: true }, // eslint-disable-line camelcase
+      comments: false
+    })
   ],
 
   tslint: {
@@ -67,7 +50,7 @@ module.exports = webpackMerge(commonConfig, {
     resourcePath: 'src'
   },
 
-  // TODO: Need to workaround Angular 2's html syntax => #id [bind] (event) *ngFor
+  // Workaround Angular 2's html syntax => #id [bind] (event) *ngFor
   htmlLoader: {
     minimize: true,
     removeAttributeQuotes: false,
@@ -78,16 +61,6 @@ module.exports = webpackMerge(commonConfig, {
       [/\[?\(?/, /(?:)/]
     ],
     customAttrAssign: [/\)?\]?=/]
-  },
-
-  //TODO is this needed?
-  node: {
-    global: 'window',
-    crypto: 'empty',
-    process: false,
-    module: false,
-    clearImmediate: false,
-    setImmediate: false
   }
 
 });

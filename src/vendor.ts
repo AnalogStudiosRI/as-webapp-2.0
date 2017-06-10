@@ -7,14 +7,8 @@ import '@angular/http';
 import '@angular/router';
 
 // RxJS
+// TODO should only import what we need
 import 'rxjs';
-
-//safari polyfill for internationalization API
-import 'intl';
-import 'intl/locale-data/jsonp/en';
-
-//ckeditor
-require('ckeditor');
 
 //font awesome
 require("font-awesome-webpack");

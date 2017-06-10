@@ -4,14 +4,13 @@ const shouldSingleRun = isProductionBuild;
 const browser = isProductionBuild ? 'PhantomJS' : 'Chrome';
 const webpackConfig = require('./webpack.config.common');
 
-//*** webpack hacks *** //
-// use this to allow spec.ts to be processed by Karma.  TODO better way to do this?
+// use this to allow spec.ts to be processed by Karma.
+// better way to do this?
 webpackConfig.module.loaders[0].exclude = [];
 
-// TODO issues with karma and CommonChunksPlugin
+// known issue with karma and CommonChunksPlugin
 // https://github.com/webpack/karma-webpack/issues/24
-webpackConfig.plugins[3] = function() {};
-
+webpackConfig.plugins[0] = function() {};
 
 module.exports = function(config) {
   const logLevel = isProductionBuild ? config.LOG_DEBUG : config.LOG_INFO;
@@ -20,15 +19,15 @@ module.exports = function(config) {
     basePath: './',
     frameworks: ['jasmine'],
     files: [
-      //PhantomJS is missing these files
-      {pattern: 'node_modules/reflect-metadata/Reflect.js'},
-      //PhantomJS is missing these files - https://github.com/wallabyjs/public/issues/542
-      {pattern: 'node_modules/babel-polyfill/browser.js'},
-      {pattern: 'src/**/*.spec.ts'},
+      // pull in PhantomJS polyfills
+      // https://github.com/wallabyjs/public/issues/542
+      { pattern: 'node_modules/reflect-metadata/Reflect.js', watched: false },
+      { pattern: 'node_modules/babel-polyfill/browser.js', watched: false },
+      { pattern: 'src/**/*.spec.ts', watched: false }
     ],
 
     preprocessors: {
-      '**/*.spec.ts': ['webpack', 'coverage'],
+      '**/*.spec.ts': ['webpack', 'coverage']
     },
 
     webpack: webpackConfig,
@@ -47,8 +46,8 @@ module.exports = function(config) {
       useBrowserName: false
     },
     coverageReporter: {
-      type : 'cobertura',
-      dir : './reports',
+      type: 'cobertura',
+      dir: './reports',
       subdir: 'coverage'
     }
   });

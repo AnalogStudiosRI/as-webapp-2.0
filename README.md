@@ -48,51 +48,21 @@ Recommended plugins to have are:
 
 [Webstorm]: https://www.jetbrains.com/webstorm/
 
-### Vagrant (Optional)
-This project uses Vagrant to provision Virtual Machines for use with development.  It is very easy to use
 
-First, install the following
-
-- [Vagrant][] for replicating production environments locally for development.  Version 1.7.4 required
-- [VirtualBox][] the tool used by Vagrant to spin up the local VM.  Version >= 5.x required.  Make sure to download
-guest additions as well.
-- [Vagrant Manager][] an OSX GUI tool for managing Vagrant instances (optional)
-
-
-1. Vagrant Up
-```
-vagrant up
-```
-
-2. SSH into the VM
-```
-vagrant ssh
-```
-
-3. Change into your workspace
-```
-cd /vagrant
-```
-
-[Vagrant]: http://www.vagrantup.com/
-[VirtualBox]: http://www.virtualbox.org/
-[Vagrant Manager]: http://vagrantmanager.com/
-
-### Manual
+### Tasks
 
 1. If you don't already have it, download and install NodeJS 6.x (comes with NPM).
 
-2. This project favors version 3.x or higher, so make sure you have the latest by updating it after installing Node by running 
+2. This project favors [Yarn]() for package management, so make sure you have it installed globally 
 
-```
-$ npm install -g npm@3.8.8
+```bash
+$ npm install -g yarn@0.21.3
 ```
 
 3. Now install the build and application dependencies by running
 
-```
-$ npm install 
-$ npm run install:typings
+```bash
+$ yarn install 
 ```
 
 ## Project Layout
@@ -124,7 +94,7 @@ section of _package.json_
 
 To "force" which build environment you want a command to run against, export either production or development ENV variables, eg
 
-```
+```bash
  $ export NODE_ENV=production|development npm run <task>
  ```
 
@@ -132,13 +102,13 @@ To "force" which build environment you want a command to run against, export eit
 ### Development
 This will start up a Node (Express) server which watches for changes and "redeploys" as needed.
 
-```
-$ npm run develop
+```bash
+$ yarn run develop
 ```
 
 See it in a browser by opening up
 
-```
+```bash
 http://localhost:6789/
 ```
 
@@ -146,24 +116,24 @@ http://localhost:6789/
 This is the production build task for the project.  It is used prior to deploying to an environment and bundles the
 application for production.
 
-```
-$ npm run build
+```bash
+$ yarn run build
 ```
 
 ## Continuous Integration
 There is a convenience task called `ci` for continuous integration environments, which builds and runs tests.  This is
 recommended for all non-local environments
 
-```
-$ npm run ci
+```bash
+$ yarn run ci
 ```
 
 
 ###
 To serve a production build locally (not test), like for a demo, run:
 
-```
-$ npm run demo
+```bash
+$ yarn run serve
 ```
 
 **Note: it is recommended you run this command from the master branch or a tag.  By default this proxies to dev.**
@@ -172,8 +142,8 @@ $ npm run demo
 ## Testing
 To run unit tests locally using Karma, run 
 
-```
-$ npm run test:unit
+```bash
+$ yarn run test:unit
 ```
 
 
@@ -183,24 +153,15 @@ There are two types of dependencies tracked in the application
 #### Node Modules
 Build packages (like Webpack) are installed through NPM into _package.json_, using
  
-```
-$ npm install <package-name>  --save-dev
+```bash
+$ yarn add <package-name>  --dev
 ```
 
 Dependencies for the application (like Angular) are installed by running 
 
+```bash
+$ yarn add <package-name>
 ```
-$ npm install <some-package> --save
-```
-
-#### TypeScript Typings
-Typescript definitions provide type information for third-party packages and can be installed with NPM 
-
-```
-$ npm install @type/{name} --save-dev
-```
-
-Then add that name to the `compilerOptions.types` array in _tsconfig.json_
 
 
 ## Continuous Integration

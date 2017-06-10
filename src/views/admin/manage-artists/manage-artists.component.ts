@@ -1,4 +1,3 @@
-import { CKEditor } from 'ng2-ckeditor';
 import { Component, OnInit } from '@angular/core';
 import { CORE_DIRECTIVES } from '@angular/common'
 import { ArtistInterface, ArtistsService } from '../../../services/artists.service';
@@ -9,7 +8,7 @@ import { FormBuilder, FormGroup, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES } fro
   templateUrl: './manage-artists.html',
   styleUrls: [ '../admin.scss' ],
   providers: [ ArtistsService, FormBuilder ],
-  directives: [ CKEditor, CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES ]
+  directives: [ CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES ]
 })
 
 export class AdminViewManageArtistsComponent extends OnInit {

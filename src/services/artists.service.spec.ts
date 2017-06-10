@@ -2,17 +2,9 @@ import { ArtistInterface, ArtistsService } from './artists.service';
 
 describe('First Test Suite', () => {
 
-  it('should test ArtistInterface', () => {
-    let artist: ArtistInterface = {
-      id: 1,
-      name: 'Super Cat',
-      bio: 'Band bio'
-    };
+  console.log('hello!!!!!>>>>>>>>>');
 
-    expect(artist.name).toEqual('Super Cat');
-  });
-
-  it('should test ArtistService toBeDefined', () => {
+  it('should test ArtistService exists', () => {
     expect(ArtistsService).toBeDefined();
   });
 

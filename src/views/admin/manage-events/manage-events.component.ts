@@ -1,4 +1,3 @@
-import { CKEditor } from 'ng2-ckeditor';
 import { Component, OnInit } from '@angular/core';
 import { CORE_DIRECTIVES } from '@angular/common'
 import { EventInterface, EventsService } from '../../../services/events.service';
@@ -10,7 +9,7 @@ import { TimepickerComponent } from 'ng2-bootstrap';
   templateUrl: './manage-events.html',
   styleUrls: [ '../admin.scss' ],
   providers: [ EventsService, FormBuilder ],
-  directives: [ CKEditor, CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, TimepickerComponent ]
+  directives: [ CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, TimepickerComponent ]
 })
 
 export class AdminViewManageEventsComponent extends OnInit {
