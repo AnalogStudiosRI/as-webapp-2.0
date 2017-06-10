@@ -19,7 +19,7 @@ module.exports = webpackMerge(prodConfig, {
         defaultCDNBase: 'http://d3cpag05e1ba19.cloudfront.net'
       },
       cloudfrontInvalidateOptions: {
-        DistributionId: process.env.AWS_CLOUDFRONT_DISTRIBUTION_ID,
+        DistributionId: 'E3MKRY7663NB8F',
         Items: ['/index.html']
       }
     })
