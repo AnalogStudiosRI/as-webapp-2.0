@@ -16,7 +16,7 @@ module.exports = webpackMerge(prodConfig, {
         Bucket: 'webapp.analogstudios.net'
       },
       cdnizerOptions: {
-        defaultCDNBase: 'http://d3cpag05e1ba19.cloudfront.net'
+        defaultCDNBase: '//d3cpag05e1ba19.cloudfront.net'
       },
       cloudfrontInvalidateOptions: {
         DistributionId: process.env.AWS_CLOUDFRONT_DISTRIBUTION_ID,
