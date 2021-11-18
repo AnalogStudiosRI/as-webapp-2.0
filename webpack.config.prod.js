@@ -2,6 +2,7 @@ const commonConfig = require('./webpack.config.common');
 const DedupePlugin = require('webpack/lib/optimize/DedupePlugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
+const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const WebpackMd5Hash = require('webpack-md5-hash');
 
@@ -11,6 +12,10 @@ module.exports = webpackMerge(commonConfig, {
   devtool: 'source-map',
 
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    }),
+
     new FaviconsWebpackPlugin({
       logo: './src/components/bootstrap/images/favicon.png',
       emitStats: true,
