@@ -10,9 +10,10 @@ const serverOptions = {
   open: '/',
   proxies: [{
     source: '/api',
-    target: 'http://analogstudios.thegreenhouse.io/api'  // change here to proxy to other environments, like prod
+    target: 'https://www.analogstudios.net/api'  // change here to proxy to other environments, like prod
   }],
-  root: './build/'
+  root: './build/',
+  https: true
 };
 
 gulp.task('serve', function () {
