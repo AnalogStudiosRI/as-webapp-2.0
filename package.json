@@ -16,7 +16,7 @@
     "url": "https://bitbucket.org/thegreenhouse/as-webapp-2.0/"
   },
   "scripts": {
-    "build": "rimraf ./build && eslint *.js && webpack --config ./webpack.config.prod.js --progress --profile --bail",
+    "build": "export NODE_ENV=production && rimraf ./build && eslint *.js && webpack --config ./webpack.config.prod.js --progress --profile --bail",
     "ci": "export NODE_ENV=production && yarn run build",
     "develop": "export NODE_ENV=development && webpack-dev-server --config ./webpack.config.develop.js  --inline --progress  --open",
     "serve": "yarn run build && ./node_modules/.bin/gulp serve",

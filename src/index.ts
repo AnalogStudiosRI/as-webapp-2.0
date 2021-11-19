@@ -38,6 +38,7 @@ import { PostsListComponent } from './components/posts-list/posts-list.component
 import { PostsService } from './services/posts.service';
 import { RouterModule } from '@angular/router';
 import { SocialShareComponent } from './components/social-share/social-share.component';
+import { enableProdMode } from '@angular/core';
 
 //TODO EventsCalendarComponent and PostsListComponent?
 //Is this still good for module bundling by putting everything here
@@ -91,5 +92,9 @@ import { SocialShareComponent } from './components/social-share/social-share.com
 })
 
 class AppModule { }
+
+if (process.env.NODE_ENV === 'production') {
+  enableProdMode();
+}
 
 platformBrowserDynamic().bootstrapModule(AppModule);
