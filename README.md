@@ -56,7 +56,7 @@ Recommended plugins to have are:
 2. This project favors [Yarn]() for package management, so make sure you have it installed globally 
 
 ```bash
-$ npm install -g yarn@0.21.3
+$ npm install -g yarn@^1.22.5
 ```
 
 3. Now install the build and application dependencies by running
