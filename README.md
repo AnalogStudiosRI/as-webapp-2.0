@@ -6,7 +6,7 @@ ideally participate through online social networks.  There is back end API appli
 ## Tooling
 The following tools are used in the application
 
-- [Node][] 6.x - as the local development environment
+- [Node][] 6.x - as the local development environment (recommend installing via [**nvm**](https://github.com/nvm-sh/nvm))
 - [NPM][] 3.x - package manager for node modules
 - [Angular 2][] (rc5) - as the Front-End framework
 - [TypeScript][] 2.x - superset of JavaScript for writing application code
